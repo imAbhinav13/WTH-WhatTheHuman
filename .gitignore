@@ -16,8 +16,6 @@ ENV/
 .env.*
 !.env.example
 
-# uv / dependency tooling
-uv.lock
 
 # Test and coverage artifacts
 .pytest_cache/
