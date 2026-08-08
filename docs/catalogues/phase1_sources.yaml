@@ -1,0 +1,322 @@
+- source_id: science_limanowski_blankenburg_2013_minimal_self_models
+  enabled: true
+  domain: science
+  title: Minimal Self-Models and the Free Energy Principle
+  author: Jakub Limanowski; Felix Blankenburg
+  translator: null
+  editor: null
+  publication_year: 2013
+  source_type: paper
+  canonical_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3770917/
+  download_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3770917/fullTextXML
+  format: jats_xml
+  license_name: Creative Commons Attribution (CC BY)
+  license_url: https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2013.00547/full
+  rights_statement: The publisher identifies the article as open access under the Creative Commons Attribution
+    licence, permitting reuse with appropriate attribution.
+  rights_jurisdiction: Worldwide, subject to the article's CC BY terms
+  accessed_at: '2026-08-03'
+  checksum: 68d1ffd21c79f2cbe397c4f53269b6f90eb3a1fba1e163c6257884751bdfb27d
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: Peer-reviewed theoretical article connecting predictive processing, minimal phenomenal
+    selfhood, body ownership, agency, and self-models. Suitable as a scientific theoretical source, not
+    as settled empirical confirmation of one consciousness theory.
+  inclusion_status: approved_for_acquisition
+- source_id: science_ionta_gassert_blanke_2011_bodily_self_consciousness
+  enabled: true
+  domain: science
+  title: 'Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary
+    Approach'
+  author: Silvio Ionta; Roger Gassert; Olaf Blanke
+  translator: null
+  editor: null
+  publication_year: 2011
+  source_type: paper
+  canonical_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3245631/
+  download_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3245631/fullTextXML
+  format: jats_xml
+  license_name: Creative Commons Attribution-NonCommercial (CC BY-NC)
+  license_url: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2011.00383/full
+  rights_statement: The publisher identifies the article as open access under a Creative Commons Attribution-NonCommercial
+    licence. Reuse must remain non-commercial and retain attribution.
+  rights_jurisdiction: Worldwide, subject to the article's CC BY-NC terms
+  accessed_at: '2026-08-03'
+  checksum: 725659b2e6597b28c256f81f90e6ccabf780e4d4366b972972ad87f054172553
+  included_concepts:
+  - consciousness
+  - self_identity
+  authority_notes: Peer-reviewed interdisciplinary review of bodily self-consciousness, multisensory integration,
+    self-location, first-person perspective, and body ownership. Commercial use is outside the recorded
+    licence.
+  inclusion_status: approved_for_acquisition
+- source_id: science_petkova_ehrsson_2008_body_swapping
+  enabled: true
+  domain: science
+  title: 'If I Were You: Perceptual Illusion of Body Swapping'
+  author: Valeria I. Petkova; H. Henrik Ehrsson
+  translator: null
+  editor: null
+  publication_year: 2008
+  source_type: paper
+  canonical_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2585011/
+  download_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC2585011/fullTextXML
+  format: jats_xml
+  license_name: Creative Commons Attribution (CC BY)
+  license_url: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0003832
+  rights_statement: PLOS identifies the article as open access under the Creative Commons Attribution
+    licence, permitting use, distribution, and reproduction with attribution to the authors and source.
+  rights_jurisdiction: Worldwide, subject to the article's CC BY terms
+  accessed_at: '2026-08-03'
+  checksum: 2acdef94a1891b392c5b2c9b2729c0187904949adc87ed112391dd4a6330c599
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: Peer-reviewed experimental study of induced body ownership and body-swapping illusions.
+    Useful for distinguishing physical stimulus, perceived body, self-location, and conscious ownership.
+  inclusion_status: approved_for_acquisition
+- source_id: science_herzog_kammer_scharnowski_2016_time_slices
+  enabled: true
+  domain: science
+  title: 'Time Slices: What Is the Duration of a Percept?'
+  author: Michael H. Herzog; Thomas Kammer; Frank Scharnowski
+  translator: null
+  editor: null
+  publication_year: 2016
+  source_type: paper
+  canonical_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4829156/
+  download_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4829156/fullTextXML
+  format: jats_xml
+  license_name: Creative Commons Attribution (CC BY)
+  license_url: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002433
+  rights_statement: PLOS identifies the article as open access under the Creative Commons Attribution
+    licence, permitting unrestricted reuse with attribution to the authors and original source.
+  rights_jurisdiction: Worldwide, subject to the article's CC BY terms
+  accessed_at: '2026-08-03'
+  checksum: 3c797078a2781d2ed513d7c64f48f7740a923318b3813be399ec71313c536e71
+  included_concepts:
+  - consciousness
+  - reality_appearance
+  authority_notes: Peer-reviewed theoretical review of temporal integration in perception. Relevant to
+    how conscious percepts may differ temporally from immediate physical stimulus presentation.
+  inclusion_status: approved_for_acquisition
+- source_id: advaita_paramananda_1919_upanishads
+  enabled: true
+  domain: advaita
+  title: The Upanishads
+  author: Anonymous; traditional Upanishadic corpus
+  translator: Swami Paramananda
+  editor: null
+  publication_year: 1919
+  source_type: primary_text
+  canonical_url: https://www.gutenberg.org/ebooks/3283
+  download_url: https://www.gutenberg.org/cache/epub/3283/pg3283-images.html
+  format: gutenberg_html
+  license_name: Project Gutenberg License; public-domain status in the United States
+  license_url: https://www.gutenberg.org/policy/license.html
+  rights_statement: Project Gutenberg distributes this edition as public domain in the United States and
+    requires users outside the United States to verify applicable local copyright law.
+  rights_jurisdiction: United States; Indian-jurisdiction review required before activation
+  accessed_at: '2026-08-03'
+  checksum: e278429ac66a2bc3dc286dd49ed133d2ef44c7bf1f785908b378426e3cdcd39f
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: English translation of selected Upanishads. Use as source text within an Advaita interpretive
+    corpus only when the selected passage is identified as Upanishadic material rather than automatically
+    represented as a later Advaita doctrinal claim. Translator commentary must remain distinguishable
+    from translated source text.
+  inclusion_status: candidate_pending_jurisdiction_review
+- source_id: advaita_sankara_thibaut_1890_vedanta_sutras
+  enabled: true
+  domain: advaita
+  title: The Vedanta-Sutras with the Commentary by Sankaracarya, Part I
+  author: Badarayana, traditional attribution; Sankaracarya, commentator
+  translator: George Thibaut
+  editor: null
+  publication_year: 1890
+  source_type: commentary
+  canonical_url: https://www.gutenberg.org/ebooks/16295
+  download_url: https://www.gutenberg.org/cache/epub/16295/pg16295-images.html
+  format: gutenberg_html
+  license_name: Project Gutenberg License; public-domain status in the United States
+  license_url: https://www.gutenberg.org/policy/license.html
+  rights_statement: Project Gutenberg distributes the edition under its licence as a United States public-domain
+    work and advises users outside the United States to check applicable local law.
+  rights_jurisdiction: United States; Indian-jurisdiction review required before activation
+  accessed_at: '2026-08-03'
+  checksum: 845569c10c3b13b853902cdc82b4ddfefec20230663e960bc2308caa153571d5
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: Canonically important Advaita commentary translated in the Sacred Books of the East
+    series. Parsing must preserve distinctions among Badarayana's sutras, Sankaracarya's commentary, Thibaut's
+    introduction, translator notes, and editorial material.
+  inclusion_status: candidate_pending_jurisdiction_review
+- source_id: advaita_sankara_johnston_1946_crest_jewel
+  enabled: true
+  domain: advaita
+  title: The Crest-Jewel of Wisdom and Other Writings of Sankaracharya
+  author: Sankaracarya, traditional attribution
+  translator: Charles Johnston
+  editor: Judith Tyberg
+  publication_year: 1946
+  source_type: primary_text
+  canonical_url: https://archive.org/details/thecrestjewelofwisdom_201911
+  download_url: https://archive.org/download/thecrestjewelofwisdom_201911/The%20Crest-Jewel%20of%20Wisdom_djvu.txt
+  format: ocr_text
+  license_name: Public Domain Mark 1.0
+  license_url: https://creativecommons.org/publicdomain/mark/1.0/
+  rights_statement: The Internet Archive item is labelled with the Public Domain Mark 1.0. The item-level
+    designation must be retained, and the edition and translation status must be reviewed before activation.
+  rights_jurisdiction: Repository item-level statement; Indian-jurisdiction review required
+  accessed_at: '2026-08-03'
+  checksum: 9a9a7dea71a2d2a7f281604d4d086b336f60543610016c0621d89fc39a02e502
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: Traditionally attributed Advaita instructional work with translations and commentary
+    by Charles Johnston. OCR contains visible scanning errors and line-break artifacts, so text must be
+    checked against page images before any chunk becomes active.
+  inclusion_status: candidate_pending_rights_and_text_quality_review
+- source_id: advaita_paramananda_1917_vedanta_in_practice
+  enabled: true
+  domain: advaita
+  title: Vedanta in Practice, Third Edition
+  author: Swami Paramananda
+  translator: null
+  editor: null
+  publication_year: 1917
+  source_type: commentary
+  canonical_url: https://archive.org/details/in.ernet.dli.2015.149274
+  download_url: https://archive.org/download/in.ernet.dli.2015.149274/2015.149274.Vedanta-In-Practice-Ed-3rd_djvu.txt
+  format: ocr_text
+  license_name: Public domain, according to repository metadata
+  license_url: https://archive.org/details/in.ernet.dli.2015.149274
+  rights_statement: The Digital Library of India metadata reproduced by Internet Archive identifies the
+    item as in the public domain. This repository statement requires confirmation before activation.
+  rights_jurisdiction: Repository item-level statement; Indian-jurisdiction review required
+  accessed_at: '2026-08-03'
+  checksum: 10cfb7607091d5e082bff2b7c076434ee65102176e4679095e4bcd9296eeca34
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: Early twentieth-century Advaita teaching focused on discrimination, self-realization,
+    concentration, and practical interpretation. Treat as later Advaita commentary rather than as a canonical
+    root text.
+  inclusion_status: candidate_pending_rights_and_text_quality_review
+- source_id: samkhya_isvarakrishna_davies_1881_karika
+  enabled: true
+  domain: samkhya
+  title: 'Hindu Philosophy: The Sankhya Karika of Iswara Krishna'
+  author: Isvarakrishna
+  translator: John Davies
+  editor: null
+  publication_year: 1881
+  source_type: primary_text
+  canonical_url: https://archive.org/details/TheSankhyaKarikaOfIswarKrishna1881JohnDavies
+  download_url: https://archive.org/download/TheSankhyaKarikaOfIswarKrishna1881JohnDavies/
+  format: scanned_book_with_ocr
+  license_name: CC0 1.0 Universal, according to the Internet Archive item
+  license_url: https://creativecommons.org/publicdomain/zero/1.0/
+  rights_statement: The Internet Archive item is labelled CC0 1.0. The underlying 1881 edition, translation,
+    scan provenance, and uploader authority must still be confirmed before activation.
+  rights_jurisdiction: Repository item-level statement; Indian-jurisdiction review required
+  accessed_at: '2026-08-03'
+  checksum: 0f64d4bc368feae56914703f895dfebfc6d79d52fa84590e97733319d0abc28d
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: Foundational Samkhya Karika translation and exposition. Parser and reviewer must separate
+    translated karikas from Davies's explanatory notes, comparisons, and appendix material.
+  inclusion_status: candidate_pending_rights_and_text_quality_review
+- source_id: samkhya_vachaspati_jha_1896_tattva_kaumudi
+  enabled: true
+  domain: samkhya
+  title: An English Translation with the Sanskrit Text of the Tattva-Kaumudi
+  author: Vachaspati Misra
+  translator: Ganganatha Jha
+  editor: null
+  publication_year: 1896
+  source_type: commentary
+  canonical_url: https://archive.org/details/in.ernet.dli.2015.21929
+  download_url: https://archive.org/download/in.ernet.dli.2015.21929/
+  format: scanned_book_with_ocr
+  license_name: Public domain, according to Digital Library of India metadata
+  license_url: https://archive.org/details/in.ernet.dli.2015.21929
+  rights_statement: The Digital Library of India metadata reproduced by Internet Archive identifies the
+    item as in the public domain. The scan, translation, and repository statement require verification
+    before activation.
+  rights_jurisdiction: Repository item-level statement; Indian-jurisdiction review required
+  accessed_at: '2026-08-03'
+  checksum: b9ba240686bcd198c54130040e9148d4ef12287a8f623a8843a6bb441f3da730
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: Classical commentary on the Samkhya Karika with Sanskrit and English translation. Strong
+    source for Purusha, Prakriti, buddhi, ahamkara, cognition, manifestation, and discriminative knowledge.
+    OCR quality must be checked against the scan.
+  inclusion_status: candidate_pending_rights_and_text_quality_review
+- source_id: samkhya_sinha_1915_samkhya_philosophy
+  enabled: true
+  domain: samkhya
+  title: The Samkhya Philosophy, Sacred Books of the Hindus, Volume 11
+  author: Kapila, traditional attribution; Isvarakrishna; Aniruddha; Vijnanabhiksu; Mahadeva Vedantin
+  translator: Nandalal Sinha
+  editor: Nandalal Sinha
+  publication_year: 1915
+  source_type: commentary
+  canonical_url: https://archive.org/details/in.ernet.dli.2015.345405
+  download_url: https://archive.org/download/in.ernet.dli.2015.345405/
+  format: scanned_book_with_ocr
+  license_name: Public domain, according to Digital Library of India metadata
+  license_url: https://archive.org/details/in.ernet.dli.2015.345405
+  rights_statement: The Digital Library of India metadata reproduced by Internet Archive states that the
+    item is in the public domain. The status and scan provenance must be confirmed before activation.
+  rights_jurisdiction: Repository item-level statement; Indian-jurisdiction review required
+  accessed_at: '2026-08-03'
+  checksum: 530c32f73e994590bc64beb63ceb3aafdcbb0a45d37a730f388d458e91b5f753
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: Substantial historical compilation containing Samkhya sutras, karikas, classical commentaries,
+    and translated material. Parsing must preserve author, root-text, commentary, and translator boundaries.
+    This source should be sampled carefully to avoid dominating the Samkhya corpus.
+  inclusion_status: candidate_pending_rights_and_text_quality_review
+- source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+  enabled: true
+  domain: samkhya
+  title: 'A History of Indian Philosophy, Volume 1: Samkhya Sections'
+  author: Surendranath Dasgupta
+  translator: null
+  editor: null
+  publication_year: 1922
+  source_type: commentary
+  canonical_url: https://www.gutenberg.org/ebooks/12956
+  download_url: https://www.gutenberg.org/cache/epub/12956/pg12956-images.html
+  format: gutenberg_html
+  license_name: Project Gutenberg License; public-domain status in the United States
+  license_url: https://www.gutenberg.org/policy/license.html
+  rights_statement: Project Gutenberg distributes this work as public domain in the United States and
+    directs users outside the United States to verify applicable local copyright law.
+  rights_jurisdiction: United States; Indian-jurisdiction review required before activation
+  accessed_at: '2026-08-03'
+  checksum: 32e428ff11f493f3b40e3d67e8f68edbf67f57d0bf20eb5f3973f314413ef55b
+  included_concepts:
+  - consciousness
+  - self_identity
+  - reality_appearance
+  authority_notes: Scholarly historical secondary source. Only clearly delimited Samkhya sections may
+    be ingested under this source ID. Discussions of Vedanta, Buddhism, Yoga, or other systems must not
+    be imported into the Samkhya corpus merely because they occur in the same volume.
+  inclusion_status: candidate_pending_jurisdiction_review

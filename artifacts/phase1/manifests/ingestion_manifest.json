@@ -1,0 +1,38 @@
+{
+  "run_id": "f4d02f7d-75b2-4797-83cc-8249d682bb80",
+  "corpus_version": "phase1-three-concept-v1",
+  "status": "completed",
+  "source_ids": [
+    "science_limanowski_blankenburg_2013_minimal_self_models",
+    "science_ionta_gassert_blanke_2011_bodily_self_consciousness",
+    "science_petkova_ehrsson_2008_body_swapping",
+    "science_herzog_kammer_scharnowski_2016_time_slices",
+    "advaita_paramananda_1919_upanishads",
+    "advaita_sankara_thibaut_1890_vedanta_sutras",
+    "advaita_sankara_johnston_1946_crest_jewel",
+    "advaita_paramananda_1917_vedanta_in_practice",
+    "samkhya_isvarakrishna_davies_1881_karika",
+    "samkhya_vachaspati_jha_1896_tattva_kaumudi",
+    "samkhya_sinha_1915_samkhya_philosophy",
+    "samkhya_dasgupta_1922_history_volume1_samkhya"
+  ],
+  "parser_versions": {
+    "pmc_jats": "1.0.0",
+    "gutenberg_html": "1.0.0",
+    "structured_text": "1.0.0"
+  },
+  "chunker_versions": {
+    "scientific": "1.0.0",
+    "classical_text": "1.0.0"
+  },
+  "acquired_source_count": 12,
+  "parsed_document_count": 12,
+  "draft_chunk_count": 7469,
+  "embedded_chunk_count": 7469,
+  "reviewed_chunk_count": 0,
+  "active_chunk_count": 0,
+  "failed_item_count": 0,
+  "started_at": "2026-08-03T17:56:49.024126Z",
+  "completed_at": "2026-08-03T17:57:25.925601Z",
+  "errors": []
+}

@@ -1,0 +1,1302 @@
+schema_version: "1.0"
+scope_version: "phase1-section-scope-v1-draft"
+
+corpus_version: "phase1_candidate_corpus_v1"
+candidate_chunk_count: 7469
+
+phase:
+  number: 1
+  name: "Three-concept vertical slice"
+  concepts:
+    - consciousness
+    - self_identity
+    - reality_appearance
+  domains:
+    - science
+    - advaita
+    - samkhya
+
+status: approved
+reviewed_by: "Abhinav"
+reviewed_at: "2026-08-06T21:23:00+05:30"
+approved_by: "Abhinav"
+approved_at: "2026-08-06T21:23:00+05:30"
+
+methodological_constraints:
+  selection_must_be_embedding_independent: true
+  prohibit_anchor_similarity_selection: true
+  prohibit_chunk_concept_weight_selection: true
+  prohibit_llm_labels_as_final_authority: true
+  require_human_review_before_activation: true
+  allow_multi_concept_chunks: true
+  retain_selected_hard_negatives: true
+
+selection_targets:
+  pre_review_candidate_minimum: 400
+  pre_review_candidate_maximum: 460
+
+  hard_negative_target:
+    minimum_total: 40
+    target_total: 80
+    maximum_total: 120
+
+  pre_review_target_by_domain:
+    science:
+      minimum: 90
+      maximum: 100
+    advaita:
+      minimum: 140
+      maximum: 180
+    samkhya:
+      minimum: 140
+      maximum: 180
+
+  pre_review_hard_negative_caps:
+    total_maximum: 120
+    per_category_maximum:
+      consciousness_vs_attention: 20
+      consciousness_vs_cognition: 30
+      self_vs_ego: 20
+      self_vs_personality: 15
+      reality_appearance_vs_cosmology: 30
+      reality_appearance_vs_perceptual_description: 15
+      advaita_atman_vs_samkhya_purusha: 25
+
+concept_scope:
+
+  consciousness:
+    description: >-
+      Passages making substantive claims about awareness, subjective
+      experience, conscious presence, witnessing, sentience, or the
+      distinction between conscious and non-conscious processes.
+
+    positive_terms:
+      - consciousness
+      - conscious
+      - awareness
+      - aware
+      - subjective experience
+      - phenomenal experience
+      - experience
+      - witness
+      - witnessing
+      - witnessing consciousness
+      - conscious principle
+      - self-luminous
+      - self-revealing
+      - sentience
+      - sentient
+      - purusha
+      - sakshin
+      - sākṣin
+      - chaitanya
+      - caitanya
+      - cit
+      - bodha
+      - drashta
+      - draṣṭā
+      - seer
+
+    contextual_terms:
+      - perception
+      - attention
+      - cognition
+      - intellect
+      - mind
+      - buddhi
+      - neural
+      - brain
+      - sensory
+      - first-person
+      - wakefulness
+      - unconscious
+      - non-conscious
+
+    exclusion_terms:
+      - conscious decision
+      - conscious effort
+      - conscious choice
+      - public awareness
+      - social awareness
+      - political consciousness
+      - class consciousness
+
+    minimum_positive_term_matches: 1
+    require_substantive_context: true
+
+  self_identity:
+    description: >-
+      Passages making substantive claims about the subject, selfhood,
+      personal identity, first-person perspective, bodily ownership,
+      Atman, jiva, Purusha as subject, ego, or misidentification.
+
+    positive_terms:
+      - self
+      - selfhood
+      - identity
+      - personal identity
+      - sense of self
+      - minimal self
+      - bodily self
+      - embodied self
+      - first-person perspective
+      - first-person
+      - subject
+      - subjectivity
+      - ego
+      - egoity
+      - individuality
+      - body ownership
+      - self-location
+      - self-identification
+      - misidentification
+      - atman
+      - ātman
+      - jiva
+      - jīva
+      - ahamkara
+      - ahaṃkāra
+      - purusha
+      - puruṣa
+      - kshetrajna
+      - kṣetrajña
+
+    contextual_terms:
+      - body
+      - ownership
+      - agency
+      - memory
+      - continuity
+      - person
+      - individuality
+      - subject-object
+      - ego
+      - intellect
+      - witness
+      - consciousness
+
+    exclusion_terms:
+      - self evident
+      - self contained
+      - self explanatory
+      - self sufficient
+      - self regulation
+      - self organization
+      - self organising
+      - self-organizing
+      - self reported
+      - self-report
+      - self report
+
+    minimum_positive_term_matches: 1
+    require_substantive_context: true
+
+  reality_appearance:
+    description: >-
+      Passages making substantive claims about reality, appearance,
+      illusion, representation, perception, Maya, superimposition,
+      manifest and unmanifest existence, or the relation between the
+      seer and the seen.
+
+    positive_terms:
+      - reality
+      - real
+      - appearance
+      - apparent
+      - illusion
+      - illusory
+      - hallucination
+      - representation
+      - constructed perception
+      - perceptual construction
+      - phenomenal world
+      - objective world
+      - maya
+      - māyā
+      - mithya
+      - mithyā
+      - avidya
+      - avidyā
+      - adhyasa
+      - adhyāsa
+      - superimposition
+      - projection
+      - name and form
+      - nama rupa
+      - nāma-rūpa
+      - seer and seen
+      - subject and object
+      - manifest
+      - unmanifest
+      - prakriti
+      - prakṛti
+      - vyakta
+      - avyakta
+
+    contextual_terms:
+      - perception
+      - world
+      - object
+      - subject
+      - representation
+      - sensory
+      - experience
+      - knowledge
+      - error
+      - "false"
+      - "true"
+      - existence
+      - ontology
+
+    exclusion_terms:
+      - real time
+      - real-time
+      - realistic
+      - really
+      - apparent authority
+      - appearance in court
+      - visual appearance only
+
+    minimum_positive_term_matches: 1
+    require_substantive_context: true
+
+global_exclusion_rules:
+
+  - rule_id: global_front_matter
+    category: front_matter
+    match_fields:
+      - section_title
+      - parent_section
+      - sample_text
+    patterns:
+      - "^title page$"
+      - "^copyright$"
+      - "^contents$"
+      - "table of contents"
+      - "^dedication$"
+      - "^acknowledg(e)?ments?$"
+      - "^publisher"
+    rationale: "Non-substantive publication material."
+
+  - rule_id: global_indexes
+    category: index
+    match_fields:
+      - section_title
+      - parent_section
+      - sample_text
+    patterns:
+      - "^index$"
+      - "subject index"
+      - "author index"
+      - "^concordance$"
+    rationale: "Index entries are not suitable claim evidence."
+
+  - rule_id: global_references
+    category: references
+    match_fields:
+      - section_title
+      - parent_section
+    patterns:
+      - "^references?$"
+      - "^bibliograph(y|ies)$"
+      - "works cited"
+      - "literature cited"
+    rationale: "Bibliographic lists are not substantive corpus passages."
+
+  - rule_id: global_scanner_noise
+    category: scanner_noise
+    match_fields:
+      - chunk_text
+      - sample_text
+    patterns:
+      - "digitized by"
+      - "internet archive"
+      - "google book search"
+      - "scanned by"
+      - "public domain mark"
+    rationale: "Scanner and repository metadata."
+
+  - rule_id: global_low_text_quality
+    category: text_quality
+    conditions:
+      maximum_alphabetic_ratio: 0.20
+      maximum_ocr_noise_score: 0.20
+    rationale: >-
+      Exclude severely corrupted text from automatic selection.
+      Preserve it in the candidate corpus for possible source-specific
+      recovery or future replacement.
+
+hard_negative_categories:
+
+  - category: consciousness_vs_attention
+    target_concept: consciousness
+    description: >-
+      Passages discussing attention, selection, or cognitive access
+      without making a substantive claim about subjective awareness.
+    positive_terms:
+      - attention
+      - attentional
+      - selection
+      - cognitive access
+    exclusion_terms:
+      - awareness
+      - subjective experience
+      - phenomenal
+      - conscious experience
+
+  - category: consciousness_vs_cognition
+    target_concept: consciousness
+    description: >-
+      Passages discussing thought, reasoning, intellect, memory, or
+      cognition without making a claim about conscious experience.
+    positive_terms:
+      - cognition
+      - cognitive
+      - thought
+      - reasoning
+      - memory
+      - intellect
+      - buddhi
+    exclusion_terms:
+      - awareness
+      - witness
+      - sentience
+      - subjective experience
+
+  - category: self_vs_ego
+    target_concept: self_identity
+    description: >-
+      Passages discussing ego or ahamkara as a psychological or
+      functional construct without identifying it as the ultimate Self
+      or conscious subject.
+    positive_terms:
+      - ego
+      - egoity
+      - ahamkara
+      - ahaṃkāra
+    exclusion_terms:
+      - atman
+      - ātman
+      - purusha
+      - puruṣa
+      - witness
+      - true self
+
+  - category: self_vs_personality
+    target_concept: self_identity
+    description: >-
+      Passages discussing personality, temperament, traits, social role,
+      or individuality without addressing philosophical selfhood.
+    positive_terms:
+      - personality
+      - temperament
+      - traits
+      - character
+      - individual differences
+    exclusion_terms:
+      - selfhood
+      - personal identity
+      - first-person
+      - atman
+      - purusha
+
+  - category: reality_appearance_vs_cosmology
+    target_concept: reality_appearance
+    description: >-
+      Passages enumerating cosmic evolution, tattvas, elements, or
+      creation stages without discussing appearance, illusion,
+      perception, or the seer-seen relation.
+    positive_terms:
+      - evolution
+      - elements
+      - tattvas
+      - creation
+      - mahat
+      - tanmatra
+      - tanmātra
+      - five elements
+      - subtle elements
+    exclusion_terms:
+      - appearance
+      - illusion
+      - maya
+      - adhyasa
+      - perception
+      - seer and seen
+
+  - category: reality_appearance_vs_perceptual_description
+    target_concept: reality_appearance
+    description: >-
+      Passages describing sensory or perceptual mechanisms without
+      making an ontological or representational claim.
+    positive_terms:
+      - visual
+      - auditory
+      - sensory
+      - stimulus
+      - perception
+      - perceptual
+    exclusion_terms:
+      - representation
+      - illusion
+      - hallucination
+      - constructed
+      - reality
+      - appearance
+
+  - category: advaita_atman_vs_samkhya_purusha
+    target_concept: self_identity
+    description: >-
+      Passages useful for testing whether the system preserves the
+      distinction between nondual Atman and plural Samkhya Purushas.
+    positive_terms:
+      - atman
+      - ātman
+      - purusha
+      - puruṣa
+      - self
+      - witness
+    required_domain_contrast:
+      - advaita
+      - samkhya
+
+source_rules:
+
+  - source_id: science_limanowski_blankenburg_2013_minimal_self_models
+    source_title: "Minimal Self-Models and the Free Energy Principle"
+    domain: science
+    scope_status: approved
+
+    structural_strategy: direct_section_and_chunk_review
+    structure_assessment: usable_with_manual_review
+
+    include_section_patterns:
+      - rule_id: limanowski_minimal_self
+        patterns:
+          - "minimal self"
+          - "self model"
+          - "self-model"
+          - "embodied self"
+          - "first-person"
+        concepts:
+          - self_identity
+          - consciousness
+
+      - rule_id: limanowski_perception_reality
+        patterns:
+          - "predictive"
+          - "inference"
+          - "representation"
+          - "perception"
+          - "body model"
+        concepts:
+          - reality_appearance
+          - self_identity
+
+    exclude_section_patterns:
+      - rule_id: limanowski_references
+        patterns:
+          - "^references?$"
+          - "^bibliography$"
+        deferred_concept_family: null
+        rationale: "Bibliographic material."
+
+    hard_negative_targets:
+      - consciousness_vs_cognition
+      - self_vs_personality
+      - reality_appearance_vs_perceptual_description
+
+    source_caps:
+      maximum_pre_review_chunks: 34
+      maximum_final_chunks: 30
+      maximum_chunks_per_section: 10
+
+  - source_id: science_ionta_gassert_blanke_2011_bodily_self_consciousness
+    source_title: "Multi-sensory and Sensorimotor Foundations of Bodily Self-Consciousness"
+    domain: science
+    scope_status: approved
+
+    structural_strategy: direct_section_and_chunk_review
+    structure_assessment: usable_with_manual_review
+
+    include_section_patterns:
+      - rule_id: ionta_bodily_self
+        patterns:
+          - "bodily self"
+          - "self consciousness"
+          - "self-consciousness"
+          - "self location"
+          - "self-location"
+          - "first-person perspective"
+          - "body ownership"
+        concepts:
+          - self_identity
+          - consciousness
+
+      - rule_id: ionta_multisensory
+        patterns:
+          - "multisensory"
+          - "sensorimotor"
+          - "integration"
+          - "representation"
+        concepts:
+          - self_identity
+          - reality_appearance
+
+    exclude_section_patterns:
+      - rule_id: ionta_references
+        patterns:
+          - "^references?$"
+        rationale: "Bibliographic material."
+
+    hard_negative_targets:
+      - consciousness_vs_attention
+      - reality_appearance_vs_perceptual_description
+
+    source_caps:
+      maximum_pre_review_chunks: 19
+      maximum_final_chunks: 18
+      maximum_chunks_per_section: 8
+
+  - source_id: science_petkova_ehrsson_2008_body_swapping
+    source_title: "If I Were You: Perceptual Illusion of Body Swapping"
+    domain: science
+    scope_status: approved
+
+    structural_strategy: direct_section_and_chunk_review
+    structure_assessment: usable_with_manual_review
+
+    include_section_patterns:
+      - rule_id: petkova_body_ownership
+        patterns:
+          - "body ownership"
+          - "body swapping"
+          - "self"
+          - "first person"
+          - "first-person"
+        concepts:
+          - self_identity
+
+      - rule_id: petkova_illusion
+        patterns:
+          - "illusion"
+          - "perceptual"
+          - "multisensory"
+          - "representation"
+        concepts:
+          - reality_appearance
+          - self_identity
+
+    exclude_section_patterns:
+      - rule_id: petkova_references
+        patterns:
+          - "^references?$"
+        rationale: "Bibliographic material."
+
+    hard_negative_targets:
+      - self_vs_personality
+      - reality_appearance_vs_perceptual_description
+
+    source_caps:
+      maximum_pre_review_chunks: 30
+      maximum_final_chunks: 25
+      maximum_chunks_per_section: 8
+
+  - source_id: science_herzog_kammer_scharnowski_2016_time_slices
+    source_title: "Time Slices: What Is the Duration of a Percept?"
+    domain: science
+    scope_status: approved
+
+    structural_strategy: direct_section_and_chunk_review
+    structure_assessment: usable_with_manual_review
+
+    include_section_patterns:
+      - rule_id: herzog_conscious_perception
+        patterns:
+          - "conscious"
+          - "consciousness"
+          - "percept"
+          - "perception"
+          - "experience"
+          - "temporal"
+        concepts:
+          - consciousness
+          - reality_appearance
+
+    exclude_section_patterns:
+      - rule_id: herzog_references
+        patterns:
+          - "^references?$"
+        rationale: "Bibliographic material."
+
+    hard_negative_targets:
+      - consciousness_vs_attention
+      - reality_appearance_vs_perceptual_description
+
+    source_caps:
+      maximum_pre_review_chunks: 15
+      maximum_final_chunks: 15
+      maximum_chunks_per_section: 8
+
+  - source_id: advaita_paramananda_1919_upanishads
+    source_title: "The Upanishads"
+    domain: advaita
+    scope_status: approved
+
+    structural_strategy: heading_and_passage_review
+    structure_assessment: fragmented_but_reviewable
+
+    include_section_patterns:
+      - rule_id: upanishads_atman
+        patterns:
+          - "atman"
+          - "ātman"
+          - "self"
+          - "inner self"
+          - "higher self"
+          - "immortal self"
+        concepts:
+          - self_identity
+          - consciousness
+
+      - rule_id: upanishads_consciousness
+        patterns:
+          - "consciousness"
+          - "awareness"
+          - "witness"
+          - "knower"
+          - "seer"
+          - "self-luminous"
+        concepts:
+          - consciousness
+          - self_identity
+
+      - rule_id: upanishads_reality
+        patterns:
+          - "brahman"
+          - "reality"
+          - "unreal"
+          - "name and form"
+          - "appearance"
+          - "one without a second"
+        concepts:
+          - reality_appearance
+          - self_identity
+
+    exclude_section_patterns:
+      - rule_id: upanishads_contents
+        patterns:
+          - "^contents$"
+          - "table of contents"
+        rationale: "Front matter."
+
+      - rule_id: upanishads_general_devotional
+        patterns:
+          - "prayer"
+          - "invocation"
+        rationale: >-
+          Exclude when the passage contains no substantive claim about
+          consciousness, self, or reality.
+
+    hard_negative_targets:
+      - self_vs_ego
+      - consciousness_vs_cognition
+
+    source_caps:
+      maximum_pre_review_chunks: 75
+      maximum_final_chunks: 45
+      maximum_chunks_per_section: 3
+
+  - source_id: advaita_sankara_johnston_1946_crest_jewel
+    source_title: "The Crest-Jewel of Wisdom"
+    domain: advaita
+    scope_status: approved
+
+    structural_strategy: heading_and_verse_range_review
+    structure_assessment: fragmented_but_reviewable
+
+    include_section_patterns:
+      - rule_id: crest_jewel_self
+        patterns:
+          - "self"
+          - "atman"
+          - "ātman"
+          - "ego"
+          - "witness"
+          - "seer"
+          - "knower"
+        concepts:
+          - self_identity
+          - consciousness
+
+      - rule_id: crest_jewel_superimposition
+        patterns:
+          - "superimposition"
+          - "illusion"
+          - "maya"
+          - "māyā"
+          - "ignorance"
+          - "avidya"
+          - "avidyā"
+          - "real"
+          - "unreal"
+        concepts:
+          - reality_appearance
+          - self_identity
+
+      - rule_id: crest_jewel_bodies_sheaths
+        patterns:
+          - "five sheaths"
+          - "three bodies"
+          - "gross body"
+          - "subtle body"
+          - "causal body"
+        concepts:
+          - self_identity
+        review_note: >-
+          Retain only passages directly distinguishing the Self from the
+          body, mind, ego, or sheaths.
+
+    exclude_section_patterns:
+      - rule_id: crest_jewel_devotional_only
+        patterns:
+          - "salutation"
+          - "praise of the teacher"
+        rationale: >-
+          Exclude passages lacking substantive Phase 1 claims.
+
+    hard_negative_targets:
+      - self_vs_ego
+      - consciousness_vs_cognition
+      - reality_appearance_vs_cosmology
+
+    source_caps:
+      maximum_pre_review_chunks: 90
+      maximum_final_chunks: 55
+      maximum_chunks_per_section: 4
+
+  - source_id: advaita_paramananda_1917_vedanta_in_practice
+    source_title: "Vedanta in Practice, Third Edition"
+    domain: advaita
+    scope_status: approved
+
+    structural_strategy: source_specific_preprocessing_then_heading_review
+    structure_assessment: ocr_review_required
+
+    preprocessing_requirements:
+      - remove_repeated_headers_and_footers
+      - reject_severely_corrupted_chunks
+      - preserve_original_text_checksum
+      - record_cleaned_text_separately
+
+    include_section_patterns:
+      - rule_id: vedanta_practice_self
+        patterns:
+          - "self"
+          - "atman"
+          - "ātman"
+          - "ego"
+          - "individual"
+          - "identity"
+        concepts:
+          - self_identity
+
+      - rule_id: vedanta_practice_consciousness
+        patterns:
+          - "consciousness"
+          - "awareness"
+          - "witness"
+          - "knower"
+        concepts:
+          - consciousness
+          - self_identity
+
+      - rule_id: vedanta_practice_reality
+        patterns:
+          - "reality"
+          - "appearance"
+          - "maya"
+          - "māyā"
+          - "illusion"
+          - "real and unreal"
+        concepts:
+          - reality_appearance
+
+    hard_negative_targets:
+      - self_vs_ego
+      - consciousness_vs_cognition
+
+    source_caps:
+      maximum_pre_review_chunks: 45
+      maximum_final_chunks: 30
+      maximum_chunks_per_section: 5
+
+  - source_id: advaita_sankara_thibaut_1890_vedanta_sutras
+    source_title: "The Vedanta-Sutras with the Commentary of Sankara"
+    domain: advaita
+    scope_status: approved
+
+    structural_strategy: manual_adhikarana_and_sutra_range_annotation
+    structure_assessment: manual_range_annotation_required
+
+    include_section_patterns:
+      - rule_id: vedanta_sutras_brahman_self
+        patterns:
+          - "self"
+          - "atman"
+          - "ātman"
+          - "brahman"
+          - "inner ruler"
+          - "knower"
+          - "seer"
+          - "subject"
+        concepts:
+          - self_identity
+          - consciousness
+          - reality_appearance
+
+      - rule_id: vedanta_sutras_superimposition
+        patterns:
+          - "superimpose"
+          - "superimposition"
+          - "subject and object"
+          - "ego"
+          - "non-ego"
+          - "ignorance"
+        concepts:
+          - self_identity
+          - reality_appearance
+
+      - rule_id: vedanta_sutras_pradhana_refutation
+        patterns:
+          - "pradhana"
+          - "pradhâna"
+          - "sankhya"
+          - "sâ@nkhya"
+          - "unconscious"
+          - "intelligent cause"
+        concepts:
+          - consciousness
+          - reality_appearance
+        review_note: >-
+          Include passages directly comparing conscious Brahman with
+          unconscious Pradhana. Exclude extended cosmological debate
+          without relevance to consciousness or reality.
+
+    exclude_section_patterns:
+      - rule_id: vedanta_sutras_ritual
+        patterns:
+          - "sacrifice"
+          - "sacrificial"
+          - "ritual"
+          - "ceremony"
+        deferred_concept_family: null
+        rationale: >-
+          Exclude unless the passage directly addresses Self,
+          consciousness, or ultimate reality.
+
+      - rule_id: vedanta_sutras_cosmology_only
+        patterns:
+          - "origin of ether"
+          - "origin of fire"
+          - "origin of water"
+          - "origin of earth"
+        deferred_concept_family: cosmology_origins
+        rationale: >-
+          Defer passages focused only on cosmological sequence.
+
+    hard_negative_targets:
+      - advaita_atman_vs_samkhya_purusha
+      - reality_appearance_vs_cosmology
+      - consciousness_vs_cognition
+
+    source_caps:
+      maximum_pre_review_chunks: 110
+      maximum_final_chunks: 65
+      maximum_chunks_per_section: 12
+
+  - source_id: samkhya_isvarakrishna_davies_1881_karika
+    source_title: "The Sankhya Karika of Iswara Krishna"
+    domain: samkhya
+    scope_status: approved
+
+    structural_strategy: manual_karika_range_annotation
+    structure_assessment: source_specific_preprocessing_required
+
+    preprocessing_requirements:
+      - replace_or_recover_severely_corrupted_root_text
+      - preserve_english_translation_where_readable
+      - map_chunks_to_karika_numbers
+      - exclude_scan_noise
+      - preserve_original_text_checksum
+
+    include_section_patterns:
+      - rule_id: karika_purusha
+        patterns:
+          - "purusha"
+          - "puruṣa"
+          - "spirit"
+          - "seer"
+          - "witness"
+          - "conscious"
+          - "consciousness"
+        concepts:
+          - consciousness
+          - self_identity
+
+      - rule_id: karika_prakriti_distinction
+        patterns:
+          - "prakriti"
+          - "prakṛti"
+          - "primordial nature"
+          - "manifest"
+          - "unmanifest"
+          - "seer and seen"
+          - "discrimination"
+        concepts:
+          - self_identity
+          - reality_appearance
+
+      - rule_id: karika_buddhi_appears_conscious
+        patterns:
+          - "buddhi"
+          - "intellect"
+          - "reflection"
+          - "appears conscious"
+          - "proximity of purusha"
+        concepts:
+          - consciousness
+          - reality_appearance
+
+    exclude_section_patterns:
+      - rule_id: karika_tattva_enumeration_only
+        patterns:
+          - "five subtle elements"
+          - "five gross elements"
+          - "eleven organs"
+          - "twenty-five principles"
+        deferred_concept_family: cosmology_origins
+        rationale: >-
+          Defer pure enumeration unless directly tied to the
+          Purusha-Prakriti distinction.
+
+    hard_negative_targets:
+      - consciousness_vs_cognition
+      - self_vs_ego
+      - reality_appearance_vs_cosmology
+      - advaita_atman_vs_samkhya_purusha
+
+    source_caps:
+      maximum_pre_review_chunks: 80
+      maximum_final_chunks: 50
+      maximum_chunks_per_karika: 5
+
+  - source_id: samkhya_vachaspati_jha_1896_tattva_kaumudi
+    source_title: "The Tattva-Kaumudi of Vachaspati Misra"
+    domain: samkhya
+    scope_status: approved
+
+    structural_strategy: manual_karika_and_commentary_range_annotation
+    structure_assessment: mixed_structure_with_ocr_review
+
+    preprocessing_requirements:
+      - remove_front_matter
+      - remove_repeated_headers_and_footers
+      - map_commentary_to_karika_numbers
+      - reject_severely_corrupted_chunks
+
+    include_section_patterns:
+      - rule_id: tattva_kaumudi_purusha
+        patterns:
+          - "purusha"
+          - "puruṣa"
+          - "seer"
+          - "witness"
+          - "conscious"
+          - "consciousness"
+        concepts:
+          - consciousness
+          - self_identity
+
+      - rule_id: tattva_kaumudi_prakriti
+        patterns:
+          - "prakriti"
+          - "prakṛti"
+          - "manifest"
+          - "unmanifest"
+          - "discrimination"
+          - "seer and seen"
+        concepts:
+          - self_identity
+          - reality_appearance
+
+      - rule_id: tattva_kaumudi_ahamkara
+        patterns:
+          - "ahamkara"
+          - "ahaṃkāra"
+          - "ego"
+          - "individuality"
+        concepts:
+          - self_identity
+
+    exclude_section_patterns:
+      - rule_id: tattva_kaumudi_introduction
+        patterns:
+          - "introduction"
+          - "synopsis"
+        rationale: >-
+          Exclude general introductory material unless it contains a
+          substantive Phase 1 claim.
+
+      - rule_id: tattva_kaumudi_cosmology_only
+        patterns:
+          - "subtle elements"
+          - "gross elements"
+          - "organs of action"
+          - "organs of knowledge"
+        deferred_concept_family: cosmology_origins
+        rationale: "Defer pure cosmological enumeration."
+
+    hard_negative_targets:
+      - consciousness_vs_cognition
+      - self_vs_ego
+      - reality_appearance_vs_cosmology
+      - advaita_atman_vs_samkhya_purusha
+
+    source_caps:
+      maximum_pre_review_chunks: 80
+      maximum_final_chunks: 50
+      maximum_chunks_per_karika: 6
+
+  - source_id: samkhya_sinha_1915_samkhya_philosophy
+    source_title: "The Samkhya Philosophy"
+    domain: samkhya
+    scope_status: approved
+
+    structural_strategy: source_specific_preprocessing_then_manual_range_annotation
+    structure_assessment: severely_ocr_degraded
+
+    preprocessing_requirements:
+      - reject_severely_corrupted_chunks_before_scope_selection
+      - recover_readable_english_commentary
+      - recover_karika_or_sutra_numbers_where_possible
+      - remove_index_and_concordance_material
+      - remove_repeated_headers_and_footers
+      - preserve_original_text_checksum
+      - store_cleaned_text_as_separate_review_field
+
+    include_section_patterns:
+      - rule_id: sinha_purusha
+        patterns:
+          - "purusha"
+          - "puruṣa"
+          - "spirit"
+          - "seer"
+          - "witness"
+          - "conscious principle"
+        concepts:
+          - consciousness
+          - self_identity
+
+      - rule_id: sinha_prakriti
+        patterns:
+          - "prakriti"
+          - "prakṛti"
+          - "primordial matter"
+          - "manifest"
+          - "unmanifest"
+          - "seer and seen"
+        concepts:
+          - reality_appearance
+          - self_identity
+
+      - rule_id: sinha_buddhi_ahamkara
+        patterns:
+          - "buddhi"
+          - "intellect"
+          - "ahamkara"
+          - "ahaṃkāra"
+          - "ego"
+          - "appears conscious"
+        concepts:
+          - consciousness
+          - self_identity
+
+      - rule_id: sinha_discrimination
+        patterns:
+          - "discriminative knowledge"
+          - "discrimination"
+          - "misidentification"
+          - "bondage"
+          - "liberation"
+        concepts:
+          - self_identity
+          - reality_appearance
+
+    exclude_section_patterns:
+      - rule_id: sinha_index_material
+        patterns:
+          - "^index$"
+          - "alphabetical index"
+          - "general index"
+          - "concordance"
+        rationale: "Index material."
+
+      - rule_id: sinha_cosmological_enumeration
+        patterns:
+          - "five subtle elements"
+          - "five gross elements"
+          - "eleven organs"
+          - "evolution of the elements"
+          - "twenty-five principles"
+        deferred_concept_family: cosmology_origins
+        rationale: >-
+          Defer pure cosmological enumeration unless directly relevant
+          to consciousness, self, or reality/appearance.
+
+      - rule_id: sinha_causation_only
+        patterns:
+          - "satkaryavada"
+          - "satkāryavāda"
+          - "effect pre-exists"
+          - "theory of causation"
+        deferred_concept_family: causation_karma
+        rationale: "Deferred Phase 1 concept family."
+
+    hard_negative_targets:
+      - consciousness_vs_cognition
+      - self_vs_ego
+      - reality_appearance_vs_cosmology
+      - advaita_atman_vs_samkhya_purusha
+
+    source_caps:
+      maximum_pre_review_chunks: 100
+      maximum_final_chunks: 60
+      maximum_chunks_per_section: 10
+
+  - source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    source_title: "A History of Indian Philosophy, Volume I — Samkhya"
+    domain: samkhya
+    scope_status: approved
+
+    structural_strategy: source_specific_preprocessing_then_chapter_review
+    structure_assessment: ocr_review_required
+
+    preprocessing_requirements:
+      - remove_repeated_headers_and_footers
+      - reject_severely_corrupted_chunks
+      - recover_chapter_and_subsection_titles
+      - preserve_original_text_checksum
+
+    include_section_patterns:
+      - rule_id: dasgupta_purusha
+        patterns:
+          - "purusha"
+          - "puruṣa"
+          - "spirit"
+          - "conscious"
+          - "witness"
+          - "seer"
+        concepts:
+          - consciousness
+          - self_identity
+
+      - rule_id: dasgupta_prakriti
+        patterns:
+          - "prakriti"
+          - "prakṛti"
+          - "primordial matter"
+          - "manifest"
+          - "unmanifest"
+        concepts:
+          - reality_appearance
+          - self_identity
+
+      - rule_id: dasgupta_buddhi_ahamkara
+        patterns:
+          - "buddhi"
+          - "intellect"
+          - "ahamkara"
+          - "ahaṃkāra"
+          - "ego"
+          - "reflection of consciousness"
+        concepts:
+          - consciousness
+          - self_identity
+
+      - rule_id: dasgupta_discrimination
+        patterns:
+          - "discrimination"
+          - "misidentification"
+          - "bondage"
+          - "liberation"
+          - "seer and seen"
+        concepts:
+          - self_identity
+          - reality_appearance
+
+    exclude_section_patterns:
+      - rule_id: dasgupta_causation
+        patterns:
+          - "causation"
+          - "satkaryavada"
+          - "satkāryavāda"
+          - "cause and effect"
+        deferred_concept_family: causation_karma
+        rationale: >-
+          Defer unless directly tied to the status of Prakriti or
+          reality/appearance.
+
+      - rule_id: dasgupta_cosmology
+        patterns:
+          - "evolution of matter"
+          - "evolution of the elements"
+          - "subtle elements"
+          - "gross elements"
+        deferred_concept_family: cosmology_origins
+        rationale: "Deferred concept family."
+
+    hard_negative_targets:
+      - consciousness_vs_cognition
+      - self_vs_ego
+      - reality_appearance_vs_cosmology
+      - advaita_atman_vs_samkhya_purusha
+
+    source_caps:
+      maximum_pre_review_chunks: 90
+      maximum_final_chunks: 55
+      maximum_chunks_per_section: 8
+
+manual_review_contract:
+
+  allowed_scope_decisions:
+    - relevant
+    - irrelevant
+    - ambiguous
+    - defer
+    - needs_source_review
+
+  allowed_structure_actions:
+    - structure_usable
+    - use_heading_rules
+    - use_verse_range_rules
+    - manual_range_annotation
+    - source_specific_preprocessing
+    - replace_source_artifact
+    - exclude_from_phase1
+
+  allowed_concept_labels:
+    - consciousness
+    - self_identity
+    - reality_appearance
+    - hard_negative
+
+  multi_value_delimiter: "|"
+
+approval_gate:
+  require_all_source_rules_reviewed: true
+  require_no_pending_human_review: true
+  require_scope_status_approved_per_source: true
+  require_methodological_constraints_preserved: true
+  require_selector_validation_before_execution: true
+  

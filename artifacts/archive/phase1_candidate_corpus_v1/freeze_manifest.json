@@ -1,0 +1,252 @@
+{
+  "snapshot_name": "phase1_candidate_corpus_v1",
+  "corpus_status": "candidate_only_frozen",
+  "corpus_version": "phase1_candidate_corpus_v1",
+  "created_at": "2026-08-05T14:38:20.366569+00:00",
+  "project_root": "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman",
+  "snapshot_root": "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\artifacts\\archive\\phase1_candidate_corpus_v1",
+  "preserved_paths": [
+    "data/raw",
+    "artifacts/phase1/parsed",
+    "artifacts/phase1/chunks",
+    "artifacts/phase1/acquisition_manifest.json",
+    "artifacts/phase1/manifests/ingestion_manifest.json"
+  ],
+  "file_count": 38,
+  "total_size_bytes": 41267873,
+  "files": [
+    {
+      "relative_path": "artifacts/phase1/acquisition_manifest.json",
+      "size_bytes": 6179,
+      "sha256": "886e2b9a7f1a6328bd0402df0e58468d33bd97df20a043d52ac9efb15864af0e",
+      "source_modified_at": "2026-08-03T18:47:05.551504+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/advaita_paramananda_1917_vedanta_in_practice.json",
+      "size_bytes": 230711,
+      "sha256": "0a36e8467f554b5a05600220205f86805feab3e43772d58ab40f8a72ff239afc",
+      "source_modified_at": "2026-08-03T18:47:11.954684+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/advaita_paramananda_1919_upanishads.json",
+      "size_bytes": 331787,
+      "sha256": "7249305a5e788995fc6e23d738d7ac6a290417c9e8a2318a3fce527cf4373ae2",
+      "source_modified_at": "2026-08-03T18:47:09.527094+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/advaita_sankara_johnston_1946_crest_jewel.json",
+      "size_bytes": 659252,
+      "sha256": "9d844e3a3e8710a10b78a32648283389773fc3ba55475d02fe5eeb12f7c77f68",
+      "source_modified_at": "2026-08-03T18:47:11.844725+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/advaita_sankara_thibaut_1890_vedanta_sutras.json",
+      "size_bytes": 2677375,
+      "sha256": "0c6884be9b74016c56970bd0f0eba6d1242fc1454e9686af2f96b04e62323fb5",
+      "source_modified_at": "2026-08-03T18:47:11.576166+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/samkhya_dasgupta_1922_history_volume1_samkhya.json",
+      "size_bytes": 2927057,
+      "sha256": "d9170ea6e922ec96a2b8473ad6958e00c1ec9ff6dc3f8fcaf339a5d7e5536264",
+      "source_modified_at": "2026-08-03T18:47:22.426814+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/samkhya_isvarakrishna_davies_1881_karika.json",
+      "size_bytes": 920442,
+      "sha256": "da7418fc4ef75f79e3e80cb1cb6b07c378df66f29b13efe87d0322bc0fb56844",
+      "source_modified_at": "2026-08-03T18:47:12.548338+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/samkhya_sinha_1915_samkhya_philosophy.json",
+      "size_bytes": 8577424,
+      "sha256": "fe29eafada12acb375ad0b310697724d7a7815a611e1c4dde0e86c36d7d65df9",
+      "source_modified_at": "2026-08-03T18:47:18.149060+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/samkhya_vachaspati_jha_1896_tattva_kaumudi.json",
+      "size_bytes": 1427093,
+      "sha256": "8538c2f134fb3903ebdb8799e17cfcb71adfbead62ab4ae6ffad29d93145410b",
+      "source_modified_at": "2026-08-03T18:47:13.261228+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/science_herzog_kammer_scharnowski_2016_time_slices.json",
+      "size_bytes": 43101,
+      "sha256": "a923077cef79a9bb0b9cfe710cbd4f9eb76cc5931ef28ee6ad3242d7d37e50d9",
+      "source_modified_at": "2026-08-03T18:47:09.427674+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/science_ionta_gassert_blanke_2011_bodily_self_consciousness.json",
+      "size_bytes": 59236,
+      "sha256": "14dcd5de6c680d62cdd35469dc717a6b7e084f6f861c58b89f5359f154e7a9bc",
+      "source_modified_at": "2026-08-03T18:47:09.357165+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/science_limanowski_blankenburg_2013_minimal_self_models.json",
+      "size_bytes": 97232,
+      "sha256": "7276545a6357a1559d5abd7edad8653f967791ae40b95a9293f0f7a5621bc9ba",
+      "source_modified_at": "2026-08-03T18:47:09.287966+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/chunks/science_petkova_ehrsson_2008_body_swapping.json",
+      "size_bytes": 76123,
+      "sha256": "544efe64723c720863a07b736fb6b62e3649ccb15e04364c457c21adcf360aca",
+      "source_modified_at": "2026-08-03T18:47:09.405549+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/manifests/ingestion_manifest.json",
+      "size_bytes": 1296,
+      "sha256": "cdc38ae3e82cd7ea28018ad9611e687c8291d74b621f865b137d267f15a67589",
+      "source_modified_at": "2026-08-03T17:57:25.955883+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/advaita_paramananda_1917_vedanta_in_practice.json",
+      "size_bytes": 271006,
+      "sha256": "9e9efc8676599969a2e8bded88b9e208f2a027fcfcf37d9522d2bc2ccf6c8151",
+      "source_modified_at": "2026-08-03T18:47:06.527862+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/advaita_paramananda_1919_upanishads.json",
+      "size_bytes": 260982,
+      "sha256": "3e620bcae40c6c40f8c14aae75e6d7cf9bf0bcb090731b0d1ec70f27b5e3abf1",
+      "source_modified_at": "2026-08-03T18:47:05.673975+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/advaita_sankara_johnston_1946_crest_jewel.json",
+      "size_bytes": 779538,
+      "sha256": "f3dc3a8a73af8ce14354aae615341d31f83a9dd25d75b4d3eadaafea88b105ac",
+      "source_modified_at": "2026-08-03T18:47:06.449580+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/advaita_sankara_thibaut_1890_vedanta_sutras.json",
+      "size_bytes": 1756765,
+      "sha256": "027e30604da2ea083c66782a1a98064f7fa140d3e63dbb5e95e02b28e09077ce",
+      "source_modified_at": "2026-08-03T18:47:06.250089+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/samkhya_dasgupta_1922_history_volume1_samkhya.json",
+      "size_bytes": 2416549,
+      "sha256": "b4428adc5374a2f86487c0407885e3a6b0a148433f21fe6f16fe49595998b8bc",
+      "source_modified_at": "2026-08-03T18:47:09.227731+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/samkhya_isvarakrishna_davies_1881_karika.json",
+      "size_bytes": 658682,
+      "sha256": "e3ce510e46babf6a58d1fe9768e6a7a4e0fd5622efa9686b60c0168c5004bebe",
+      "source_modified_at": "2026-08-03T18:47:06.770455+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/samkhya_sinha_1915_samkhya_philosophy.json",
+      "size_bytes": 7061965,
+      "sha256": "6a4a6b12acaecabc06d74b959c6f2b70930a328b14716dc7fc4f0e0af875b97e",
+      "source_modified_at": "2026-08-03T18:47:08.871361+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/samkhya_vachaspati_jha_1896_tattva_kaumudi.json",
+      "size_bytes": 2266608,
+      "sha256": "60c31cc9680d015b41fef45cf8ea9fbb973ea9acd5f437ebb1bc2d0ca5069d97",
+      "source_modified_at": "2026-08-03T18:47:07.129814+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/science_herzog_kammer_scharnowski_2016_time_slices.json",
+      "size_bytes": 39000,
+      "sha256": "5039fc295490f0c60a5c454b64e7524c18a93ac6bc71266425614c9f05d1ea72",
+      "source_modified_at": "2026-08-03T18:47:05.619833+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/science_ionta_gassert_blanke_2011_bodily_self_consciousness.json",
+      "size_bytes": 43850,
+      "sha256": "ad13cc508c5deb03b540e2218e59f455f58e70a176f5a95e7bc93c3c4543ce29",
+      "source_modified_at": "2026-08-03T18:47:05.587150+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/science_limanowski_blankenburg_2013_minimal_self_models.json",
+      "size_bytes": 80238,
+      "sha256": "9bbf89d5d22ce3e58fdd0c27b0ee7157e2203779f9b8e9014d2597c1910541ae",
+      "source_modified_at": "2026-08-03T18:47:05.567616+00:00"
+    },
+    {
+      "relative_path": "artifacts/phase1/parsed/science_petkova_ehrsson_2008_body_swapping.json",
+      "size_bytes": 66474,
+      "sha256": "59b1e45bad8d1d483abc990a75b4f74fdb921d72716b780046c2aef68cf76f83",
+      "source_modified_at": "2026-08-03T18:47:05.604816+00:00"
+    },
+    {
+      "relative_path": "data/raw/advaita/advaita_paramananda_1917_vedanta_in_practice.txt",
+      "size_bytes": 83922,
+      "sha256": "10cfb7607091d5e082bff2b7c076434ee65102176e4679095e4bcd9296eeca34",
+      "source_modified_at": "2026-08-03T17:50:23.366640+00:00"
+    },
+    {
+      "relative_path": "data/raw/advaita/advaita_paramananda_1919_upanishads.html",
+      "size_bytes": 148815,
+      "sha256": "e278429ac66a2bc3dc286dd49ed133d2ef44c7bf1f785908b378426e3cdcd39f",
+      "source_modified_at": "2026-08-03T17:42:54.176816+00:00"
+    },
+    {
+      "relative_path": "data/raw/advaita/advaita_sankara_johnston_1946_crest_jewel.txt",
+      "size_bytes": 217862,
+      "sha256": "9a9a7dea71a2d2a7f281604d4d086b336f60543610016c0621d89fc39a02e502",
+      "source_modified_at": "2026-08-03T17:50:20.470041+00:00"
+    },
+    {
+      "relative_path": "data/raw/advaita/advaita_sankara_thibaut_1890_vedanta_sutras.html",
+      "size_bytes": 1430382,
+      "sha256": "845569c10c3b13b853902cdc82b4ddfefec20230663e960bc2308caa153571d5",
+      "source_modified_at": "2026-08-03T17:43:01.311614+00:00"
+    },
+    {
+      "relative_path": "data/raw/samkhya/samkhya_dasgupta_1922_history_volume1_samkhya.html",
+      "size_bytes": 1469903,
+      "sha256": "32e428ff11f493f3b40e3d67e8f68edbf67f57d0bf20eb5f3973f314413ef55b",
+      "source_modified_at": "2026-08-03T17:43:41.098038+00:00"
+    },
+    {
+      "relative_path": "data/raw/samkhya/samkhya_isvarakrishna_davies_1881_karika.txt",
+      "size_bytes": 330812,
+      "sha256": "0f64d4bc368feae56914703f895dfebfc6d79d52fa84590e97733319d0abc28d",
+      "source_modified_at": "2026-08-03T17:43:11.579581+00:00"
+    },
+    {
+      "relative_path": "data/raw/samkhya/samkhya_sinha_1915_samkhya_philosophy.txt",
+      "size_bytes": 2950610,
+      "sha256": "530c32f73e994590bc64beb63ceb3aafdcbb0a45d37a730f388d458e91b5f753",
+      "source_modified_at": "2026-08-03T17:43:38.226902+00:00"
+    },
+    {
+      "relative_path": "data/raw/samkhya/samkhya_vachaspati_jha_1896_tattva_kaumudi.txt",
+      "size_bytes": 363303,
+      "sha256": "b9ba240686bcd198c54130040e9148d4ef12287a8f623a8843a6bb441f3da730",
+      "source_modified_at": "2026-08-03T17:43:30.407837+00:00"
+    },
+    {
+      "relative_path": "data/raw/science/science_herzog_kammer_scharnowski_2016_time_slices.xml",
+      "size_bytes": 96285,
+      "sha256": "3c797078a2781d2ed513d7c64f48f7740a923318b3813be399ec71313c536e71",
+      "source_modified_at": "2026-08-03T17:42:51.354586+00:00"
+    },
+    {
+      "relative_path": "data/raw/science/science_ionta_gassert_blanke_2011_bodily_self_consciousness.xml",
+      "size_bytes": 142207,
+      "sha256": "725659b2e6597b28c256f81f90e6ccabf780e4d4366b972972ad87f054172553",
+      "source_modified_at": "2026-08-03T17:42:50.619641+00:00"
+    },
+    {
+      "relative_path": "data/raw/science/science_limanowski_blankenburg_2013_minimal_self_models.xml",
+      "size_bytes": 193279,
+      "sha256": "68d1ffd21c79f2cbe397c4f53269b6f90eb3a1fba1e163c6257884751bdfb27d",
+      "source_modified_at": "2026-08-03T17:42:49.885355+00:00"
+    },
+    {
+      "relative_path": "data/raw/science/science_petkova_ehrsson_2008_body_swapping.xml",
+      "size_bytes": 104528,
+      "sha256": "2acdef94a1891b392c5b2c9b2729c0187904949adc87ed112391dd4a6330c599",
+      "source_modified_at": "2026-08-03T17:42:50.990346+00:00"
+    }
+  ],
+  "notes": [
+    "This snapshot preserves the broad source-derived candidate corpus before Phase 1 relevance filtering.",
+    "The frozen chunks are not reviewed, active, or approved for Phase 1 retrieval.",
+    "The snapshot must not be overwritten. Create a new version for subsequent freezes."
+  ]
+}

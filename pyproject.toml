@@ -18,7 +18,12 @@ dependencies = [
     "supabase>=2.0,<3.0",
     "tenacity>=9.0,<10.0",
     "uvicorn[standard]>=0.34,<1.0",
+    "pyyaml>=6.0",
+    "sentence-transformers>=5.7.0",
 ]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*.py" = ["T201"]
 
 [dependency-groups]
 dev = [
@@ -28,6 +33,7 @@ dev = [
     "pytest-cov>=6.0,<7.0",
     "respx>=0.22,<1.0",
     "ruff>=0.9,<1.0",
+    "types-pyyaml>=6.0.12.20260724",
 ]
 
 [tool.uv]
@@ -60,6 +66,7 @@ select = [
 ]
 ignore = [
     "TRY003",
+    "E501",
 ]
 
 [tool.ruff.lint.isort]
