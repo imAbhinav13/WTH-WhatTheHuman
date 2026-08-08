@@ -1,0 +1,281 @@
+{
+  "distribution_report": {
+    "build": {
+      "by_domain": {
+        "advaita": 37,
+        "samkhya": 48,
+        "science": 74
+      },
+      "by_primary_concept": {
+        "consciousness": 47,
+        "reality_appearance": 53,
+        "self_identity": 59
+      },
+      "by_source": {
+        "advaita_paramananda_1917_vedanta_in_practice": 6,
+        "advaita_paramananda_1919_upanishads": 16,
+        "advaita_sankara_johnston_1946_crest_jewel": 10,
+        "advaita_sankara_thibaut_1890_vedanta_sutras": 5,
+        "samkhya_dasgupta_1922_history_volume1_samkhya": 27,
+        "samkhya_vachaspati_jha_1896_tattva_kaumudi": 21,
+        "science_herzog_kammer_scharnowski_2016_time_slices": 15,
+        "science_ionta_gassert_blanke_2011_bodily_self_consciousness": 18,
+        "science_limanowski_blankenburg_2013_minimal_self_models": 18,
+        "science_petkova_ehrsson_2008_body_swapping": 23
+      },
+      "concept_labels": {
+        "consciousness": {
+          "negative": 37,
+          "partial": 52,
+          "positive": 70
+        },
+        "reality_appearance": {
+          "negative": 40,
+          "partial": 38,
+          "positive": 81
+        },
+        "self_identity": {
+          "negative": 42,
+          "partial": 29,
+          "positive": 88
+        }
+      },
+      "count": 159,
+      "hard_negative_categories": {
+        "advaita_atman_vs_samkhya_purusha": 11,
+        "consciousness_vs_cognition": 9,
+        "reality_appearance_vs_cosmology": 16,
+        "reality_appearance_vs_perceptual_description": 3
+      }
+    },
+    "development": {
+      "by_domain": {
+        "advaita": 33,
+        "samkhya": 31,
+        "science": 16
+      },
+      "by_primary_concept": {
+        "consciousness": 6,
+        "reality_appearance": 40,
+        "self_identity": 34
+      },
+      "by_source": {
+        "advaita_paramananda_1917_vedanta_in_practice": 2,
+        "advaita_paramananda_1919_upanishads": 2,
+        "advaita_sankara_johnston_1946_crest_jewel": 19,
+        "advaita_sankara_thibaut_1890_vedanta_sutras": 10,
+        "samkhya_dasgupta_1922_history_volume1_samkhya": 19,
+        "samkhya_vachaspati_jha_1896_tattva_kaumudi": 12,
+        "science_limanowski_blankenburg_2013_minimal_self_models": 16
+      },
+      "concept_labels": {
+        "consciousness": {
+          "negative": 39,
+          "partial": 22,
+          "positive": 19
+        },
+        "reality_appearance": {
+          "negative": 16,
+          "partial": 8,
+          "positive": 56
+        },
+        "self_identity": {
+          "negative": 15,
+          "partial": 13,
+          "positive": 52
+        }
+      },
+      "count": 80,
+      "hard_negative_categories": {
+        "advaita_atman_vs_samkhya_purusha": 5,
+        "consciousness_vs_cognition": 8,
+        "reality_appearance_vs_cosmology": 7
+      }
+    },
+    "heldout": {
+      "by_domain": {
+        "advaita": 50,
+        "samkhya": 29
+      },
+      "by_primary_concept": {
+        "consciousness": 4,
+        "reality_appearance": 39,
+        "self_identity": 36
+      },
+      "by_source": {
+        "advaita_paramananda_1917_vedanta_in_practice": 5,
+        "advaita_sankara_thibaut_1890_vedanta_sutras": 45,
+        "samkhya_dasgupta_1922_history_volume1_samkhya": 28,
+        "samkhya_vachaspati_jha_1896_tattva_kaumudi": 1
+      },
+      "concept_labels": {
+        "consciousness": {
+          "negative": 31,
+          "partial": 37,
+          "positive": 11
+        },
+        "reality_appearance": {
+          "negative": 16,
+          "partial": 16,
+          "positive": 47
+        },
+        "self_identity": {
+          "negative": 25,
+          "partial": 2,
+          "positive": 52
+        }
+      },
+      "count": 79,
+      "hard_negative_categories": {
+        "advaita_atman_vs_samkhya_purusha": 7,
+        "consciousness_vs_cognition": 7,
+        "reality_appearance_vs_cosmology": 6
+      }
+    }
+  },
+  "exit_gate": {
+    "distribution_report_generated": true,
+    "exact_duplicate_leakage": false,
+    "heldout_marked_read_only": true,
+    "high_overlap_leakage": false,
+    "passage_family_leakage": false,
+    "splits_checksummed": true
+  },
+  "frozen": true,
+  "generated_at": "2026-08-08T04:30:04.075068+00:00",
+  "hard_negative_distribution": {
+    "categories": {
+      "build": {
+        "advaita_atman_vs_samkhya_purusha": 11,
+        "consciousness_vs_cognition": 9,
+        "reality_appearance_vs_cosmology": 16,
+        "reality_appearance_vs_perceptual_description": 3
+      },
+      "development": {
+        "advaita_atman_vs_samkhya_purusha": 5,
+        "consciousness_vs_cognition": 8,
+        "reality_appearance_vs_cosmology": 7
+      },
+      "heldout": {
+        "advaita_atman_vs_samkhya_purusha": 7,
+        "consciousness_vs_cognition": 7,
+        "reality_appearance_vs_cosmology": 6
+      }
+    },
+    "totals": {
+      "build": 39,
+      "development": 20,
+      "heldout": 20
+    }
+  },
+  "input": {
+    "gold_corpus": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_reviewed_gold_corpus.jsonl",
+      "record_count": 318,
+      "sha256": "30c39c4ddbd18e9016d37587dc767282a085ef8c40ec43b799e9b414ff32f888"
+    },
+    "human_review_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_human_review_manifest.json",
+      "sha256": "b643d524ffb053debfadda183936666f9881ff6a1fd4840782ff6ada72666b42",
+      "status": "phase1_human_review_complete",
+      "strict_gate_passed": true
+    }
+  },
+  "leakage_validation": {
+    "exact_text_leakage_count": 0,
+    "family_leakage_count": 0,
+    "high_overlap_cross_split_pairs": 0
+  },
+  "next_step": "Benchmark and freeze the Phase 1 embedding architecture. Use build data for prototype/implementation work, development data for calibration, and keep held-out data untouched until final evaluation.",
+  "outputs": {
+    "build": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_build.jsonl",
+      "read_only": false,
+      "record_count": 159,
+      "sha256": "eb9276d9d3150c22b681163fef8ffaa884d9ef748d4d8bcdd97ecdbcd4f6ce12"
+    },
+    "development": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_development.jsonl",
+      "read_only": false,
+      "record_count": 80,
+      "sha256": "671793c3b3fec721372b7e19dd13ed6a3d925c3177affdd7fcc1e9c482766123"
+    },
+    "heldout": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_heldout.jsonl",
+      "read_only": true,
+      "record_count": 79,
+      "sha256": "7149822b2dd06e7dbba1712d26d7f68e7f3eab488c4d9e8757df78ed8f1439ce"
+    }
+  },
+  "passage_families": {
+    "family_count": 318,
+    "largest_family_size": 1,
+    "link_reasons": {},
+    "multi_record_family_count": 0
+  },
+  "split_policy": {
+    "actual_counts": {
+      "build": 159,
+      "development": 80,
+      "heldout": 79
+    },
+    "deterministic": true,
+    "heldout_policy": {
+      "allowed_use": "final evaluation only",
+      "prohibited_influence": [
+        "anchor wording",
+        "prototype construction",
+        "threshold tuning",
+        "feature selection",
+        "ambiguity-margin tuning",
+        "top-k tuning",
+        "reranking tuning",
+        "post-lock model choice"
+      ],
+      "read_only": true
+    },
+    "passage_family_policy": {
+      "cross_source_duplicate_jaccard_threshold": 0.94,
+      "explicit_family_fields": [
+        "passage_family_id",
+        "overlap_group_id",
+        "verse_sequence_id",
+        "paragraph_group_id",
+        "duplicate_group_id",
+        "translation_group_id"
+      ],
+      "same_source_section_jaccard_threshold": 0.72,
+      "sequence_fields": [
+        "verse_number",
+        "verse_range",
+        "sutra_number",
+        "sutra_range",
+        "karika_number",
+        "karika_range",
+        "paragraph_number",
+        "paragraph_range"
+      ]
+    },
+    "random_sampling": false,
+    "ratios": {
+      "build": 0.5,
+      "development": 0.25,
+      "heldout": 0.25
+    },
+    "stratification_features": [
+      "domain",
+      "source",
+      "concept label",
+      "primary concept",
+      "hard-negative category"
+    ],
+    "target_counts": {
+      "build": 159,
+      "development": 80,
+      "heldout": 79
+    }
+  },
+  "split_version": "phase1-evaluation-splits-v1",
+  "splitter_version": "1.0.0",
+  "status": "frozen"
+}

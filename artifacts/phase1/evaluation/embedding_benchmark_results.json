@@ -1,0 +1,326 @@
+{
+  "benchmark_version": "1.0.0",
+  "candidate_configurations": {
+    "cohere": {
+      "batch_size": 48,
+      "dimensions": 1024,
+      "document_instruction": "input_type=search_document",
+      "model": "embed-v4.0",
+      "provider": "Cohere",
+      "query_instruction": "input_type=search_query"
+    },
+    "gemini": {
+      "dimensions": 768,
+      "document_instruction": "title: {title} | text: {content}",
+      "model": "gemini-embedding-2",
+      "provider": "Google Gemini API",
+      "query_instruction": "task: search result | query: {content}",
+      "quota_strategy": ">= 0.75s/request + cache + 429/5xx backoff"
+    },
+    "local": {
+      "batch_size": 32,
+      "dimensions": 768,
+      "document_instruction": "passage: title: {title} | text: {content}",
+      "model": "intfloat/multilingual-e5-base",
+      "provider": "Local SentenceTransformers",
+      "query_instruction": "query: {content}"
+    }
+  },
+  "decision_status": "pending_human_review",
+  "evaluation_policy": {
+    "heldout_checksum_verified": true,
+    "heldout_read_only": true,
+    "parses_heldout_content": false,
+    "relevance_grades": {
+      "negative": 0,
+      "partial": 1,
+      "positive": 2,
+      "uncertain": 0
+    },
+    "similarity": "cosine on L2-normalized vectors",
+    "uses_build": true,
+    "uses_development": true
+  },
+  "generated_at": "2026-08-08T13:01:52.454351+00:00",
+  "inputs": {
+    "build": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_build.jsonl",
+      "sha256": "eb9276d9d3150c22b681163fef8ffaa884d9ef748d4d8bcdd97ecdbcd4f6ce12"
+    },
+    "development": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_development.jsonl",
+      "sha256": "671793c3b3fec721372b7e19dd13ed6a3d925c3177affdd7fcc1e9c482766123"
+    },
+    "document_count": 239,
+    "heldout": {
+      "content_parsed": false,
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_heldout.jsonl",
+      "sha256": "7149822b2dd06e7dbba1712d26d7f68e7f3eab488c4d9e8757df78ed8f1439ce"
+    },
+    "query_count": 22,
+    "query_suite_sha256": "822f1caebc961a745e56fca5de322b5160bcdd860488caeccbd286adef3f7fb9",
+    "split_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_split_manifest.json",
+      "sha256": "b9d51404cd4c5f58504df60e9a2560749f77dea2edb98b60d27d81e956bf8015"
+    }
+  },
+  "models": [
+    {
+      "dimensions": 768,
+      "metrics": {
+        "hard_negative_false_positive_rate_at_10": 0.05909090909090909,
+        "mrr": 0.9318181818181818,
+        "ndcg_at_5": 0.8088115461812078,
+        "precision_at_5": 0.8636363636363636,
+        "recall_at_10": 0.08905457220481564,
+        "score_margin": 0.03465255573046723
+      },
+      "metrics_by_concept": {
+        "consciousness": {
+          "hard_negative_false_positive_rate_at_10": 0.07142857142857142,
+          "mrr": 1.0,
+          "ndcg_at_5": 0.8705001807106855,
+          "precision_at_5": 0.8857142857142858,
+          "recall_at_10": 0.10445256935483786,
+          "score_margin": 0.049137410533603064
+        },
+        "reality_appearance": {
+          "hard_negative_false_positive_rate_at_10": 0.07142857142857142,
+          "mrr": 0.9285714285714286,
+          "ndcg_at_5": 0.7789255843374642,
+          "precision_at_5": 0.8571428571428571,
+          "recall_at_10": 0.07634378416902846,
+          "score_margin": 0.034761320437977875
+        },
+        "self_identity": {
+          "hard_negative_false_positive_rate_at_10": 0.0375,
+          "mrr": 0.875,
+          "ndcg_at_5": 0.7809842075811904,
+          "precision_at_5": 0.85,
+          "recall_at_10": 0.08670326422985997,
+          "score_margin": 0.02188313865865156
+        }
+      },
+      "metrics_by_domain": {
+        "advaita": {
+          "hard_negative_false_positive_rate_at_10": 0.03333333333333333,
+          "mrr": 1.0,
+          "ndcg_at_5": 0.750563384532907,
+          "precision_at_5": 0.7333333333333334,
+          "recall_at_10": 0.14913252122554446,
+          "score_margin": 0.028886870894277883
+        },
+        "all": {
+          "hard_negative_false_positive_rate_at_10": 0.05384615384615384,
+          "mrr": 0.9615384615384616,
+          "ndcg_at_5": 0.8564840188994776,
+          "precision_at_5": 0.9076923076923078,
+          "recall_at_10": 0.052028642722520904,
+          "score_margin": 0.029665814089660666
+        },
+        "samkhya": {
+          "hard_negative_false_positive_rate_at_10": 0.16666666666666666,
+          "mrr": 0.6666666666666666,
+          "ndcg_at_5": 0.4692905388982138,
+          "precision_at_5": 0.6666666666666666,
+          "recall_at_10": 0.15113137453562986,
+          "score_margin": 0.011041857701167094
+        },
+        "science": {
+          "hard_negative_false_positive_rate_at_10": 0.0,
+          "mrr": 1.0,
+          "ndcg_at_5": 1.0,
+          "precision_at_5": 1.0,
+          "recall_at_10": 0.12734551527654978,
+          "score_margin": 0.08563815237278516
+        }
+      },
+      "metrics_by_query_kind": {
+        "adjacent": {
+          "hard_negative_false_positive_rate_at_10": 0.0,
+          "mrr": 1.0,
+          "ndcg_at_5": 0.8467849316555517,
+          "precision_at_5": 0.9333333333333332,
+          "recall_at_10": 0.05514835048175087,
+          "score_margin": 0.03672290203239833
+        },
+        "domain": {
+          "hard_negative_false_positive_rate_at_10": 0.06666666666666668,
+          "mrr": 0.8888888888888888,
+          "ndcg_at_5": 0.7399513078103737,
+          "precision_at_5": 0.8,
+          "recall_at_10": 0.14253647034590802,
+          "score_margin": 0.04185562698941005
+        },
+        "general": {
+          "hard_negative_false_positive_rate_at_10": 0.03333333333333333,
+          "mrr": 1.0,
+          "ndcg_at_5": 0.9285496909604355,
+          "precision_at_5": 0.9333333333333332,
+          "recall_at_10": 0.054019111622450655,
+          "score_margin": 0.03880441613974939
+        },
+        "hard_negative": {
+          "hard_negative_false_positive_rate_at_10": 0.125,
+          "mrr": 0.875,
+          "ndcg_at_5": 0.755659826240985,
+          "precision_at_5": 0.85,
+          "recall_at_10": 0.04670315855320381,
+          "score_margin": 0.010665095057474344
+        }
+      },
+      "model": "gemini-embedding-2",
+      "normalization": "L2 before cosine evaluation",
+      "operational": {
+        "api_requests": 261,
+        "average_query_latency_seconds": 0.6941128772735035,
+        "cache_hits": 0,
+        "document_embedding_seconds": 384.90823210000235,
+        "estimated_input_cost": null,
+        "generated_vectors": 261,
+        "input_tokens_reported": 71020,
+        "local_memory_delta_mb": null,
+        "local_memory_mb_after": null,
+        "local_memory_mb_before": null,
+        "p95_query_latency_seconds": 0.8946572999993805,
+        "price_per_million_input_tokens": null,
+        "query_embedding_seconds": 32.04544200000237,
+        "rate_limit_retries": 0,
+        "retries": 0
+      },
+      "provider": "Google Gemini API",
+      "provider_key": "gemini"
+    },
+    {
+      "dimensions": 768,
+      "metrics": {
+        "hard_negative_false_positive_rate_at_10": 0.12272727272727274,
+        "mrr": 0.7564935064935064,
+        "ndcg_at_5": 0.6122377411403689,
+        "precision_at_5": 0.6818181818181818,
+        "recall_at_10": 0.07189370135184708,
+        "score_margin": 0.003561124880599943
+      },
+      "metrics_by_concept": {
+        "consciousness": {
+          "hard_negative_false_positive_rate_at_10": 0.18571428571428572,
+          "mrr": 0.7346938775510204,
+          "ndcg_at_5": 0.48749116012548827,
+          "precision_at_5": 0.5428571428571428,
+          "recall_at_10": 0.07086310275067587,
+          "score_margin": -0.00015474636840973055
+        },
+        "reality_appearance": {
+          "hard_negative_false_positive_rate_at_10": 0.07142857142857142,
+          "mrr": 0.8333333333333333,
+          "ndcg_at_5": 0.7037132513752666,
+          "precision_at_5": 0.7428571428571429,
+          "recall_at_10": 0.07053790676499229,
+          "score_margin": 0.005035966895797344
+        },
+        "self_identity": {
+          "hard_negative_false_positive_rate_at_10": 0.1125,
+          "mrr": 0.7083333333333334,
+          "ndcg_at_5": 0.6413499280728538,
+          "precision_at_5": 0.75,
+          "recall_at_10": 0.07398179539136986,
+          "score_margin": 0.005522025460185681
+        }
+      },
+      "metrics_by_domain": {
+        "advaita": {
+          "hard_negative_false_positive_rate_at_10": 0.10000000000000002,
+          "mrr": 0.4920634920634921,
+          "ndcg_at_5": 0.2698418293531913,
+          "precision_at_5": 0.26666666666666666,
+          "recall_at_10": 0.05184364874287354,
+          "score_margin": -0.010520096581966362
+        },
+        "all": {
+          "hard_negative_false_positive_rate_at_10": 0.15384615384615385,
+          "mrr": 0.7564102564102565,
+          "ndcg_at_5": 0.6479556678432148,
+          "precision_at_5": 0.7076923076923076,
+          "recall_at_10": 0.04403828222672558,
+          "score_margin": 0.003226982979954709
+        },
+        "samkhya": {
+          "hard_negative_false_positive_rate_at_10": 0.13333333333333333,
+          "mrr": 0.7777777777777778,
+          "ndcg_at_5": 0.5791965895495551,
+          "precision_at_5": 0.7999999999999999,
+          "recall_at_10": 0.16869300911854102,
+          "score_margin": 0.0020205148562794837
+        },
+        "science": {
+          "hard_negative_false_positive_rate_at_10": 0.0,
+          "mrr": 1.0,
+          "ndcg_at_5": 0.8328971221393612,
+          "precision_at_5": 0.8666666666666667,
+          "recall_at_10": 0.11585126240298654,
+          "score_margin": 0.02063090460361605
+        }
+      },
+      "metrics_by_query_kind": {
+        "adjacent": {
+          "hard_negative_false_positive_rate_at_10": 0.10000000000000002,
+          "mrr": 0.6666666666666666,
+          "ndcg_at_5": 0.668677045657751,
+          "precision_at_5": 0.7333333333333334,
+          "recall_at_10": 0.04557387364387264,
+          "score_margin": 0.002296642308501166
+        },
+        "domain": {
+          "hard_negative_false_positive_rate_at_10": 0.07777777777777778,
+          "mrr": 0.7566137566137566,
+          "ndcg_at_5": 0.5606451803473692,
+          "precision_at_5": 0.6444444444444444,
+          "recall_at_10": 0.11212930675480037,
+          "score_margin": 0.004043774292643058
+        },
+        "general": {
+          "hard_negative_false_positive_rate_at_10": 0.13333333333333333,
+          "mrr": 0.8333333333333334,
+          "ndcg_at_5": 0.7208280115339205,
+          "precision_at_5": 0.7666666666666666,
+          "recall_at_10": 0.0463828805878489,
+          "score_margin": 0.0033303835592081352
+        },
+        "hard_negative": {
+          "hard_negative_false_positive_rate_at_10": 0.225,
+          "mrr": 0.7083333333333334,
+          "ndcg_at_5": 0.5231061189462539,
+          "precision_at_5": 0.6,
+          "recall_at_10": 0.03936969112218031,
+          "score_margin": 0.003769637614664728
+        }
+      },
+      "model": "intfloat/multilingual-e5-base",
+      "normalization": "L2 before cosine evaluation",
+      "operational": {
+        "api_requests": 0,
+        "average_query_latency_seconds": 0.37732354545402236,
+        "cache_hits": 0,
+        "document_embedding_seconds": 404.6414713999984,
+        "estimated_input_cost": null,
+        "generated_vectors": 261,
+        "input_tokens_reported": 0,
+        "local_memory_delta_mb": 601.17578125,
+        "local_memory_mb_after": 644.11328125,
+        "local_memory_mb_before": 42.9375,
+        "p95_query_latency_seconds": 0.5204282999911811,
+        "price_per_million_input_tokens": null,
+        "query_embedding_seconds": 8.301534400001401,
+        "rate_limit_retries": 0,
+        "retries": 0
+      },
+      "provider": "Local SentenceTransformers",
+      "provider_key": "local"
+    }
+  ],
+  "next_step": "Review metrics and operational trade-offs, then create docs/architecture/phase1_embedding_decision.md and freeze one configuration.",
+  "outputs": {
+    "query_results_csv": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/evaluation/embedding_benchmark_query_results.csv"
+  },
+  "status": "benchmark_complete"
+}

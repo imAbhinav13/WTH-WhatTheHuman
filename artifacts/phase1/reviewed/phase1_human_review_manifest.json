@@ -1,0 +1,647 @@
+{
+  "allow_incomplete": false,
+  "errors": [],
+  "exit_gate": {
+    "approved_count_range": [
+      250,
+      350
+    ],
+    "domain_targets": {
+      "advaita": {
+        "maximum": 120,
+        "minimum": 80
+      },
+      "samkhya": {
+        "maximum": 120,
+        "minimum": 80
+      },
+      "science": {
+        "maximum": 100,
+        "minimum": 70
+      }
+    },
+    "minimum_hard_negative_chunks": 30,
+    "minimum_positive_or_partial_per_concept": 20,
+    "requires_acceptable_text_and_ocr_for_approved": true,
+    "requires_all_rows_reviewed": true,
+    "requires_no_needs_source_review": true,
+    "requires_verified_citations_for_approved": true
+  },
+  "generated_at": "2026-08-08T09:25:28.488350+05:30",
+  "inputs": {
+    "review_csv": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/review/phase1_selection_review_packet.csv",
+      "sha256": "955fc94844caaae22b60760c4b5a5479b8ff5d9762602603b7cec74301926a47"
+    },
+    "selection_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/selection/phase1_selection_manifest.json",
+      "sha256": "6e80c3ca10e8405cdde57deea6f7b7392372a38626279e2319d33a0def421e5f"
+    }
+  },
+  "next_step": "Freeze build/development/held-out evaluation sets.",
+  "outputs": {
+    "gold_corpus": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_reviewed_gold_corpus.jsonl",
+      "sha256": "30c39c4ddbd18e9016d37587dc767282a085ef8c40ec43b799e9b414ff32f888"
+    },
+    "report": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_human_review_report.html",
+      "sha256": "e33e18ef7d73de786d1e834ee956757fc851a26adc958ebcbcec39dbd5570c09"
+    }
+  },
+  "status": "phase1_human_review_complete",
+  "strict_gate_passed": true,
+  "summary": {
+    "approved_rows": 318,
+    "by_domain": {
+      "advaita": 120,
+      "samkhya": 108,
+      "science": 90
+    },
+    "by_label": {
+      "consciousness": {
+        "negative": 107,
+        "partial": 111,
+        "positive": 100
+      },
+      "reality_appearance": {
+        "negative": 72,
+        "partial": 62,
+        "positive": 184
+      },
+      "self_identity": {
+        "negative": 82,
+        "partial": 44,
+        "positive": 192
+      }
+    },
+    "by_primary_concept": {
+      "consciousness": 57,
+      "reality_appearance": 132,
+      "self_identity": 129
+    },
+    "by_source": {
+      "advaita_paramananda_1917_vedanta_in_practice": 13,
+      "advaita_paramananda_1919_upanishads": 18,
+      "advaita_sankara_johnston_1946_crest_jewel": 29,
+      "advaita_sankara_thibaut_1890_vedanta_sutras": 60,
+      "samkhya_dasgupta_1922_history_volume1_samkhya": 74,
+      "samkhya_vachaspati_jha_1896_tattva_kaumudi": 34,
+      "science_herzog_kammer_scharnowski_2016_time_slices": 15,
+      "science_ionta_gassert_blanke_2011_bodily_self_consciousness": 18,
+      "science_limanowski_blankenburg_2013_minimal_self_models": 34,
+      "science_petkova_ehrsson_2008_body_swapping": 23
+    },
+    "edited_rows": 25,
+    "excluded_rows": 106,
+    "hard_negative_categories": {
+      "advaita_atman_vs_samkhya_purusha": 23,
+      "consciousness_vs_cognition": 24,
+      "reality_appearance_vs_cosmology": 29,
+      "reality_appearance_vs_perceptual_description": 3
+    },
+    "hard_negative_rows": 79,
+    "multi_concept_rows": 251,
+    "needs_source_review_rows": 0,
+    "reviewed_rows": 424,
+    "total_rows": 424
+  },
+  "validator_version": "1.0.0",
+  "warnings": [
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:82fdb81175c1711ebe5130b8",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:2b275b92d8f82ec8f3720fc6",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:b9c243ded48ba0cdbf933e9a",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_paramananda_1919_upanishads:chunk:5f3aa5a830d73f220d778825",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:e3ae7a6c53340536d5cc0c17",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:572ca493e675f791a9882c77",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:36755fbb001128f21c896b9f",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_paramananda_1919_upanishads:chunk:6802566abb63a006812e68f0",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:cac7304baf818e2f18661dbc",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7dce5b082cfafa6c722d6ec6",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:42e754784dd77e8a3fa4cbe1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:d28a64edd81c1f78e293de06",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:150e2a351041d55ab5cac681",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:c5b81dfec57fc04a8bcaa203",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_paramananda_1919_upanishads:chunk:17bbe904212e09cf7bf9a98f",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:6fc138610273b6ddea3bd51c",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:d7facc39cd7992d852ab3726",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:51cd238dfc59eb438d3e0a0c",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:4eda65520b13c9b7103340c4",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:95c48df9485c51422ceff925",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:d25fee943b8100aef4b509b2",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:4cd0cbe50f4a11f761d06fd1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:7928374a9658bd560af3d38d",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:68427b338412c91ab053250d",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:adf3d8a768da5525138f1483",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:5d648b8f556b65c1d3f444e5",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:c23cae6a9771a6badb68c586",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:bf11ceca90b445d94555a559",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:bd4924af1362a804a1edd691",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_paramananda_1919_upanishads:chunk:726b670a52f26814e6cf60df",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:911cd40b7dab7f48f1447cb1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:ece88cf07eb61301c21580f4",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:b36142a1ef1fb7153e86ffb3",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:4577a44c63ec78475137bdce",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:2737e5270080318682601b1b",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:e82cd48be84d015dd0a5b17b",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d87aae5f6911b9904d0e5",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:72554ae8488ae9ba1abd0ea1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:2ddc77fe06202219c8819ad6",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:bedf232f2eeaea2c62502d68",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3c58e50ac2656dcbebfe841a",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8673ae9726f6683022d00a7d",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:dba484fbdc107b1622b21c54",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:657410f0882a927e208464c6",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:c40e9a90067030bca628e517",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7c265435c1b98675f3a4369b",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:a5a3f0d3a56c10952e4e0611",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:d3faad68e035fb4b36eb695c",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6a4b45a149b5ffee9f2a783b",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:e863d435244fb20efb971080",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:94fb237a29562fcac85b76e1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:1928b22172dc6da6803bbece",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c2bd50e7ea890fc0f3df01e8",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6abe112748560887849a969d",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:cc35ce1959ad14eaca0ac9a0",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:593b9ec3c97218c9de7a8518",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:169c5648978686b9fba3488b",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:a5dd45e9b47e96b54bfd4bde",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:d1efb8fee92024f5bbac74a1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:05f5064c236ce44053bc084d",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:ec66c71ded12ed3572de77e1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:101a8e9bf6339669ad830899",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edc4cfcacccde08fe1460b28",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:ad1660a60331e649a0b55f14",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:ff20aca8af01a64a634c9b57",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:5ded263c686bbbbaba320fe8",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_paramananda_1919_upanishads:chunk:41561fcb2a8e563173c08d83",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:eead0a42b4dcf9f0bd39cebc",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:4aa20601e4646c5423b7827c",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:e0111d415af88169d244e721",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:37f4748feea56b8c816f31c9",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:b22760ad9fd1f2321b503e5f",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:147db93cc56429f474becf36",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:9056509d45f3ba5bc94548d1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3c4c27673dbd3a5ebbf3b9df",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:9bc8ec352a3f5f444ed8a714",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:a2adf30e125088391c29de9d",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c1c66163ec125afab6dcf48a",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:6511b77dbff903f1e31fe76f",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:4347c4c1d59fc7445af09965",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:73e7f080882c9a9871f6b999",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:d7e0ca478ae5e28b11894778",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:c7fa00f2d3e163a69c0349ac",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:bd66ebd5505126d68212642f",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:2be51818cd7e7517514cf3d2",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8e70bba64ee7ed326c0194ac",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:224a26bbe385681bdd7903f7",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:a2ef24d2d4e467cf8f648756",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:007e1fae3c6bb692c5541776",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:2e4c3bf0a7da474b194657f1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:6055698eeca011260888ca76",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:70120a61a2510153677e7aac",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bdbcca42a9ec3c6876512e0",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:c1126b6dd09ccd6ff33b9566",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:2912f9d02606ec72ac1453fb",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:70d6ad0d958e2502abbae129",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:43abd678e79de2cdcb795924",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:bf65ff5e1ac8244e0eb356cb",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4c547178fd61f46bd6e32c2a",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:66653b912667795e48d492c1",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:881e92baf9578d1f180fc874",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:d89a7564f3db92f3af60ca4f",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:d07c8349fbfa246fcea619a4",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:3fa1098c9e68ff6bfe8036ea",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:a10bbc5b54623a039011d030",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:50d06c77d0fb1b45ed3f876d",
+      "field": "citation_verified",
+      "message": "Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes."
+    },
+    {
+      "chunk_id": "",
+      "field": "source:samkhya_dasgupta_1922_history_volume1_samkhya",
+      "message": "samkhya_dasgupta_1922_history_volume1_samkhya contributes 74/108 (68.5%) approved samkhya chunks. Review source concentration."
+    }
+  ]
+}

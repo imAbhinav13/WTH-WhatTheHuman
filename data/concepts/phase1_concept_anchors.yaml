@@ -1,0 +1,443 @@
+# WTH Phase 1 concept-anchor definitions
+#
+# These anchors support comparative concept mapping across Science,
+# Advaita Vedanta, and Samkhya without treating their claims as equivalent.
+#
+# Required approval step:
+# 1. Review each definition and domain terminology.
+# 2. Replace reviewed_by: pending_human_review.
+# 3. Update reviewed_at.
+# 4. Change anchor_version from phase1-anchor-v1-draft
+#    to phase1-anchor-v1.
+# 5. Generate the 768-dimensional anchor embeddings.
+
+- concept_id: "10000000-0000-4000-8000-000000000002"
+  concept_slug: "consciousness"
+
+  canonical_definition: >-
+    Consciousness concerns the presence, structure, or nature of subjective
+    experience and awareness. It includes questions about what it is like to
+    experience, the conditions under which experience occurs, and the relation
+    between awareness and mental, bodily, or metaphysical processes. The term
+    must be interpreted within each domain's own framework rather than as a
+    single theory shared by Science, Advaita Vedanta, and Samkhya.
+
+  positive_indicators:
+    - "subjective experience or phenomenal experience"
+    - "awareness, witnessing, or the presence of experience"
+    - "the distinction between conscious and unconscious processing"
+    - "the conditions, correlates, contents, or structure of conscious experience"
+    - "first-person experience and what-it-is-like character"
+    - "self-luminous awareness or consciousness as witness"
+    - "Purusha as the sentient or witnessing principle"
+    - "the relation between awareness and mind, body, buddhi, or cognition"
+    - "neural, cognitive, or philosophical theories of consciousness"
+    - "alterations, illusions, or boundaries of conscious experience"
+
+  domain_terminology:
+    science:
+      - "phenomenal consciousness"
+      - "subjective experience"
+      - "conscious awareness"
+      - "access consciousness"
+      - "neural correlates of consciousness"
+      - "contents of consciousness"
+      - "level of consciousness"
+      - "reportable experience"
+      - "metacognitive awareness"
+      - "bodily self-consciousness"
+      - "conscious perception"
+      - "unconscious processing"
+
+    advaita:
+      - "cit"
+      - "chaitanya"
+      - "pure consciousness"
+      - "self-luminous awareness"
+      - "sakshin"
+      - "witness consciousness"
+      - "drik"
+      - "Atman as awareness"
+      - "Brahman as consciousness"
+      - "awareness distinct from mental modifications"
+      - "consciousness underlying waking, dream, and deep sleep"
+
+    samkhya:
+      - "Purusha"
+      - "drashta"
+      - "seer"
+      - "witness"
+      - "sentient principle"
+      - "conscious principle"
+      - "caitanya"
+      - "non-agent awareness"
+      - "buddhi reflecting consciousness"
+      - "distinction between Purusha and Prakriti"
+      - "experience arising through proximity of Purusha and Prakriti"
+
+  related_non_equivalent_terms:
+    - "attention"
+    - "wakefulness"
+    - "intelligence"
+    - "cognition"
+    - "memory"
+    - "perception"
+    - "mind"
+    - "self"
+    - "sentience"
+    - "reportability"
+    - "knowledge"
+    - "soul"
+    - "Brahman"
+    - "Purusha"
+    - "buddhi"
+
+  explicit_exclusions:
+    - "attention discussed without any connection to conscious experience"
+    - "wakefulness or arousal treated only as a physiological state"
+    - "intelligence, reasoning, or problem solving without subjective awareness"
+    - "unconscious information processing with no relevance to consciousness"
+    - "the word awareness used merely to mean possession of information"
+    - "mind discussed only as cognition, memory, or emotion"
+    - "religious references to soul that do not address awareness or experience"
+    - "incidental use of consciousness without a substantive claim or definition"
+    - "claims that Science, Advaita, and Samkhya offer the same account"
+    - "passages whose primary topic is personal identity rather than awareness"
+
+  common_confusions:
+    - "equating consciousness with attention"
+    - "equating consciousness with intelligence"
+    - "equating consciousness with verbal report"
+    - "equating Advaita witness consciousness with a scientific observer model"
+    - "equating Samkhya Purusha with the Advaita Atman or Brahman"
+    - "treating buddhi or mind as conscious in exactly the same sense as Purusha"
+    - "treating neural correlation as a complete metaphysical explanation"
+    - "using awareness, self, and consciousness as interchangeable labels"
+
+  anchor_text: >-
+    Retrieve passages centrally concerned with consciousness as subjective
+    experience, awareness, witnessing, or the presence and structure of
+    experience. Relevant scientific passages may discuss phenomenal
+    consciousness, conscious perception, neural or cognitive correlates,
+    levels and contents of consciousness, bodily self-consciousness, or the
+    distinction between conscious and unconscious processing. Scientific
+    relevance does not require commitment to a particular metaphysical theory.
+
+    Relevant Advaita Vedanta passages may discuss cit or chaitanya,
+    self-luminous awareness, the sakshin or witness, Atman as consciousness,
+    Brahman as consciousness, or awareness as distinct from body, senses,
+    mind, ego, and mental modifications. They may also address awareness
+    across waking, dream, and deep sleep. These claims must remain identified
+    as Advaita claims and must not be rewritten as scientific findings.
+
+    Relevant Samkhya passages may discuss Purusha as the seer, witness,
+    sentient principle, or non-agent consciousness; the distinction between
+    conscious Purusha and unconscious Prakriti; or the way buddhi appears
+    conscious through its relation to Purusha. Samkhya terminology must not be
+    collapsed into Advaita terminology.
+
+    Exclude passages about attention, cognition, intelligence, wakefulness,
+    mind, soul, or knowledge when they do not substantively address subjective
+    experience or awareness. Prefer passages in which consciousness is a
+    central explanatory, experiential, or metaphysical subject rather than an
+    incidental word.
+
+  anchor_version: "phase1-anchor-v1"
+  reviewed_by: "Abhinav"
+  reviewed_at: "2026-08-03T23:23:26+05:30"
+
+
+- concept_id: "10000000-0000-4000-8000-000000000001"
+  concept_slug: "self_identity"
+
+  canonical_definition: >-
+    Self and identity concern what constitutes a subject or person, how the
+    sense of being a self is formed, and what persists or is mistaken for the
+    self. The concept includes bodily, experiential, psychological, narrative,
+    and metaphysical accounts of selfhood. It also includes distinctions
+    between ego, individual identity, witnessing subject, and ultimate or
+    irreducible self, interpreted according to each domain's own framework.
+
+  positive_indicators:
+    - "personal identity or persistence of the person"
+    - "minimal, embodied, narrative, or autobiographical self"
+    - "self-models and the construction of self-representation"
+    - "body ownership, agency, self-location, or first-person perspective"
+    - "ego, I-making, or identification with body and mind"
+    - "Atman, jiva, ahamkara, or the witness as accounts of selfhood"
+    - "Purusha, ahamkara, buddhi, and mistaken identification"
+    - "the distinction between true self and apparent or empirical identity"
+    - "the relation between selfhood, memory, embodiment, and experience"
+    - "loss, alteration, illusion, or dissolution of the sense of self"
+
+  domain_terminology:
+    science:
+      - "minimal self"
+      - "bodily self"
+      - "narrative self"
+      - "autobiographical self"
+      - "self-model"
+      - "self-representation"
+      - "body ownership"
+      - "sense of agency"
+      - "self-location"
+      - "first-person perspective"
+      - "personal identity"
+      - "self-recognition"
+      - "self-referential processing"
+      - "continuity of identity"
+
+    advaita:
+      - "Atman"
+      - "Self"
+      - "jiva"
+      - "ahamkara"
+      - "ego"
+      - "sakshin"
+      - "witness"
+      - "dehatma-buddhi"
+      - "identification with body and mind"
+      - "neti neti"
+      - "identity of Atman and Brahman"
+      - "empirical self"
+      - "apparent individuality"
+      - "true Self"
+
+    samkhya:
+      - "Purusha"
+      - "plurality of purushas"
+      - "ahamkara"
+      - "I-maker"
+      - "buddhi"
+      - "individuality"
+      - "subtle body"
+      - "misidentification of Purusha with Prakriti"
+      - "seer distinguished from the seen"
+      - "experience attributed to the conjunction of Purusha and Prakriti"
+      - "discriminative knowledge"
+      - "isolation of Purusha"
+
+  related_non_equivalent_terms:
+    - "consciousness"
+    - "personality"
+    - "ego"
+    - "memory"
+    - "body"
+    - "agency"
+    - "ownership"
+    - "subjectivity"
+    - "individuality"
+    - "Atman"
+    - "jiva"
+    - "Purusha"
+    - "ahamkara"
+    - "buddhi"
+    - "soul"
+
+  explicit_exclusions:
+    - "identity used only for names, identifiers, demographics, or database records"
+    - "group, cultural, national, or organizational identity without selfhood"
+    - "personality traits discussed without a claim about the self"
+    - "body perception with no connection to ownership, agency, or self-location"
+    - "memory discussed without relevance to persistence or personal identity"
+    - "agency discussed only as causal control rather than the sense of self"
+    - "Atman or Purusha mentioned without any substantive account of selfhood"
+    - "incidental first-person language such as I, me, or mine"
+    - "claims that Atman and Purusha are doctrinally identical"
+    - "passages primarily about consciousness with no account of self or identity"
+
+  common_confusions:
+    - "equating the empirical ego with the Advaita Atman"
+    - "equating the Samkhya ahamkara with Purusha"
+    - "equating the scientific self-model with a metaphysical Self"
+    - "assuming that body ownership proves a permanent personal identity"
+    - "treating self, consciousness, person, ego, and soul as synonyms"
+    - "equating Advaita's nondual Self with Samkhya's plurality of purushas"
+    - "confusing loss of a self-representation with absence of consciousness"
+    - "treating narrative identity as the only form of selfhood"
+
+  anchor_text: >-
+    Retrieve passages centrally concerned with the self, subject, ego, or
+    personal identity. Relevant scientific passages may discuss the minimal
+    self, bodily self, self-models, narrative or autobiographical identity,
+    self-referential processing, body ownership, agency, self-location,
+    first-person perspective, or the continuity and alteration of personal
+    identity. Scientific passages may treat selfhood as constructed,
+    represented, embodied, distributed, or dependent on cognitive processes.
+
+    Relevant Advaita Vedanta passages may distinguish Atman from body, senses,
+    mind, intellect, ego, and empirical individuality; discuss ahamkara or the
+    jiva; use neti neti or discrimination to deny mistaken identifications; or
+    assert the identity of Atman and Brahman. The empirical individual and the
+    ultimate Self must remain distinguished where the source distinguishes
+    them.
+
+    Relevant Samkhya passages may distinguish Purusha from Prakriti and its
+    evolutes, discuss ahamkara as the I-maker, explain how buddhi and the subtle
+    body support individuality, affirm a plurality of purushas, or describe
+    bondage as misidentification of the seer with the seen. Samkhya Purusha
+    must not be represented as identical to the Advaita Atman or Brahman.
+
+    Exclude administrative identity, group identity, personality description,
+    incidental first-person pronouns, and discussions of consciousness that
+    do not address selfhood. Prefer passages that define, explain, question,
+    alter, deny, or distinguish a form of self or identity.
+
+  anchor_version: "phase1-anchor-v1"
+  reviewed_by: "Abhinav"
+  reviewed_at: "2026-08-03T23:23:26+05:30"
+
+
+- concept_id: "10000000-0000-4000-8000-000000000003"
+  concept_slug: "reality_appearance"
+
+  canonical_definition: >-
+    Reality and appearance concern the relation between what is experienced or
+    represented and what is held to exist or be real. The concept includes
+    perception, illusion, hallucination, representation, manifestation, and
+    distinctions among levels or modes of reality. It also includes accounts
+    of error and misapprehension. Each domain's account must remain distinct:
+    scientific perceptual construction, Advaita distinctions involving Maya
+    and levels of reality, and Samkhya's account of real Prakriti and its
+    manifestations are not interchangeable.
+
+  positive_indicators:
+    - "the distinction between physical stimulus and experienced percept"
+    - "illusion, hallucination, perceptual error, or misperception"
+    - "perceptual construction, inference, representation, or world-model"
+    - "the relation between appearance and mind-independent reality"
+    - "Maya, avidya, adhyasa, mithya, or nama-rupa"
+    - "empirical, apparent, and ultimate levels of reality"
+    - "rope-snake or other examples of superimposition"
+    - "manifest and unmanifest Prakriti"
+    - "the evolution of appearances or experienced objects from Prakriti"
+    - "misidentification of Purusha with the products of Prakriti"
+    - "how cognition presents objects or properties"
+    - "whether the experienced world is constructed, dependent, real, or apparent"
+
+  domain_terminology:
+    science:
+      - "perception"
+      - "perceptual representation"
+      - "illusion"
+      - "hallucination"
+      - "predictive processing"
+      - "perceptual inference"
+      - "world-model"
+      - "sensory construction"
+      - "stimulus-percept distinction"
+      - "multisensory integration"
+      - "phenomenal appearance"
+      - "perceptual constancy"
+      - "body illusion"
+      - "experienced reality"
+
+    advaita:
+      - "Maya"
+      - "avidya"
+      - "adhyasa"
+      - "superimposition"
+      - "mithya"
+      - "nama-rupa"
+      - "appearance"
+      - "vyavaharika reality"
+      - "paramarthika reality"
+      - "pratibhasika reality"
+      - "rope-snake analogy"
+      - "Brahman as reality"
+      - "the world as dependent appearance"
+      - "sublation"
+
+    samkhya:
+      - "Prakriti"
+      - "avyakta"
+      - "unmanifest"
+      - "vyakta"
+      - "manifest"
+      - "gunas"
+      - "evolutes of Prakriti"
+      - "mahat"
+      - "buddhi"
+      - "ahamkara"
+      - "tanmatras"
+      - "indriyas"
+      - "satkaryavada"
+      - "transformation"
+      - "seer and seen"
+      - "misidentification of Purusha and Prakriti"
+
+  related_non_equivalent_terms:
+    - "perception"
+    - "representation"
+    - "experience"
+    - "illusion"
+    - "hallucination"
+    - "error"
+    - "Maya"
+    - "avidya"
+    - "mithya"
+    - "Prakriti"
+    - "manifestation"
+    - "world"
+    - "existence"
+    - "truth"
+    - "consciousness"
+
+  explicit_exclusions:
+    - "appearance used only to describe visual style or physical attractiveness"
+    - "reality used rhetorically without a claim about existence or perception"
+    - "scientific measurement error unrelated to perceptual experience"
+    - "fiction, simulation, or virtual reality discussed only as technology"
+    - "Maya used as a name, title, or cultural reference"
+    - "Prakriti mentioned without manifestation, cognition, or the seen world"
+    - "claims that Samkhya regards the world as unreal in the Advaita sense"
+    - "claims that perceptual construction proves metaphysical idealism or nonduality"
+    - "incidental references to illusion without explanatory relevance"
+    - "passages solely about consciousness or selfhood without appearance-reality relations"
+
+  common_confusions:
+    - "equating perceptual construction with metaphysical unreality"
+    - "equating scientific illusion research with Advaita Maya"
+    - "equating Advaita Maya with simple sensory error"
+    - "treating mithya as identical to absolute nonexistence"
+    - "treating Samkhya Prakriti and its evolutes as unreal"
+    - "equating misidentification of Purusha with Advaita superimposition"
+    - "assuming that all three domains distinguish reality and appearance in the same way"
+    - "confusing a representation with a deliberate fabrication"
+    - "using hallucination, illusion, and misperception as interchangeable technical terms"
+
+  anchor_text: >-
+    Retrieve passages centrally concerned with the relation between reality
+    and appearance, including how experience, perception, cognition, or
+    metaphysical conditions present a world that may differ from what is
+    ultimately or independently real.
+
+    Relevant scientific passages may discuss perception as construction or
+    inference, sensory and multisensory integration, perceptual representation,
+    predictive processing, illusions, hallucinations, body illusions,
+    phenomenal appearance, or differences between physical stimuli and
+    conscious percepts. Such passages do not by themselves establish that the
+    external world is unreal or that a metaphysical doctrine is scientifically
+    confirmed.
+
+    Relevant Advaita Vedanta passages may discuss Maya, avidya, adhyasa,
+    superimposition, nama-rupa, mithya, the distinction among pratibhasika,
+    vyavaharika, and paramarthika reality, the rope-snake illustration, or the
+    dependence and sublation of appearances in relation to Brahman. Mithya must
+    not automatically be translated as absolute nonexistence.
+
+    Relevant Samkhya passages may discuss Prakriti as the real but unconscious
+    source of manifestation, the unmanifest and manifest, the gunas, the
+    evolutes from mahat and ahamkara through the senses and elements,
+    satkaryavada, cognition through buddhi and the senses, or mistaken
+    identification of Purusha with the seen. Samkhya must not be described as
+    holding that the world is unreal in the Advaita sense.
+
+    Exclude superficial uses of reality, appearance, illusion, Maya, or
+    Prakriti. Prefer passages that explain perception, manifestation,
+    misapprehension, ontological dependence, levels of reality, or the
+    distinction between the seer and what appears.
+
+  anchor_version: "phase1-anchor-v1"
+  reviewed_by: "Abhinav"
+  reviewed_at: "2026-08-03T23:23:26+05:30"

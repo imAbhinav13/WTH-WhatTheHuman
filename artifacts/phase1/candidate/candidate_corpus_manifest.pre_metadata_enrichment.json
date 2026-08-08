@@ -1,0 +1,78 @@
+{
+  "manifest_version": "1.0",
+  "corpus_version": "phase1_candidate_corpus_v1",
+  "created_at": "2026-08-05T14:53:36.076323+00:00",
+  "lifecycle": {
+    "corpus_classification": "candidate_corpus",
+    "review_status": "not_reviewed",
+    "phase1_activation_status": "not_active",
+    "production_retrieval_status": "not_eligible",
+    "evaluation_gold_status": "not_gold_labeled",
+    "direct_activation_eligible": false,
+    "database_activation_permitted": false
+  },
+  "expected_chunk_count": 7469,
+  "verified_chunk_count": 7469,
+  "frozen_and_working_copies_match": true,
+  "frozen_snapshot_root": "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\artifacts\\archive\\phase1_candidate_corpus_v1",
+  "frozen_chunks_root": "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\artifacts\\archive\\phase1_candidate_corpus_v1\\artifacts\\phase1\\chunks",
+  "working_chunks_root": "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\artifacts\\phase1\\chunks",
+  "freeze_manifest_path": "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\artifacts\\archive\\phase1_candidate_corpus_v1\\freeze_manifest.json",
+  "freeze_manifest_sha256": "eea8359d45e4f0a16993cf69211d860d8b650c32b6ec761c60faf12a307e8ac2",
+  "inventory": {
+    "root": "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\artifacts\\archive\\phase1_candidate_corpus_v1\\artifacts\\phase1\\chunks",
+    "artifact_file_count": 12,
+    "chunk_count": 7469,
+    "source_count": 12,
+    "total_token_count": 1589574,
+    "counts_by_domain": {
+      "advaita": 1657,
+      "samkhya": 5714,
+      "science": 98
+    },
+    "counts_by_source": {
+      "advaita_paramananda_1917_vedanta_in_practice": 91,
+      "advaita_paramananda_1919_upanishads": 193,
+      "advaita_sankara_johnston_1946_crest_jewel": 255,
+      "advaita_sankara_thibaut_1890_vedanta_sutras": 1118,
+      "samkhya_dasgupta_1922_history_volume1_samkhya": 1193,
+      "samkhya_isvarakrishna_davies_1881_karika": 416,
+      "samkhya_sinha_1915_samkhya_philosophy": 3574,
+      "samkhya_vachaspati_jha_1896_tattva_kaumudi": 531,
+      "science_herzog_kammer_scharnowski_2016_time_slices": 15,
+      "science_ionta_gassert_blanke_2011_bodily_self_consciousness": 19,
+      "science_limanowski_blankenburg_2013_minimal_self_models": 34,
+      "science_petkova_ehrsson_2008_body_swapping": 30
+    }
+  },
+  "intended_uses": [
+    "Source-section scope analysis for the three-concept Phase 1 vertical slice.",
+    "Rule-based selection of consciousness, self_identity, and reality_appearance candidate passages.",
+    "Selection of adjacent-concept hard negatives.",
+    "Future expansion to the remaining five canonical concept families.",
+    "Reproducible parser, chunker, and corpus quality analysis."
+  ],
+  "prohibited_uses": [
+    "Direct activation into the Phase 1 production retrieval corpus.",
+    "Bulk approval without passage-level human review.",
+    "Use as the held-out gold evaluation dataset.",
+    "Use for final claim-cited generation before Phase 1 relevance review.",
+    "Automatic selection based solely on the embedding or anchor model being evaluated."
+  ],
+  "activation_block_reasons": [
+    "The corpus contains broad source-derived material outside consciousness, self_identity, and reality_appearance.",
+    "The corpus has not received passage-level human review.",
+    "The corpus is materially imbalanced across Science, Advaita Vedanta, and Samkhya.",
+    "Concept relevance and hard-negative labels have not been frozen.",
+    "Development and held-out evaluation splits have not been created."
+  ],
+  "next_required_steps": [
+    "Create the source-structure report.",
+    "Create and approve source-section scope metadata.",
+    "Run independent rule-based Phase 1 candidate selection.",
+    "Perform human review and produce a balanced 250-350 chunk vertical slice.",
+    "Freeze build, development, and held-out evaluation sets.",
+    "Generate approved-corpus embeddings and concept weights.",
+    "Activate only the reviewed Phase 1 slice."
+  ]
+}

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WTH Phase 1 Human Review Validation</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 32px;
+  color: #1f2937;
+}
+h1, h2 { color: #111827; }
+.status {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  background: #dcfce7;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+.card {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px 16px;
+  min-width: 150px;
+}
+.card .value {
+  font-size: 24px;
+  font-weight: 700;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 28px;
+}
+th, td {
+  border: 1px solid #d1d5db;
+  padding: 8px;
+  vertical-align: top;
+  text-align: left;
+}
+th { background: #f3f4f6; }
+.error { color: #b91c1c; }
+.warning { color: #92400e; }
+small { color: #6b7280; }
+</style>
+</head>
+<body>
+<h1>WTH Phase 1 Human Review Validation</h1>
+<p class="status">PASS</p>
+<p><small>Review CSV: E:\ABHINAV\Coding\Projects\WTH-WhatTheHuman\artifacts\review\phase1_selection_review_packet.csv</small></p>
+
+<div class="cards">
+  <div class="card">
+    <div>Review rows</div>
+    <div class="value">424</div>
+  </div>
+  <div class="card">
+    <div>Reviewed</div>
+    <div class="value">424</div>
+  </div>
+  <div class="card">
+    <div>Approved</div>
+    <div class="value">318</div>
+  </div>
+  <div class="card">
+    <div>Excluded</div>
+    <div class="value">106</div>
+  </div>
+  <div class="card">
+    <div>Needs source review</div>
+    <div class="value">0</div>
+  </div>
+  <div class="card">
+    <div>Hard negatives</div>
+    <div class="value">79</div>
+  </div>
+  <div class="card">
+    <div>Multi-concept</div>
+    <div class="value">251</div>
+  </div>
+</div>
+
+<h2>Approved corpus by domain</h2>
+<table>
+<thead><tr><th>Domain</th><th>Approved</th><th>Target</th></tr></thead>
+<tbody><tr><td>science</td><td>90</td><td>70-100</td></tr>
+<tr><td>advaita</td><td>120</td><td>80-120</td></tr>
+<tr><td>samkhya</td><td>108</td><td>80-120</td></tr></tbody>
+</table>
+
+<h2>Concept-label coverage in approved corpus</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th><th>Positive</th><th>Partial</th>
+<th>Negative</th><th>Uncertain</th><th>Not reviewed</th>
+</tr>
+</thead>
+<tbody><tr><td>consciousness</td><td>100</td><td>111</td><td>107</td><td>0</td><td>0</td></tr>
+<tr><td>self_identity</td><td>192</td><td>44</td><td>82</td><td>0</td><td>0</td></tr>
+<tr><td>reality_appearance</td><td>184</td><td>62</td><td>72</td><td>0</td><td>0</td></tr></tbody>
+</table>
+
+<h2>Reviewed hard negatives</h2>
+<table>
+<thead><tr><th>Category</th><th>Approved chunks</th></tr></thead>
+<tbody><tr><td>advaita_atman_vs_samkhya_purusha</td><td>23</td></tr>
+<tr><td>consciousness_vs_cognition</td><td>24</td></tr>
+<tr><td>reality_appearance_vs_cosmology</td><td>29</td></tr>
+<tr><td>reality_appearance_vs_perceptual_description</td><td>3</td></tr></tbody>
+</table>
+
+<h2>Approved corpus by source</h2>
+<table>
+<thead><tr><th>Source</th><th>Approved chunks</th></tr></thead>
+<tbody><tr><td>samkhya_dasgupta_1922_history_volume1_samkhya</td><td>74</td></tr>
+<tr><td>advaita_sankara_thibaut_1890_vedanta_sutras</td><td>60</td></tr>
+<tr><td>samkhya_vachaspati_jha_1896_tattva_kaumudi</td><td>34</td></tr>
+<tr><td>science_limanowski_blankenburg_2013_minimal_self_models</td><td>34</td></tr>
+<tr><td>advaita_sankara_johnston_1946_crest_jewel</td><td>29</td></tr>
+<tr><td>science_petkova_ehrsson_2008_body_swapping</td><td>23</td></tr>
+<tr><td>advaita_paramananda_1919_upanishads</td><td>18</td></tr>
+<tr><td>science_ionta_gassert_blanke_2011_bodily_self_consciousness</td><td>18</td></tr>
+<tr><td>science_herzog_kammer_scharnowski_2016_time_slices</td><td>15</td></tr>
+<tr><td>advaita_paramananda_1917_vedanta_in_practice</td><td>13</td></tr></tbody>
+</table>
+
+<h2>Validation issues</h2>
+<table>
+<thead><tr><th>Severity</th><th>Chunk</th><th>Field</th><th>Message</th></tr></thead>
+<tbody><tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:82fdb81175c1711ebe5130b8</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:2b275b92d8f82ec8f3720fc6</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:b9c243ded48ba0cdbf933e9a</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_paramananda_1919_upanishads:chunk:5f3aa5a830d73f220d778825</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:e3ae7a6c53340536d5cc0c17</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:572ca493e675f791a9882c77</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:36755fbb001128f21c896b9f</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_paramananda_1919_upanishads:chunk:6802566abb63a006812e68f0</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:cac7304baf818e2f18661dbc</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7dce5b082cfafa6c722d6ec6</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:42e754784dd77e8a3fa4cbe1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:d28a64edd81c1f78e293de06</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:150e2a351041d55ab5cac681</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:c5b81dfec57fc04a8bcaa203</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_paramananda_1919_upanishads:chunk:17bbe904212e09cf7bf9a98f</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:6fc138610273b6ddea3bd51c</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>science_petkova_ehrsson_2008_body_swapping:chunk:d7facc39cd7992d852ab3726</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:51cd238dfc59eb438d3e0a0c</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:4eda65520b13c9b7103340c4</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:95c48df9485c51422ceff925</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>science_petkova_ehrsson_2008_body_swapping:chunk:d25fee943b8100aef4b509b2</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:4cd0cbe50f4a11f761d06fd1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:7928374a9658bd560af3d38d</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>science_petkova_ehrsson_2008_body_swapping:chunk:68427b338412c91ab053250d</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>science_petkova_ehrsson_2008_body_swapping:chunk:adf3d8a768da5525138f1483</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:5d648b8f556b65c1d3f444e5</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:c23cae6a9771a6badb68c586</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:bf11ceca90b445d94555a559</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:bd4924af1362a804a1edd691</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_paramananda_1919_upanishads:chunk:726b670a52f26814e6cf60df</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:911cd40b7dab7f48f1447cb1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:ece88cf07eb61301c21580f4</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:b36142a1ef1fb7153e86ffb3</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:4577a44c63ec78475137bdce</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:2737e5270080318682601b1b</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:e82cd48be84d015dd0a5b17b</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d87aae5f6911b9904d0e5</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:72554ae8488ae9ba1abd0ea1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:2ddc77fe06202219c8819ad6</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:bedf232f2eeaea2c62502d68</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3c58e50ac2656dcbebfe841a</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8673ae9726f6683022d00a7d</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:dba484fbdc107b1622b21c54</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:657410f0882a927e208464c6</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:c40e9a90067030bca628e517</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7c265435c1b98675f3a4369b</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:a5a3f0d3a56c10952e4e0611</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:d3faad68e035fb4b36eb695c</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6a4b45a149b5ffee9f2a783b</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:e863d435244fb20efb971080</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:94fb237a29562fcac85b76e1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:1928b22172dc6da6803bbece</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c2bd50e7ea890fc0f3df01e8</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6abe112748560887849a969d</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:cc35ce1959ad14eaca0ac9a0</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:593b9ec3c97218c9de7a8518</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:169c5648978686b9fba3488b</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:a5dd45e9b47e96b54bfd4bde</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:d1efb8fee92024f5bbac74a1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:05f5064c236ce44053bc084d</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:ec66c71ded12ed3572de77e1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:101a8e9bf6339669ad830899</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edc4cfcacccde08fe1460b28</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:ad1660a60331e649a0b55f14</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:ff20aca8af01a64a634c9b57</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:5ded263c686bbbbaba320fe8</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_paramananda_1919_upanishads:chunk:41561fcb2a8e563173c08d83</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:eead0a42b4dcf9f0bd39cebc</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:4aa20601e4646c5423b7827c</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:e0111d415af88169d244e721</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:37f4748feea56b8c816f31c9</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:b22760ad9fd1f2321b503e5f</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:147db93cc56429f474becf36</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:9056509d45f3ba5bc94548d1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3c4c27673dbd3a5ebbf3b9df</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:9bc8ec352a3f5f444ed8a714</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:a2adf30e125088391c29de9d</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c1c66163ec125afab6dcf48a</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:6511b77dbff903f1e31fe76f</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:4347c4c1d59fc7445af09965</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:73e7f080882c9a9871f6b999</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>science_petkova_ehrsson_2008_body_swapping:chunk:d7e0ca478ae5e28b11894778</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>science_petkova_ehrsson_2008_body_swapping:chunk:c7fa00f2d3e163a69c0349ac</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>science_petkova_ehrsson_2008_body_swapping:chunk:bd66ebd5505126d68212642f</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:2be51818cd7e7517514cf3d2</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:8e70bba64ee7ed326c0194ac</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:224a26bbe385681bdd7903f7</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:a2ef24d2d4e467cf8f648756</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:007e1fae3c6bb692c5541776</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:2e4c3bf0a7da474b194657f1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:6055698eeca011260888ca76</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:70120a61a2510153677e7aac</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bdbcca42a9ec3c6876512e0</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:c1126b6dd09ccd6ff33b9566</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:2912f9d02606ec72ac1453fb</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:70d6ad0d958e2502abbae129</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:43abd678e79de2cdcb795924</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:bf65ff5e1ac8244e0eb356cb</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4c547178fd61f46bd6e32c2a</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>samkhya_dasgupta_1922_history_volume1_samkhya:chunk:66653b912667795e48d492c1</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:881e92baf9578d1f180fc874</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:d89a7564f3db92f3af60ca4f</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:d07c8349fbfa246fcea619a4</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_thibaut_1890_vedanta_sutras:chunk:3fa1098c9e68ff6bfe8036ea</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:a10bbc5b54623a039011d030</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td>advaita_sankara_johnston_1946_crest_jewel:chunk:50d06c77d0fb1b45ed3f876d</td><td>citation_verified</td><td>Excluded chunk has a verified citation; this is allowed but confirm exclusion rationale in review_notes.</td></tr>
+<tr><td>warning</td><td></td><td>source:samkhya_dasgupta_1922_history_volume1_samkhya</td><td>samkhya_dasgupta_1922_history_volume1_samkhya contributes 74/108 (68.5%) approved samkhya chunks. Review source concentration.</td></tr></tbody>
+</table>
+</body>
+</html>

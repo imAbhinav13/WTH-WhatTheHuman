@@ -1,0 +1,122 @@
+[
+  {
+    "source_id": "science_limanowski_blankenburg_2013_minimal_self_models",
+    "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3770917/fullTextXML",
+    "local_path": "data\\raw\\science\\science_limanowski_blankenburg_2013_minimal_self_models.xml",
+    "media_type": "application/xml",
+    "file_size_bytes": 193279,
+    "checksum": "68d1ffd21c79f2cbe397c4f53269b6f90eb3a1fba1e163c6257884751bdfb27d",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:03.801406Z"
+  },
+  {
+    "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness",
+    "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3245631/fullTextXML",
+    "local_path": "data\\raw\\science\\science_ionta_gassert_blanke_2011_bodily_self_consciousness.xml",
+    "media_type": "application/xml",
+    "file_size_bytes": 142207,
+    "checksum": "725659b2e6597b28c256f81f90e6ccabf780e4d4366b972972ad87f054172553",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:03.803390Z"
+  },
+  {
+    "source_id": "science_petkova_ehrsson_2008_body_swapping",
+    "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC2585011/fullTextXML",
+    "local_path": "data\\raw\\science\\science_petkova_ehrsson_2008_body_swapping.xml",
+    "media_type": "application/xml",
+    "file_size_bytes": 104528,
+    "checksum": "2acdef94a1891b392c5b2c9b2729c0187904949adc87ed112391dd4a6330c599",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:03.804363Z"
+  },
+  {
+    "source_id": "science_herzog_kammer_scharnowski_2016_time_slices",
+    "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4829156/fullTextXML",
+    "local_path": "data\\raw\\science\\science_herzog_kammer_scharnowski_2016_time_slices.xml",
+    "media_type": "application/xml",
+    "file_size_bytes": 96285,
+    "checksum": "3c797078a2781d2ed513d7c64f48f7740a923318b3813be399ec71313c536e71",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:03.806364Z"
+  },
+  {
+    "source_id": "advaita_paramananda_1919_upanishads",
+    "source_url": "https://www.gutenberg.org/cache/epub/3283/pg3283-images.html",
+    "local_path": "data\\raw\\advaita\\advaita_paramananda_1919_upanishads.html",
+    "media_type": "text/html",
+    "file_size_bytes": 148815,
+    "checksum": "e278429ac66a2bc3dc286dd49ed133d2ef44c7bf1f785908b378426e3cdcd39f",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:03.807365Z"
+  },
+  {
+    "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+    "source_url": "https://www.gutenberg.org/cache/epub/16295/pg16295-images.html",
+    "local_path": "data\\raw\\advaita\\advaita_sankara_thibaut_1890_vedanta_sutras.html",
+    "media_type": "text/html",
+    "file_size_bytes": 1430382,
+    "checksum": "845569c10c3b13b853902cdc82b4ddfefec20230663e960bc2308caa153571d5",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:03.813361Z"
+  },
+  {
+    "source_id": "advaita_sankara_johnston_1946_crest_jewel",
+    "source_url": "https://archive.org/download/thecrestjewelofwisdom_201911/The%20Crest-Jewel%20of%20Wisdom_djvu.txt",
+    "local_path": "data\\raw\\advaita\\advaita_sankara_johnston_1946_crest_jewel.txt",
+    "media_type": "text/plain",
+    "file_size_bytes": 217862,
+    "checksum": "9a9a7dea71a2d2a7f281604d4d086b336f60543610016c0621d89fc39a02e502",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:03.816363Z"
+  },
+  {
+    "source_id": "advaita_paramananda_1917_vedanta_in_practice",
+    "source_url": "https://archive.org/download/in.ernet.dli.2015.149274/2015.149274.Vedanta-In-Practice-Ed-3rd_djvu.txt",
+    "local_path": "data\\raw\\advaita\\advaita_paramananda_1917_vedanta_in_practice.txt",
+    "media_type": "text/plain",
+    "file_size_bytes": 83922,
+    "checksum": "10cfb7607091d5e082bff2b7c076434ee65102176e4679095e4bcd9296eeca34",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:03.818362Z"
+  },
+  {
+    "source_id": "samkhya_isvarakrishna_davies_1881_karika",
+    "source_url": "https://archive.org/download/TheSankhyaKarikaOfIswarKrishna1881JohnDavies/The%20Sankhya%20Karika%20of%20Iswar%20Krishna%201881%20-%20John%20Davies_djvu.txt",
+    "local_path": "data\\raw\\samkhya\\samkhya_isvarakrishna_davies_1881_karika.txt",
+    "media_type": "text/plain",
+    "file_size_bytes": 330812,
+    "checksum": "0f64d4bc368feae56914703f895dfebfc6d79d52fa84590e97733319d0abc28d",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:04.679828Z"
+  },
+  {
+    "source_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi",
+    "source_url": "https://archive.org/download/in.ernet.dli.2015.21929/2015.21929.Tattva-kaumudisankhya-Of-Vachaspati-Misra_djvu.txt",
+    "local_path": "data\\raw\\samkhya\\samkhya_vachaspati_jha_1896_tattva_kaumudi.txt",
+    "media_type": "text/plain",
+    "file_size_bytes": 363303,
+    "checksum": "b9ba240686bcd198c54130040e9148d4ef12287a8f623a8843a6bb441f3da730",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:04.997147Z"
+  },
+  {
+    "source_id": "samkhya_sinha_1915_samkhya_philosophy",
+    "source_url": "https://archive.org/download/in.ernet.dli.2015.345405/2015.345405.The-Sacred_djvu.txt",
+    "local_path": "data\\raw\\samkhya\\samkhya_sinha_1915_samkhya_philosophy.txt",
+    "media_type": "text/plain",
+    "file_size_bytes": 2950610,
+    "checksum": "530c32f73e994590bc64beb63ceb3aafdcbb0a45d37a730f388d458e91b5f753",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:05.335499Z"
+  },
+  {
+    "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+    "source_url": "https://www.gutenberg.org/cache/epub/12956/pg12956-images.html",
+    "local_path": "data\\raw\\samkhya\\samkhya_dasgupta_1922_history_volume1_samkhya.html",
+    "media_type": "text/html",
+    "file_size_bytes": 1469903,
+    "checksum": "32e428ff11f493f3b40e3d67e8f68edbf67f57d0bf20eb5f3973f314413ef55b",
+    "acquisition_method": "manual_download",
+    "acquired_at": "2026-08-03T18:47:05.418500Z"
+  }
+]

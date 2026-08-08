@@ -1,0 +1,231 @@
+{
+  "counts": {
+    "actual_domain_counts": {
+      "advaita": 180,
+      "samkhya": 146,
+      "science": 98
+    },
+    "actual_hard_negative_category_counts": {
+      "advaita_atman_vs_samkhya_purusha": 25,
+      "consciousness_vs_cognition": 32,
+      "reality_appearance_vs_cosmology": 30,
+      "reality_appearance_vs_perceptual_description": 3
+    },
+    "actual_source_counts": {
+      "advaita_paramananda_1917_vedanta_in_practice": 13,
+      "advaita_paramananda_1919_upanishads": 23,
+      "advaita_sankara_johnston_1946_crest_jewel": 52,
+      "advaita_sankara_thibaut_1890_vedanta_sutras": 92,
+      "samkhya_dasgupta_1922_history_volume1_samkhya": 87,
+      "samkhya_vachaspati_jha_1896_tattva_kaumudi": 59,
+      "science_herzog_kammer_scharnowski_2016_time_slices": 15,
+      "science_ionta_gassert_blanke_2011_bodily_self_consciousness": 19,
+      "science_limanowski_blankenburg_2013_minimal_self_models": 34,
+      "science_petkova_ehrsson_2008_body_swapping": 30
+    },
+    "eligible_before_caps": 2516,
+    "evaluated_by_class": {
+      "ambiguous_review": 234,
+      "hard_negative": 401,
+      "ineligible": 4916,
+      "mixed_positive_hard_negative": 173,
+      "positive": 1745
+    },
+    "excluded_candidates": 7045,
+    "exclusion_reasons": {
+      "global_exclusion:global_front_matter": 1,
+      "lower_ranked_eligible_candidate": 59,
+      "no_phase1_lexical_evidence": 4916,
+      "selection_cap:domain": 811,
+      "selection_cap:section": 1222,
+      "severe_ocr_noise": 2665,
+      "source_textual_exclusion:dasgupta_causation": 24,
+      "source_textual_exclusion:dasgupta_cosmology": 2,
+      "source_textual_exclusion:tattva_kaumudi_cosmology_only": 8,
+      "source_textual_exclusion:tattva_kaumudi_introduction": 7,
+      "source_textual_exclusion:upanishads_contents": 1,
+      "source_textual_exclusion:vedanta_sutras_ritual": 12,
+      "structure_report_exclude_candidate": 11
+    },
+    "input_chunks": 7469,
+    "selected_by_class": {
+      "ambiguous_review": 18,
+      "mixed_positive_hard_negative": 87,
+      "positive": 319
+    },
+    "selected_by_concept": {
+      "consciousness": 307,
+      "reality_appearance": 319,
+      "self_identity": 335
+    },
+    "selected_by_domain": {
+      "advaita": 180,
+      "samkhya": 146,
+      "science": 98
+    },
+    "selected_by_source": {
+      "advaita_paramananda_1917_vedanta_in_practice": 13,
+      "advaita_paramananda_1919_upanishads": 23,
+      "advaita_sankara_johnston_1946_crest_jewel": 52,
+      "advaita_sankara_thibaut_1890_vedanta_sutras": 92,
+      "samkhya_dasgupta_1922_history_volume1_samkhya": 87,
+      "samkhya_vachaspati_jha_1896_tattva_kaumudi": 59,
+      "science_herzog_kammer_scharnowski_2016_time_slices": 15,
+      "science_ionta_gassert_blanke_2011_bodily_self_consciousness": 19,
+      "science_limanowski_blankenburg_2013_minimal_self_models": 34,
+      "science_petkova_ehrsson_2008_body_swapping": 30
+    },
+    "selected_candidates": 424,
+    "selected_hard_negative_categories": {
+      "advaita_atman_vs_samkhya_purusha": 25,
+      "consciousness_vs_cognition": 32,
+      "reality_appearance_vs_cosmology": 30,
+      "reality_appearance_vs_perceptual_description": 3
+    },
+    "selected_hard_negative_chunks": 87
+  },
+  "embedding_independent": true,
+  "generated_at": "2026-08-06T17:38:26.902580+00:00",
+  "inputs": {
+    "candidate_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/candidate/candidate_corpus_manifest.json",
+      "sha256": "c21c5d6baeebf1edea279d67d286dc3635279c8907e97e45c18e8f075a9126e3"
+    },
+    "chunks_root": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/chunks",
+    "project_root": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman",
+    "scope_file": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/docs/corpus/phase1_section_scope.yaml",
+      "sha256": "f6cdc1bca2b25065f7f26e8040c75f25391a7d8dccdc510d6488d5bc099700d0"
+    },
+    "structure_report": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/scope/source_structure_report.csv",
+      "sha256": "60233be64588d6a360301a1009d7f2f8ec15a12a682c38079e80ffc40d059447"
+    }
+  },
+  "method": "deterministic_structural_lexical_selection",
+  "next_step": "Generate and human-review the Phase 1 selection review packet. These records are not approved for embedding, activation, retrieval, or evaluation use.",
+  "outputs": {
+    "candidates": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/selection/phase1_selection_candidates.jsonl",
+      "sha256": "c3e03624d1a94d9331f8d9c9f42589628667b7b77669d040eeba527c96c05f94"
+    },
+    "excluded": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/selection/phase1_excluded_candidates.jsonl",
+      "sha256": "7a436948d61c0149114975abe0ecc385f1bc5bdeea3e14458f69234098c6f930"
+    }
+  },
+  "scope": {
+    "concepts": [
+      "consciousness",
+      "self_identity",
+      "reality_appearance"
+    ],
+    "corpus_version": "phase1_candidate_corpus_v1",
+    "domains": [
+      "science",
+      "advaita",
+      "samkhya"
+    ],
+    "methodological_constraints": {
+      "allow_multi_concept_chunks": true,
+      "prohibit_anchor_similarity_selection": true,
+      "prohibit_chunk_concept_weight_selection": true,
+      "prohibit_llm_labels_as_final_authority": true,
+      "require_human_review_before_activation": true,
+      "retain_selected_hard_negatives": true,
+      "selection_must_be_embedding_independent": true
+    },
+    "scope_status": "approved",
+    "scope_version": "phase1-section-scope-v1-draft"
+  },
+  "selection_parameters": {
+    "allow_below_target": false,
+    "approved_target_maximum": 460,
+    "approved_target_minimum": 400,
+    "domain_maximums": {
+      "advaita": 180,
+      "samkhya": 180,
+      "science": 98
+    },
+    "domain_minimums": {
+      "advaita": 140,
+      "samkhya": 140,
+      "science": 90
+    },
+    "domain_targets": {
+      "advaita": 166,
+      "samkhya": 166,
+      "science": 98
+    },
+    "expected_chunk_count": 7469,
+    "hard_negative_category_caps": {
+      "advaita_atman_vs_samkhya_purusha": 25,
+      "consciousness_vs_attention": 20,
+      "consciousness_vs_cognition": 30,
+      "reality_appearance_vs_cosmology": 30,
+      "reality_appearance_vs_perceptual_description": 15,
+      "self_vs_ego": 20,
+      "self_vs_personality": 15
+    },
+    "hard_negative_maximum": 120,
+    "hard_negative_minimum": 40,
+    "hard_negative_target": 80,
+    "hard_negative_total_cap": 120,
+    "maximum_ocr_noise_score": 0.2,
+    "minimum_alphabetic_ratio": 0.2,
+    "source_caps": {
+      "advaita_paramananda_1917_vedanta_in_practice": {
+        "maximum_chunks_per_section": 5,
+        "maximum_pre_review_chunks": 45
+      },
+      "advaita_paramananda_1919_upanishads": {
+        "maximum_chunks_per_section": 3,
+        "maximum_pre_review_chunks": 75
+      },
+      "advaita_sankara_johnston_1946_crest_jewel": {
+        "maximum_chunks_per_section": 4,
+        "maximum_pre_review_chunks": 90
+      },
+      "advaita_sankara_thibaut_1890_vedanta_sutras": {
+        "maximum_chunks_per_section": 12,
+        "maximum_pre_review_chunks": 110
+      },
+      "samkhya_dasgupta_1922_history_volume1_samkhya": {
+        "maximum_chunks_per_section": 8,
+        "maximum_pre_review_chunks": 90
+      },
+      "samkhya_isvarakrishna_davies_1881_karika": {
+        "maximum_chunks_per_section": 5,
+        "maximum_pre_review_chunks": 80
+      },
+      "samkhya_sinha_1915_samkhya_philosophy": {
+        "maximum_chunks_per_section": 10,
+        "maximum_pre_review_chunks": 100
+      },
+      "samkhya_vachaspati_jha_1896_tattva_kaumudi": {
+        "maximum_chunks_per_section": 6,
+        "maximum_pre_review_chunks": 80
+      },
+      "science_herzog_kammer_scharnowski_2016_time_slices": {
+        "maximum_chunks_per_section": 8,
+        "maximum_pre_review_chunks": 15
+      },
+      "science_ionta_gassert_blanke_2011_bodily_self_consciousness": {
+        "maximum_chunks_per_section": 8,
+        "maximum_pre_review_chunks": 19
+      },
+      "science_limanowski_blankenburg_2013_minimal_self_models": {
+        "maximum_chunks_per_section": 10,
+        "maximum_pre_review_chunks": 34
+      },
+      "science_petkova_ehrsson_2008_body_swapping": {
+        "maximum_chunks_per_section": 8,
+        "maximum_pre_review_chunks": 30
+      }
+    },
+    "target_count": 430
+  },
+  "selector_version": "1.1.0",
+  "status": "pre_review_candidates",
+  "warnings": []
+}
