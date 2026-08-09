@@ -1,0 +1,410 @@
+{
+  "config": {
+    "candidate_pool_per_domain": 30,
+    "max_chunks_per_source": 2,
+    "min_vector_similarity": 0.2,
+    "token_budget_per_domain": 900,
+    "top_k_per_domain": 3
+  },
+  "corpus_version": "phase1_active_corpus_v1",
+  "domains": {
+    "advaita": {
+      "estimated_tokens": 577,
+      "evidence": [
+        {
+          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
+          "concepts": {
+            "consciousness": {
+              "calibrated_weight": 0.4337561178408208,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "reality_appearance": {
+              "calibrated_weight": 0.7683192219726172,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "self_identity": {
+              "calibrated_weight": 0.7444629958766658,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            }
+          },
+          "corpus_version": "phase1_active_corpus_v1",
+          "domain": "advaita",
+          "estimated_tokens": 189,
+          "rank": 1,
+          "reviewed_text": "is the cessation of the pain engendered by the propelling power.\n\nThe triple error is understood by knowing the real nature of the rope; therefore the reality of things is to be known by the wise to the end of freedom from bondage.\n\nAs iron from union with fire, so, from union with the real, thought expands as material things; hence the triple effect of this, seen in delusion, dream, desire, is but a mirage.\n\nThence come all changing forms in nature beginning with personality and ending with the body, and all sensual objects; these are unreal, because subject to change every moment; but the Self never changes. [350]\n\nConsciousness, eternal, non-dual, partless, uniform, witness of intellect and the rest, different from existent and non-existent; its real meaning is the idea of “I”; a union of being and bliss — this is the higher Self.",
+          "scores": {
+            "base_score": 0.7616950389657545,
+            "citation_quality": 0.85,
+            "concept_alignment": 0.6809148755566962,
+            "diversity_adjusted_score": 0.7616950389657545,
+            "human_relevance": 1.0,
+            "vector_similarity": 0.7253933092301463
+          },
+          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
+        },
+        {
+          "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+          "citation": "Badarayana, traditional attribution; Sankaracarya, commentator. The Vedanta-Sutras with the Commentary by Sankaracarya, Part I. trans. George Thibaut. 1890",
+          "concepts": {
+            "consciousness": {
+              "calibrated_weight": 0.43793491943921475,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "reality_appearance": {
+              "calibrated_weight": 0.7352974079607068,
+              "human_label": "positive",
+              "human_override": true,
+              "production_active": true
+            },
+            "self_identity": {
+              "calibrated_weight": 0.7445622476592012,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            }
+          },
+          "corpus_version": "phase1_active_corpus_v1",
+          "domain": "advaita",
+          "estimated_tokens": 277,
+          "rank": 2,
+          "reviewed_text": "As the idea only is apprehended, and there is consequently no necessity to assume something to apprehend the Self which witnesses the idea (is conscious of the idea), there results no regressus ad infinitum.\n\nAnd the witnessing Self and the idea are of an essentially different nature, and may therefore stand to each other in the relation of knowing subject and object known.\n\nThe existence of the witnessing {424} Self is self-proved and cannot therefore be denied.—Moreover, if you maintain that the idea, lamplike, manifests itself without standing in need of a further principle to illuminate it, you maintain thereby that ideas exist which are not apprehended by any of the means of knowledge, and which are without a knowing being; which is no better than to assert that a thousand lamps burning inside some impenetrable mass of rocks manifest themselves.\n\nAnd if you should maintain that thereby we admit your doctrine, since it follows from what we have said that the idea itself implies consciousness; we reply that, as observation shows, the lamp in order to become manifest requires some other intellectual agent furnished with instruments such as the eye, and that therefore the idea also, as equally being a thing to be illuminated, becomes manifest only through an ulterior intelligent principle.",
+          "scores": {
+            "base_score": 0.7429403990390182,
+            "citation_quality": 0.85,
+            "concept_alignment": 0.6690381079420846,
+            "diversity_adjusted_score": 0.7429403990390182,
+            "human_relevance": 1.0,
+            "vector_similarity": 0.6966924946427219
+          },
+          "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras"
+        },
+        {
+          "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
+          "citation": "Anonymous; traditional Upanishadic corpus. The Upanishads. trans. Swami Paramananda. 1919",
+          "concepts": {
+            "consciousness": {
+              "calibrated_weight": 0.4248286849118992,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "reality_appearance": {
+              "calibrated_weight": 0.7715262100662491,
+              "human_label": "partial",
+              "human_override": false,
+              "production_active": true
+            },
+            "self_identity": {
+              "calibrated_weight": 0.759893819153641,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            }
+          },
+          "corpus_version": "phase1_active_corpus_v1",
+          "domain": "advaita",
+          "estimated_tokens": 111,
+          "rank": 3,
+          "reviewed_text": "That by which a mortal perceives, both in dream and in waking, by knowing that great all-pervading Atman the wise man grieves no more.\n\nIn these verses the teacher tries to make plain that all knowledge, as well as all sense perception, in every state of consciousness—sleeping, dreaming or waking—is possible only because the Self exists. There can be no knowledge or perception independent of the Self. Wise men, aware of this, identify themselves with their Higher Self and thus transcend the realm of grief.",
+          "scores": {
+            "base_score": 0.7188399086846394,
+            "citation_quality": 0.85,
+            "concept_alignment": 0.6858604836140099,
+            "diversity_adjusted_score": 0.7188399086846394,
+            "human_relevance": 0.8633363100669962,
+            "vector_similarity": 0.6824988023110682
+          },
+          "source_id": "advaita_paramananda_1919_upanishads"
+        }
+      ],
+      "evidence_count": 3,
+      "status": "evidence_found",
+      "unique_source_count": 3
+    },
+    "samkhya": {
+      "estimated_tokens": 746,
+      "evidence": [
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "concepts": {
+            "consciousness": {
+              "calibrated_weight": 0.4111373688273018,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "reality_appearance": {
+              "calibrated_weight": 0.7719609536723869,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "self_identity": {
+              "calibrated_weight": 0.7683158783970938,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            }
+          },
+          "corpus_version": "phase1_active_corpus_v1",
+          "domain": "samkhya",
+          "estimated_tokens": 207,
+          "rank": 1,
+          "reviewed_text": "As the anecdote shows, they sought such a constant and unchangeable essence in man as was beyond the limits of any change. This inmost essence has sometimes been described as pure subject-object-less consciousness, the reality, and the bliss. He is the seer of all seeing, the hearer of all hearing and the knower of all knowledge. He sees but is not seen, hears but is not heard, knows but is not known. He is the light of all lights. He is like a lump of salt, with no inner or outer, which consists through and through entirely of savour; as in truth this Âtman has no inner or outer, but consists through and through entirely of knowledge. Bliss is not an attribute of it but it is bliss itself. The state of Brahman is thus likened unto the state of dreamless sleep. And he who has reached this bliss is beyond any fear. It is dearer to us than",
+          "scores": {
+            "base_score": 0.7380513402208005,
+            "citation_quality": 0.85,
+            "concept_alignment": 0.6859779938349516,
+            "diversity_adjusted_score": 0.7380513402208005,
+            "human_relevance": 1.0,
+            "vector_similarity": 0.6801033486582956
+          },
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        },
+        {
+          "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+          "citation": "Vachaspati Misra. An English Translation with the Sanskrit Text of the Tattva-Kaumudi. trans. Ganganatha Jha. 1896",
+          "concepts": {
+            "consciousness": {
+              "calibrated_weight": 0.3968414932358278,
+              "human_label": "positive",
+              "human_override": true,
+              "production_active": true
+            },
+            "reality_appearance": {
+              "calibrated_weight": 0.7083385521779986,
+              "human_label": "partial",
+              "human_override": true,
+              "production_active": true
+            },
+            "self_identity": {
+              "calibrated_weight": 0.7200434186502548,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            }
+          },
+          "corpus_version": "phase1_active_corpus_v1",
+          "domain": "samkhya",
+          "estimated_tokens": 277,
+          "rank": 2,
+          "reviewed_text": "(85) . “ Conjunct ’’—Bearing in itself the relation of whole\n\nand parts. Conjunction consists in approach preceded hy (i. e.^ after) non-approach ; and connection with such approach of the whole to the part is what is connoted by “ conjunct as for instance, earth, Ac., conjoin among themselves, and so do others. On the other hand, there is no conjunction of Natnre (Prakriti) with Conscionsness (Bnddhi), since the two are connate (and as such there can be no non- approach); nor is there reciprocal conjunction among Goodness, Foulness and Darkness, since there is no non- approach among them [since they all conjointly inhere in Nature],\n\n(86) . Subordinate” — Conscionsness stands in need of the aid of Nature in the completion of the production of its effect, Self-rcomciousness (Ahank&ra). Without this aid, being hy itself too weak, it conld not be efficient to produce its effect. Similarly do Self-consciousness and the rest stand in need of similar aids in the prodnetion of their several effeots. .Thns, each and all stand in need of the perfecting hand of Natnre. Hence the Manifested, though efficien't in the production of its effects, is yet subordinate, inasmuch as if ' stands in need of the aid of the Supreme Nature (the highest in the scale).",
+          "scores": {
+            "base_score": 0.6961233339988763,
+            "citation_quality": 0.85,
+            "concept_alignment": 0.6396796539728825,
+            "diversity_adjusted_score": 0.6961233339988763,
+            "human_relevance": 0.8633363100669962,
+            "vector_similarity": 0.6621872254465566
+          },
+          "source_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi"
+        },
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "concepts": {
+            "consciousness": {
+              "calibrated_weight": 0.42010808787218784,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "reality_appearance": {
+              "calibrated_weight": 0.7606562019100013,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "self_identity": {
+              "calibrated_weight": 0.7344839839303281,
+              "human_label": "partial",
+              "human_override": false,
+              "production_active": true
+            }
+          },
+          "corpus_version": "phase1_active_corpus_v1",
+          "domain": "samkhya",
+          "estimated_tokens": 262,
+          "rank": 3,
+          "reviewed_text": "The Buddhists had analysed knowledge into its diverse constituent parts, and had held that the coming together of these brought about the conscious states. This coming together was to them the point of the illusory notion of self, since this unity or coming together was not a permanent thing but a momentary collocation. With Sã@mkhya however the self, the pure cit, is neither illusory nor an abstraction; it is concrete but transcendent. Coming into touch with it gives unity to all the movements of the knowledge-composites of subtle stuff, which would otherwise have remained aimless and unintelligent. It is by coming into connection with this principle of intelligence that they are interpreted as the systematic and coherent experience of a person, and may thus be said to be intelligized. Intelligizing means the expression and interpretation of the events or the happenings of\n\n____________________________________________________________________\n\n[Footnote 1: It is important to note that Sâ@mkhya has two terms to denote the two aspects involved in knowledge, viz. the relating element of awareness as such (cit) and the content (buddhi) which is the form of the mind-stuff representing the sense-data and the image. Cognition takes place by the reflection of the former in the latter.]",
+          "scores": {
+            "base_score": 0.7322709672340043,
+            "citation_quality": 0.85,
+            "concept_alignment": 0.6709797700284583,
+            "diversity_adjusted_score": 0.6522709672340044,
+            "human_relevance": 0.8687414416691467,
+            "vector_similarity": 0.7122087426845776
+          },
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        }
+      ],
+      "evidence_count": 3,
+      "status": "evidence_found",
+      "unique_source_count": 2
+    },
+    "science": {
+      "estimated_tokens": 803,
+      "evidence": [
+        {
+          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
+          "concepts": {
+            "consciousness": {
+              "calibrated_weight": 0.4579158560147028,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "reality_appearance": {
+              "calibrated_weight": 0.7768391767772052,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "self_identity": {
+              "calibrated_weight": 0.7745229824592835,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            }
+          },
+          "corpus_version": "phase1_active_corpus_v1",
+          "domain": "science",
+          "estimated_tokens": 228,
+          "rank": 1,
+          "reviewed_text": "Scientific investigations on the nature of the self have so far focused on high-level mechanisms. Recent evidence, however, suggests that low-level bottom-up mechanisms of multi-sensory integration play a fundamental role in encoding specific components of bodily self-consciousness, such as self-location and first-person perspective (Blanke and Metzinger, 2009 ). Self-location and first-person perspective are abnormal in neurological patients suffering from out-of-body experiences (Blanke et al., 2004 ), and can be manipulated experimentally in healthy subjects by imposing multi-sensory conflicts (Lenggenhager et al., 2009 ). Activity of the temporo-parietal junction (TPJ) reflects experimentally induced changes in self-location and first-person perspective (Ionta et al., 2011 ), and dysfunctions in TPJ are causally associated with out-of-body experiences (Blanke et al., 2002 ). We argue that TPJ is one of the key areas for multi-sensory integration of bodily self-consciousness, that its levels of activity reflect the experience of the conscious “I” as embodied and localized within bodily space, and that these mechanisms can be systematically investigated using state of the art technologies such as robotics, virtual reality, and non-invasive neuroimaging.",
+          "scores": {
+            "base_score": 0.7855818022038223,
+            "citation_quality": 0.85,
+            "concept_alignment": 0.7011805211446468,
+            "diversity_adjusted_score": 0.7855818022038223,
+            "human_relevance": 1.0,
+            "vector_similarity": 0.7596121307593829
+          },
+          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
+        },
+        {
+          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
+          "concepts": {
+            "consciousness": {
+              "calibrated_weight": 0.42945616868763,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "reality_appearance": {
+              "calibrated_weight": 0.7627595883393696,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "self_identity": {
+              "calibrated_weight": 0.7787411902690242,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            }
+          },
+          "corpus_version": "phase1_active_corpus_v1",
+          "domain": "science",
+          "estimated_tokens": 350,
+          "rank": 2,
+          "reviewed_text": "In accordance with the FEP, the phenomenal self-model (PSM) theory views selves as processes, not objects. Accordingly, the self is perceived because systems with a PSM constantly assume, or model, their own existence as a coherent entity (Metzinger, 2004a ; Blanke and Metzinger, 2009 ). However, to assume that there is a perceiver is a fallacy (“no such things as selves exist in the world”, Metzinger, 2005 ). Rather, a conscious self is a result of the system’s identification with its self-model (“you are the content of your PSM”, Metzinger, 2005 ).\n\nThis self-identification is possible because the “attentional unavailability of earlier processing stages in the brain for introspection” (Metzinger, 2003 , 2005 ) leads to a gradually increasing transparency of higher-level phenomenal states. Transparency thus describes the fact that only the contents of phenomenal states, not their underlying mechanisms, are introspectively accessible to the subject of experience (Metzinger, 2003 , 2004a ). Interestingly, it has been proposed that the cognitive impenetrability of predictive coding mechanisms can be explained by the fact that hierarchically higher levels predict on longer timescales, and more abstractly than lower levels (Hohwy, 2007 , 2010 ; Kiebel et al., 2008 ). Failures in these mechanisms may result in severe symptoms that seem to be related to a loss of global experiential selfhood, as demonstrated by certain disorders of “presence” such as depersonalization disorder (Seth et al., 2011 ). These phenomena might also be described by a loss of transparency (“if … the self-model of a conscious system would become fully opaque, then the phenomenal target property of experiential “selfhood” would disappear”, Metzinger, 2004b ).",
+          "scores": {
+            "base_score": 0.7776684164221989,
+            "citation_quality": 0.85,
+            "concept_alignment": 0.6905908074768586,
+            "diversity_adjusted_score": 0.7776684164221989,
+            "human_relevance": 1.0,
+            "vector_similarity": 0.7500376628236076
+          },
+          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
+        },
+        {
+          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
+          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
+          "concepts": {
+            "consciousness": {
+              "calibrated_weight": 0.4300846456450606,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "reality_appearance": {
+              "calibrated_weight": 0.7613073953793918,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            },
+            "self_identity": {
+              "calibrated_weight": 0.7498119151880566,
+              "human_label": "positive",
+              "human_override": false,
+              "production_active": true
+            }
+          },
+          "corpus_version": "phase1_active_corpus_v1",
+          "domain": "science",
+          "estimated_tokens": 225,
+          "rank": 3,
+          "reviewed_text": "The results of our experiments demonstrate that healthy volunteers can perceive another person's body, or an artificial humanoid body, to be their own. This works both when the participant does not move and when he or she is executing voluntary movements. The critical conditions for eliciting this perceptual illusion are: (i) a continuous match between visual and somatosensory information about the state of the body; (ii) the usage of a sufficiently humanoid body; and (iii) the adoption of a first person visual perspective of the body. Particularly strong evidence for this was the counter-intuitive demonstration that one can face one's physical body and shake hands with it whilst experiencing the illusion of being within another person's body. These findings are of fundamental importance because they identify the perceptual processes that make us feel that we own our entire body. Our results also provide a new method to move a person's perceived centre of awareness from one body to another, which could have important scientific, industrial and clinical applications (as will be discussed below).",
+          "scores": {
+            "base_score": 0.7525182982269957,
+            "citation_quality": 0.85,
+            "concept_alignment": 0.6793219702956989,
+            "diversity_adjusted_score": 0.7525182982269957,
+            "human_relevance": 1.0,
+            "vector_similarity": 0.7094323739146744
+          },
+          "source_id": "science_petkova_ehrsson_2008_body_swapping"
+        }
+      ],
+      "evidence_count": 3,
+      "status": "evidence_found",
+      "unique_source_count": 3
+    }
+  },
+  "generated_at": "2026-08-09T13:15:59.005873+00:00",
+  "model_version": "gemini-embedding-2@2",
+  "prototype_version": "phase1-prototype-v2",
+  "query_activation": {
+    "active_concepts": [
+      "reality_appearance",
+      "self_identity",
+      "consciousness"
+    ],
+    "ambiguous": true,
+    "calibrated_weights": {
+      "consciousness": 0.48457739197376404,
+      "reality_appearance": 0.8068463504962753,
+      "self_identity": 0.7749350892879382
+    },
+    "raw_scores": {
+      "consciousness": 0.6928054806114534,
+      "reality_appearance": 0.5444629403315873,
+      "self_identity": 0.52834975408009
+    },
+    "unsupported": false
+  },
+  "question": "How is consciousness related to the self and experienced reality?",
+  "retrieval_mode": "concept_aware",
+  "retrieval_version": "phase1-concept-domain-retrieval-v1",
+  "scoring": {
+    "citation_quality_weight": 0.05,
+    "concept_alignment_weight": 0.25,
+    "human_relevance_weight": 0.15,
+    "source_repeat_penalty": 0.08,
+    "vector_similarity_weight": 0.55
+  }
+}

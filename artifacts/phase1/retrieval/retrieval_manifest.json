@@ -1,0 +1,34 @@
+{
+  "active_chunk_count": 318,
+  "corpus_version": "phase1_active_corpus_v1",
+  "exit_gate": {
+    "concept_aware_retained": true,
+    "deduplication_enforced": true,
+    "domain_separation_enforced": true,
+    "only_active_chunks_retrieved": true,
+    "per_domain_context_budgets_enforced": true,
+    "question_embedding_uses_frozen_model": true,
+    "retrieval_evaluation_complete": true,
+    "source_diversity_enforced": true,
+    "weighted_concept_activation_uses_frozen_phase10": true
+  },
+  "generated_at": "2026-08-09T13:19:21.934946+00:00",
+  "next_step": "If retrieval evaluation passes, freeze this retrieval configuration and begin Phase 15 domain-specific generation. If the dedicated frozen retrieval question file does not yet exist, freeze it before evaluating; do not use Phase 11 Held-out outcomes to tune retrieval.",
+  "outputs": {
+    "evidence_package": null,
+    "retrieval_config": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/retrieval/retrieval_config.json",
+    "retrieval_evaluation_results": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/retrieval/retrieval_evaluation_results.json",
+    "retrieval_report": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/docs/evaluation/phase1_retrieval_report.md"
+  },
+  "phase": "phase_14_build_retrieval_by_concept_and_domain",
+  "retrieval_config": {
+    "candidate_pool_per_domain": 30,
+    "max_chunks_per_source": 2,
+    "min_vector_similarity": 0.2,
+    "token_budget_per_domain": 900,
+    "top_k_per_domain": 3
+  },
+  "retrieval_version": "phase1-concept-domain-retrieval-v1",
+  "script_version": "1.0.0",
+  "status": "evaluation_complete"
+}

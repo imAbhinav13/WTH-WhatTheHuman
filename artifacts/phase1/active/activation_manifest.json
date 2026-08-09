@@ -1,0 +1,144 @@
+{
+  "activation_policy": {
+    "all_three_concept_relations_preserved": true,
+    "calibrated_weights_drive_ranking_not_inclusion": true,
+    "candidate_corpus_not_activated": true,
+    "hard_negative_roles_preserved": true,
+    "human_labels_authoritative": true,
+    "only_human_reviewed_approved_chunks_promoted": true,
+    "production_active_relations_drive_concept_eligibility": true
+  },
+  "activation_version": "phase1-active-corpus-activation-v1",
+  "corpus_version": "phase1_active_corpus_v1",
+  "counts": {
+    "active_chunk_count": 318,
+    "approved_source_count": 10,
+    "by_domain": {
+      "advaita": 120,
+      "samkhya": 108,
+      "science": 90
+    },
+    "by_source": {
+      "advaita_paramananda_1917_vedanta_in_practice": 13,
+      "advaita_paramananda_1919_upanishads": 18,
+      "advaita_sankara_johnston_1946_crest_jewel": 29,
+      "advaita_sankara_thibaut_1890_vedanta_sutras": 60,
+      "samkhya_dasgupta_1922_history_volume1_samkhya": 74,
+      "samkhya_vachaspati_jha_1896_tattva_kaumudi": 34,
+      "science_herzog_kammer_scharnowski_2016_time_slices": 15,
+      "science_ionta_gassert_blanke_2011_bodily_self_consciousness": 18,
+      "science_limanowski_blankenburg_2013_minimal_self_models": 34,
+      "science_petkova_ehrsson_2008_body_swapping": 23
+    },
+    "hard_negative_chunk_count": 79,
+    "include_with_edits_chunk_count": 25,
+    "negative_relations_by_concept": {
+      "consciousness": 107,
+      "reality_appearance": 72,
+      "self_identity": 82
+    },
+    "production_active_relations_by_concept": {
+      "consciousness": 211,
+      "reality_appearance": 246,
+      "self_identity": 236
+    },
+    "reviewed_chunk_concept_count": 954
+  },
+  "database_step": {
+    "idempotency": "Upsert by stable source_id/chunk_id/concept_id plus corpus_version; never create duplicate active relations.",
+    "logical_upsert_order": [
+      "corpus_version",
+      "sources",
+      "chunks",
+      "chunk_embeddings",
+      "chunk_concepts",
+      "review_metadata"
+    ],
+    "reason_pending": "The actual Supabase migration/schema was not available in the accessible project files, so Phase 13 does not guess physical table or column names.",
+    "required_post_upsert_validation": [
+      "active chunk count equals activation artifact count",
+      "every active chunk has one selected embedding",
+      "every active chunk has three reviewed concept rows",
+      "retrieval queries filter lifecycle_status=active",
+      "concept retrieval filters production_active=true",
+      "corpus_version resolves on every retrieved chunk"
+    ],
+    "status": "pending_schema_mapped_upsert"
+  },
+  "embedding_identity": {
+    "dimensions": 768,
+    "model": "gemini-embedding-2",
+    "model_revision": "2",
+    "normalization": "provider_auto_l2",
+    "provider": "Google Gemini API"
+  },
+  "exit_gate": {
+    "active_chunk_count_within_250_350": true,
+    "approved_source_present_for_every_chunk": true,
+    "artifact_queryable_flag_set": true,
+    "calibrated_weights_present_for_every_chunk": true,
+    "citation_present_for_every_chunk": true,
+    "corpus_version_present_for_every_chunk": true,
+    "database_schema_mapping_pending": true,
+    "embedding_metadata_present_for_every_chunk": true,
+    "review_decision_present_for_every_chunk": true,
+    "reviewed_concept_labels_present_for_every_chunk": true,
+    "reviewed_text_present_for_every_chunk": true,
+    "selected_embedding_present_for_every_chunk": true,
+    "source_checksum_present_for_every_chunk": true,
+    "source_rights_status_present_for_every_chunk": true
+  },
+  "generated_at": "2026-08-09T13:01:08.655110+00:00",
+  "inputs": {
+    "approved_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/approved_chunk_embeddings.jsonl",
+      "sha256": "4c6b13b6c4513787ed53f753aa34eb1e2ff63fbf776c8aed45cd7cd59ba8fb58"
+    },
+    "embedding_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/embedding_manifest.json",
+      "sha256_file_bytes": "efbf7641d74360ed70f3b6ebf4fa894b0252f0107a8ca11cb5cefea659c85e27",
+      "status": "complete"
+    },
+    "gold_corpus": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_reviewed_gold_corpus.jsonl",
+      "record_count": 318,
+      "sha256": "0af6e8c1e15a3d29172c8cfa140482932aa6ac4cd7eea6527df488115793f140"
+    },
+    "review_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_human_review_manifest.json",
+      "sha256_file_bytes": "b643d524ffb053debfadda183936666f9881ff6a1fd4840782ff6ada72666b42",
+      "status": "phase1_human_review_complete"
+    },
+    "source_catalogue": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/docs/catalogues/phase1_sources.yaml",
+      "sha256_file_bytes": "793ca216aaa4ac0bc4f73d930e0b1b4f236e22bfff0acc9f5dbc6e93d53f37d3",
+      "source_count": 12
+    },
+    "weighted_tags": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/concepts/phase1_reviewed_weighted_concept_tags.jsonl",
+      "sha256": "e43b0adcea98ee3e8c9df0bfcc2da6ec78f5246ff7d23cd968a1e557f14bc25e"
+    },
+    "weighted_tags_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/concepts/phase1_reviewed_weighted_concept_tags_manifest.json",
+      "sha256_file_bytes": "ae3edd2565287a355966bc29f84e66b81150d1c836f33cb53f13c6cc422ecb33",
+      "status": "production_concept_weights_complete"
+    }
+  },
+  "lifecycle_status": "active",
+  "next_step": "Complete the Phase 13 database upsert against the actual Supabase migration/schema, then verify the same active count is queryable. After that, begin Phase 14 concept-and-domain retrieval.",
+  "outputs": {
+    "active_chunk_bundles": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/active/active_chunk_bundles.jsonl",
+      "record_count": 318,
+      "sha256": "0e161873926e0c3e947c56809c37a6085b76b70febf6a477f3e456fa20bf011c"
+    },
+    "reviewed_chunk_concepts": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/active/reviewed_chunk_concepts.jsonl",
+      "record_count": 954,
+      "sha256": "3ce5f0a63acde230f6b4dafcb57ca732f2dc7bc2d483a46b7adaabe1f5fc637e"
+    }
+  },
+  "phase": "phase_13_activate_approved_phase1_corpus",
+  "script_version": "1.0.0",
+  "status": "activation_artifacts_complete"
+}

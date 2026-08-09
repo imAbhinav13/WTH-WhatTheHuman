@@ -1,0 +1,152 @@
+{
+  "counts": {
+    "approved_chunks": 318,
+    "expected_tag_count": 954,
+    "human_override_count": 262,
+    "human_override_count_by_concept": {
+      "consciousness": 119,
+      "reality_appearance": 71,
+      "self_identity": 72
+    },
+    "label_distribution": {
+      "consciousness": {
+        "negative": 107,
+        "partial": 111,
+        "positive": 100
+      },
+      "reality_appearance": {
+        "negative": 72,
+        "partial": 62,
+        "positive": 184
+      },
+      "self_identity": {
+        "negative": 82,
+        "partial": 44,
+        "positive": 192
+      }
+    },
+    "role_distribution": {
+      "evidence:consciousness": 211,
+      "evidence:reality_appearance": 246,
+      "evidence:self_identity": 236,
+      "hard_negative:consciousness": 26,
+      "hard_negative:reality_appearance": 32,
+      "hard_negative:self_identity": 24
+    },
+    "tag_count": 954
+  },
+  "exit_gate": {
+    "all_approved_chunks_present": true,
+    "all_calibrated_weights_in_0_1": true,
+    "all_chunks_have_valid_phase1_role": true,
+    "all_reviewed_labels_present": true,
+    "exactly_three_concept_rows_per_chunk": true,
+    "full_model_provenance_present": true,
+    "full_prototype_provenance_present": true,
+    "human_labels_authoritative": true
+  },
+  "generated_at": "2026-08-09T12:30:20.987805+00:00",
+  "inputs": {
+    "approved_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/approved_chunk_embeddings.jsonl",
+      "sha256": "4c6b13b6c4513787ed53f753aa34eb1e2ff63fbf776c8aed45cd7cd59ba8fb58"
+    },
+    "embedding_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/embedding_manifest.json",
+      "sha256_file_bytes": "efbf7641d74360ed70f3b6ebf4fa894b0252f0107a8ca11cb5cefea659c85e27",
+      "status": "complete"
+    },
+    "gold_corpus": {
+      "chunk_count": 318,
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_reviewed_gold_corpus.jsonl",
+      "sha256": "0af6e8c1e15a3d29172c8cfa140482932aa6ac4cd7eea6527df488115793f140"
+    },
+    "passage_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/passage_prototype_embeddings.jsonl",
+      "sha256": "5081c2771b5a7f173763194fad904e660b46ef337d460805ff7ae066fe6b6d6b"
+    },
+    "phase10_results": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/evaluation/concept_mapping_dev_results.json",
+      "sha256_file_bytes": "738917947d6eba2cd2899f7cba3222f69612c2372e22ae38f3bfdc1305eddc61",
+      "status": "frozen"
+    },
+    "phase11_results": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/evaluation/heldout_results.json",
+      "sha256_file_bytes": "f55534cf4f24b2dfd5d4c46d2361a818f18b64d3ba202f4ee7efb9df215b8313",
+      "status": "evaluation_complete"
+    },
+    "query_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/query_prototype_embeddings.jsonl",
+      "sha256": "d4dd9c89525332bfbc492d5464e13b83432fe14096fb15d22e4247fb72ef05b4"
+    },
+    "review_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_human_review_manifest.json",
+      "sha256_file_bytes": "b643d524ffb053debfadda183936666f9881ff6a1fd4840782ff6ada72666b42",
+      "status": "phase1_human_review_complete"
+    }
+  },
+  "mapping_provenance": {
+    "activation": {
+      "ambiguity_margin": 0.1,
+      "concept_activation_thresholds": {
+        "consciousness": 0.4,
+        "reality_appearance": 0.75,
+        "self_identity": 0.7
+      },
+      "maximum_active_concepts": 3
+    },
+    "calibration": {
+      "consciousness": {
+        "intercept": -0.8799501273554392,
+        "slope": 1.1810531849391321,
+        "type": "sigmoid"
+      },
+      "reality_appearance": {
+        "intercept": 0.47630047840111434,
+        "slope": 1.7509856440379357,
+        "type": "sigmoid"
+      },
+      "self_identity": {
+        "intercept": 0.4463238424461934,
+        "slope": 1.4953476724245536,
+        "type": "sigmoid"
+      }
+    },
+    "candidate": {
+      "embedding_weight": 0.9,
+      "lexical_weight": 0.2,
+      "method": "hybrid",
+      "negative_penalty": 0.5,
+      "prototype_aggregation": "centroid",
+      "prototype_source": "question"
+    },
+    "embedding_identity": {
+      "dimensions": 768,
+      "model": "gemini-embedding-2",
+      "model_revision": "2",
+      "normalization": "provider_auto_l2",
+      "provider": "Google Gemini API"
+    },
+    "mapping_method": "hybrid:question:centroid",
+    "model_version": "gemini-embedding-2@2",
+    "prototype_version": "phase1-prototype-v2"
+  },
+  "next_step": "Phase 13: activate only the reviewed approved Phase 1 corpus. Use production_active as the authoritative concept relation and calibrated_weight as a ranking signal; preserve human_override and all model/prototype provenance.",
+  "output": {
+    "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/concepts/phase1_reviewed_weighted_concept_tags.jsonl",
+    "sha256": "e43b0adcea98ee3e8c9df0bfcc2da6ec78f5246ff7d23cd968a1e557f14bc25e"
+  },
+  "phase": "phase_12_reviewed_weighted_concept_tags",
+  "policy": {
+    "automated_activation_may_not_overwrite_gold_label": true,
+    "automated_weights_support_ranking": true,
+    "human_override_definition": "True when frozen automated threshold activation disagrees with the authoritative reviewed positive/partial versus negative label.",
+    "human_reviewed_labels_authoritative": true,
+    "production_active_derived_from_human_label": true,
+    "raw_mapping_score_definition": "Frozen Phase 10 pre-calibration hybrid score used to produce calibrated_weight.",
+    "raw_similarity_definition": "Embedding-only similarity using the selected Phase 10 prototype source and aggregation, before lexical or hard-negative additions."
+  },
+  "script_version": "1.0.0",
+  "status": "production_concept_weights_complete",
+  "tagging_version": "phase1-reviewed-weighted-concept-tags-v1"
+}

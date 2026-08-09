@@ -1,0 +1,2525 @@
+{
+  "concept_aware": {
+    "macro_concept_coverage": 1.0,
+    "macro_precision_at_k": 1.0,
+    "macro_recall_at_k": 0.036449475338156685,
+    "mean_source_diversity": 0.8555555555555554,
+    "mrr": 1.0
+  },
+  "config": {
+    "candidate_pool_per_domain": 30,
+    "max_chunks_per_source": 2,
+    "min_vector_similarity": 0.2,
+    "token_budget_per_domain": 900,
+    "top_k_per_domain": 3
+  },
+  "corpus_version": "phase1_active_corpus_v1",
+  "deltas": {
+    "macro_concept_coverage": 0.01388888888888895,
+    "macro_precision_at_k": 0.05833333333333335,
+    "macro_recall_at_k": 0.004754746454746495,
+    "mean_source_diversity": 0.03888888888888886,
+    "mrr": 0.04444444444444451,
+    "recall_ratio_vs_baseline": 1.1500169467370092
+  },
+  "evaluation_questions_path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/packages/eval/eval_questions.jsonl",
+  "evaluation_version": "phase1-retrieval-evaluation-v1",
+  "generated_at": "2026-08-09T13:19:21.905401+00:00",
+  "metric_definition": {
+    "concept_coverage": "Fraction of frozen expected concepts represented by at least one retrieved production-active chunk in the domain.",
+    "recall": "Retrieved authoritative concept-relevant chunks divided by all authoritative concept-relevant active chunks in that domain.",
+    "relevance": "A retrieved chunk is label-relevant when its authoritative production_active relation overlaps at least one frozen expected concept for the evaluation question."
+  },
+  "per_question": [
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 75,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:25f4de65247f119e0f7b82a2",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.038461538461538464,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 78,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r001",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:83e549f69144200a2183bc0a",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:72d34e550581bb3798b78217",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 0.6666666666666666,
+            "recall_at_k": 0.02666666666666667,
+            "reciprocal_rank": 0.5,
+            "relevant_retrieved": 2,
+            "relevant_total": 75,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4615e7e18235fc7bdb6b3982"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 0.6666666666666666,
+            "recall_at_k": 0.034482758620689655,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:f383a73b166c7858d3c9a754",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:6b84976b7e686b7b7014fab1",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.038461538461538464,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 78,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "What is consciousness, and what makes a state genuinely conscious rather than merely cognitive or informational?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4ae7828ae7aef5ebebe2b458",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 75,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:6b84976b7e686b7b7014fab1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:b418bfe95a8983cb34e43282"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.038461538461538464,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 78,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r002",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:2c35149f6a97148ed38db3b3",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4ae7828ae7aef5ebebe2b458",
+            "advaita_paramananda_1917_vedanta_in_practice:chunk:54a9d36aadceca95eb14a7ee"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 75,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:02641e2a784aaca69a0c3f3a",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:6b84976b7e686b7b7014fab1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:b418bfe95a8983cb34e43282",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.038461538461538464,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 78,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "How is conscious experience related to the body, perception, or embodiment?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:af6eefc64eb1a1c112bd6b58",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 75,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:25f4de65247f119e0f7b82a2",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.038461538461538464,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 78,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r003",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:83e549f69144200a2183bc0a",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8bdae350e920515c685b78f1",
+            "advaita_paramananda_1919_upanishads:chunk:fc7caf2d13ae74d3c3e82f3c"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 0.3333333333333333,
+            "recall_at_k": 0.013333333333333334,
+            "reciprocal_rank": 0.3333333333333333,
+            "relevant_retrieved": 1,
+            "relevant_total": 75,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:e6eb188736995d71a2cf023c",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:aae620629f5aad3d2d4cb8be",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:53543ef470d6ae2b69d3603a"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 0.6666666666666666,
+            "recall_at_k": 0.02564102564102564,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 78,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "Is consciousness fundamental, emergent, or dependent on some underlying process?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:bffa96f669e9b39822bd8dbc",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 75,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.038461538461538464,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 78,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r004",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:b67939c9c572290f5916d951",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 75,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:60f5cacd2104061d892ac044",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:c2a2ddf3f0bed06df09a507b",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 0.6666666666666666,
+            "recall_at_k": 0.034482758620689655,
+            "reciprocal_rank": 0.5,
+            "relevant_retrieved": 2,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:aae620629f5aad3d2d4cb8be",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02564102564102564,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 78,
+            "retrieved_count": 2,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "Can awareness exist independently of ordinary thought, attention, or mental activity?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "self_identity",
+        "reality_appearance",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bd3336dbf3a70b4e9cd8a33",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:3edaef6960bd137ab4e2f490"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.041666666666666664,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 72,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        }
+      },
+      "expected_concepts": [
+        "self_identity"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r005",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:c0bebb201a3f864e4d85afd6",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6d48fc3b1e15ae247a781c0a",
+            "advaita_paramananda_1917_vedanta_in_practice:chunk:746c76ae28880f4fec1d3988"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:58b44ec26bdc3b9e5c054d17",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af9b9607003d4dbfeab248ef",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 0.6666666666666666,
+            "recall_at_k": 0.034482758620689655,
+            "reciprocal_rank": 0.5,
+            "relevant_retrieved": 2,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:6b84976b7e686b7b7014fab1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.041666666666666664,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 72,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "What constitutes the self or personal identity?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "self_identity",
+        "reality_appearance"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4ae7828ae7aef5ebebe2b458",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:c73044fff9ca18d0ed7ec349",
+            "advaita_paramananda_1917_vedanta_in_practice:chunk:e33625c0e17016562de0dc5a"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4615e7e18235fc7bdb6b3982"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:b418bfe95a8983cb34e43282"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.041666666666666664,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 72,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "self_identity"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r006",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:b67939c9c572290f5916d951",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4ae7828ae7aef5ebebe2b458",
+            "advaita_paramananda_1917_vedanta_in_practice:chunk:746c76ae28880f4fec1d3988"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:190ed2d605f0993f1057b038",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:bf0c49de4fc52ac36b825bb2",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 0.6666666666666666,
+            "recall_at_k": 0.034482758620689655,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.041666666666666664,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 72,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "Is the self a stable entity, a constructed model, or something deeper than personality and ego?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "self_identity"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:d52b583561167045f43f8edc",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bd3336dbf3a70b4e9cd8a33",
+            "advaita_paramananda_1917_vedanta_in_practice:chunk:746c76ae28880f4fec1d3988"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:190ed2d605f0993f1057b038",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:5977937f5afe6f705e5ce608",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5236d985172f46a1b92b76d8"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.041666666666666664,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 72,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "self_identity"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r007",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:d52b583561167045f43f8edc",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4f5502da86684eb8c6e9433d",
+            "advaita_paramananda_1917_vedanta_in_practice:chunk:746c76ae28880f4fec1d3988"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:190ed2d605f0993f1057b038",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:5977937f5afe6f705e5ce608",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.041666666666666664,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 72,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "How should we understand the distinction between ego, personal identity, and the deeper sense of self?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "self_identity",
+        "reality_appearance",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.05172413793103448,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 58,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.041666666666666664,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 72,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "self_identity"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r008",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:2c35149f6a97148ed38db3b3",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:2002f2587ae71b085d18283e",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:58b44ec26bdc3b9e5c054d17",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 0.5,
+            "recall_at_k": 0.017241379310344827,
+            "reciprocal_rank": 0.5,
+            "relevant_retrieved": 1,
+            "relevant_total": 58,
+            "retrieved_count": 2,
+            "source_diversity": 0.5
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.041666666666666664,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 72,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "What explains the continuity of the self across changing experiences and mental states?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:0487f2bc892ad32eefdf7f5e",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bd3336dbf3a70b4e9cd8a33"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030612244897959183,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 98,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e3bf1c31f219342b1f10f3c7"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04918032786885246,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 61,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:350bc8ddd66212500d4dc1f8"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.034482758620689655,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 87,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r009",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f45aa0c35f1cdcde3ba7b0d1",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:f27fd2268a030eb7c14a1a12",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8fb130f6a026a50747ae0149"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030612244897959183,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 98,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4350792a01f98a328f637848"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03278688524590164,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 61,
+            "retrieved_count": 2,
+            "source_diversity": 0.5
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:aae620629f5aad3d2d4cb8be",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.022988505747126436,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 87,
+            "retrieved_count": 2,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "What is the difference between reality as it is and reality as it appears to us?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:c73044fff9ca18d0ed7ec349",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:0487f2bc892ad32eefdf7f5e",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6d48fc3b1e15ae247a781c0a"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030612244897959183,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 98,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4615e7e18235fc7bdb6b3982",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:0c8c60d95f27fe584ea2366a",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04918032786885246,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 61,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:6428ec7112247e8bbf2ff87e"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.022988505747126436,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 87,
+            "retrieved_count": 2,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r010",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:2002f2587ae71b085d18283e",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:c73044fff9ca18d0ed7ec349",
+            "advaita_paramananda_1919_upanishads:chunk:feeb091d16924af52f800274"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 0.6666666666666666,
+            "recall_at_k": 0.02040816326530612,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 98,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:113c113e74b6f6f6081a526d",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:65e6b464d1acb12be943ff59",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04918032786885246,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 61,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:e9a1b831ebc424f19a113bc6",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:f03f3f431b93ba6931939341"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.034482758620689655,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 87,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        }
+      },
+      "question_text": "How can perception create an appearance that differs from underlying reality?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:0487f2bc892ad32eefdf7f5e",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7dfa5ba366a53671f491063e"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030612244897959183,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 98,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e3bf1c31f219342b1f10f3c7",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04918032786885246,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 61,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:6ace0e6a0e7778edec1823bc",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:809ff9801951c937811e581c"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.034482758620689655,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 87,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r011",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f45aa0c35f1cdcde3ba7b0d1",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:f27fd2268a030eb7c14a1a12",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7dfa5ba366a53671f491063e"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030612244897959183,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 98,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4350792a01f98a328f637848",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:d57205fe26fa6f2d595d1ba1",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04918032786885246,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 61,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:aae620629f5aad3d2d4cb8be",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.022988505747126436,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 87,
+            "retrieved_count": 2,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "Are the objects and distinctions we experience ultimately real, conditionally real, or merely apparent?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:c73044fff9ca18d0ed7ec349",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bd3336dbf3a70b4e9cd8a33",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6d48fc3b1e15ae247a781c0a"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030612244897959183,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 98,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4615e7e18235fc7bdb6b3982",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:17706133627c85609a688587",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e3bf1c31f219342b1f10f3c7"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.04918032786885246,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 61,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:350bc8ddd66212500d4dc1f8"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.034482758620689655,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 87,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r012",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:c73044fff9ca18d0ed7ec349",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:83e549f69144200a2183bc0a"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030612244897959183,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 98,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:113c113e74b6f6f6081a526d",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03278688524590164,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 61,
+            "retrieved_count": 2,
+            "source_diversity": 0.5
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:e9a1b831ebc424f19a113bc6",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:d613207d16c1edb3e67c02c0"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.034482758620689655,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 87,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        }
+      },
+      "question_text": "What mechanisms or principles explain why appearance can be mistaken for reality?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "self_identity",
+        "reality_appearance",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02727272727272727,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 110,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.0375,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 80,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.033707865168539325,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 89,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r013",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:2c35149f6a97148ed38db3b3",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02727272727272727,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 110,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4615e7e18235fc7bdb6b3982"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.0375,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 80,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.033707865168539325,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 89,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "How is consciousness related to the self?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "self_identity",
+        "reality_appearance",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02727272727272727,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 110,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.0375,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 80,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:25f4de65247f119e0f7b82a2",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.033707865168539325,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 89,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r014",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:b67939c9c572290f5916d951",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02727272727272727,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 110,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af9b9607003d4dbfeab248ef",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4615e7e18235fc7bdb6b3982"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.0375,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 80,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:6b84976b7e686b7b7014fab1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.033707865168539325,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 89,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "Does the sense of self arise within consciousness, or is consciousness itself grounded in the self?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bd3336dbf3a70b4e9cd8a33",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.026785714285714284,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 112,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03225806451612903,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 93,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:96c2c02b3b2c197864c1c8b3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.033707865168539325,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 89,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r015",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:2c35149f6a97148ed38db3b3",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:72d34e550581bb3798b78217",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f45aa0c35f1cdcde3ba7b0d1"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.026785714285714284,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 112,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.021505376344086023,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 93,
+            "retrieved_count": 2,
+            "source_diversity": 0.5
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:f383a73b166c7858d3c9a754",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.033707865168539325,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 89,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "How does the structure of conscious experience shape what appears real?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:0487f2bc892ad32eefdf7f5e",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.026785714285714284,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 112,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e3bf1c31f219342b1f10f3c7"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03225806451612903,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 93,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:350bc8ddd66212500d4dc1f8",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.033707865168539325,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 89,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r016",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:72d34e550581bb3798b78217",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.026785714285714284,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 112,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.021505376344086023,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 93,
+            "retrieved_count": 2,
+            "source_diversity": 0.5
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_herzog_kammer_scharnowski_2016_time_slices:chunk:aae620629f5aad3d2d4cb8be",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02247191011235955,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 89,
+            "retrieved_count": 2,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "Can changes in consciousness alter the experienced distinction between appearance and reality?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6d48fc3b1e15ae247a781c0a",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_paramananda_1917_vedanta_in_practice:chunk:e33625c0e17016562de0dc5a"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.025210084033613446,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 119,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4615e7e18235fc7bdb6b3982",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030303030303030304,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 99,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:350bc8ddd66212500d4dc1f8"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03333333333333333,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 90,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "self_identity",
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r017",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:f27fd2268a030eb7c14a1a12",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bd3336dbf3a70b4e9cd8a33",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:b67939c9c572290f5916d951"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.025210084033613446,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 119,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:02641e2a784aaca69a0c3f3a"
+          ],
+          "metrics": {
+            "concept_coverage": 0.5,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.020202020202020204,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 99,
+            "retrieved_count": 2,
+            "source_diversity": 0.5
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03333333333333333,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 90,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "How does the sense of self influence what a person takes to be real?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bd3336dbf3a70b4e9cd8a33",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:c73044fff9ca18d0ed7ec349",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.025210084033613446,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 119,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e3bf1c31f219342b1f10f3c7",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030303030303030304,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 99,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:1b87b9c1a85dbf545c5fd891",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:350bc8ddd66212500d4dc1f8"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03333333333333333,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 90,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "self_identity",
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r018",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:c73044fff9ca18d0ed7ec349",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bd3336dbf3a70b4e9cd8a33",
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:83e549f69144200a2183bc0a"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.025210084033613446,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 119,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:bf0c49de4fc52ac36b825bb2",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:63d82f00c321713f49661b81"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.030303030303030304,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 99,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03333333333333333,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 90,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "Is mistaken identity with the ego or personality connected to mistaken appearances about reality?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.025210084033613446,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 119,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03333333333333333,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 90,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness",
+        "self_identity",
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r019",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:2c35149f6a97148ed38db3b3",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f45aa0c35f1cdcde3ba7b0d1",
+            "advaita_paramananda_1917_vedanta_in_practice:chunk:e33625c0e17016562de0dc5a"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.025210084033613446,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 119,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.018867924528301886,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 106,
+            "retrieved_count": 2,
+            "source_diversity": 0.5
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:e566847812b0069ae5d1e288",
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03333333333333333,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 90,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "How are consciousness, self, and experienced reality related to one another?",
+      "unsupported": false
+    },
+    {
+      "activated_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "concept_aware": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4ae7828ae7aef5ebebe2b458",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.025210084033613446,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 119,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+            "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.02830188679245283,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 106,
+            "retrieved_count": 3,
+            "source_diversity": 0.6666666666666666
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03333333333333333,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 90,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "expected_concepts": [
+        "consciousness",
+        "self_identity",
+        "reality_appearance"
+      ],
+      "expected_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "id": "r020",
+      "plain_vector": {
+        "advaita": {
+          "chunk_ids": [
+            "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4ae7828ae7aef5ebebe2b458",
+            "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.025210084033613446,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 119,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        },
+        "samkhya": {
+          "chunk_ids": [
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb",
+            "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:02641e2a784aaca69a0c3f3a"
+          ],
+          "metrics": {
+            "concept_coverage": 0.6666666666666666,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.018867924528301886,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 2,
+            "relevant_total": 106,
+            "retrieved_count": 2,
+            "source_diversity": 0.5
+          }
+        },
+        "science": {
+          "chunk_ids": [
+            "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+            "science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc",
+            "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838"
+          ],
+          "metrics": {
+            "concept_coverage": 1.0,
+            "precision_at_k": 1.0,
+            "recall_at_k": 0.03333333333333333,
+            "reciprocal_rank": 1.0,
+            "relevant_retrieved": 3,
+            "relevant_total": 90,
+            "retrieved_count": 3,
+            "source_diversity": 1.0
+          }
+        }
+      },
+      "question_text": "If the sense of self changes, what changes in consciousness and in the way reality appears?",
+      "unsupported": false
+    }
+  ],
+  "plain_vector": {
+    "macro_concept_coverage": 0.986111111111111,
+    "macro_precision_at_k": 0.9416666666666667,
+    "macro_recall_at_k": 0.03169472888341019,
+    "mean_source_diversity": 0.8166666666666665,
+    "mrr": 0.9555555555555555
+  },
+  "question_count": 20,
+  "retention_gate": {
+    "at_least_one_quality_metric_improved": true,
+    "concept_aware_retained": true,
+    "concept_coverage_not_worse": true,
+    "maximum_acceptable_recall_relative_loss": 0.1,
+    "minimum_concept_coverage_delta": 0.0,
+    "minimum_precision_delta": 0.0,
+    "precision_not_worse": true,
+    "recall_loss_acceptable": true
+  },
+  "retrieval_version": "phase1-concept-domain-retrieval-v1"
+}

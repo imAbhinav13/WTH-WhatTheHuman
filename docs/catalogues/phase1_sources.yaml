@@ -1,4 +1,5 @@
 - source_id: science_limanowski_blankenburg_2013_minimal_self_models
+  rights_status: public_domain
   enabled: true
   domain: science
   title: Minimal Self-Models and the Free Energy Principle
@@ -26,6 +27,7 @@
     as settled empirical confirmation of one consciousness theory.
   inclusion_status: approved_for_acquisition
 - source_id: science_ionta_gassert_blanke_2011_bodily_self_consciousness
+  rights_status: public_domain
   enabled: true
   domain: science
   title: 'Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary
@@ -53,6 +55,7 @@
     licence.
   inclusion_status: approved_for_acquisition
 - source_id: science_petkova_ehrsson_2008_body_swapping
+  rights_status: public_domain
   enabled: true
   domain: science
   title: 'If I Were You: Perceptual Illusion of Body Swapping'
@@ -79,6 +82,7 @@
     Useful for distinguishing physical stimulus, perceived body, self-location, and conscious ownership.
   inclusion_status: approved_for_acquisition
 - source_id: science_herzog_kammer_scharnowski_2016_time_slices
+  rights_status: public_domain
   enabled: true
   domain: science
   title: 'Time Slices: What Is the Duration of a Percept?'
@@ -104,6 +108,7 @@
     how conscious percepts may differ temporally from immediate physical stimulus presentation.
   inclusion_status: approved_for_acquisition
 - source_id: advaita_paramananda_1919_upanishads
+  rights_status: public_domain
   enabled: true
   domain: advaita
   title: The Upanishads
@@ -132,6 +137,7 @@
     from translated source text.
   inclusion_status: candidate_pending_jurisdiction_review
 - source_id: advaita_sankara_thibaut_1890_vedanta_sutras
+  rights_status: public_domain
   enabled: true
   domain: advaita
   title: The Vedanta-Sutras with the Commentary by Sankaracarya, Part I
@@ -159,6 +165,7 @@
     introduction, translator notes, and editorial material.
   inclusion_status: candidate_pending_jurisdiction_review
 - source_id: advaita_sankara_johnston_1946_crest_jewel
+  rights_status: public_domain
   enabled: true
   domain: advaita
   title: The Crest-Jewel of Wisdom and Other Writings of Sankaracharya
@@ -186,6 +193,7 @@
     checked against page images before any chunk becomes active.
   inclusion_status: candidate_pending_rights_and_text_quality_review
 - source_id: advaita_paramananda_1917_vedanta_in_practice
+  rights_status: public_domain
   enabled: true
   domain: advaita
   title: Vedanta in Practice, Third Edition
@@ -213,6 +221,7 @@
     root text.
   inclusion_status: candidate_pending_rights_and_text_quality_review
 - source_id: samkhya_isvarakrishna_davies_1881_karika
+  rights_status: public_domain
   enabled: true
   domain: samkhya
   title: 'Hindu Philosophy: The Sankhya Karika of Iswara Krishna'
@@ -239,6 +248,7 @@
     translated karikas from Davies's explanatory notes, comparisons, and appendix material.
   inclusion_status: candidate_pending_rights_and_text_quality_review
 - source_id: samkhya_vachaspati_jha_1896_tattva_kaumudi
+  rights_status: public_domain
   enabled: true
   domain: samkhya
   title: An English Translation with the Sanskrit Text of the Tattva-Kaumudi
@@ -267,6 +277,7 @@
     OCR quality must be checked against the scan.
   inclusion_status: candidate_pending_rights_and_text_quality_review
 - source_id: samkhya_sinha_1915_samkhya_philosophy
+  rights_status: public_domain
   enabled: true
   domain: samkhya
   title: The Samkhya Philosophy, Sacred Books of the Hindus, Volume 11
@@ -294,6 +305,7 @@
     This source should be sampled carefully to avoid dominating the Samkhya corpus.
   inclusion_status: candidate_pending_rights_and_text_quality_review
 - source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+  rights_status: public_domain
   enabled: true
   domain: samkhya
   title: 'A History of Indian Philosophy, Volume 1: Samkhya Sections'
