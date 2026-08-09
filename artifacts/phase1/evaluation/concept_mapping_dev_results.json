@@ -1,0 +1,4180 @@
+{
+  "best_result_by_method": {
+    "centroid": {
+      "activation": {
+        "ambiguity_margin": 0.05,
+        "concept_activation_thresholds": {
+          "consciousness": 0.35,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 2
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8557819685479943,
+          "slope": 0.5052952990466898
+        },
+        "reality_appearance": {
+          "intercept": 0.1939045872715346,
+          "slope": 1.2982278937143013
+        },
+        "self_identity": {
+          "intercept": 0.12075796768767189,
+          "slope": 1.236213236109089
+        }
+      },
+      "candidate": {
+        "embedding_weight": 1.0,
+        "lexical_weight": 0.0,
+        "method": "centroid",
+        "negative_penalty": 0.0,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.675,
+        "exact_active_set_accuracy": 0.2125,
+        "hard_negative_false_activation_rate": 0.4,
+        "macro_brier": 0.15898083966818108,
+        "macro_f1": 0.6818733490397658,
+        "macro_mae": 0.35157075670991333,
+        "unsupported_accuracy": 0.9875
+      },
+      "objective": 0.6489558870575294,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.1646277698875172,
+          "f1": 0.3142857142857143,
+          "mae": 0.36436048937597026
+        },
+        "reality_appearance": {
+          "brier": 0.1593431744615635,
+          "f1": 0.8347826086956521,
+          "mae": 0.3453900309482634
+        },
+        "self_identity": {
+          "brier": 0.15297157465546252,
+          "f1": 0.896551724137931,
+          "mae": 0.3449617498055063
+        }
+      }
+    },
+    "classifier": {
+      "activation": {
+        "ambiguity_margin": 0.05,
+        "concept_activation_thresholds": {
+          "consciousness": 0.35,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 2
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8461012645460683,
+          "slope": 0.595876912531261
+        },
+        "reality_appearance": {
+          "intercept": 0.2878753385757763,
+          "slope": 1.4926799418257644
+        },
+        "self_identity": {
+          "intercept": 0.18682609977112574,
+          "slope": 1.3402703362251576
+        }
+      },
+      "candidate": {
+        "embedding_weight": 1.0,
+        "lexical_weight": 0.0,
+        "method": "classifier",
+        "negative_penalty": 0.0,
+        "prototype_aggregation": "none",
+        "prototype_source": "none"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.6,
+        "exact_active_set_accuracy": 0.2375,
+        "hard_negative_false_activation_rate": 0.4,
+        "macro_brier": 0.15692242227349354,
+        "macro_f1": 0.711152162014231,
+        "macro_mae": 0.34863164883886305,
+        "unsupported_accuracy": 0.9875
+      },
+      "objective": 0.6531363626067084,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.1647023290258955,
+          "f1": 0.475,
+          "mae": 0.3646461131630946
+        },
+        "reality_appearance": {
+          "brier": 0.15496602665758355,
+          "f1": 0.7619047619047619,
+          "mae": 0.3391789695763858
+        },
+        "self_identity": {
+          "brier": 0.1510989111370016,
+          "f1": 0.896551724137931,
+          "mae": 0.3420698637771087
+        }
+      }
+    },
+    "hybrid": {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8799501273554392,
+          "slope": 1.1810531849391321
+        },
+        "reality_appearance": {
+          "intercept": 0.47630047840111434,
+          "slope": 1.7509856440379357
+        },
+        "self_identity": {
+          "intercept": 0.4463238424461934,
+          "slope": 1.4953476724245536
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.725,
+        "exact_active_set_accuracy": 0.4875,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.14989681325141738,
+        "macro_f1": 0.7866463296802344,
+        "macro_mae": 0.3406663807961401,
+        "unsupported_accuracy": 0.9625
+      },
+      "objective": 0.7369324201618853,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15474332337585722,
+          "f1": 0.576271186440678,
+          "mae": 0.3522379889206017
+        },
+        "reality_appearance": {
+          "brier": 0.14694626761381102,
+          "f1": 0.8771929824561403,
+          "mae": 0.33027133052182095
+        },
+        "self_identity": {
+          "brier": 0.14800084876458386,
+          "f1": 0.9064748201438849,
+          "mae": 0.3394898229459975
+        }
+      }
+    },
+    "maximum_example": {
+      "activation": {
+        "ambiguity_margin": 0.05,
+        "concept_activation_thresholds": {
+          "consciousness": 0.35,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 2
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.847984318419553,
+          "slope": 0.5168790747008988
+        },
+        "reality_appearance": {
+          "intercept": 0.21933521629278693,
+          "slope": 1.3272311927773948
+        },
+        "self_identity": {
+          "intercept": 0.1398898559739927,
+          "slope": 1.2763918018456355
+        }
+      },
+      "candidate": {
+        "embedding_weight": 1.0,
+        "lexical_weight": 0.0,
+        "method": "maximum_example",
+        "negative_penalty": 0.0,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7125,
+        "exact_active_set_accuracy": 0.2125,
+        "hard_negative_false_activation_rate": 0.4,
+        "macro_brier": 0.15866174491856086,
+        "macro_f1": 0.6731167195267336,
+        "macro_mae": 0.35103626934528975,
+        "unsupported_accuracy": 0.9875
+      },
+      "objective": 0.6501483016775631,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.16483156459057627,
+          "f1": 0.3013698630136986,
+          "mae": 0.3645761144080396
+        },
+        "reality_appearance": {
+          "brier": 0.15890855312025864,
+          "f1": 0.8214285714285714,
+          "mae": 0.34462270116723226
+        },
+        "self_identity": {
+          "brier": 0.1522451170448477,
+          "f1": 0.896551724137931,
+          "mae": 0.3439099924605973
+        }
+      }
+    },
+    "positive_minus_negative": {
+      "activation": {
+        "ambiguity_margin": 0.05,
+        "concept_activation_thresholds": {
+          "consciousness": 0.35,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 2
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8547465783122004,
+          "slope": 0.6889350147018146
+        },
+        "reality_appearance": {
+          "intercept": 0.4208286247546203,
+          "slope": 1.3504028074037995
+        },
+        "self_identity": {
+          "intercept": 0.29576425644277393,
+          "slope": 1.344718802587209
+        }
+      },
+      "candidate": {
+        "embedding_weight": 1.0,
+        "lexical_weight": 0.0,
+        "method": "positive_minus_negative",
+        "negative_penalty": 0.25,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.6875,
+        "exact_active_set_accuracy": 0.25,
+        "hard_negative_false_activation_rate": 0.35,
+        "macro_brier": 0.15851455857285865,
+        "macro_f1": 0.7077394636015327,
+        "macro_mae": 0.351068173512233,
+        "unsupported_accuracy": 0.9875
+      },
+      "objective": 0.6742892938005935,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.16393468372667788,
+          "f1": 0.4266666666666667,
+          "mae": 0.3634689096415956
+        },
+        "reality_appearance": {
+          "brier": 0.15969897967666888,
+          "f1": 0.8,
+          "mae": 0.3464624894757481
+        },
+        "self_identity": {
+          "brier": 0.1519100123152291,
+          "f1": 0.896551724137931,
+          "mae": 0.3432731214193554
+        }
+      }
+    }
+  },
+  "candidate_space": {
+    "activation_thresholds": [
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8
+    ],
+    "ambiguity_margins": [
+      0.05,
+      0.08,
+      0.1,
+      0.12,
+      0.15,
+      0.2
+    ],
+    "calibration": {
+      "fitted_on": "development",
+      "iterations": 500,
+      "learning_rate": 0.05,
+      "type": "concept_specific_sigmoid"
+    },
+    "candidate_count": 337,
+    "classifier": {
+      "iterations": 350,
+      "l2": 0.01,
+      "learning_rate": 0.15,
+      "soft_targets": {
+        "negative": 0.0,
+        "partial": 0.5,
+        "positive": 1.0
+      },
+      "training_split": "build"
+    },
+    "hybrid_embedding_weights": [
+      0.8,
+      0.85,
+      0.9
+    ],
+    "lexical_weights": [
+      0.05,
+      0.1,
+      0.15,
+      0.2
+    ],
+    "maximum_active_concepts": [
+      2,
+      3
+    ],
+    "negative_penalties": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5
+    ]
+  },
+  "development_records": [
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.35515736741880677,
+        "reality_appearance": 0.7788493949189117,
+        "self_identity": 0.726687257874367
+      },
+      "chunk_id": "advaita_paramananda_1917_vedanta_in_practice:chunk:dc939edf0b7dc800e1a375fe",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2400440591440504,
+        "reality_appearance": 0.44699011654879717,
+        "self_identity": 0.3554729482168513
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.34932628066329846,
+        "reality_appearance": 0.7706786525827723,
+        "self_identity": 0.757537371677186
+      },
+      "chunk_id": "advaita_paramananda_1917_vedanta_in_practice:chunk:e33625c0e17016562de0dc5a",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.21840523383895366,
+        "reality_appearance": 0.42024715281738667,
+        "self_identity": 0.4633714644113418
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3646787673920295,
+        "reality_appearance": 0.726258375883806,
+        "self_identity": 0.7086578857684664
+      },
+      "chunk_id": "advaita_paramananda_1919_upanishads:chunk:292f51c3aef9dccdfab39cc1",
+      "expected_active_concepts": [],
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2750394809777255,
+        "reality_appearance": 0.2852226005569017,
+        "self_identity": 0.2959517831368199
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36056172152885135,
+        "reality_appearance": 0.771563030443307,
+        "self_identity": 0.7413885708403999
+      },
+      "chunk_id": "advaita_paramananda_1919_upanishads:chunk:e59bca77d00bd628dd3ea0a3",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2599571155384478,
+        "reality_appearance": 0.4231088720011673,
+        "self_identity": 0.40584165278086065
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.38272826161486084,
+        "reality_appearance": 0.7364202370342645,
+        "self_identity": 0.7429870820255138
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:0739b06533b6059f7187ff73",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3403454005473973,
+        "reality_appearance": 0.314762388580613,
+        "self_identity": 0.41142837823206335
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3703857952077213,
+        "reality_appearance": 0.7457203782637762,
+        "self_identity": 0.7408744760447737
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:327562fd591e808e798d8aa5",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.29582750845897116,
+        "reality_appearance": 0.3424446631156492,
+        "self_identity": 0.4040496994918723
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.40505834309790884,
+        "reality_appearance": 0.7376314491489094,
+        "self_identity": 0.7368632852276434
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:571b8fd305a11a609d77b7a3",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4195559542333791,
+        "reality_appearance": 0.3183313546944485,
+        "self_identity": 0.3901465969566039
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "reality_appearance"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.38231084660345727,
+        "reality_appearance": 0.7534595307520381,
+        "self_identity": 0.7592370818820544
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:6c7efd4a2d76ad83c00e3de4",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3388490898137664,
+        "reality_appearance": 0.3659931059922366,
+        "self_identity": 0.46957477041634665
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3612424655551135,
+        "reality_appearance": 0.7351954161848987,
+        "self_identity": 0.7383734495615254
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:700fdc28d25db815224c8819",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2624560662176561,
+        "reality_appearance": 0.3111640151342745,
+        "self_identity": 0.3953647618867153
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.39180430006834355,
+        "reality_appearance": 0.7586227601140081,
+        "self_identity": 0.7389513471403025
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:7bd137b5a803963140d22b1f",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3727316504606542,
+        "reality_appearance": 0.38198093460601207,
+        "self_identity": 0.39736674744086076
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.41912797379461314,
+        "reality_appearance": 0.7531513584771816,
+        "self_identity": 0.7260734037110115
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:83e549f69144200a2183bc0a",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.46873076211802744,
+        "reality_appearance": 0.3650460397603535,
+        "self_identity": 0.35340751205298493
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4337561178408208,
+        "reality_appearance": 0.7683192219726172,
+        "self_identity": 0.7444629958766658
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.5193734696002079,
+        "reality_appearance": 0.4126500734411702,
+        "self_identity": 0.4166068448317468
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3715093236347669,
+        "reality_appearance": 0.7660230173802295,
+        "self_identity": 0.7401322265581352
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:a514998c7ecbbc2c7a874095",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.299904271715412,
+        "reality_appearance": 0.40530828819583165,
+        "self_identity": 0.401466552180781
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36879481359717803,
+        "reality_appearance": 0.773236845766997,
+        "self_identity": 0.7554760641815468
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:b1ee2e933c352be183659039",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2900458456575403,
+        "reality_appearance": 0.4285465301167014,
+        "self_identity": 0.4558879972299612
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4070607432438518,
+        "reality_appearance": 0.7578815781511575,
+        "self_identity": 0.7320747672568
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:b5811b112e290232da110359",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.42658585949878736,
+        "reality_appearance": 0.3796717094735821,
+        "self_identity": 0.37372636369413365
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3625438184863915,
+        "reality_appearance": 0.7305637997659994,
+        "self_identity": 0.7431114068738921
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:b83c55d3d0b32cc48ee577e1",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2672275365437833,
+        "reality_appearance": 0.29765204493412095,
+        "self_identity": 0.41186383823362865
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.4098255942959731,
+        "reality_appearance": 0.7373198241490619,
+        "self_identity": 0.7390212423343375
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:bb33ddaf94e184525e357fea",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4362747819089704,
+        "reality_appearance": 0.31741210720217444,
+        "self_identity": 0.39760907646978416
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.37210799088940616,
+        "reality_appearance": 0.7665872635754772,
+        "self_identity": 0.7376873555509811
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:bdc0bfa81d3a51a59e5fa2ac",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.30207449628276845,
+        "reality_appearance": 0.4071077197081542,
+        "self_identity": 0.3929916593964918
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3939730025552182,
+        "reality_appearance": 0.7324823713898894,
+        "self_identity": 0.7421565256461821
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:c0bebb201a3f864e4d85afd6",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3804299275307201,
+        "reality_appearance": 0.30323111564940297,
+        "self_identity": 0.4085227994027278
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.37433226930818364,
+        "reality_appearance": 0.7976682444105535,
+        "self_identity": 0.7406492543703095
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:c73044fff9ca18d0ed7ec349",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3101253246641627,
+        "reality_appearance": 0.5114168681050686,
+        "self_identity": 0.4032653844927938
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3703510433476759,
+        "reality_appearance": 0.7404361191502976,
+        "self_identity": 0.7213519406619271
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:dd71868215be5233ab1286db",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2957013291488216,
+        "reality_appearance": 0.3266366260968595,
+        "self_identity": 0.3376163042845468
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3860192035141398,
+        "reality_appearance": 0.7524545009510405,
+        "self_identity": 0.728930585789468
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:ded828696a5c85490566e8d4",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.35212097079647436,
+        "reality_appearance": 0.3629074030678931,
+        "self_identity": 0.3630458304545467
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3594277161542398,
+        "reality_appearance": 0.7282065326731971,
+        "self_identity": 0.7247991070188295
+      },
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:fb60e7fe0dd749a8af070645",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.25578970542655743,
+        "reality_appearance": 0.290831488794285,
+        "self_identity": 0.3491290614034946
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3662842472178628,
+        "reality_appearance": 0.7942103367592264,
+        "self_identity": 0.7440996249051822
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:047ea3d0058d8c2ff0aeaf85",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2809012166980693,
+        "reality_appearance": 0.49925781148839266,
+        "self_identity": 0.415330087020221
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.39625817252997586,
+        "reality_appearance": 0.7897590144465355,
+        "self_identity": 0.7383580169859428
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:2002f2587ae71b085d18283e",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3885256094081716,
+        "reality_appearance": 0.4838263268262192,
+        "self_identity": 0.3953113386647842
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.38571989345587454,
+        "reality_appearance": 0.8031709395577502,
+        "self_identity": 0.7133793943365163
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:2d542eae8819d27def851738",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.35105154480788137,
+        "reality_appearance": 0.531090276869548,
+        "self_identity": 0.31131899634460286
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36970997169684366,
+        "reality_appearance": 0.8013190635551991,
+        "self_identity": 0.7381723248358105
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4748620ad9ca2e494f03939f",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.29337280819946315,
+        "reality_appearance": 0.5244237840844101,
+        "self_identity": 0.39466868427028234
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.378372306988099,
+        "reality_appearance": 0.7915274878446938,
+        "self_identity": 0.7219972414327362
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7317efec5f16a155f2701129",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.32469954191263745,
+        "reality_appearance": 0.4899280217831279,
+        "self_identity": 0.33976475740925327
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36522601575789865,
+        "reality_appearance": 0.7763240565798586,
+        "self_identity": 0.6924143375249147
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7d07bb2d8077bccac8004adc",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2770387561876626,
+        "reality_appearance": 0.4386507865848387,
+        "self_identity": 0.2441619890582746
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3678214590844037,
+        "reality_appearance": 0.8001409316407674,
+        "self_identity": 0.7211550670556149
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7e2dd889802798e3ed6f95c7",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.286503546899842,
+        "reality_appearance": 0.5202069711126485,
+        "self_identity": 0.3369614450162904
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.400187512855183,
+        "reality_appearance": 0.7616650171022189,
+        "self_identity": 0.7242226541067475
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:91ecc1a234566024b355b0de",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.40240885666466364,
+        "reality_appearance": 0.3915104601853481,
+        "self_identity": 0.3471976605604236
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.37492874901835016,
+        "reality_appearance": 0.7999328141331772,
+        "self_identity": 0.7228969975463262
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:d26c8f86208b6025da911055",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.31228101540997477,
+        "reality_appearance": 0.519464009903864,
+        "self_identity": 0.342765516391962
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "reality_appearance"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36880305818527315,
+        "reality_appearance": 0.7559719929907046,
+        "self_identity": 0.7613045287974883
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f632d3d10db109d28f4a8e72",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2900758332863278,
+        "reality_appearance": 0.37374426882410144,
+        "self_identity": 0.4771606345257234
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.35919530095374724,
+        "reality_appearance": 0.7212319850914177,
+        "self_identity": 0.7242320805222123
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:012524506a2fbfa4e0cd6bc8",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2549348807822293,
+        "reality_appearance": 0.27086482131960926,
+        "self_identity": 0.34722922356228597
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.35890791047673826,
+        "reality_appearance": 0.741600929491764,
+        "self_identity": 0.7233258430069053
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0bdcb896a0b9a06580e2b459",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2538775204865464,
+        "reality_appearance": 0.33010300020459776,
+        "self_identity": 0.34419786404388214
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.37786306025649985,
+        "reality_appearance": 0.7245060395189494,
+        "self_identity": 0.748637330524426
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:1bdb73e655e492fc27ec83bd",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.322865861486977,
+        "reality_appearance": 0.28019870682071546,
+        "self_identity": 0.43136056999580386
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3587236593658542,
+        "reality_appearance": 0.7213470447380379,
+        "self_identity": 0.7608619204603959
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:38fd2ceddf010cfae8175e7d",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2531994321025925,
+        "reality_appearance": 0.2711916931755383,
+        "self_identity": 0.4755328432575881
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.37589581496064717,
+        "reality_appearance": 0.7995124740223377,
+        "self_identity": 0.7300720746178145
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4615e7e18235fc7bdb6b3982",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.3157731011591012,
+        "reality_appearance": 0.5179651979916015,
+        "self_identity": 0.366914296226705
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.37511305837447395,
+        "reality_appearance": 0.7310443303446164,
+        "self_identity": 0.7474347346205611
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4d47193c82749553fe3c58e0",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.3129468356082213,
+        "reality_appearance": 0.2990470284653307,
+        "self_identity": 0.4270936232244603
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3715436567925863,
+        "reality_appearance": 0.7418430965739196,
+        "self_identity": 0.7203092370960164
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4df7c873ca599c60c7b65b68",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.30002877119419785,
+        "reality_appearance": 0.3308249449953809,
+        "self_identity": 0.3341511863013326
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.392558403409887,
+        "reality_appearance": 0.7531959507352918,
+        "self_identity": 0.7421525122745888
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5236d985172f46a1b92b76d8",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3754102053709718,
+        "reality_appearance": 0.36518303019619597,
+        "self_identity": 0.4085087740648411
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3735229653643161,
+        "reality_appearance": 0.7852089043988283,
+        "self_identity": 0.703313376714306
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:60f5cacd2104061d892ac044",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.3071982739869152,
+        "reality_appearance": 0.46829819514405735,
+        "self_identity": 0.2787326900637595
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3855038019128482,
+        "reality_appearance": 0.8053784407942238,
+        "self_identity": 0.7436065219077862
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:63d82f00c321713f49661b81",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.35027926421187744,
+        "reality_appearance": 0.5390991374772337,
+        "self_identity": 0.4135993971323011
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36220520468979056,
+        "reality_appearance": 0.8043756240361915,
+        "self_identity": 0.7183020488324728
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:79e7d0054f163a7898e5ef96",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.26598670762757315,
+        "reality_appearance": 0.5354524222491364,
+        "self_identity": 0.32750304577438216
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3746865660026198,
+        "reality_appearance": 0.7507428049102993,
+        "self_identity": 0.6929286259423654
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:94bd89c51cfa22085d189e43",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3114059265927453,
+        "reality_appearance": 0.3576713328831718,
+        "self_identity": 0.24577759138954547
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.35950178501979124,
+        "reality_appearance": 0.7745667610576477,
+        "self_identity": 0.7197465102632349
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:9b19e1a86000c56b5bd94caa",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2560620802081638,
+        "reality_appearance": 0.4328872267060335,
+        "self_identity": 0.3322844135546664
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36040482202283586,
+        "reality_appearance": 0.7554407889979126,
+        "self_identity": 0.6976492492469958
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:9f351fd7ea4fa79196fca767",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2593808600150087,
+        "reality_appearance": 0.3721009808444578,
+        "self_identity": 0.2606784115742953
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36132437227062364,
+        "reality_appearance": 0.7246177637187667,
+        "self_identity": 0.7435261726070233
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:a867c9a31c404955077f9d89",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.26275660037322424,
+        "reality_appearance": 0.2805184234061894,
+        "self_identity": 0.4133175944122739
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3650854517562554,
+        "reality_appearance": 0.7935505917052362,
+        "self_identity": 0.733307907052009
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:bd53e81cd7ec0c7be4c88c5b",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.27652535208435575,
+        "reality_appearance": 0.496955205729405,
+        "self_identity": 0.3779368924308256
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.40543397455458047,
+        "reality_appearance": 0.7784194504993341,
+        "self_identity": 0.7640856792347054
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e3bf1c31f219342b1f10f3c7",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.42087553616719775,
+        "reality_appearance": 0.4455655388153449,
+        "self_identity": 0.48743673994064374
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "partial"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.40602398375921017,
+        "reality_appearance": 0.7312015296389945,
+        "self_identity": 0.7195318270312054
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:ec7f96e7cc2415bb8a473739",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4229474362648855,
+        "reality_appearance": 0.29950372092872624,
+        "self_identity": 0.33157283339633353
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.35238811689859373,
+        "reality_appearance": 0.8043022377440578,
+        "self_identity": 0.7008832851428276
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:ff65143c3856e2a3e91480af",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.22978789840817,
+        "reality_appearance": 0.535186111404288,
+        "self_identity": 0.2709628620989178
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.34970290223726763,
+        "reality_appearance": 0.7068611002692207,
+        "self_identity": 0.7632035141078877
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:455c7f1303e88634a873145d",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.21980783082115074,
+        "reality_appearance": 0.23066274062119904,
+        "self_identity": 0.48416821890346395
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3513927254516073,
+        "reality_appearance": 0.7587980022516979,
+        "self_identity": 0.7215386242651415
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:65e6b464d1acb12be943ff59",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.22609243605751023,
+        "reality_appearance": 0.38252762483030056,
+        "self_identity": 0.33823753095445164
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.35036609292648724,
+        "reality_appearance": 0.704957590805068,
+        "self_identity": 0.7285952263839824
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:82f0b5ebfa588a82122ebdbc",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.22227596012267015,
+        "reality_appearance": 0.2254262124130999,
+        "self_identity": 0.36191125596922585
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3512455399489805,
+        "reality_appearance": 0.7043036734716989,
+        "self_identity": 0.7248591081969756
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:90958f6d46df2d31406447d1",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.22554559301078186,
+        "reality_appearance": 0.22363183652238214,
+        "self_identity": 0.3493302389385532
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.35672068371055493,
+        "reality_appearance": 0.7163653241026986,
+        "self_identity": 0.7351104833116547
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:bf0c49de4fc52ac36b825bb2",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.24581803990306145,
+        "reality_appearance": 0.2571138898472086,
+        "self_identity": 0.3841141111184746
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.39594953695375923,
+        "reality_appearance": 0.7007733423286643,
+        "self_identity": 0.7256719139032376
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:ccd57df8a9e99d900770d014",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.3874331502215469,
+        "reality_appearance": 0.21398386916089612,
+        "self_identity": 0.35205817758912683
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3516456229262972,
+        "reality_appearance": 0.7577138236159525,
+        "self_identity": 0.6999199864076769
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:d57205fe26fa6f2d595d1ba1",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.22703178920073325,
+        "reality_appearance": 0.3791497219129819,
+        "self_identity": 0.26789290360359835
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.39040855335158337,
+        "reality_appearance": 0.701468185368233,
+        "self_identity": 0.7207121744675881
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:d9f7efeb66b09dd041242270",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.36776914300524655,
+        "reality_appearance": 0.21587758887422231,
+        "self_identity": 0.335489290126677
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.39002523287702284,
+        "reality_appearance": 0.7077075329544452,
+        "self_identity": 0.7038286467389817
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:e41f8df10086ca69d0cc7d71",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3664051531714513,
+        "reality_appearance": 0.23299765010426016,
+        "self_identity": 0.2803848959798547
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.34997230993999157,
+        "reality_appearance": 0.6986555671213386,
+        "self_identity": 0.6975685496339653
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:e733ab3a07bbb2f336ea1721",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.22081071835119176,
+        "reality_appearance": 0.2082275699479132,
+        "self_identity": 0.26042258346735425
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": true
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3743493058357732,
+        "reality_appearance": 0.7089515979014033,
+        "self_identity": 0.7282505064572242
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f6856c86fd3187966dbc0237",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.31018691415765093,
+        "reality_appearance": 0.23643665812582199,
+        "self_identity": 0.3607459298419184
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3907343899766954,
+        "reality_appearance": 0.7359987522046679,
+        "self_identity": 0.6994388189650995
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:fda6feca6f10fef47deaa8e0",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3689282063315079,
+        "reality_appearance": 0.3135229104755141,
+        "self_identity": 0.2663615696339257
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": true
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4134851809804284,
+        "reality_appearance": 0.7706012964475839,
+        "self_identity": 0.7495090163299518
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:105f375a601f869d1f5c8a1a",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4490685731003395,
+        "reality_appearance": 0.41999720869961565,
+        "self_identity": 0.43446189154115145
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "reality_appearance",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.42945616868763,
+        "reality_appearance": 0.7627595883393696,
+        "self_identity": 0.7787411902690242
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.5045325843285038,
+        "reality_appearance": 0.39495948812866705,
+        "self_identity": 0.5430321180961799
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3820214310546851,
+        "reality_appearance": 0.7109207699052115,
+        "self_identity": 0.7227902237599568
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:395a413cf05e666b2ec67bce",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.33781125434408177,
+        "reality_appearance": 0.24189787551140016,
+        "self_identity": 0.34240910364556626
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.41526830360253775,
+        "reality_appearance": 0.7882597767458073,
+        "self_identity": 0.7556158595773795
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:51501c7eca5437c4ba3b57dd",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4552901231369954,
+        "reality_appearance": 0.4786830004062628,
+        "self_identity": 0.4563941627920683
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "reality_appearance",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.41519207288676774,
+        "reality_appearance": 0.783875473746516,
+        "self_identity": 0.7924029574868307
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:6428ec7112247e8bbf2ff87e",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4550243037337065,
+        "reality_appearance": 0.46379303313722864,
+        "self_identity": 0.59728404039401
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "reality_appearance"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.39237959255665306,
+        "reality_appearance": 0.7516313377119033,
+        "self_identity": 0.7546005609311516
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:64290e52ba726a18d6d4163f",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3747752391459818,
+        "reality_appearance": 0.36038633511626467,
+        "self_identity": 0.45272245005330475
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.40604065838643305,
+        "reality_appearance": 0.7705576943062061,
+        "self_identity": 0.7562650400713976
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:845a2ffeb8c8d7ef350dcb4f",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.42300597768582077,
+        "reality_appearance": 0.41985635263347154,
+        "self_identity": 0.45874726121004167
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.41586722197353204,
+        "reality_appearance": 0.775736325544186,
+        "self_identity": 0.7749009130338839
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:8819e406d5be66ea8139f7ae",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.45737808338231073,
+        "reality_appearance": 0.4367195826387221,
+        "self_identity": 0.5282187195461928
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.38922748842765875,
+        "reality_appearance": 0.7981354226450587,
+        "self_identity": 0.7264450814877259
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:8bddebda38757a94714b8aad",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3635649438293583,
+        "reality_appearance": 0.5130714502600174,
+        "self_identity": 0.35465775188060605
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.38528674645807753,
+        "reality_appearance": 0.7793520475668122,
+        "self_identity": 0.7527512085486909
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:8e1502f3737af6af4d19daa2",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3495033763139554,
+        "reality_appearance": 0.4486581226479732,
+        "self_identity": 0.44606071229957966
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4224293963890942,
+        "reality_appearance": 0.7667711352987379,
+        "self_identity": 0.7560952477396169
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:8f64d51ce4a6630f3330d368",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.48020001641275667,
+        "reality_appearance": 0.4076947563905836,
+        "self_identity": 0.4581314018202308
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3913684147945982,
+        "reality_appearance": 0.7566695929052893,
+        "self_identity": 0.7516502414079497
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:b6d586b3e3cc113e1da3ebf1",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.37118256178349784,
+        "reality_appearance": 0.37590598937906294,
+        "self_identity": 0.44211069538149095
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.39158168681633737,
+        "reality_appearance": 0.7270061403021284,
+        "self_identity": 0.7517767617820069
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:c8105acfe177e0966dd71a21",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.371940584046817,
+        "reality_appearance": 0.2873725115394029,
+        "self_identity": 0.44256402369135134
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4054967339077623,
+        "reality_appearance": 0.7980003844201295,
+        "self_identity": 0.7496907425151542
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:d3f878f18d2112ca2280b816",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4210959699156572,
+        "reality_appearance": 0.5125928984653478,
+        "self_identity": 0.4351093490978676
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4001131250371299,
+        "reality_appearance": 0.7699010832546311,
+        "self_identity": 0.7565701102516883
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:e113491714c2d0fef0b7ac09",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4021464548909458,
+        "reality_appearance": 0.41773744867929463,
+        "self_identity": 0.4598545223631872
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4141831060531912,
+        "reality_appearance": 0.7931349061912739,
+        "self_identity": 0.7529413774816813
+      },
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:f12481a77318d74516eb1938",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4515046589543432,
+        "reality_appearance": 0.49550719787289954,
+        "self_identity": 0.446744189390674
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "split": "development",
+      "unsupported": false
+    }
+  ],
+  "embedding_identity": {
+    "dimensions": 768,
+    "model": "gemini-embedding-2",
+    "model_revision": "2",
+    "normalization": "provider_auto_l2",
+    "provider": "Google Gemini API"
+  },
+  "exit_gate": {
+    "ambiguity_detection_frozen": true,
+    "calibrated_0_1_weights_produced": true,
+    "heldout_used_for_tuning": false,
+    "parameters_frozen_before_heldout": true,
+    "plural_activation_supported": true,
+    "quality_gate_passed": true,
+    "raw_scores_preserved": true,
+    "thresholds_frozen": true,
+    "unsupported_detection_frozen": true
+  },
+  "frozen_parameters": {
+    "ambiguity_margin": 0.1,
+    "calibration": {
+      "consciousness": {
+        "intercept": -0.8799501273554392,
+        "slope": 1.1810531849391321,
+        "type": "sigmoid"
+      },
+      "reality_appearance": {
+        "intercept": 0.47630047840111434,
+        "slope": 1.7509856440379357,
+        "type": "sigmoid"
+      },
+      "self_identity": {
+        "intercept": 0.4463238424461934,
+        "slope": 1.4953476724245536,
+        "type": "sigmoid"
+      }
+    },
+    "concept_activation_thresholds": {
+      "consciousness": 0.4,
+      "reality_appearance": 0.75,
+      "self_identity": 0.7
+    },
+    "embedding_weight": 0.9,
+    "lexical_weight": 0.2,
+    "maximum_active_concepts": 3,
+    "method": "hybrid",
+    "negative_penalty": 0.5,
+    "prototype_aggregation": "centroid",
+    "prototype_source": "question"
+  },
+  "generated_at": "2026-08-09T09:01:41.845675+00:00",
+  "inputs": {
+    "approved_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/approved_chunk_embeddings.jsonl",
+      "sha256": "4c6b13b6c4513787ed53f753aa34eb1e2ff63fbf776c8aed45cd7cd59ba8fb58"
+    },
+    "build": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_build.jsonl",
+      "record_count": 159,
+      "sha256": "e70b3f38015d098c38f54a2f7df292ebb6267f06a19f71aeae4d486051442d64",
+      "usage": "classifier training only"
+    },
+    "development": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_development.jsonl",
+      "record_count": 80,
+      "sha256": "b4b7aca13788ebdaca3f7bcd32a9cc42ad3beb2d239c66d4da0e09072765f0ca",
+      "usage": "method selection, calibration, thresholds, ambiguity, maximum active concepts, aggregation, negative penalties"
+    },
+    "embedding_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/embedding_manifest.json",
+      "sha256_file_bytes": "efbf7641d74360ed70f3b6ebf4fa894b0252f0107a8ca11cb5cefea659c85e27",
+      "status": "complete"
+    },
+    "heldout": {
+      "labels_used": 0,
+      "records_used": 0,
+      "supplied_as_input": false
+    },
+    "passage_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/passage_prototype_embeddings.jsonl",
+      "sha256": "5081c2771b5a7f173763194fad904e660b46ef337d460805ff7ae066fe6b6d6b"
+    },
+    "prototype_artifact": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/concepts/phase1_concept_prototypes.yaml",
+      "prototype_version": "phase1-prototype-v2",
+      "sha256_file_bytes": "397d1052601e418a83d891ee9285ff4ec9f4766e26903f216d4d4e6f52006104",
+      "status": "frozen"
+    },
+    "query_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/query_prototype_embeddings.jsonl",
+      "sha256": "d4dd9c89525332bfbc492d5464e13b83432fe14096fb15d22e4247fb72ef05b4"
+    }
+  },
+  "next_step": "Phase 11: evaluate this frozen mapping on Held-out exactly once without retuning.",
+  "phase": "phase_10_concept_mapping_development_tuning",
+  "required_behavior": {
+    "ambiguous_mapping_detection": true,
+    "calibrated_weights_range": [
+      0.0,
+      1.0
+    ],
+    "multiple_active_concepts_allowed": true,
+    "raw_scores_preserved": true,
+    "unsupported_question_detection": true,
+    "weights_sum_to_one": false
+  },
+  "script_version": "1.0.0",
+  "selected_development_result": {
+    "activation": {
+      "ambiguity_margin": 0.1,
+      "concept_activation_thresholds": {
+        "consciousness": 0.4,
+        "reality_appearance": 0.75,
+        "self_identity": 0.7
+      },
+      "maximum_active_concepts": 3
+    },
+    "calibration": {
+      "consciousness": {
+        "intercept": -0.8799501273554392,
+        "slope": 1.1810531849391321
+      },
+      "reality_appearance": {
+        "intercept": 0.47630047840111434,
+        "slope": 1.7509856440379357
+      },
+      "self_identity": {
+        "intercept": 0.4463238424461934,
+        "slope": 1.4953476724245536
+      }
+    },
+    "candidate": {
+      "embedding_weight": 0.9,
+      "lexical_weight": 0.2,
+      "method": "hybrid",
+      "negative_penalty": 0.5,
+      "prototype_aggregation": "centroid",
+      "prototype_source": "question"
+    },
+    "metrics": {
+      "ambiguity_accuracy": 0.725,
+      "exact_active_set_accuracy": 0.4875,
+      "hard_negative_false_activation_rate": 0.3,
+      "macro_brier": 0.14989681325141738,
+      "macro_f1": 0.7866463296802344,
+      "macro_mae": 0.3406663807961401,
+      "unsupported_accuracy": 0.9625
+    },
+    "objective": 0.7369324201618853,
+    "per_concept": {
+      "consciousness": {
+        "brier": 0.15474332337585722,
+        "f1": 0.576271186440678,
+        "mae": 0.3522379889206017
+      },
+      "reality_appearance": {
+        "brier": 0.14694626761381102,
+        "f1": 0.8771929824561403,
+        "mae": 0.33027133052182095
+      },
+      "self_identity": {
+        "brier": 0.14800084876458386,
+        "f1": 0.9064748201438849,
+        "mae": 0.3394898229459975
+      }
+    }
+  },
+  "selection_objective": {
+    "ambiguity_accuracy": 0.1,
+    "exact_active_set_accuracy": 0.1,
+    "macro_f1": 0.3,
+    "one_minus_hard_negative_false_activation_rate": 0.25,
+    "one_minus_macro_brier": 0.05,
+    "one_minus_macro_mae": 0.1,
+    "unsupported_accuracy": 0.1
+  },
+  "status": "frozen",
+  "top_candidates": [
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8799501273554392,
+          "slope": 1.1810531849391321
+        },
+        "reality_appearance": {
+          "intercept": 0.47630047840111434,
+          "slope": 1.7509856440379357
+        },
+        "self_identity": {
+          "intercept": 0.4463238424461934,
+          "slope": 1.4953476724245536
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.725,
+        "exact_active_set_accuracy": 0.4875,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.14989681325141738,
+        "macro_f1": 0.7866463296802344,
+        "macro_mae": 0.3406663807961401,
+        "unsupported_accuracy": 0.9625
+      },
+      "objective": 0.7369324201618853,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15474332337585722,
+          "f1": 0.576271186440678,
+          "mae": 0.3522379889206017
+        },
+        "reality_appearance": {
+          "brier": 0.14694626761381102,
+          "f1": 0.8771929824561403,
+          "mae": 0.33027133052182095
+        },
+        "self_identity": {
+          "brier": 0.14800084876458386,
+          "f1": 0.9064748201438849,
+          "mae": 0.3394898229459975
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8657701896118727,
+          "slope": 1.1932757633766269
+        },
+        "reality_appearance": {
+          "intercept": 0.5022199738718008,
+          "slope": 1.7490111489872913
+        },
+        "self_identity": {
+          "intercept": 0.4735443662587333,
+          "slope": 1.487413638194569
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.85,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7125,
+        "exact_active_set_accuracy": 0.4625,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.15005001020142084,
+        "macro_f1": 0.7789061796089637,
+        "macro_mae": 0.3409466347435382,
+        "unsupported_accuracy": 0.975
+      },
+      "objective": 0.7320746898982643,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.1547914130551419,
+          "f1": 0.5517241379310345,
+          "mae": 0.3523312074295549
+        },
+        "reality_appearance": {
+          "brier": 0.1470718112542218,
+          "f1": 0.8771929824561403,
+          "mae": 0.330526276592286
+        },
+        "self_identity": {
+          "brier": 0.1482868062948988,
+          "f1": 0.9078014184397163,
+          "mae": 0.3399824202087738
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.677440689033812,
+          "slope": 1.3726590433982209
+        },
+        "reality_appearance": {
+          "intercept": 0.8350489340727599,
+          "slope": 1.694823705628914
+        },
+        "self_identity": {
+          "intercept": 0.7450081413675727,
+          "slope": 1.4964699136034225
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.85,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.75,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.725,
+        "exact_active_set_accuracy": 0.4875,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.14925346546670634,
+        "macro_f1": 0.7702646768175243,
+        "macro_mae": 0.34052652964738206,
+        "unsupported_accuracy": 0.95
+      },
+      "objective": 0.7308140768071837,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.1532656302963495,
+          "f1": 0.576271186440678,
+          "mae": 0.35026110293931234
+        },
+        "reality_appearance": {
+          "brier": 0.14757560684372475,
+          "f1": 0.8148148148148148,
+          "mae": 0.3328223759355387
+        },
+        "self_identity": {
+          "brier": 0.14691915926004473,
+          "f1": 0.9197080291970803,
+          "mae": 0.33849611006729513
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.08,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.943879007118066,
+          "slope": 1.0183040236745702
+        },
+        "reality_appearance": {
+          "intercept": 0.33377908998024414,
+          "slope": 1.6744203285813046
+        },
+        "self_identity": {
+          "intercept": 0.31754852380261617,
+          "slope": 1.485673327229466
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "combined"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7125,
+        "exact_active_set_accuracy": 0.4625,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.1513425815781858,
+        "macro_f1": 0.764993625782017,
+        "macro_mae": 0.34131410266407675,
+        "unsupported_accuracy": 1.0
+      },
+      "objective": 0.7302995483892881,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15684174531189507,
+          "f1": 0.5263157894736842,
+          "mae": 0.35456691347515407
+        },
+        "reality_appearance": {
+          "brier": 0.14931544495562776,
+          "f1": 0.8672566371681416,
+          "mae": 0.33210028558642024
+        },
+        "self_identity": {
+          "brier": 0.14787055446703462,
+          "f1": 0.9014084507042254,
+          "mae": 0.33727510893065604
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.08,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.943879007118066,
+          "slope": 1.0183040236745702
+        },
+        "reality_appearance": {
+          "intercept": 0.33377908998024414,
+          "slope": 1.6744203285813046
+        },
+        "self_identity": {
+          "intercept": 0.31754852380261617,
+          "slope": 1.485673327229466
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "passage"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7125,
+        "exact_active_set_accuracy": 0.4625,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.1513425815781858,
+        "macro_f1": 0.764993625782017,
+        "macro_mae": 0.34131410266407675,
+        "unsupported_accuracy": 1.0
+      },
+      "objective": 0.7302995483892881,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15684174531189507,
+          "f1": 0.5263157894736842,
+          "mae": 0.35456691347515407
+        },
+        "reality_appearance": {
+          "brier": 0.14931544495562776,
+          "f1": 0.8672566371681416,
+          "mae": 0.33210028558642024
+        },
+        "self_identity": {
+          "brier": 0.14787055446703462,
+          "f1": 0.9014084507042254,
+          "mae": 0.33727510893065604
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8510122681363479,
+          "slope": 1.1979979616217296
+        },
+        "reality_appearance": {
+          "intercept": 0.5216481340153306,
+          "slope": 1.7675288186481695
+        },
+        "self_identity": {
+          "intercept": 0.48571977816290063,
+          "slope": 1.5199813760989735
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7125,
+        "exact_active_set_accuracy": 0.475,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.14954254397606945,
+        "macro_f1": 0.7717806050725922,
+        "macro_mae": 0.3402078995600819,
+        "unsupported_accuracy": 0.9625
+      },
+      "objective": 0.7300362643669659,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15503850710946668,
+          "f1": 0.5517241379310345,
+          "mae": 0.35255409951751404
+        },
+        "reality_appearance": {
+          "brier": 0.14635324593076776,
+          "f1": 0.8571428571428571,
+          "mae": 0.32953282843048026
+        },
+        "self_identity": {
+          "brier": 0.14723587888797388,
+          "f1": 0.9064748201438849,
+          "mae": 0.3385367707322514
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8376630745656454,
+          "slope": 1.2086439020172877
+        },
+        "reality_appearance": {
+          "intercept": 0.5454683170455118,
+          "slope": 1.7635518482167978
+        },
+        "self_identity": {
+          "intercept": 0.511133546636942,
+          "slope": 1.5096821288174167
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.85,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7125,
+        "exact_active_set_accuracy": 0.475,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.149725076254584,
+        "macro_f1": 0.7717806050725922,
+        "macro_mae": 0.340529596180332,
+        "unsupported_accuracy": 0.9625
+      },
+      "objective": 0.7299949680910153,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15508281381867212,
+          "f1": 0.5517241379310345,
+          "mae": 0.35264359395106626
+        },
+        "reality_appearance": {
+          "brier": 0.14652000253418823,
+          "f1": 0.8571428571428571,
+          "mae": 0.3298456393383396
+        },
+        "self_identity": {
+          "brier": 0.1475724124108916,
+          "f1": 0.9064748201438849,
+          "mae": 0.3390995552515901
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.9494157652839792,
+          "slope": 0.9943798263229574
+        },
+        "reality_appearance": {
+          "intercept": 0.2371781277492825,
+          "slope": 1.7376916541946115
+        },
+        "self_identity": {
+          "intercept": 0.26635530247293693,
+          "slope": 1.4583035941297313
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.25,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7375,
+        "exact_active_set_accuracy": 0.4625,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.150553142192022,
+        "macro_f1": 0.7609165316382068,
+        "macro_mae": 0.3409485655247997,
+        "unsupported_accuracy": 0.975
+      },
+      "objective": 0.7291524458293809,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15719321677599915,
+          "f1": 0.5,
+          "mae": 0.35526686439853083
+        },
+        "reality_appearance": {
+          "brier": 0.14613829235566106,
+          "f1": 0.8672566371681416,
+          "mae": 0.32771249283037834
+        },
+        "self_identity": {
+          "brier": 0.14832791744440582,
+          "f1": 0.9154929577464789,
+          "mae": 0.3398663393454898
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8510916266118586,
+          "slope": 1.2051414608430022
+        },
+        "reality_appearance": {
+          "intercept": 0.5283192901036368,
+          "slope": 1.7462633597652264
+        },
+        "self_identity": {
+          "intercept": 0.5008502389883633,
+          "slope": 1.478493154485229
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.8,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7,
+        "exact_active_set_accuracy": 0.45,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.15020936115495961,
+        "macro_f1": 0.7755940645129641,
+        "macro_mae": 0.3412335264971411,
+        "unsupported_accuracy": 0.9625
+      },
+      "objective": 0.7272943986464272,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15484676268351874,
+          "f1": 0.5517241379310345,
+          "mae": 0.3524327972910635
+        },
+        "reality_appearance": {
+          "brier": 0.14720462174364393,
+          "f1": 0.8672566371681416,
+          "mae": 0.33079090503333947
+        },
+        "self_identity": {
+          "brier": 0.14857669903771611,
+          "f1": 0.9078014184397163,
+          "mae": 0.34047687716702035
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.6843271041538088,
+          "slope": 1.3735746736177223
+        },
+        "reality_appearance": {
+          "intercept": 0.8284865782689311,
+          "slope": 1.6998316277558383
+        },
+        "self_identity": {
+          "intercept": 0.7341275179044353,
+          "slope": 1.5112825329482211
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.75,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.725,
+        "exact_active_set_accuracy": 0.475,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.1490140499513345,
+        "macro_f1": 0.7620823273143098,
+        "macro_mae": 0.34016099005003947,
+        "unsupported_accuracy": 0.95
+      },
+      "objective": 0.7271578966917221,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15308963242919738,
+          "f1": 0.5517241379310345,
+          "mae": 0.3499833030484461
+        },
+        "reality_appearance": {
+          "brier": 0.14743514004515912,
+          "f1": 0.8148148148148148,
+          "mae": 0.3326364401233074
+        },
+        "self_identity": {
+          "brier": 0.146517377379647,
+          "f1": 0.9197080291970803,
+          "mae": 0.3378632269783649
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.7138360636877302,
+          "slope": 1.3641611026894427
+        },
+        "reality_appearance": {
+          "intercept": 0.7895157126673991,
+          "slope": 1.6949138601895897
+        },
+        "self_identity": {
+          "intercept": 0.7026928690698826,
+          "slope": 1.487406712198418
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.85,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.75,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7125,
+        "exact_active_set_accuracy": 0.475,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.14947261156192776,
+        "macro_f1": 0.7657067468408701,
+        "macro_mae": 0.34077463342972325,
+        "unsupported_accuracy": 0.95
+      },
+      "objective": 0.7269109301311923,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15286816400902653,
+          "f1": 0.5517241379310345,
+          "mae": 0.34981488949600087
+        },
+        "reality_appearance": {
+          "brier": 0.14799365938417625,
+          "f1": 0.8256880733944955,
+          "mae": 0.3332716773662327
+        },
+        "self_identity": {
+          "brier": 0.1475560112925805,
+          "f1": 0.9197080291970803,
+          "mae": 0.3392373334269362
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.9371060902528281,
+          "slope": 1.017334903172922
+        },
+        "reality_appearance": {
+          "intercept": 0.2732053938200216,
+          "slope": 1.7435546789745036
+        },
+        "self_identity": {
+          "intercept": 0.30085896925723543,
+          "slope": 1.458585495702994
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.85,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.25,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.725,
+        "exact_active_set_accuracy": 0.4625,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.15063546445950232,
+        "macro_f1": 0.7575452716297787,
+        "macro_mae": 0.3411557980560815,
+        "unsupported_accuracy": 0.975
+      },
+      "objective": 0.7268662284603503,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.157098230134455,
+          "f1": 0.5,
+          "mae": 0.3551738971184375
+        },
+        "reality_appearance": {
+          "brier": 0.14624613802730219,
+          "f1": 0.8571428571428571,
+          "mae": 0.3280071866064233
+        },
+        "self_identity": {
+          "brier": 0.1485620252167498,
+          "f1": 0.9154929577464789,
+          "mae": 0.34028631044338353
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.704917324244609,
+          "slope": 1.3640527020626512
+        },
+        "reality_appearance": {
+          "intercept": 0.7988361018592259,
+          "slope": 1.6901093036545047
+        },
+        "self_identity": {
+          "intercept": 0.7162625485412383,
+          "slope": 1.4731380661667313
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.8,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.75,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7125,
+        "exact_active_set_accuracy": 0.475,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.1496963833186322,
+        "macro_f1": 0.7657067468408701,
+        "macro_mae": 0.3411180180765087,
+        "unsupported_accuracy": 0.95
+      },
+      "objective": 0.7268654030786786,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.1530641037923559,
+          "f1": 0.5517241379310345,
+          "mae": 0.35011413857632895
+        },
+        "reality_appearance": {
+          "brier": 0.14810967123286703,
+          "f1": 0.8256880733944955,
+          "mae": 0.3334284832231048
+        },
+        "self_identity": {
+          "brier": 0.14791537493067358,
+          "f1": 0.9197080291970803,
+          "mae": 0.33981143243009226
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.08,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.65
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8248772316258591,
+          "slope": 1.2290305134539516
+        },
+        "reality_appearance": {
+          "intercept": 0.63594936240486,
+          "slope": 1.67425039052838
+        },
+        "self_identity": {
+          "intercept": 0.5703810382816732,
+          "slope": 1.517287931356618
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.85,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.75,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "combined"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.675,
+        "exact_active_set_accuracy": 0.425,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.15059617673359396,
+        "macro_f1": 0.773223252475152,
+        "macro_mae": 0.34095794279634434,
+        "unsupported_accuracy": 0.9875
+      },
+      "objective": 0.7240913726262315,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15476369263413667,
+          "f1": 0.576271186440678,
+          "mae": 0.35192237569055385
+        },
+        "reality_appearance": {
+          "brier": 0.14976954277603413,
+          "f1": 0.8468468468468469,
+          "mae": 0.33418516994744846
+        },
+        "self_identity": {
+          "brier": 0.14725529479061106,
+          "f1": 0.896551724137931,
+          "mae": 0.33676628275103065
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.08,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.65
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8248772316258591,
+          "slope": 1.2290305134539516
+        },
+        "reality_appearance": {
+          "intercept": 0.63594936240486,
+          "slope": 1.67425039052838
+        },
+        "self_identity": {
+          "intercept": 0.5703810382816732,
+          "slope": 1.517287931356618
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.85,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.75,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "passage"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.675,
+        "exact_active_set_accuracy": 0.425,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.15059617673359396,
+        "macro_f1": 0.773223252475152,
+        "macro_mae": 0.34095794279634434,
+        "unsupported_accuracy": 0.9875
+      },
+      "objective": 0.7240913726262315,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15476369263413667,
+          "f1": 0.576271186440678,
+          "mae": 0.35192237569055385
+        },
+        "reality_appearance": {
+          "brier": 0.14976954277603413,
+          "f1": 0.8468468468468469,
+          "mae": 0.33418516994744846
+        },
+        "self_identity": {
+          "brier": 0.14725529479061106,
+          "f1": 0.896551724137931,
+          "mae": 0.33676628275103065
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.08,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.65
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8114601015448017,
+          "slope": 1.2381114215823503
+        },
+        "reality_appearance": {
+          "intercept": 0.6541347432186012,
+          "slope": 1.6726898587037888
+        },
+        "self_identity": {
+          "intercept": 0.5921674191014733,
+          "slope": 1.504792252054758
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.8,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.75,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "combined"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.675,
+        "exact_active_set_accuracy": 0.425,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.15073647659431202,
+        "macro_f1": 0.773223252475152,
+        "macro_mae": 0.34127074824404496,
+        "unsupported_accuracy": 0.9875
+      },
+      "objective": 0.7240530770884255,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.1548306289390407,
+          "f1": 0.576271186440678,
+          "mae": 0.3520599707023468
+        },
+        "reality_appearance": {
+          "brier": 0.14977035954648293,
+          "f1": 0.8468468468468469,
+          "mae": 0.33426227238780426
+        },
+        "self_identity": {
+          "brier": 0.1476084412974124,
+          "f1": 0.896551724137931,
+          "mae": 0.33749000164198384
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.08,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.65
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8114601015448017,
+          "slope": 1.2381114215823503
+        },
+        "reality_appearance": {
+          "intercept": 0.6541347432186012,
+          "slope": 1.6726898587037888
+        },
+        "self_identity": {
+          "intercept": 0.5921674191014733,
+          "slope": 1.504792252054758
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.8,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.75,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "passage"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.675,
+        "exact_active_set_accuracy": 0.425,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.15073647659431202,
+        "macro_f1": 0.773223252475152,
+        "macro_mae": 0.34127074824404496,
+        "unsupported_accuracy": 0.9875
+      },
+      "objective": 0.7240530770884255,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.1548306289390407,
+          "f1": 0.576271186440678,
+          "mae": 0.3520599707023468
+        },
+        "reality_appearance": {
+          "brier": 0.14977035954648293,
+          "f1": 0.8468468468468469,
+          "mae": 0.33426227238780426
+        },
+        "self_identity": {
+          "brier": 0.1476084412974124,
+          "f1": 0.896551724137931,
+          "mae": 0.33749000164198384
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8239196692709984,
+          "slope": 1.2189643459103088
+        },
+        "reality_appearance": {
+          "intercept": 0.569381479633227,
+          "slope": 1.7589004724725454
+        },
+        "self_identity": {
+          "intercept": 0.5365421096066203,
+          "slope": 1.4984846386631394
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.8,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7,
+        "exact_active_set_accuracy": 0.4625,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.14991291290358869,
+        "macro_f1": 0.7598791521548053,
+        "macro_mae": 0.34085623649412117,
+        "unsupported_accuracy": 0.9625
+      },
+      "objective": 0.72388247635185,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15513307730174147,
+          "f1": 0.5263157894736842,
+          "mae": 0.3527399328194357
+        },
+        "reality_appearance": {
+          "brier": 0.14669341702977512,
+          "f1": 0.8468468468468469,
+          "mae": 0.33016646796917665
+        },
+        "self_identity": {
+          "brier": 0.1479122443792495,
+          "f1": 0.9064748201438849,
+          "mae": 0.339662308693751
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.7227110940946326,
+          "slope": 1.363996656251221
+        },
+        "reality_appearance": {
+          "intercept": 0.780188143120248,
+          "slope": 1.6995237737094118
+        },
+        "self_identity": {
+          "intercept": 0.6890146001198829,
+          "slope": 1.5012873460103666
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.75,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7125,
+        "exact_active_set_accuracy": 0.4625,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.1492513491720089,
+        "macro_f1": 0.7583901616283747,
+        "macro_mae": 0.3404310994005695,
+        "unsupported_accuracy": 0.95
+      },
+      "objective": 0.723511371089855,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15267731521870237,
+          "f1": 0.5517241379310345,
+          "mae": 0.3495188670128814
+        },
+        "reality_appearance": {
+          "brier": 0.14788044848939635,
+          "f1": 0.8037383177570093,
+          "mae": 0.3331168692276676
+        },
+        "self_identity": {
+          "brier": 0.14719628380792799,
+          "f1": 0.9197080291970803,
+          "mae": 0.3386575619611595
+        }
+      }
+    },
+    {
+      "activation": {
+        "ambiguity_margin": 0.08,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.9310777349426883,
+          "slope": 1.040050548877427
+        },
+        "reality_appearance": {
+          "intercept": 0.36495448205946057,
+          "slope": 1.6805821331479929
+        },
+        "self_identity": {
+          "intercept": 0.35028647764476983,
+          "slope": 1.4831372806109797
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.85,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "combined"
+      },
+      "metrics": {
+        "ambiguity_accuracy": 0.7,
+        "exact_active_set_accuracy": 0.4375,
+        "hard_negative_false_activation_rate": 0.3,
+        "macro_brier": 0.1513930524638925,
+        "macro_f1": 0.7528504359490276,
+        "macro_mae": 0.341517812962388,
+        "unsupported_accuracy": 1.0
+      },
+      "objective": 0.7228836968652748,
+      "per_concept": {
+        "consciousness": {
+          "brier": 0.15676324433911393,
+          "f1": 0.5,
+          "mae": 0.3545052350297096
+        },
+        "reality_appearance": {
+          "brier": 0.14928527503232886,
+          "f1": 0.8571428571428571,
+          "mae": 0.3321901760113283
+        },
+        "self_identity": {
+          "brier": 0.14813063802023474,
+          "f1": 0.9014084507042254,
+          "mae": 0.3378580278461262
+        }
+      }
+    }
+  ],
+  "tuning_version": "phase1-concept-mapping-dev-v1"
+}
