@@ -1,0 +1,5032 @@
+{
+  "embedding_identity": {
+    "dimensions": 768,
+    "model": "gemini-embedding-2",
+    "model_revision": "2",
+    "normalization": "provider_auto_l2",
+    "provider": "Google Gemini API"
+  },
+  "error_analysis": {
+    "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/evaluation/error_analysis.csv",
+    "policy": "Selected-method active-set mismatches plus all reviewed hard-negative Held-out records.",
+    "rows_written": 65
+  },
+  "evaluation_policy": {
+    "baseline_comparison_is_descriptive_only": true,
+    "heldout_opened_for_final_evaluation": true,
+    "post_hoc_calibration_changes": false,
+    "post_hoc_feature_changes": false,
+    "post_hoc_model_reselection": false,
+    "post_hoc_threshold_changes": false,
+    "selected_method_origin": "Phase 10 Development-only tuning"
+  },
+  "evaluation_version": "phase1-heldout-evaluation-v1",
+  "exit_gate": {
+    "failures_and_limitations_documented": true,
+    "heldout_results_recorded": true,
+    "no_post_hoc_calibration_changes": true,
+    "no_post_hoc_model_reselection": true,
+    "no_post_hoc_threshold_changes": true,
+    "selected_method_justification_recorded": true
+  },
+  "frozen_phase10_parameters": {
+    "ambiguity_margin": 0.1,
+    "calibration": {
+      "consciousness": {
+        "intercept": -0.8799501273554392,
+        "slope": 1.1810531849391321,
+        "type": "sigmoid"
+      },
+      "reality_appearance": {
+        "intercept": 0.47630047840111434,
+        "slope": 1.7509856440379357,
+        "type": "sigmoid"
+      },
+      "self_identity": {
+        "intercept": 0.4463238424461934,
+        "slope": 1.4953476724245536,
+        "type": "sigmoid"
+      }
+    },
+    "concept_activation_thresholds": {
+      "consciousness": 0.4,
+      "reality_appearance": 0.75,
+      "self_identity": 0.7
+    },
+    "embedding_weight": 0.9,
+    "lexical_weight": 0.2,
+    "maximum_active_concepts": 3,
+    "method": "hybrid",
+    "negative_penalty": 0.5,
+    "prototype_aggregation": "centroid",
+    "prototype_source": "question"
+  },
+  "generated_at": "2026-08-09T12:10:59.401039+00:00",
+  "inputs": {
+    "approved_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/approved_chunk_embeddings.jsonl",
+      "sha256": "4c6b13b6c4513787ed53f753aa34eb1e2ff63fbf776c8aed45cd7cd59ba8fb58"
+    },
+    "build": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_build.jsonl",
+      "record_count": 159,
+      "sha256": "e70b3f38015d098c38f54a2f7df292ebb6267f06a19f71aeae4d486051442d64",
+      "use": "reconstruct optional supervised baseline only"
+    },
+    "embedding_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/embedding_manifest.json",
+      "sha256_file_bytes": "efbf7641d74360ed70f3b6ebf4fa894b0252f0107a8ca11cb5cefea659c85e27",
+      "status": "complete"
+    },
+    "heldout": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_heldout.jsonl",
+      "record_count": 79,
+      "sha256": "6bf6cbf8786d9e2c71d3eb341f9737dde10b9978d5fe2a6fc268374756ddde8e",
+      "use": "final evaluation only"
+    },
+    "passage_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/passage_prototype_embeddings.jsonl",
+      "sha256": "5081c2771b5a7f173763194fad904e660b46ef337d460805ff7ae066fe6b6d6b"
+    },
+    "phase10_results": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/evaluation/concept_mapping_dev_results.json",
+      "sha256_file_bytes": "738917947d6eba2cd2899f7cba3222f69612c2372e22ae38f3bfdc1305eddc61",
+      "status": "frozen"
+    },
+    "query_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/query_prototype_embeddings.jsonl",
+      "sha256": "d4dd9c89525332bfbc492d5464e13b83432fe14096fb15d22e4247fb72ef05b4"
+    },
+    "split_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_split_manifest.json",
+      "sha256_file_bytes": "c468cd886106e396149b9d269e706c78520720caf5648ca1f682f72f8727c652",
+      "status": "frozen"
+    }
+  },
+  "limitations_policy": {
+    "calibration_error_uses_soft_review_targets": true,
+    "heldout_does_not_trigger_reselection": true,
+    "partial_labels_count_as_active_for_multilabel_metrics": true,
+    "zero_sample_required_hard_negative_categories_are_explicit": true
+  },
+  "next_step": "Phase 12: calculate reviewed weighted concept tags using the frozen Phase 10 mapping. Do not alter Phase 10 parameters based on Held-out outcomes.",
+  "phase": "phase_11_untouched_heldout_evaluation",
+  "script_version": "1.0.0",
+  "selected_method_generalization": {
+    "development_macro_f1": 0.7866463296802344,
+    "heldout_macro_f1": 0.6847453016986034,
+    "macro_f1_delta": -0.10190102798163103
+  },
+  "selected_method_records": [
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.35178578270741906,
+        "reality_appearance": 0.7867781542912471,
+        "self_identity": 0.7047397311554396
+      },
+      "chunk_id": "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "consciousness_vs_cognition",
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2275522603961366,
+        "reality_appearance": 0.47362620729987603,
+        "self_identity": 0.2833103563203491
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "advaita_paramananda_1917_vedanta_in_practice",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.35042721232869684,
+        "reality_appearance": 0.7392951883350781,
+        "self_identity": 0.7279466309050003
+      },
+      "chunk_id": "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "consciousness_vs_cognition",
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.22250331351611366,
+        "reality_appearance": 0.32325109584991674,
+        "self_identity": 0.35971944640621073
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "negative"
+      },
+      "source_id": "advaita_paramananda_1917_vedanta_in_practice",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3454313858262914,
+        "reality_appearance": 0.7460226870912953,
+        "self_identity": 0.739335482273434
+      },
+      "chunk_id": "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "consciousness_vs_cognition",
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.20385851011632328,
+        "reality_appearance": 0.34335552165467087,
+        "self_identity": 0.3986990761749005
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_paramananda_1917_vedanta_in_practice",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3457427771996002,
+        "reality_appearance": 0.745631270049033,
+        "self_identity": 0.7318488059183049
+      },
+      "chunk_id": "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "consciousness_vs_cognition",
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.20502432012687255,
+        "reality_appearance": 0.3421763156783673,
+        "self_identity": 0.372956157767196
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_paramananda_1917_vedanta_in_practice",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.34176605248294567,
+        "reality_appearance": 0.7416799997331055,
+        "self_identity": 0.7495565537357918
+      },
+      "chunk_id": "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "consciousness_vs_cognition",
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.19009826540086472,
+        "reality_appearance": 0.33033867469105116,
+        "self_identity": 0.43463122850919056
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_paramananda_1917_vedanta_in_practice",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.40995364832926634,
+        "reality_appearance": 0.8037843820197444,
+        "self_identity": 0.7277787095617961
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:0487f2bc892ad32eefdf7f5e",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4367230353527769,
+        "reality_appearance": 0.5333090137625471,
+        "self_identity": 0.3591525206794028
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36778139667737997,
+        "reality_appearance": 0.7683810724069213,
+        "self_identity": 0.7516141029108918
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:0b074e4e319bf3a70e064bb6",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2863576652512311,
+        "reality_appearance": 0.4128485316022076,
+        "self_identity": 0.4419812378837209
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3641334687932265,
+        "reality_appearance": 0.8115668205881977,
+        "self_identity": 0.714899854939238
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.27304605726600284,
+        "reality_appearance": 0.5619251033940804,
+        "self_identity": 0.3162997685508444
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3690913750259795,
+        "reality_appearance": 0.755166134310754,
+        "self_identity": 0.7543680322202347
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:1a81349d93d0bc11c5d1a4e8",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2911243386274958,
+        "reality_appearance": 0.37125227896396973,
+        "self_identity": 0.4518829804987592
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3605719924754261,
+        "reality_appearance": 0.7237477542591,
+        "self_identity": 0.7610121526117528
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:1adf902fb6fcf56c1ea6280a",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.25999483452957134,
+        "reality_appearance": 0.27803087194783593,
+        "self_identity": 0.4760851237420394
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3667994902279769,
+        "reality_appearance": 0.7289938173655875,
+        "self_identity": 0.7703815940602013
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:234958ae8a394d7e149763a9",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2827801060396944,
+        "reality_appearance": 0.29310528020062177,
+        "self_identity": 0.5110138023160612
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36555053986463715,
+        "reality_appearance": 0.789406124745646,
+        "self_identity": 0.7432664053849835
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:2a65304f30a042e20b926837",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.27822374658038074,
+        "reality_appearance": 0.4826132809804706,
+        "self_identity": 0.41240692892458297
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.43793491943921475,
+        "reality_appearance": 0.7352974079607068,
+        "self_identity": 0.7445622476592012
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:366a9aac54ca4500d843a590",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.5337632581469453,
+        "reality_appearance": 0.31146324697487704,
+        "self_identity": 0.4169557879406127
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3657387430443062,
+        "reality_appearance": 0.7626313191782538,
+        "self_identity": 0.7467235879570275
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:36d0ca03fdd8452c251aca83",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2789107607313287,
+        "reality_appearance": 0.3945547422257693,
+        "self_identity": 0.4245767230900567
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.37238595510881767,
+        "reality_appearance": 0.7280461902688834,
+        "self_identity": 0.7482684503818038
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:47db66f7bca08080465d2636",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.303081658592854,
+        "reality_appearance": 0.29036890335174664,
+        "self_identity": 0.43005030434103864
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "reality_appearance"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3698594942201442,
+        "reality_appearance": 0.7562562929527741,
+        "self_identity": 0.7605751886585674
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4ae7828ae7aef5ebebe2b458",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.29391605761812745,
+        "reality_appearance": 0.3746247504085385,
+        "self_identity": 0.4744794253597623
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3707830418713294,
+        "reality_appearance": 0.7294056709361076,
+        "self_identity": 0.7523979360212157
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4c687fd9ed064513b19bf06d",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2972695115446567,
+        "reality_appearance": 0.29429642548630974,
+        "self_identity": 0.44479196867250537
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36850385115903345,
+        "reality_appearance": 0.7728046088671208,
+        "self_identity": 0.7380357176240278
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:4f5502da86684eb8c6e9433d",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2889873638612653,
+        "reality_appearance": 0.42713963403781474,
+        "self_identity": 0.3941960936973544
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36436488580876186,
+        "reality_appearance": 0.7723219594771028,
+        "self_identity": 0.743810107066512
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:56a0232e583e947396545fd0",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.27389219357940525,
+        "reality_appearance": 0.4255708806914218,
+        "self_identity": 0.4143136743520005
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36781867907046434,
+        "reality_appearance": 0.7979967389584592,
+        "self_identity": 0.7280206714241144
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:611b5d9bc0bbec6b06fda326",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.28649342408269335,
+        "reality_appearance": 0.5125799829012072,
+        "self_identity": 0.35996948707099513
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3639111118870878,
+        "reality_appearance": 0.7628840145854171,
+        "self_identity": 0.7372354027682627
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:61a48166225dfe19a20df5f6",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.27223283117167835,
+        "reality_appearance": 0.39535225202366864,
+        "self_identity": 0.3914306033794457
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3660677887928909,
+        "reality_appearance": 0.7960794482401826,
+        "self_identity": 0.765965229949885
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:64a017395e9a4b05b2b5e6f5",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2801115451633015,
+        "reality_appearance": 0.5058111407109576,
+        "self_identity": 0.4944289906025646
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.364116885049632,
+        "reality_appearance": 0.7497590802056943,
+        "self_identity": 0.769189285157218
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:65b47e23ccfbb4535e9459b1",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.27298541285521216,
+        "reality_appearance": 0.35467299189366686,
+        "self_identity": 0.5065145029040399
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.38502528679387676,
+        "reality_appearance": 0.7958059282159411,
+        "self_identity": 0.7733241173985195
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6d48fc3b1e15ae247a781c0a",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3485685441579071,
+        "reality_appearance": 0.5048493675912313,
+        "self_identity": 0.5221884271504778
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.430136650634459,
+        "reality_appearance": 0.72928193162564,
+        "self_identity": 0.7658837497563814
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6f17d19889cf3e86104c738b",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.5068835944336887,
+        "reality_appearance": 0.2939384322365396,
+        "self_identity": 0.49412506454150695
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3688994551013977,
+        "reality_appearance": 0.7924414771230804,
+        "self_identity": 0.7303196252771676
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:78c746d889b771ea2b409f17",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.29042643230642196,
+        "reality_appearance": 0.4930964704338916,
+        "self_identity": 0.36775459541848315
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4120655242726538,
+        "reality_appearance": 0.783651144208205,
+        "self_identity": 0.7732006428353626
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7bd3336dbf3a70b4e9cd8a33",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4441095493357854,
+        "reality_appearance": 0.4630370891921861,
+        "self_identity": 0.5217174662399284
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.37116260823324515,
+        "reality_appearance": 0.8049299801372828,
+        "self_identity": 0.7203535877441954
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:7dfa5ba366a53671f491063e",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2986467425314547,
+        "reality_appearance": 0.5374665674230293,
+        "self_identity": 0.3342984113646926
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4037486660488049,
+        "reality_appearance": 0.7985508786138293,
+        "self_identity": 0.7255250012717491
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:84d34b97f7a7d4e6347ac092",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.41495203162545047,
+        "reality_appearance": 0.514545255040017,
+        "self_identity": 0.3515647379122347
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36705438896030834,
+        "reality_appearance": 0.7660565040632934,
+        "self_identity": 0.6998447409550799
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "self_identity"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "consciousness_vs_cognition",
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.28370921104993224,
+        "reality_appearance": 0.40541499599878095,
+        "self_identity": 0.26765333962657817
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.370289969073332,
+        "reality_appearance": 0.8066748244949191,
+        "self_identity": 0.7011413064231122
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2954795648919317,
+        "reality_appearance": 0.5438345825188575,
+        "self_identity": 0.27178611714831163
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3685605309426775,
+        "reality_appearance": 0.7937613856793904,
+        "self_identity": 0.7215314496805236
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8bdae350e920515c685b78f1",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.28919358447936006,
+        "reality_appearance": 0.49769031427308685,
+        "self_identity": 0.33821365137912757
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36376465055933693,
+        "reality_appearance": 0.767299738344261,
+        "self_identity": 0.7514457276504348
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8cbde1b6c93e8c11fbdd164d",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2716970619050991,
+        "reality_appearance": 0.4093841931105735,
+        "self_identity": 0.44137824007541293
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3657492035924587,
+        "reality_appearance": 0.7254036660637053,
+        "self_identity": 0.7422895861349547
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8d04d8aa82cc01d86676d322",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2789489413715723,
+        "reality_appearance": 0.282769685340974,
+        "self_identity": 0.4089878802243829
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3736047736321329,
+        "reality_appearance": 0.7645623358016953,
+        "self_identity": 0.733589536371752
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8fb130f6a026a50747ae0149",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.30749427014884745,
+        "reality_appearance": 0.4006639923998417,
+        "self_identity": 0.3789002448505488
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36651869166173934,
+        "reality_appearance": 0.7205331589027929,
+        "self_identity": 0.7512689254461591
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:957ab3b79d859c4cf5d398a9",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2817562817035738,
+        "reality_appearance": 0.2688813072802143,
+        "self_identity": 0.44074535723873076
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36913172070678435,
+        "reality_appearance": 0.7763807687575419,
+        "self_identity": 0.75415369254733
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:97f27fa5446717982dd385ad",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2912710343271623,
+        "reality_appearance": 0.4388373260022296,
+        "self_identity": 0.4511096511314906
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "reality_appearance"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3743706547565367,
+        "reality_appearance": 0.7549466614867192,
+        "self_identity": 0.7684282941142448
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:99e52d97a763fd03fdb7cfb4",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3102640919823452,
+        "reality_appearance": 0.3705745552266621,
+        "self_identity": 0.5036513270879375
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36956182551274486,
+        "reality_appearance": 0.7202902825564623,
+        "self_identity": 0.7270696673520187
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:9c3af542370619cdcf7a1137",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.29283446974478083,
+        "reality_appearance": 0.2681926503453194,
+        "self_identity": 0.35676110514382503
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36611521493300564,
+        "reality_appearance": 0.7423447381977866,
+        "self_identity": 0.7742449108183468
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:a8202d97ba7440147e390c49",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2802845794248195,
+        "reality_appearance": 0.33232183755148653,
+        "self_identity": 0.5257062837972498
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3653700028284002,
+        "reality_appearance": 0.8073033005908148,
+        "self_identity": 0.7205961763220359
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2775645759190774,
+        "reality_appearance": 0.5461389775161272,
+        "self_identity": 0.3351039539531589
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36703529622783443,
+        "reality_appearance": 0.7493691667453792,
+        "self_identity": 0.7432218711539325
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:af2705a61405960f7b3149da",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2836396275028943,
+        "reality_appearance": 0.35348673056050894,
+        "self_identity": 0.4122508659358659
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3723707726167174,
+        "reality_appearance": 0.7986623088978773,
+        "self_identity": 0.7373182819826299
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:af6eefc64eb1a1c112bd6b58",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3030266549741698,
+        "reality_appearance": 0.5149409336033569,
+        "self_identity": 0.39171674069676155
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3705478244602648,
+        "reality_appearance": 0.7557919810566421,
+        "self_identity": 0.7226044206588964
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:c1587c87b2fef9725b0b50ea",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2964157504748456,
+        "reality_appearance": 0.3731871280982948,
+        "self_identity": 0.34178909137801267
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3662689875956328,
+        "reality_appearance": 0.727051055017344,
+        "self_identity": 0.749689499183062
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:c91db020177a417005d55e02",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.28084555385296034,
+        "reality_appearance": 0.2875017635836682,
+        "self_identity": 0.43510491826686293
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3658318085519398,
+        "reality_appearance": 0.7894383786539125,
+        "self_identity": 0.7190312480084687
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:dd9f55fdd8ac73667eea6cb3",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.27925043039180386,
+        "reality_appearance": 0.48272409071652406,
+        "self_identity": 0.3299149244876543
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3687712509204634,
+        "reality_appearance": 0.7527920117680769,
+        "self_identity": 0.7454972665906878
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:e37bf036cb961f6890f40391",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2899601407730095,
+        "reality_appearance": 0.3639427089011105,
+        "self_identity": 0.42024745184737256
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3630616567961878,
+        "reality_appearance": 0.7454148968410378,
+        "self_identity": 0.7648341596768454
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:eb039473b0cc1e46a3e0c848",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2691241565192144,
+        "reality_appearance": 0.34152497015876515,
+        "self_identity": 0.4902165749849416
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3837079942327058,
+        "reality_appearance": 0.8101139316455789,
+        "self_identity": 0.6963459790604137
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f45aa0c35f1cdcde3ba7b0d1",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3438550249985744,
+        "reality_appearance": 0.5565152215726346,
+        "self_identity": 0.2565515923325706
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36397906516349543,
+        "reality_appearance": 0.7956708572617047,
+        "self_identity": 0.7471378235030972
+      },
+      "chunk_id": "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:ffc7392e26fe70b7c4806a68",
+      "domain": "advaita",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2724813792866786,
+        "reality_appearance": 0.5043747734876758,
+        "self_identity": 0.42604222197526875
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "advaita_sankara_thibaut_1890_vedanta_sutras",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.4326004091611294,
+        "reality_appearance": 0.8095526189419936,
+        "self_identity": 0.7005279794747625
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.5153881240879767,
+        "reality_appearance": 0.5544336449571541,
+        "self_identity": 0.2698298727094604
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3678921025554584,
+        "reality_appearance": 0.7523360973456885,
+        "self_identity": 0.7260316753064678
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "consciousness_vs_cognition",
+      "hard_negative_for": [
+        "consciousness"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2867607690275224,
+        "reality_appearance": 0.3625444275039774,
+        "self_identity": 0.35326721315039133
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "partial"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3859346060987737,
+        "reality_appearance": 0.7982250907914409,
+        "self_identity": 0.7493097956325693
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "advaita_atman_vs_samkhya_purusha",
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.3518187379821902,
+        "reality_appearance": 0.5133893505923726,
+        "self_identity": 0.4337524634365133
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.38641062359050105,
+        "reality_appearance": 0.7235783321697034,
+        "self_identity": 0.731925161115648
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:12fabb70715baa09d9a08389",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.35351903880796526,
+        "reality_appearance": 0.2775470204457344,
+        "self_identity": 0.3732163740717242
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.35577041229316253,
+        "reality_appearance": 0.7230656569180011,
+        "self_identity": 0.7140174731112271
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:133e8b0c57139cfb799f7f91",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.24230964303876898,
+        "reality_appearance": 0.27608398935492456,
+        "self_identity": 0.31340730067119904
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3981845140812706,
+        "reality_appearance": 0.8026360540162134,
+        "self_identity": 0.6947938453537573
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25168446e86383025152619c",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.395337600246197,
+        "reality_appearance": 0.5291599261502458,
+        "self_identity": 0.2516497504321252
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36205932425731935,
+        "reality_appearance": 0.7197262991981603,
+        "self_identity": 0.7075865498489763
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25b41608c14ec68a44325285",
+      "domain": "samkhya",
+      "expected_active_concepts": [],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "reality_appearance_vs_cosmology",
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.26545198355517635,
+        "reality_appearance": 0.2665949285970515,
+        "self_identity": 0.29248541568659014
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.358292787138513,
+        "reality_appearance": 0.7649476455099543,
+        "self_identity": 0.7612764295167386
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:263a16d54f34c126e775413c",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [
+        "reality_appearance"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.25161311914851603,
+        "reality_appearance": 0.4018871564380887,
+        "self_identity": 0.47705723158610974
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.368623868206214,
+        "reality_appearance": 0.810176437997283,
+        "self_identity": 0.7184933568796305
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "advaita_atman_vs_samkhya_purusha",
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2894240116878576,
+        "reality_appearance": 0.5567473119302038,
+        "self_identity": 0.32813544298259206
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36264127991613604,
+        "reality_appearance": 0.8072610183027418,
+        "self_identity": 0.7184619693831735
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:31e16366b8fcad51bd9ed9c2",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.26758458512656164,
+        "reality_appearance": 0.5459837643273893,
+        "self_identity": 0.3280316690276957
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3676331686138265,
+        "reality_appearance": 0.7607581522592992,
+        "self_identity": 0.7155095861376805
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:382d9b5a0bff893adb68c417",
+      "domain": "samkhya",
+      "expected_active_concepts": [],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "hard_negative_category": "reality_appearance_vs_cosmology",
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2858178556891807,
+        "reality_appearance": 0.38866113676841735,
+        "self_identity": 0.31830162626385783
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.36822289040389045,
+        "reality_appearance": 0.8044940610842567,
+        "self_identity": 0.7035417262576461
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.28796493646818194,
+        "reality_appearance": 0.5358823768939105,
+        "self_identity": 0.2794646845459102
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3686418087933418,
+        "reality_appearance": 0.8077460184827296,
+        "self_identity": 0.7422520398246366
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4350792a01f98a328f637848",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.2894892783175347,
+        "reality_appearance": 0.547765701071011,
+        "self_identity": 0.4088566302887535
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.39720342010370985,
+        "reality_appearance": 0.7648080280498105,
+        "self_identity": 0.7306378930125371
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:46007f1a6fd1f693875cef23",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3918696320230516,
+        "reality_appearance": 0.40144378112086765,
+        "self_identity": 0.36883565563173365
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.40266050045922197,
+        "reality_appearance": 0.7427890440357011,
+        "self_identity": 0.7678205536566927
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:47e027943d3d1cc66b2abb31",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.41112312478575197,
+        "reality_appearance": 0.3336492305872343,
+        "self_identity": 0.5013694639894392
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.38051698983405874,
+        "reality_appearance": 0.7760069976992038,
+        "self_identity": 0.7217339589915015
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3324115157442906,
+        "reality_appearance": 0.4376085265836577,
+        "self_identity": 0.3388878198131824
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.36279565138541564,
+        "reality_appearance": 0.7810751358868266,
+        "self_identity": 0.7402912495391557
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "advaita_atman_vs_samkhya_purusha",
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2681500382237458,
+        "reality_appearance": 0.45439680761133106,
+        "self_identity": 0.40201957395312427
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.37872776408838593,
+        "reality_appearance": 0.8044082873573223,
+        "self_identity": 0.700170990324376
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3259788887625266,
+        "reality_appearance": 0.5355709781913285,
+        "self_identity": 0.2686922898627848
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3884485670918473,
+        "reality_appearance": 0.7325644128186934,
+        "self_identity": 0.7477707458031306
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:639acb9ff7ab043c58d77038",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.3607897124263185,
+        "reality_appearance": 0.30347025075032485,
+        "self_identity": 0.42828447053926344
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "partial",
+        "self_identity": "positive"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3789204319923652,
+        "reality_appearance": 0.7208804121143024,
+        "self_identity": 0.6985662575545185
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [],
+      "hard_negative_category": "reality_appearance_vs_cosmology",
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.3266721353295751,
+        "reality_appearance": 0.2698665533989048,
+        "self_identity": 0.2635881699184904
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": true
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.3587962447098608,
+        "reality_appearance": 0.7191351105337458,
+        "self_identity": 0.7381578099755608
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "reality_appearance_vs_cosmology",
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2534665819252576,
+        "reality_appearance": 0.2649222422007885,
+        "self_identity": 0.3946184627791204
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "partial"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.4077239547134604,
+        "reality_appearance": 0.7374169119298404,
+        "self_identity": 0.7244112543044514
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6207d4ddc55e0167388dfa2",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.42891182101960146,
+        "reality_appearance": 0.317698426392402,
+        "self_identity": 0.3478292884067624
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.3625984400537729,
+        "reality_appearance": 0.7601571159638153,
+        "self_identity": 0.7537395388671738
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "advaita_atman_vs_samkhya_purusha",
+      "hard_negative_for": [
+        "consciousness",
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.2674276469873387,
+        "reality_appearance": 0.3867767895382729,
+        "self_identity": 0.44961668661177734
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "partial",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.4293653057060115,
+        "reality_appearance": 0.741648550247847,
+        "self_identity": 0.7345177628551056
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "reality_appearance_vs_cosmology",
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.5042185905554017,
+        "reality_appearance": 0.3302449316305806,
+        "self_identity": 0.382079975097283
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "negative",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.38180836970392806,
+        "reality_appearance": 0.8097131694641319,
+        "self_identity": 0.7223510940205079
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [
+        "consciousness"
+      ],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "advaita_atman_vs_samkhya_purusha",
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.3370470309063488,
+        "reality_appearance": 0.555028551994203,
+        "self_identity": 0.34094416975123315
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.38404670367388405,
+        "reality_appearance": 0.7732682891407449,
+        "self_identity": 0.74919946232411
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "advaita_atman_vs_samkhya_purusha",
+      "hard_negative_for": [
+        "consciousness",
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.345067570951502,
+        "reality_appearance": 0.42864894965273626,
+        "self_identity": 0.43335972617414886
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4093918450466326,
+        "reality_appearance": 0.8113303853904329,
+        "self_identity": 0.7298464532631141
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [
+        "self_identity"
+      ],
+      "hard_negative_category": "advaita_atman_vs_samkhya_purusha",
+      "hard_negative_for": [
+        "self_identity"
+      ],
+      "raw_scores": {
+        "consciousness": 0.4347561231994479,
+        "reality_appearance": 0.5610425544092179,
+        "self_identity": 0.3661488580217269
+      },
+      "reviewed_labels": {
+        "consciousness": "partial",
+        "reality_appearance": "positive",
+        "self_identity": "negative"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "reality_appearance",
+        "self_identity",
+        "consciousness"
+      ],
+      "ambiguous": true,
+      "calibrated_weights": {
+        "consciousness": 0.4111373688273018,
+        "reality_appearance": 0.7719609536723869,
+        "self_identity": 0.7683158783970938
+      },
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "consciousness",
+        "reality_appearance",
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "",
+      "hard_negative_for": [],
+      "raw_scores": {
+        "consciousness": 0.4408646373736288,
+        "reality_appearance": 0.42439903754525976,
+        "self_identity": 0.5032289285675141
+      },
+      "reviewed_labels": {
+        "consciousness": "positive",
+        "reality_appearance": "positive",
+        "self_identity": "positive"
+      },
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "unsupported": false
+    },
+    {
+      "active_concepts": [
+        "self_identity"
+      ],
+      "ambiguous": false,
+      "calibrated_weights": {
+        "consciousness": 0.35464671878709497,
+        "reality_appearance": 0.7163296784365695,
+        "self_identity": 0.7500041714969081
+      },
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a",
+      "domain": "samkhya",
+      "expected_active_concepts": [
+        "self_identity"
+      ],
+      "false_negative_concepts": [],
+      "false_positive_concepts": [],
+      "hard_negative_category": "reality_appearance_vs_cosmology",
+      "hard_negative_for": [
+        "reality_appearance"
+      ],
+      "raw_scores": {
+        "consciousness": 0.23815555210515196,
+        "reality_appearance": 0.25701370229038367,
+        "self_identity": 0.4362267761259263
+      },
+      "reviewed_labels": {
+        "consciousness": "negative",
+        "reality_appearance": "negative",
+        "self_identity": "positive"
+      },
+      "source_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi",
+      "unsupported": false
+    }
+  ],
+  "status": "evaluation_complete",
+  "systems": {
+    "baseline_a_plain_embedding_similarity": {
+      "confusion_analysis": {
+        "consciousness__reality_appearance": {
+          "consciousness_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6207d4ddc55e0167388dfa2",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56"
+            ],
+            "error_count": 2,
+            "error_rate": 0.2222222222222222,
+            "opportunities": 9
+          },
+          "reality_appearance_mistaken_as_consciousness": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:234958ae8a394d7e149763a9",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:56a0232e583e947396545fd0",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8cbde1b6c93e8c11fbdd164d",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:eb039473b0cc1e46a3e0c848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf"
+            ],
+            "error_count": 13,
+            "error_rate": 0.5416666666666666,
+            "opportunities": 24
+          }
+        },
+        "consciousness__self_identity": {
+          "consciousness_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25168446e86383025152619c",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 13,
+            "error_rate": 1.0,
+            "opportunities": 13
+          },
+          "self_identity_mistaken_as_consciousness": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:234958ae8a394d7e149763a9",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:56a0232e583e947396545fd0",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8cbde1b6c93e8c11fbdd164d",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:eb039473b0cc1e46a3e0c848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:12fabb70715baa09d9a08389",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:133e8b0c57139cfb799f7f91",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836"
+            ],
+            "error_count": 12,
+            "error_rate": 0.631578947368421,
+            "opportunities": 19
+          }
+        },
+        "self_identity__reality_appearance": {
+          "reality_appearance_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8bdae350e920515c685b78f1",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f45aa0c35f1cdcde3ba7b0d1",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25168446e86383025152619c",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:31e16366b8fcad51bd9ed9c2",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4350792a01f98a328f637848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 21,
+            "error_rate": 1.0,
+            "opportunities": 21
+          },
+          "self_identity_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6207d4ddc55e0167388dfa2",
+              "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a"
+            ],
+            "error_count": 2,
+            "error_rate": 0.16666666666666666,
+            "opportunities": 12
+          }
+        }
+      },
+      "description": "Operationalized as the Phase 10 maximum-example method: strongest direct cosine similarity to a frozen concept example, without lexical or hard-negative terms.",
+      "display_name": "Baseline A — Plain embedding similarity",
+      "domains": {
+        "advaita": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.049349132022373586
+          },
+          "exact_active_set_accuracy": 0.22,
+          "macro_average_precision": 0.9049225447602742,
+          "macro_f1": 0.7067191260739648,
+          "micro_f1": 0.7579908675799086,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.7543582489956954,
+              "calibration_error_soft_ece_10_bins": 0.005336655200761153,
+              "f1": 0.38461538461538464,
+              "false_negative": 22,
+              "false_positive": 10,
+              "precision": 0.5,
+              "recall": 0.3125,
+              "support_active": 32,
+              "support_inactive": 18,
+              "true_positive": 10
+            },
+            "reality_appearance": {
+              "average_precision": 0.9767636384127051,
+              "calibration_error_soft_ece_10_bins": 0.01609902710525901,
+              "f1": 0.8108108108108109,
+              "false_negative": 14,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.6818181818181818,
+              "support_active": 44,
+              "support_inactive": 6,
+              "true_positive": 30
+            },
+            "self_identity": {
+              "average_precision": 0.9836457468724221,
+              "calibration_error_soft_ece_10_bins": 0.12661171376110059,
+              "f1": 0.9247311827956989,
+              "false_negative": 0,
+              "false_positive": 7,
+              "precision": 0.86,
+              "recall": 1.0,
+              "support_active": 43,
+              "support_inactive": 7,
+              "true_positive": 43
+            }
+          },
+          "predicted_ambiguous_count": 30,
+          "record_count": 50,
+          "unsupported_accuracy": 1.0
+        },
+        "samkhya": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.19034093571015845
+          },
+          "exact_active_set_accuracy": 0.034482758620689655,
+          "macro_average_precision": 0.7467600434367011,
+          "macro_f1": 0.5268472906403942,
+          "micro_f1": 0.5384615384615384,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.7629208273451694,
+              "calibration_error_soft_ece_10_bins": 0.004567592301680801,
+              "f1": 0.3448275862068966,
+              "false_negative": 11,
+              "false_positive": 8,
+              "precision": 0.38461538461538464,
+              "recall": 0.3125,
+              "support_active": 16,
+              "support_inactive": 13,
+              "true_positive": 5
+            },
+            "reality_appearance": {
+              "average_precision": 0.8942817071600653,
+              "calibration_error_soft_ece_10_bins": 0.1829223166210152,
+              "f1": 0.6857142857142857,
+              "false_negative": 7,
+              "false_positive": 4,
+              "precision": 0.75,
+              "recall": 0.631578947368421,
+              "support_active": 19,
+              "support_inactive": 10,
+              "true_positive": 12
+            },
+            "self_identity": {
+              "average_precision": 0.5830775958048686,
+              "calibration_error_soft_ece_10_bins": 0.38353289820777936,
+              "f1": 0.55,
+              "false_negative": 0,
+              "false_positive": 18,
+              "precision": 0.3793103448275862,
+              "recall": 1.0,
+              "support_active": 11,
+              "support_inactive": 18,
+              "true_positive": 11
+            }
+          },
+          "predicted_ambiguous_count": 16,
+          "record_count": 29,
+          "unsupported_accuracy": 0.9310344827586207
+        },
+        "science": {
+          "calibration_error": null,
+          "macro_average_precision": null,
+          "macro_f1": null,
+          "micro_f1": null,
+          "per_concept": {},
+          "record_count": 0
+        }
+      },
+      "frozen_activation": {
+        "ambiguity_margin": 0.05,
+        "concept_activation_thresholds": {
+          "consciousness": 0.35,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 2
+      },
+      "frozen_candidate": {
+        "embedding_weight": 1.0,
+        "lexical_weight": 0.0,
+        "method": "maximum_example",
+        "negative_penalty": 0.0,
+        "prototype_aggregation": "maximum",
+        "prototype_source": "question"
+      },
+      "hard_negative_evaluation": {
+        "groups": {
+          "attention_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_attention"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "consciousness"
+          },
+          "cognition_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_cognition"
+            ],
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82"
+            ],
+            "false_positive_count": 7,
+            "false_positive_rate": 1.0,
+            "required_phase11_metric": false,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "consciousness"
+          },
+          "cosmology_mistaken_for_reality_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_cosmology"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25b41608c14ec68a44325285",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:382d9b5a0bff893adb68c417",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a"
+            ],
+            "false_positive_count": 3,
+            "false_positive_rate": 0.5,
+            "required_phase11_metric": true,
+            "sample_count": 6,
+            "status": "measured",
+            "target_concept": "reality_appearance"
+          },
+          "ego_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_ego",
+              "self_vs_ego"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "perception_description_mistaken_for_metaphysical_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_description",
+              "reality_appearance_vs_perceptual_description"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "reality_appearance"
+          },
+          "personality_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_personality",
+              "self_vs_personality"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": false,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "purusha_collapsed_into_atman": {
+            "accepted_category_labels": [
+              "advaita_atman_vs_samkhya_purusha"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "false_positive_count": 7,
+            "false_positive_rate": 1.0,
+            "required_phase11_metric": true,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "self_identity"
+          }
+        },
+        "note": "A required category with zero samples is reported as unavailable; it is not silently substituted with a broader hard-negative class.",
+        "observed_heldout_categories": [
+          "advaita_atman_vs_samkhya_purusha",
+          "consciousness_vs_cognition",
+          "reality_appearance_vs_cosmology"
+        ]
+      },
+      "overall": {
+        "calibration_error": {
+          "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+          "macro_soft_ece_10_bins": 0.039772307046440414
+        },
+        "exact_active_set_accuracy": 0.1518987341772152,
+        "macro_average_precision": 0.8734248411737172,
+        "macro_f1": 0.6510142157977342,
+        "micro_f1": 0.6873065015479877,
+        "per_concept": {
+          "consciousness": {
+            "average_precision": 0.7654794937569204,
+            "calibration_error_soft_ece_10_bins": 0.0017009187758140198,
+            "f1": 0.37037037037037035,
+            "false_negative": 33,
+            "false_positive": 18,
+            "precision": 0.45454545454545453,
+            "recall": 0.3125,
+            "support_active": 48,
+            "support_inactive": 31,
+            "true_positive": 15
+          },
+          "reality_appearance": {
+            "average_precision": 0.9463796442912987,
+            "calibration_error_soft_ece_10_bins": 0.05695944084489235,
+            "f1": 0.7706422018348624,
+            "false_negative": 21,
+            "false_positive": 4,
+            "precision": 0.9130434782608695,
+            "recall": 0.6666666666666666,
+            "support_active": 63,
+            "support_inactive": 16,
+            "true_positive": 42
+          },
+          "self_identity": {
+            "average_precision": 0.9084153854729324,
+            "calibration_error_soft_ece_10_bins": 0.06065656151861487,
+            "f1": 0.8120300751879699,
+            "false_negative": 0,
+            "false_positive": 25,
+            "precision": 0.6835443037974683,
+            "recall": 1.0,
+            "support_active": 54,
+            "support_inactive": 25,
+            "true_positive": 54
+          }
+        },
+        "predicted_ambiguous_count": 46,
+        "record_count": 79,
+        "unsupported_accuracy": 0.9746835443037974
+      },
+      "selected_method": false
+    },
+    "baseline_b_prototype_mapping": {
+      "confusion_analysis": {
+        "consciousness__reality_appearance": {
+          "consciousness_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6f17d19889cf3e86104c738b",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6207d4ddc55e0167388dfa2",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56"
+            ],
+            "error_count": 3,
+            "error_rate": 0.3333333333333333,
+            "opportunities": 9
+          },
+          "reality_appearance_mistaken_as_consciousness": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:56a0232e583e947396545fd0",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8cbde1b6c93e8c11fbdd164d",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:eb039473b0cc1e46a3e0c848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf"
+            ],
+            "error_count": 11,
+            "error_rate": 0.4583333333333333,
+            "opportunities": 24
+          }
+        },
+        "consciousness__self_identity": {
+          "consciousness_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25168446e86383025152619c",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 13,
+            "error_rate": 1.0,
+            "opportunities": 13
+          },
+          "self_identity_mistaken_as_consciousness": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:56a0232e583e947396545fd0",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8cbde1b6c93e8c11fbdd164d",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:eb039473b0cc1e46a3e0c848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:12fabb70715baa09d9a08389",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:133e8b0c57139cfb799f7f91",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836",
+              "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a"
+            ],
+            "error_count": 12,
+            "error_rate": 0.631578947368421,
+            "opportunities": 19
+          }
+        },
+        "self_identity__reality_appearance": {
+          "reality_appearance_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8bdae350e920515c685b78f1",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f45aa0c35f1cdcde3ba7b0d1",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25168446e86383025152619c",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:31e16366b8fcad51bd9ed9c2",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4350792a01f98a328f637848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 21,
+            "error_rate": 1.0,
+            "opportunities": 21
+          },
+          "self_identity_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6f17d19889cf3e86104c738b",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6207d4ddc55e0167388dfa2"
+            ],
+            "error_count": 2,
+            "error_rate": 0.16666666666666666,
+            "opportunities": 12
+          }
+        }
+      },
+      "description": "Prototype-based concept mapping using frozen query prototype centroids without hard-negative penalties.",
+      "display_name": "Baseline B — Prototype centroid",
+      "domains": {
+        "advaita": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.04904129673240313
+          },
+          "exact_active_set_accuracy": 0.22,
+          "macro_average_precision": 0.9088541174184851,
+          "macro_f1": 0.6875172318720706,
+          "micro_f1": 0.7579908675799086,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.7669333355281196,
+              "calibration_error_soft_ece_10_bins": 0.005930714589264086,
+              "f1": 0.2916666666666667,
+              "false_negative": 25,
+              "false_positive": 9,
+              "precision": 0.4375,
+              "recall": 0.21875,
+              "support_active": 32,
+              "support_inactive": 18,
+              "true_positive": 7
+            },
+            "reality_appearance": {
+              "average_precision": 0.9771199201891023,
+              "calibration_error_soft_ece_10_bins": 0.01588557258619394,
+              "f1": 0.8461538461538461,
+              "false_negative": 11,
+              "false_positive": 1,
+              "precision": 0.9705882352941176,
+              "recall": 0.75,
+              "support_active": 44,
+              "support_inactive": 6,
+              "true_positive": 33
+            },
+            "self_identity": {
+              "average_precision": 0.9825090965382335,
+              "calibration_error_soft_ece_10_bins": 0.12530760302175137,
+              "f1": 0.9247311827956989,
+              "false_negative": 0,
+              "false_positive": 7,
+              "precision": 0.86,
+              "recall": 1.0,
+              "support_active": 43,
+              "support_inactive": 7,
+              "true_positive": 43
+            }
+          },
+          "predicted_ambiguous_count": 34,
+          "record_count": 50,
+          "unsupported_accuracy": 1.0
+        },
+        "samkhya": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.19129522490517348
+          },
+          "exact_active_set_accuracy": 0.034482758620689655,
+          "macro_average_precision": 0.7035414722357206,
+          "macro_f1": 0.5458949096880131,
+          "micro_f1": 0.5576923076923077,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.7783303104019215,
+              "calibration_error_soft_ece_10_bins": 0.0039139406864647786,
+              "f1": 0.3448275862068966,
+              "false_negative": 11,
+              "false_positive": 8,
+              "precision": 0.38461538461538464,
+              "recall": 0.3125,
+              "support_active": 16,
+              "support_inactive": 13,
+              "true_positive": 5
+            },
+            "reality_appearance": {
+              "average_precision": 0.8837818754732601,
+              "calibration_error_soft_ece_10_bins": 0.18448650088140683,
+              "f1": 0.7428571428571429,
+              "false_negative": 6,
+              "false_positive": 3,
+              "precision": 0.8125,
+              "recall": 0.6842105263157895,
+              "support_active": 19,
+              "support_inactive": 10,
+              "true_positive": 13
+            },
+            "self_identity": {
+              "average_precision": 0.44851223083198005,
+              "calibration_error_soft_ece_10_bins": 0.3854852331476488,
+              "f1": 0.55,
+              "false_negative": 0,
+              "false_positive": 18,
+              "precision": 0.3793103448275862,
+              "recall": 1.0,
+              "support_active": 11,
+              "support_inactive": 18,
+              "true_positive": 11
+            }
+          },
+          "predicted_ambiguous_count": 16,
+          "record_count": 29,
+          "unsupported_accuracy": 0.9310344827586207
+        },
+        "science": {
+          "calibration_error": null,
+          "macro_average_precision": null,
+          "macro_f1": null,
+          "micro_f1": null,
+          "per_concept": {},
+          "record_count": 0
+        }
+      },
+      "frozen_activation": {
+        "ambiguity_margin": 0.05,
+        "concept_activation_thresholds": {
+          "consciousness": 0.35,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 2
+      },
+      "frozen_candidate": {
+        "embedding_weight": 1.0,
+        "lexical_weight": 0.0,
+        "method": "centroid",
+        "negative_penalty": 0.0,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "hard_negative_evaluation": {
+        "groups": {
+          "attention_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_attention"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "consciousness"
+          },
+          "cognition_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_cognition"
+            ],
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82"
+            ],
+            "false_positive_count": 7,
+            "false_positive_rate": 1.0,
+            "required_phase11_metric": false,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "consciousness"
+          },
+          "cosmology_mistaken_for_reality_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_cosmology"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25b41608c14ec68a44325285",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:382d9b5a0bff893adb68c417",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a"
+            ],
+            "false_positive_count": 2,
+            "false_positive_rate": 0.3333333333333333,
+            "required_phase11_metric": true,
+            "sample_count": 6,
+            "status": "measured",
+            "target_concept": "reality_appearance"
+          },
+          "ego_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_ego",
+              "self_vs_ego"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "perception_description_mistaken_for_metaphysical_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_description",
+              "reality_appearance_vs_perceptual_description"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "reality_appearance"
+          },
+          "personality_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_personality",
+              "self_vs_personality"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": false,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "purusha_collapsed_into_atman": {
+            "accepted_category_labels": [
+              "advaita_atman_vs_samkhya_purusha"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "false_positive_count": 7,
+            "false_positive_rate": 1.0,
+            "required_phase11_metric": true,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "self_identity"
+          }
+        },
+        "note": "A required category with zero samples is reported as unavailable; it is not silently substituted with a broader hard-negative class.",
+        "observed_heldout_categories": [
+          "advaita_atman_vs_samkhya_purusha",
+          "consciousness_vs_cognition",
+          "reality_appearance_vs_cosmology"
+        ]
+      },
+      "overall": {
+        "calibration_error": {
+          "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+          "macro_soft_ece_10_bins": 0.04072807154430832
+        },
+        "exact_active_set_accuracy": 0.1518987341772152,
+        "macro_average_precision": 0.8664827148824079,
+        "macro_f1": 0.6459592263038932,
+        "micro_f1": 0.6934984520123839,
+        "per_concept": {
+          "consciousness": {
+            "average_precision": 0.7825367859292346,
+            "calibration_error_soft_ece_10_bins": 0.002316853791844653,
+            "f1": 0.3116883116883117,
+            "false_negative": 36,
+            "false_positive": 17,
+            "precision": 0.41379310344827586,
+            "recall": 0.25,
+            "support_active": 48,
+            "support_inactive": 31,
+            "true_positive": 12
+          },
+          "reality_appearance": {
+            "average_precision": 0.9359747505225606,
+            "calibration_error_soft_ece_10_bins": 0.05766873286393792,
+            "f1": 0.8141592920353983,
+            "false_negative": 17,
+            "false_positive": 4,
+            "precision": 0.92,
+            "recall": 0.7301587301587301,
+            "support_active": 63,
+            "support_inactive": 16,
+            "true_positive": 46
+          },
+          "self_identity": {
+            "average_precision": 0.8809366081954282,
+            "calibration_error_soft_ece_10_bins": 0.06219862797714237,
+            "f1": 0.8120300751879699,
+            "false_negative": 0,
+            "false_positive": 25,
+            "precision": 0.6835443037974683,
+            "recall": 1.0,
+            "support_active": 54,
+            "support_inactive": 25,
+            "true_positive": 54
+          }
+        },
+        "predicted_ambiguous_count": 50,
+        "record_count": 79,
+        "unsupported_accuracy": 0.9746835443037974
+      },
+      "selected_method": false
+    },
+    "baseline_c_prototype_plus_hard_negative": {
+      "confusion_analysis": {
+        "consciousness__reality_appearance": {
+          "consciousness_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6f17d19889cf3e86104c738b",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6207d4ddc55e0167388dfa2",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56"
+            ],
+            "error_count": 3,
+            "error_rate": 0.3333333333333333,
+            "opportunities": 9
+          },
+          "reality_appearance_mistaken_as_consciousness": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8cbde1b6c93e8c11fbdd164d",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:eb039473b0cc1e46a3e0c848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581"
+            ],
+            "error_count": 8,
+            "error_rate": 0.3333333333333333,
+            "opportunities": 24
+          }
+        },
+        "consciousness__self_identity": {
+          "consciousness_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25168446e86383025152619c",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 13,
+            "error_rate": 1.0,
+            "opportunities": 13
+          },
+          "self_identity_mistaken_as_consciousness": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8cbde1b6c93e8c11fbdd164d",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:eb039473b0cc1e46a3e0c848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:12fabb70715baa09d9a08389",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:133e8b0c57139cfb799f7f91",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836",
+              "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a"
+            ],
+            "error_count": 10,
+            "error_rate": 0.5263157894736842,
+            "opportunities": 19
+          }
+        },
+        "self_identity__reality_appearance": {
+          "reality_appearance_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8bdae350e920515c685b78f1",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f45aa0c35f1cdcde3ba7b0d1",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25168446e86383025152619c",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:31e16366b8fcad51bd9ed9c2",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4350792a01f98a328f637848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 21,
+            "error_rate": 1.0,
+            "opportunities": 21
+          },
+          "self_identity_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:6f17d19889cf3e86104c738b",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6207d4ddc55e0167388dfa2"
+            ],
+            "error_count": 2,
+            "error_rate": 0.16666666666666666,
+            "opportunities": 12
+          }
+        }
+      },
+      "description": "Prototype mapping with a frozen positive-minus-hard-negative score and no lexical feature.",
+      "display_name": "Baseline C — Prototype + hard-negative",
+      "domains": {
+        "advaita": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.049425788996695454
+          },
+          "exact_active_set_accuracy": 0.24,
+          "macro_average_precision": 0.9174417354480333,
+          "macro_f1": 0.6786140979689366,
+          "micro_f1": 0.7671232876712328,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.7872366653012605,
+              "calibration_error_soft_ece_10_bins": 0.005276665574399708,
+              "f1": 0.2222222222222222,
+              "false_negative": 27,
+              "false_positive": 8,
+              "precision": 0.38461538461538464,
+              "recall": 0.15625,
+              "support_active": 32,
+              "support_inactive": 18,
+              "true_positive": 5
+            },
+            "reality_appearance": {
+              "average_precision": 0.9733266249904726,
+              "calibration_error_soft_ece_10_bins": 0.014629506755740818,
+              "f1": 0.8888888888888888,
+              "false_negative": 8,
+              "false_positive": 1,
+              "precision": 0.972972972972973,
+              "recall": 0.8181818181818182,
+              "support_active": 44,
+              "support_inactive": 6,
+              "true_positive": 36
+            },
+            "self_identity": {
+              "average_precision": 0.9917619160523665,
+              "calibration_error_soft_ece_10_bins": 0.12837119465994584,
+              "f1": 0.9247311827956989,
+              "false_negative": 0,
+              "false_positive": 7,
+              "precision": 0.86,
+              "recall": 1.0,
+              "support_active": 43,
+              "support_inactive": 7,
+              "true_positive": 43
+            }
+          },
+          "predicted_ambiguous_count": 36,
+          "record_count": 50,
+          "unsupported_accuracy": 1.0
+        },
+        "samkhya": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.1918112494682905
+          },
+          "exact_active_set_accuracy": 0.06896551724137931,
+          "macro_average_precision": 0.7000999394050201,
+          "macro_f1": 0.553931623931624,
+          "micro_f1": 0.5961538461538461,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.7577693262619734,
+              "calibration_error_soft_ece_10_bins": 0.004987538526393165,
+              "f1": 0.24,
+              "false_negative": 13,
+              "false_positive": 6,
+              "precision": 0.3333333333333333,
+              "recall": 0.1875,
+              "support_active": 16,
+              "support_inactive": 13,
+              "true_positive": 3
+            },
+            "reality_appearance": {
+              "average_precision": 0.9011518514365153,
+              "calibration_error_soft_ece_10_bins": 0.18728586490761745,
+              "f1": 0.8717948717948718,
+              "false_negative": 2,
+              "false_positive": 3,
+              "precision": 0.85,
+              "recall": 0.8947368421052632,
+              "support_active": 19,
+              "support_inactive": 10,
+              "true_positive": 17
+            },
+            "self_identity": {
+              "average_precision": 0.4413786405165716,
+              "calibration_error_soft_ece_10_bins": 0.3831603449708608,
+              "f1": 0.55,
+              "false_negative": 0,
+              "false_positive": 18,
+              "precision": 0.3793103448275862,
+              "recall": 1.0,
+              "support_active": 11,
+              "support_inactive": 18,
+              "true_positive": 11
+            }
+          },
+          "predicted_ambiguous_count": 20,
+          "record_count": 29,
+          "unsupported_accuracy": 0.9310344827586207
+        },
+        "science": {
+          "calibration_error": null,
+          "macro_average_precision": null,
+          "macro_f1": null,
+          "micro_f1": null,
+          "per_concept": {},
+          "record_count": 0
+        }
+      },
+      "frozen_activation": {
+        "ambiguity_margin": 0.05,
+        "concept_activation_thresholds": {
+          "consciousness": 0.35,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 2
+      },
+      "frozen_candidate": {
+        "embedding_weight": 1.0,
+        "lexical_weight": 0.0,
+        "method": "positive_minus_negative",
+        "negative_penalty": 0.25,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "hard_negative_evaluation": {
+        "groups": {
+          "attention_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_attention"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "consciousness"
+          },
+          "cognition_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_cognition"
+            ],
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82"
+            ],
+            "false_positive_count": 6,
+            "false_positive_rate": 0.8571428571428571,
+            "required_phase11_metric": false,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "consciousness"
+          },
+          "cosmology_mistaken_for_reality_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_cosmology"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25b41608c14ec68a44325285",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:382d9b5a0bff893adb68c417",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a"
+            ],
+            "false_positive_count": 2,
+            "false_positive_rate": 0.3333333333333333,
+            "required_phase11_metric": true,
+            "sample_count": 6,
+            "status": "measured",
+            "target_concept": "reality_appearance"
+          },
+          "ego_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_ego",
+              "self_vs_ego"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "perception_description_mistaken_for_metaphysical_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_description",
+              "reality_appearance_vs_perceptual_description"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "reality_appearance"
+          },
+          "personality_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_personality",
+              "self_vs_personality"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": false,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "purusha_collapsed_into_atman": {
+            "accepted_category_labels": [
+              "advaita_atman_vs_samkhya_purusha"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "false_positive_count": 7,
+            "false_positive_rate": 1.0,
+            "required_phase11_metric": true,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "self_identity"
+          }
+        },
+        "note": "A required category with zero samples is reported as unavailable; it is not silently substituted with a broader hard-negative class.",
+        "observed_heldout_categories": [
+          "advaita_atman_vs_samkhya_purusha",
+          "consciousness_vs_cognition",
+          "reality_appearance_vs_cosmology"
+        ]
+      },
+      "overall": {
+        "calibration_error": {
+          "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+          "macro_soft_ece_10_bins": 0.04013544167572205
+        },
+        "exact_active_set_accuracy": 0.17721518987341772,
+        "macro_average_precision": 0.8602204362979232,
+        "macro_f1": 0.6413116123642439,
+        "micro_f1": 0.7120743034055728,
+        "per_concept": {
+          "consciousness": {
+            "average_precision": 0.7765131039219507,
+            "calibration_error_soft_ece_10_bins": 0.0015087931829694257,
+            "f1": 0.22857142857142856,
+            "false_negative": 40,
+            "false_positive": 14,
+            "precision": 0.36363636363636365,
+            "recall": 0.16666666666666666,
+            "support_active": 48,
+            "support_inactive": 31,
+            "true_positive": 8
+          },
+          "reality_appearance": {
+            "average_precision": 0.9304761825980208,
+            "calibration_error_soft_ece_10_bins": 0.059491325880175694,
+            "f1": 0.8833333333333333,
+            "false_negative": 10,
+            "false_positive": 4,
+            "precision": 0.9298245614035088,
+            "recall": 0.8412698412698413,
+            "support_active": 63,
+            "support_inactive": 16,
+            "true_positive": 53
+          },
+          "self_identity": {
+            "average_precision": 0.8736720223737984,
+            "calibration_error_soft_ece_10_bins": 0.05940620596402102,
+            "f1": 0.8120300751879699,
+            "false_negative": 0,
+            "false_positive": 25,
+            "precision": 0.6835443037974683,
+            "recall": 1.0,
+            "support_active": 54,
+            "support_inactive": 25,
+            "true_positive": 54
+          }
+        },
+        "predicted_ambiguous_count": 56,
+        "record_count": 79,
+        "unsupported_accuracy": 0.9746835443037974
+      },
+      "selected_method": false
+    },
+    "baseline_d_supervised_classifier": {
+      "confusion_analysis": {
+        "consciousness__reality_appearance": {
+          "consciousness_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:9c3af542370619cdcf7a1137",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6207d4ddc55e0167388dfa2"
+            ],
+            "error_count": 2,
+            "error_rate": 0.2222222222222222,
+            "opportunities": 9
+          },
+          "reality_appearance_mistaken_as_consciousness": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:56a0232e583e947396545fd0",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:61a48166225dfe19a20df5f6",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:65b47e23ccfbb4535e9459b1",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8bdae350e920515c685b78f1",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8cbde1b6c93e8c11fbdd164d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4350792a01f98a328f637848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf"
+            ],
+            "error_count": 13,
+            "error_rate": 0.5416666666666666,
+            "opportunities": 24
+          }
+        },
+        "consciousness__self_identity": {
+          "consciousness_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25168446e86383025152619c",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 13,
+            "error_rate": 1.0,
+            "opportunities": 13
+          },
+          "self_identity_mistaken_as_consciousness": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:56a0232e583e947396545fd0",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:61a48166225dfe19a20df5f6",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:65b47e23ccfbb4535e9459b1",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8cbde1b6c93e8c11fbdd164d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:12fabb70715baa09d9a08389",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:133e8b0c57139cfb799f7f91",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836",
+              "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a"
+            ],
+            "error_count": 11,
+            "error_rate": 0.5789473684210527,
+            "opportunities": 19
+          }
+        },
+        "self_identity__reality_appearance": {
+          "reality_appearance_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8bdae350e920515c685b78f1",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f45aa0c35f1cdcde3ba7b0d1",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25168446e86383025152619c",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:31e16366b8fcad51bd9ed9c2",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4350792a01f98a328f637848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 21,
+            "error_rate": 1.0,
+            "opportunities": 21
+          },
+          "self_identity_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:9c3af542370619cdcf7a1137",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6207d4ddc55e0167388dfa2"
+            ],
+            "error_count": 2,
+            "error_rate": 0.16666666666666666,
+            "opportunities": 12
+          }
+        }
+      },
+      "description": "Lightweight soft logistic classifier trained only on Build, using its Phase 10 Development-frozen calibration and thresholds.",
+      "display_name": "Baseline D — Build-trained classifier",
+      "domains": {
+        "advaita": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.049504631433079704
+          },
+          "exact_active_set_accuracy": 0.22,
+          "macro_average_precision": 0.8862345685271875,
+          "macro_f1": 0.705629348513599,
+          "micro_f1": 0.7579908675799086,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.7681437828548225,
+              "calibration_error_soft_ece_10_bins": 0.0035734223195927894,
+              "f1": 0.39215686274509803,
+              "false_negative": 22,
+              "false_positive": 9,
+              "precision": 0.5263157894736842,
+              "recall": 0.3125,
+              "support_active": 32,
+              "support_inactive": 18,
+              "true_positive": 10
+            },
+            "reality_appearance": {
+              "average_precision": 0.9626426348566429,
+              "calibration_error_soft_ece_10_bins": 0.018595035326501086,
+              "f1": 0.8,
+              "false_negative": 14,
+              "false_positive": 1,
+              "precision": 0.967741935483871,
+              "recall": 0.6818181818181818,
+              "support_active": 44,
+              "support_inactive": 6,
+              "true_positive": 30
+            },
+            "self_identity": {
+              "average_precision": 0.9279172878700972,
+              "calibration_error_soft_ece_10_bins": 0.12634543665314524,
+              "f1": 0.9247311827956989,
+              "false_negative": 0,
+              "false_positive": 7,
+              "precision": 0.86,
+              "recall": 1.0,
+              "support_active": 43,
+              "support_inactive": 7,
+              "true_positive": 43
+            }
+          },
+          "predicted_ambiguous_count": 31,
+          "record_count": 50,
+          "unsupported_accuracy": 1.0
+        },
+        "samkhya": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.18635856726220576
+          },
+          "exact_active_set_accuracy": 0.06896551724137931,
+          "macro_average_precision": 0.736453587443989,
+          "macro_f1": 0.5404761904761904,
+          "micro_f1": 0.5384615384615384,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.7685287350029197,
+              "calibration_error_soft_ece_10_bins": 0.004933999317888016,
+              "f1": 0.5,
+              "false_negative": 7,
+              "false_positive": 11,
+              "precision": 0.45,
+              "recall": 0.5625,
+              "support_active": 16,
+              "support_inactive": 13,
+              "true_positive": 9
+            },
+            "reality_appearance": {
+              "average_precision": 0.9056030848070934,
+              "calibration_error_soft_ece_10_bins": 0.1777596401188356,
+              "f1": 0.5714285714285714,
+              "false_negative": 11,
+              "false_positive": 1,
+              "precision": 0.8888888888888888,
+              "recall": 0.42105263157894735,
+              "support_active": 19,
+              "support_inactive": 10,
+              "true_positive": 8
+            },
+            "self_identity": {
+              "average_precision": 0.5352289425219537,
+              "calibration_error_soft_ece_10_bins": 0.3763820623498937,
+              "f1": 0.55,
+              "false_negative": 0,
+              "false_positive": 18,
+              "precision": 0.3793103448275862,
+              "recall": 1.0,
+              "support_active": 11,
+              "support_inactive": 18,
+              "true_positive": 11
+            }
+          },
+          "predicted_ambiguous_count": 9,
+          "record_count": 29,
+          "unsupported_accuracy": 0.9310344827586207
+        },
+        "science": {
+          "calibration_error": null,
+          "macro_average_precision": null,
+          "macro_f1": null,
+          "micro_f1": null,
+          "per_concept": {},
+          "record_count": 0
+        }
+      },
+      "frozen_activation": {
+        "ambiguity_margin": 0.05,
+        "concept_activation_thresholds": {
+          "consciousness": 0.35,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 2
+      },
+      "frozen_candidate": {
+        "embedding_weight": 1.0,
+        "lexical_weight": 0.0,
+        "method": "classifier",
+        "negative_penalty": 0.0,
+        "prototype_aggregation": "none",
+        "prototype_source": "none"
+      },
+      "hard_negative_evaluation": {
+        "groups": {
+          "attention_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_attention"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "consciousness"
+          },
+          "cognition_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_cognition"
+            ],
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82"
+            ],
+            "false_positive_count": 4,
+            "false_positive_rate": 0.5714285714285714,
+            "required_phase11_metric": false,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "consciousness"
+          },
+          "cosmology_mistaken_for_reality_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_cosmology"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25b41608c14ec68a44325285",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:382d9b5a0bff893adb68c417",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a"
+            ],
+            "false_positive_count": 0,
+            "false_positive_rate": 0.0,
+            "required_phase11_metric": true,
+            "sample_count": 6,
+            "status": "measured",
+            "target_concept": "reality_appearance"
+          },
+          "ego_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_ego",
+              "self_vs_ego"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "perception_description_mistaken_for_metaphysical_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_description",
+              "reality_appearance_vs_perceptual_description"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "reality_appearance"
+          },
+          "personality_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_personality",
+              "self_vs_personality"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": false,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "purusha_collapsed_into_atman": {
+            "accepted_category_labels": [
+              "advaita_atman_vs_samkhya_purusha"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "false_positive_count": 7,
+            "false_positive_rate": 1.0,
+            "required_phase11_metric": true,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "self_identity"
+          }
+        },
+        "note": "A required category with zero samples is reported as unavailable; it is not silently substituted with a broader hard-negative class.",
+        "observed_heldout_categories": [
+          "advaita_atman_vs_samkhya_purusha",
+          "consciousness_vs_cognition",
+          "reality_appearance_vs_cosmology"
+        ]
+      },
+      "overall": {
+        "calibration_error": {
+          "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+          "macro_soft_ece_10_bins": 0.03737835826317185
+        },
+        "exact_active_set_accuracy": 0.16455696202531644,
+        "macro_average_precision": 0.8673016706487157,
+        "macro_f1": 0.6622252540177583,
+        "micro_f1": 0.6873065015479877,
+        "per_concept": {
+          "consciousness": {
+            "average_precision": 0.7576874832542746,
+            "calibration_error_soft_ece_10_bins": 0.00045044475646693893,
+            "f1": 0.4367816091954023,
+            "false_negative": 29,
+            "false_positive": 20,
+            "precision": 0.48717948717948717,
+            "recall": 0.3958333333333333,
+            "support_active": 48,
+            "support_inactive": 31,
+            "true_positive": 19
+          },
+          "reality_appearance": {
+            "average_precision": 0.9488388262586572,
+            "calibration_error_soft_ece_10_bins": 0.053484529077483356,
+            "f1": 0.7378640776699029,
+            "false_negative": 25,
+            "false_positive": 2,
+            "precision": 0.95,
+            "recall": 0.6031746031746031,
+            "support_active": 63,
+            "support_inactive": 16,
+            "true_positive": 38
+          },
+          "self_identity": {
+            "average_precision": 0.8953787024332152,
+            "calibration_error_soft_ece_10_bins": 0.05820010095556527,
+            "f1": 0.8120300751879699,
+            "false_negative": 0,
+            "false_positive": 25,
+            "precision": 0.6835443037974683,
+            "recall": 1.0,
+            "support_active": 54,
+            "support_inactive": 25,
+            "true_positive": 54
+          }
+        },
+        "predicted_ambiguous_count": 40,
+        "record_count": 79,
+        "unsupported_accuracy": 0.9746835443037974
+      },
+      "selected_method": false
+    },
+    "selected_hybrid": {
+      "confusion_analysis": {
+        "consciousness__reality_appearance": {
+          "consciousness_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:263a16d54f34c126e775413c"
+            ],
+            "error_count": 1,
+            "error_rate": 0.1111111111111111,
+            "opportunities": 9
+          },
+          "reality_appearance_mistaken_as_consciousness": {
+            "chunk_ids": [],
+            "error_count": 0,
+            "error_rate": 0.0,
+            "opportunities": 24
+          }
+        },
+        "consciousness__self_identity": {
+          "consciousness_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 11,
+            "error_rate": 0.8461538461538461,
+            "opportunities": 13
+          },
+          "self_identity_mistaken_as_consciousness": {
+            "chunk_ids": [],
+            "error_count": 0,
+            "error_rate": 0.0,
+            "opportunities": 19
+          }
+        },
+        "self_identity__reality_appearance": {
+          "reality_appearance_mistaken_as_self_identity": {
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:170174eabca0e4d6a84fd58a",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:88e310ab6354d006b0c8e9e8",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8bdae350e920515c685b78f1",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:aae2020cf8d774daff0a8c83",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0b504f88e2eb1d9571c47c58",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:31e16366b8fcad51bd9ed9c2",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:426f1915b5a0cb6984dfbc27",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4350792a01f98a328f637848",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:4a4849ba116efdc00971d7fa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "error_count": 19,
+            "error_rate": 0.9047619047619048,
+            "opportunities": 21
+          },
+          "self_identity_mistaken_as_reality_appearance": {
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:263a16d54f34c126e775413c"
+            ],
+            "error_count": 1,
+            "error_rate": 0.08333333333333333,
+            "opportunities": 12
+          }
+        }
+      },
+      "description": "Phase 10 selected hybrid: embedding similarity + transparent lexical indicators + hard-negative penalty.",
+      "display_name": "Selected — Frozen Hybrid",
+      "domains": {
+        "advaita": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.09124144904762527
+          },
+          "exact_active_set_accuracy": 0.22,
+          "macro_average_precision": 0.9508448776238781,
+          "macro_f1": 0.6784841521683628,
+          "micro_f1": 0.7745098039215687,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.867996535875509,
+              "calibration_error_soft_ece_10_bins": 0.09751092269501735,
+              "f1": 0.2702702702702703,
+              "false_negative": 27,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.15625,
+              "support_active": 32,
+              "support_inactive": 18,
+              "true_positive": 5
+            },
+            "reality_appearance": {
+              "average_precision": 0.9928786673090901,
+              "calibration_error_soft_ece_10_bins": 0.04179425901248496,
+              "f1": 0.8421052631578947,
+              "false_negative": 12,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.7272727272727273,
+              "support_active": 44,
+              "support_inactive": 6,
+              "true_positive": 32
+            },
+            "self_identity": {
+              "average_precision": 0.9916594296870354,
+              "calibration_error_soft_ece_10_bins": 0.1344191654353735,
+              "f1": 0.9230769230769231,
+              "false_negative": 1,
+              "false_positive": 6,
+              "precision": 0.875,
+              "recall": 0.9767441860465116,
+              "support_active": 43,
+              "support_inactive": 7,
+              "true_positive": 42
+            }
+          },
+          "predicted_ambiguous_count": 29,
+          "record_count": 50,
+          "unsupported_accuracy": 1.0
+        },
+        "samkhya": {
+          "calibration_error": {
+            "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+            "macro_soft_ece_10_bins": 0.28115586010772936
+          },
+          "exact_active_set_accuracy": 0.2413793103448276,
+          "macro_average_precision": 0.8557368885444664,
+          "macro_f1": 0.6730462519936204,
+          "micro_f1": 0.6938775510204082,
+          "per_concept": {
+            "consciousness": {
+              "average_precision": 0.8954555693453721,
+              "calibration_error_soft_ece_10_bins": 0.14089438977444738,
+              "f1": 0.5454545454545454,
+              "false_negative": 10,
+              "false_positive": 0,
+              "precision": 1.0,
+              "recall": 0.375,
+              "support_active": 16,
+              "support_inactive": 13,
+              "true_positive": 6
+            },
+            "reality_appearance": {
+              "average_precision": 0.9709059309218889,
+              "calibration_error_soft_ece_10_bins": 0.31770206426498726,
+              "f1": 0.8947368421052632,
+              "false_negative": 2,
+              "false_positive": 2,
+              "precision": 0.8947368421052632,
+              "recall": 0.8947368421052632,
+              "support_active": 19,
+              "support_inactive": 10,
+              "true_positive": 17
+            },
+            "self_identity": {
+              "average_precision": 0.7008491653661382,
+              "calibration_error_soft_ece_10_bins": 0.38487112628375353,
+              "f1": 0.5789473684210527,
+              "false_negative": 0,
+              "false_positive": 16,
+              "precision": 0.4074074074074074,
+              "recall": 1.0,
+              "support_active": 11,
+              "support_inactive": 18,
+              "true_positive": 11
+            }
+          },
+          "predicted_ambiguous_count": 15,
+          "record_count": 29,
+          "unsupported_accuracy": 0.896551724137931
+        },
+        "science": {
+          "calibration_error": null,
+          "macro_average_precision": null,
+          "macro_f1": null,
+          "micro_f1": null,
+          "per_concept": {},
+          "record_count": 0
+        }
+      },
+      "frozen_activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "frozen_candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "hard_negative_evaluation": {
+        "groups": {
+          "attention_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_attention"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "consciousness"
+          },
+          "cognition_mistaken_for_consciousness": {
+            "accepted_category_labels": [
+              "consciousness_vs_cognition"
+            ],
+            "chunk_ids": [
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:023d6cfac18e49f6056439ee",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:72dcea46b127e8d376bb9560",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:942d644e6ec3fa5482918cd7",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+              "advaita_paramananda_1917_vedanta_in_practice:chunk:ec3cc6b27174728dffaf2f70",
+              "advaita_sankara_thibaut_1890_vedanta_sutras:chunk:8508bbbbcd628dbb51c2b749",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0dce7a22412f3580ade55a82"
+            ],
+            "false_positive_count": 0,
+            "false_positive_rate": 0.0,
+            "required_phase11_metric": false,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "consciousness"
+          },
+          "cosmology_mistaken_for_reality_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_cosmology"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:25b41608c14ec68a44325285",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:382d9b5a0bff893adb68c417",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6f1ce2ad107bac357d793c53",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:aa0d691b6408aeab07bd8836",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e7c35603eae0de3ac85d0c56",
+              "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:af793e7a7ff8be0d88c5381a"
+            ],
+            "false_positive_count": 1,
+            "false_positive_rate": 0.16666666666666666,
+            "required_phase11_metric": true,
+            "sample_count": 6,
+            "status": "measured",
+            "target_concept": "reality_appearance"
+          },
+          "ego_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_ego",
+              "self_vs_ego"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "perception_description_mistaken_for_metaphysical_appearance": {
+            "accepted_category_labels": [
+              "reality_appearance_vs_description",
+              "reality_appearance_vs_perceptual_description"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": true,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "reality_appearance"
+          },
+          "personality_mistaken_for_self": {
+            "accepted_category_labels": [
+              "self_identity_vs_personality",
+              "self_vs_personality"
+            ],
+            "chunk_ids": [],
+            "false_positive_count": 0,
+            "false_positive_rate": null,
+            "required_phase11_metric": false,
+            "sample_count": 0,
+            "status": "not_available_in_heldout",
+            "target_concept": "self_identity"
+          },
+          "purusha_collapsed_into_atman": {
+            "accepted_category_labels": [
+              "advaita_atman_vs_samkhya_purusha"
+            ],
+            "chunk_ids": [
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:0ff3d76b7c5f4d766a94167f",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:3121f5fec99e89517759853d",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5ae0399c6e5668e7f4582153",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:c6abc430d7f96d6e22ad3581",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:e89936d4ae973ee1a2181e40",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:edd1b62e72f47eabff7474cf",
+              "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:efda48f8eeaa47d9d1830acb"
+            ],
+            "false_positive_count": 7,
+            "false_positive_rate": 1.0,
+            "required_phase11_metric": true,
+            "sample_count": 7,
+            "status": "measured",
+            "target_concept": "self_identity"
+          }
+        },
+        "note": "A required category with zero samples is reported as unavailable; it is not silently substituted with a broader hard-negative class.",
+        "observed_heldout_categories": [
+          "advaita_atman_vs_samkhya_purusha",
+          "consciousness_vs_cognition",
+          "reality_appearance_vs_cosmology"
+        ]
+      },
+      "overall": {
+        "calibration_error": {
+          "definition": "Macro mean of per-concept 10-bin expected calibration error against Phase 10 soft targets: negative=0, partial=0.5, positive=1.",
+          "macro_soft_ece_10_bins": 0.10758329992831174
+        },
+        "exact_active_set_accuracy": 0.22784810126582278,
+        "macro_average_precision": 0.9192940677235372,
+        "macro_f1": 0.6847453016986034,
+        "micro_f1": 0.7483443708609272,
+        "per_concept": {
+          "consciousness": {
+            "average_precision": 0.8607829332862411,
+            "calibration_error_soft_ece_10_bins": 0.1134364992178461,
+            "f1": 0.3728813559322034,
+            "false_negative": 37,
+            "false_positive": 0,
+            "precision": 1.0,
+            "recall": 0.22916666666666666,
+            "support_active": 48,
+            "support_inactive": 31,
+            "true_positive": 11
+          },
+          "reality_appearance": {
+            "average_precision": 0.9794781177059704,
+            "calibration_error_soft_ece_10_bins": 0.14307687106720102,
+            "f1": 0.8596491228070176,
+            "false_negative": 14,
+            "false_positive": 2,
+            "precision": 0.9607843137254902,
+            "recall": 0.7777777777777778,
+            "support_active": 63,
+            "support_inactive": 16,
+            "true_positive": 49
+          },
+          "self_identity": {
+            "average_precision": 0.9176211521784,
+            "calibration_error_soft_ece_10_bins": 0.0662365294998881,
+            "f1": 0.8217054263565892,
+            "false_negative": 1,
+            "false_positive": 22,
+            "precision": 0.7066666666666667,
+            "recall": 0.9814814814814815,
+            "support_active": 54,
+            "support_inactive": 25,
+            "true_positive": 53
+          }
+        },
+        "predicted_ambiguous_count": 44,
+        "record_count": 79,
+        "unsupported_accuracy": 0.9620253164556962
+      },
+      "selected_method": true
+    }
+  }
+}
