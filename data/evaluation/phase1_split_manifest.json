@@ -1,4 +1,9 @@
 {
+  "checksum_policy": {
+    "jsonl_algorithm": "sha256-canonical-jsonl-v1",
+    "jsonl_semantics": "Canonical JSON per non-empty record; object keys sorted; insignificant JSON whitespace ignored; LF/CRLF differences ignored; record order preserved.",
+    "non_jsonl_algorithm": "sha256-file-bytes"
+  },
   "distribution_report": {
     "build": {
       "by_domain": {
@@ -134,15 +139,17 @@
     }
   },
   "exit_gate": {
+    "canonical_jsonl_checksums": true,
     "distribution_report_generated": true,
     "exact_duplicate_leakage": false,
+    "hard_negative_distribution_validated": true,
     "heldout_marked_read_only": true,
     "high_overlap_leakage": false,
     "passage_family_leakage": false,
     "splits_checksummed": true
   },
   "frozen": true,
-  "generated_at": "2026-08-08T04:30:04.075068+00:00",
+  "generated_at": "2026-08-08T16:38:18.688852+00:00",
   "hard_negative_distribution": {
     "categories": {
       "build": {
@@ -172,11 +179,13 @@
     "gold_corpus": {
       "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_reviewed_gold_corpus.jsonl",
       "record_count": 318,
-      "sha256": "30c39c4ddbd18e9016d37587dc767282a085ef8c40ec43b799e9b414ff32f888"
+      "sha256": "0af6e8c1e15a3d29172c8cfa140482932aa6ac4cd7eea6527df488115793f140",
+      "sha256_algorithm": "sha256-canonical-jsonl-v1"
     },
     "human_review_manifest": {
       "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_human_review_manifest.json",
       "sha256": "b643d524ffb053debfadda183936666f9881ff6a1fd4840782ff6ada72666b42",
+      "sha256_algorithm": "sha256-file-bytes",
       "status": "phase1_human_review_complete",
       "strict_gate_passed": true
     }
@@ -186,25 +195,28 @@
     "family_leakage_count": 0,
     "high_overlap_cross_split_pairs": 0
   },
-  "next_step": "Benchmark and freeze the Phase 1 embedding architecture. Use build data for prototype/implementation work, development data for calibration, and keep held-out data untouched until final evaluation.",
+  "next_step": "Construct Phase 1 concept prototypes from the frozen Build set only. Development remains reserved for calibration and Held-out remains untouched until final evaluation.",
   "outputs": {
     "build": {
       "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_build.jsonl",
       "read_only": false,
       "record_count": 159,
-      "sha256": "eb9276d9d3150c22b681163fef8ffaa884d9ef748d4d8bcdd97ecdbcd4f6ce12"
+      "sha256": "e70b3f38015d098c38f54a2f7df292ebb6267f06a19f71aeae4d486051442d64",
+      "sha256_algorithm": "sha256-canonical-jsonl-v1"
     },
     "development": {
       "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_development.jsonl",
       "read_only": false,
       "record_count": 80,
-      "sha256": "671793c3b3fec721372b7e19dd13ed6a3d925c3177affdd7fcc1e9c482766123"
+      "sha256": "b4b7aca13788ebdaca3f7bcd32a9cc42ad3beb2d239c66d4da0e09072765f0ca",
+      "sha256_algorithm": "sha256-canonical-jsonl-v1"
     },
     "heldout": {
       "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_heldout.jsonl",
       "read_only": true,
       "record_count": 79,
-      "sha256": "7149822b2dd06e7dbba1712d26d7f68e7f3eab488c4d9e8757df78ed8f1439ce"
+      "sha256": "6bf6cbf8786d9e2c71d3eb341f9737dde10b9978d5fe2a6fc268374756ddde8e",
+      "sha256_algorithm": "sha256-canonical-jsonl-v1"
     }
   },
   "passage_families": {
@@ -220,6 +232,11 @@
       "heldout": 79
     },
     "deterministic": true,
+    "hard_negative_ratios": {
+      "build": 0.5,
+      "development": 0.25,
+      "heldout": 0.25
+    },
     "heldout_policy": {
       "allowed_use": "final evaluation only",
       "prohibited_influence": [
@@ -276,6 +293,6 @@
     }
   },
   "split_version": "phase1-evaluation-splits-v1",
-  "splitter_version": "1.0.0",
+  "splitter_version": "1.1.0",
   "status": "frozen"
 }

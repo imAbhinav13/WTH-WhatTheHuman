@@ -1,0 +1,147 @@
+{
+  "architecture": {
+    "cache_key_includes_model_identity": true,
+    "content_checksum_cache": true,
+    "exponential_backoff_with_jitter": true,
+    "max_batch_estimated_tokens": 18000,
+    "max_batch_items": 12,
+    "model_metadata_validated": true,
+    "per_batch_checkpointing": true,
+    "quota_aware_pacing_seconds": 0.75,
+    "resumable": true,
+    "retry_classification": [
+      "retryable_rate_limit",
+      "retryable_server",
+      "retryable_network",
+      "fatal_auth",
+      "fatal_request",
+      "unknown"
+    ],
+    "token_aware_batching": true,
+    "token_strategy": {
+      "auto_truncate": false,
+      "default": "conservative character estimate at 3.0 chars/token",
+      "exact_count_threshold_estimated_tokens": 6000
+    }
+  },
+  "embedding_identity": {
+    "base_model_id": "",
+    "dimensions": 768,
+    "document_instruction": "title: {title} | text: {content}",
+    "document_task_type": "search_document",
+    "identity_fingerprint": "e05760fee7ad2257a026c3e716bc2d6a419d4943164d414042ea2976dad7905e",
+    "input_token_limit": 8192,
+    "model": "gemini-embedding-2",
+    "model_resource_name": "models/gemini-embedding-2",
+    "model_revision": "2",
+    "normalization": "provider_auto_l2",
+    "provider": "Google Gemini API",
+    "query_instruction": "task: search result | query: {content}",
+    "query_task_type": "search_query"
+  },
+  "embedding_run_version": "phase1-embeddings-v1",
+  "exit_gate": {
+    "all_prototype_vectors_same_frozen_configuration": true,
+    "approved_embedding_count": 318,
+    "evaluation_splits_embedded_in_same_space": true,
+    "every_approved_chunk_has_one_valid_embedding": true,
+    "no_mock_vectors": true,
+    "resume_without_repeated_provider_calls": true,
+    "single_embedding_identity": true
+  },
+  "generated_at": "2026-08-08T18:52:53.901446+00:00",
+  "inputs": {
+    "approved_corpus": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/reviewed/phase1_reviewed_gold_corpus.jsonl",
+      "record_count": 318,
+      "sha256": "0af6e8c1e15a3d29172c8cfa140482932aa6ac4cd7eea6527df488115793f140"
+    },
+    "concept_prototypes": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/concepts/phase1_concept_prototypes.yaml",
+      "prototype_version": "phase1-prototype-v2",
+      "sha256_file_bytes": "397d1052601e418a83d891ee9285ff4ec9f4766e26903f216d4d4e6f52006104",
+      "status": "frozen"
+    },
+    "evaluation_splits": {
+      "build": {
+        "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_build.jsonl",
+        "read_only": false,
+        "record_count": 159,
+        "sha256": "e70b3f38015d098c38f54a2f7df292ebb6267f06a19f71aeae4d486051442d64"
+      },
+      "development": {
+        "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_development.jsonl",
+        "read_only": false,
+        "record_count": 80,
+        "sha256": "b4b7aca13788ebdaca3f7bcd32a9cc42ad3beb2d239c66d4da0e09072765f0ca"
+      },
+      "heldout": {
+        "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_heldout.jsonl",
+        "read_only": true,
+        "record_count": 79,
+        "sha256": "6bf6cbf8786d9e2c71d3eb341f9737dde10b9978d5fe2a6fc268374756ddde8e"
+      }
+    },
+    "split_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_split_manifest.json",
+      "sha256_file_bytes": "c468cd886106e396149b9d269e706c78520720caf5648ca1f682f72f8727c652"
+    }
+  },
+  "next_step": "Phase 10: tune concept mapping on Development data only. Held-out embeddings may exist but must remain untouched for tuning.",
+  "outputs": {
+    "approved_chunk_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/approved_chunk_embeddings.jsonl",
+      "record_count": 318,
+      "sha256": "4c6b13b6c4513787ed53f753aa34eb1e2ff63fbf776c8aed45cd7cd59ba8fb58"
+    },
+    "cache": {
+      "entry_count": 336,
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/embedding_cache.jsonl",
+      "purpose": "resumable content-checksum embedding cache"
+    },
+    "checkpoint": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/embedding_checkpoint.json",
+      "purpose": "per-batch resumability checkpoint"
+    },
+    "passage_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/passage_prototype_embeddings.jsonl",
+      "record_count": 45,
+      "sha256": "5081c2771b5a7f173763194fad904e660b46ef337d460805ff7ae066fe6b6d6b"
+    },
+    "query_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/query_prototype_embeddings.jsonl",
+      "record_count": 18,
+      "sha256": "d4dd9c89525332bfbc492d5464e13b83432fe14096fb15d22e4247fb72ef05b4"
+    }
+  },
+  "script_version": "1.0.0",
+  "statistics": {
+    "batches_completed": 0,
+    "cache_hits": 381,
+    "elapsed_seconds": 1.6560000000026776,
+    "estimated_token_counts": 0,
+    "exact_token_counts": 0,
+    "network_retries": 0,
+    "provider_requests": 0,
+    "provider_vectors_generated": 0,
+    "rate_limit_retries": 0,
+    "retry_count": 0,
+    "server_retries": 0,
+    "token_count_requests": 0,
+    "unique_embedding_inputs": 336,
+    "work_items_total": 381
+  },
+  "status": "complete",
+  "validation": {
+    "approved_chunks": 318,
+    "embedding_identity_count": 1,
+    "evaluation_split_counts": {
+      "build": 159,
+      "development": 80,
+      "heldout": 79
+    },
+    "mock_vector_count": 0,
+    "passage_prototype_roles": 45,
+    "query_prototypes": 18
+  }
+}

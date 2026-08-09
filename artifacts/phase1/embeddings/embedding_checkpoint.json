@@ -1,0 +1,28 @@
+{
+  "cache_entries": 336,
+  "checkpoint_version": "1.0",
+  "embedding_run_version": "phase1-embeddings-v1",
+  "identity": {
+    "dimensions": 768,
+    "identity_fingerprint": "e05760fee7ad2257a026c3e716bc2d6a419d4943164d414042ea2976dad7905e",
+    "model": "gemini-embedding-2",
+    "model_revision": "2",
+    "normalization": "provider_auto_l2",
+    "provider": "Google Gemini API"
+  },
+  "last_batch_number": 0,
+  "statistics": {
+    "batches_completed": 0,
+    "cache_hits": 381,
+    "network_retries": 0,
+    "provider_requests": 0,
+    "provider_vectors_generated": 0,
+    "rate_limit_retries": 0,
+    "retry_count": 0,
+    "server_retries": 0,
+    "unique_embedding_inputs": 336,
+    "work_items_total": 381
+  },
+  "status": "complete",
+  "updated_at": "2026-08-08T18:52:54.316315+00:00"
+}

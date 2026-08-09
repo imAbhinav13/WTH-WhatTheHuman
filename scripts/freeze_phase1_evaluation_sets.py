@@ -16,8 +16,9 @@ from typing import Final
 
 LOGGER = logging.getLogger("wth.phase1.freeze_phase1_evaluation_sets")
 
-SPLITTER_VERSION: Final = "1.0.0"
+SPLITTER_VERSION: Final = "1.1.0"
 SPLIT_VERSION: Final = "phase1-evaluation-splits-v1"
+CHECKSUM_ALGORITHM: Final = "sha256-canonical-jsonl-v1"
 
 DEFAULT_GOLD_CORPUS: Final = Path("artifacts/phase1/reviewed/phase1_reviewed_gold_corpus.jsonl")
 DEFAULT_REVIEW_MANIFEST: Final = Path("artifacts/phase1/reviewed/phase1_human_review_manifest.json")
@@ -229,10 +230,49 @@ def sha256_text(value: str) -> str:
 
 
 def sha256_file(path: Path) -> str:
+    """Hash exact file bytes for non-JSONL artifacts."""
+
     digest = hashlib.sha256()
     with path.open("rb") as handle:
         while block := handle.read(1024 * 1024):
             digest.update(block)
+    return digest.hexdigest()
+
+
+def canonical_json_bytes(value: object) -> bytes:
+    """Return deterministic JSON bytes for semantic checksums."""
+
+    return json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+
+
+def sha256_jsonl_content(path: Path) -> str:
+    """Hash JSONL semantically and independently of LF/CRLF formatting.
+
+    Object-key order and insignificant JSON whitespace are ignored.
+    Record order remains significant.
+    """
+
+    digest = hashlib.sha256()
+
+    with path.open("r", encoding="utf-8") as handle:
+        for line_number, raw_line in enumerate(handle, start=1):
+            stripped = raw_line.strip()
+            if not stripped:
+                continue
+
+            try:
+                value: object = json.loads(stripped)
+            except json.JSONDecodeError as exc:
+                raise SplitError(f"Invalid JSONL at {path}:{line_number}: {exc}") from exc
+
+            digest.update(canonical_json_bytes(value))
+            digest.update(b"\n")
+
     return digest.hexdigest()
 
 
@@ -621,7 +661,6 @@ def assign_families(
     reserved_family_ids = reserve_hard_negative_families(
         families=families,
         state=state,
-        records=records,
     )
 
     remaining_families = [
@@ -884,21 +923,33 @@ def freeze_phase1_evaluation_sets(
         "generated_at": datetime.now(UTC).isoformat(),
         "status": "frozen",
         "frozen": True,
+        "checksum_policy": {
+            "jsonl_algorithm": CHECKSUM_ALGORITHM,
+            "jsonl_semantics": (
+                "Canonical JSON per non-empty record; object keys sorted; "
+                "insignificant JSON whitespace ignored; LF/CRLF differences "
+                "ignored; record order preserved."
+            ),
+            "non_jsonl_algorithm": "sha256-file-bytes",
+        },
         "input": {
             "gold_corpus": {
                 "path": gold_corpus_path.as_posix(),
-                "sha256": sha256_file(gold_corpus_path),
+                "sha256": sha256_jsonl_content(gold_corpus_path),
+                "sha256_algorithm": CHECKSUM_ALGORITHM,
                 "record_count": len(records),
             },
             "human_review_manifest": {
                 "path": review_manifest_path.as_posix(),
                 "sha256": sha256_file(review_manifest_path),
+                "sha256_algorithm": "sha256-file-bytes",
                 "status": optional_string(review_manifest.get("status")),
                 "strict_gate_passed": review_manifest.get("strict_gate_passed"),
             },
         },
         "split_policy": {
             "ratios": SPLIT_RATIOS,
+            "hard_negative_ratios": HARD_NEGATIVE_SPLIT_RATIOS,
             "target_counts": target_counts,
             "actual_counts": actual_counts,
             "stratification_features": [
@@ -940,7 +991,8 @@ def freeze_phase1_evaluation_sets(
         "outputs": {
             split: {
                 "path": paths[split].as_posix(),
-                "sha256": sha256_file(paths[split]),
+                "sha256": sha256_jsonl_content(paths[split]),
+                "sha256_algorithm": CHECKSUM_ALGORITHM,
                 "record_count": len(split_records[split]),
                 "read_only": split == "heldout",
             }
@@ -948,16 +1000,18 @@ def freeze_phase1_evaluation_sets(
         },
         "exit_gate": {
             "splits_checksummed": True,
+            "canonical_jsonl_checksums": True,
             "heldout_marked_read_only": True,
             "passage_family_leakage": False,
             "exact_duplicate_leakage": False,
             "high_overlap_leakage": False,
             "distribution_report_generated": True,
+            "hard_negative_distribution_validated": True,
         },
         "next_step": (
-            "Benchmark and freeze the Phase 1 embedding architecture. "
-            "Use build data for prototype/implementation work, development data "
-            "for calibration, and keep held-out data untouched until final evaluation."
+            "Construct Phase 1 concept prototypes from the frozen Build set only. "
+            "Development remains reserved for calibration and Held-out remains "
+            "untouched until final evaluation."
         ),
     }
     atomic_write_json(paths["manifest"], manifest)
@@ -971,6 +1025,13 @@ def freeze_phase1_evaluation_sets(
         family_diagnostics["multi_record_family_count"],
     )
     LOGGER.info("Leakage validation: PASS")
+    LOGGER.info("Checksum algorithm: %s", CHECKSUM_ALGORITHM)
+    LOGGER.info("Build checksum: %s", sha256_jsonl_content(paths["build"]))
+    LOGGER.info(
+        "Development checksum: %s",
+        sha256_jsonl_content(paths["development"]),
+    )
+    LOGGER.info("Held-out checksum: %s", sha256_jsonl_content(paths["heldout"]))
     LOGGER.info("Build: %s", paths["build"])
     LOGGER.info("Development: %s", paths["development"])
     LOGGER.info("Held-out: %s", paths["heldout"])
@@ -1023,7 +1084,6 @@ def reserve_hard_negative_families(
     *,
     families: Sequence[PassageFamily],
     state: SplitState,
-    records: Sequence[GoldRecord],
 ) -> set[str]:
     """Reserve hard-negative families across all splits before general allocation."""
 

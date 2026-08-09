@@ -1,0 +1,567 @@
+schema_version: '1.0'
+prototype_version: phase1-prototype-v2
+status: frozen
+phase: phase_8_concept_prototypes
+concepts:
+- concept_slug: consciousness
+  prototype_version: phase1-prototype-v2
+  review_status: reviewed
+  construction_policy:
+    source_split: build_only
+    uses_development: false
+    uses_heldout: false
+    uses_embeddings_for_selection: false
+    question_and_passage_prototypes_separate: true
+    domain_diversity_required: true
+    positive_domain_quota:
+      science: 3
+      advaita: 3
+      samkhya: 3
+    positive_label_preferred: positive
+    partial_label_policy: fallback_only
+    same_concept_hard_negative_as_positive: false
+    domain_fidelity_filter_enabled: true
+  question_examples:
+  - What makes an experience conscious?
+  - Is awareness distinct from thought or cognition?
+  - What is the difference between consciousness and the mental processes that appear within it?
+  - How is witnessing awareness related to perception and experience?
+  - Can cognition occur without conscious awareness?
+  - What distinguishes a conscious subject from an information-processing system?
+  positive_passage_ids:
+  - science_herzog_kammer_scharnowski_2016_time_slices:chunk:dfe5c5d00482a522105b3b25
+  - science_limanowski_blankenburg_2013_minimal_self_models:chunk:96c2c02b3b2c197864c1c8b3
+  - science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc
+  - advaita_sankara_thibaut_1890_vedanta_sutras:chunk:96e148bf974342bb933550b3
+  - advaita_paramananda_1919_upanishads:chunk:c5a1a95ffa531299fa320998
+  - advaita_sankara_johnston_1946_crest_jewel:chunk:b67939c9c572290f5916d951
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:387d75f2bb318142c414abec
+  - samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580
+  positive_passages:
+  - chunk_id: science_herzog_kammer_scharnowski_2016_time_slices:chunk:dfe5c5d00482a522105b3b25
+    domain: science
+    source_id: science_herzog_kammer_scharnowski_2016_time_slices
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: science_limanowski_blankenburg_2013_minimal_self_models:chunk:96c2c02b3b2c197864c1c8b3
+    domain: science
+    source_id: science_limanowski_blankenburg_2013_minimal_self_models
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: science_petkova_ehrsson_2008_body_swapping:chunk:c506a40a05ae08ebd8e20cbc
+    domain: science
+    source_id: science_petkova_ehrsson_2008_body_swapping
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: advaita_sankara_thibaut_1890_vedanta_sutras:chunk:96e148bf974342bb933550b3
+    domain: advaita
+    source_id: advaita_sankara_thibaut_1890_vedanta_sutras
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: advaita_paramananda_1919_upanishads:chunk:c5a1a95ffa531299fa320998
+    domain: advaita
+    source_id: advaita_paramananda_1919_upanishads
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: advaita_sankara_johnston_1946_crest_jewel:chunk:b67939c9c572290f5916d951
+    domain: advaita
+    source_id: advaita_sankara_johnston_1946_crest_jewel
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:387d75f2bb318142c414abec
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29
+    domain: samkhya
+    source_id: samkhya_vachaspati_jha_1896_tattva_kaumudi
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  positive_domain_distribution:
+    science: 3
+    advaita: 3
+    samkhya: 3
+  hard_negative_passage_ids:
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fc695e875ea9c9670f7aa46e
+  - advaita_paramananda_1917_vedanta_in_practice:chunk:afbd8fd58ec5a7de47bbc896
+  - advaita_paramananda_1917_vedanta_in_practice:chunk:11ac935bf84d9b8b758592a4
+  - advaita_paramananda_1917_vedanta_in_practice:chunk:746c76ae28880f4fec1d3988
+  - advaita_paramananda_1919_upanishads:chunk:ea080d68d28ba071f0726943
+  - samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:db3efd6f714749a7d692cb03
+  hard_negative_passages:
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fc695e875ea9c9670f7aa46e
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    hard_negative_category: consciousness_vs_cognition
+    hard_negative_for:
+    - consciousness
+  - chunk_id: advaita_paramananda_1917_vedanta_in_practice:chunk:afbd8fd58ec5a7de47bbc896
+    domain: advaita
+    source_id: advaita_paramananda_1917_vedanta_in_practice
+    hard_negative_category: consciousness_vs_cognition
+    hard_negative_for:
+    - consciousness
+  - chunk_id: advaita_paramananda_1917_vedanta_in_practice:chunk:11ac935bf84d9b8b758592a4
+    domain: advaita
+    source_id: advaita_paramananda_1917_vedanta_in_practice
+    hard_negative_category: consciousness_vs_cognition
+    hard_negative_for:
+    - consciousness
+  - chunk_id: advaita_paramananda_1917_vedanta_in_practice:chunk:746c76ae28880f4fec1d3988
+    domain: advaita
+    source_id: advaita_paramananda_1917_vedanta_in_practice
+    hard_negative_category: consciousness_vs_cognition
+    hard_negative_for:
+    - consciousness
+  - chunk_id: advaita_paramananda_1919_upanishads:chunk:ea080d68d28ba071f0726943
+    domain: advaita
+    source_id: advaita_paramananda_1919_upanishads
+    hard_negative_category: consciousness_vs_cognition
+    hard_negative_for:
+    - consciousness
+  - chunk_id: samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:db3efd6f714749a7d692cb03
+    domain: samkhya
+    source_id: samkhya_vachaspati_jha_1896_tattva_kaumudi
+    hard_negative_category: consciousness_vs_cognition
+    hard_negative_for:
+    - consciousness
+  hard_negative_domain_distribution:
+    science: 0
+    advaita: 4
+    samkhya: 2
+  excluded_adjacent_concepts:
+  - cognition_without_experience
+  - attention_without_awareness
+  - intellect_or_buddhi_as_if_conscious
+  - ego_or_self_reference_without_witnessing_awareness
+  human_review:
+    reviewer: 'Abhinav'
+    reviewed_at: '2026-08-08'
+    question_prototypes_reviewed: true
+    positive_passages_reviewed: true
+    hard_negatives_reviewed: true
+    notes: 'Phase 8 prototypes reviewed and accepted; Samkhya reality_appearance uses documented fallback passages from the Build set.'
+- concept_slug: self_identity
+  prototype_version: phase1-prototype-v2
+  review_status: reviewed
+  construction_policy:
+    source_split: build_only
+    uses_development: false
+    uses_heldout: false
+    uses_embeddings_for_selection: false
+    question_and_passage_prototypes_separate: true
+    domain_diversity_required: true
+    positive_domain_quota:
+      science: 3
+      advaita: 3
+      samkhya: 3
+    positive_label_preferred: positive
+    partial_label_policy: fallback_only
+    same_concept_hard_negative_as_positive: false
+    domain_fidelity_filter_enabled: true
+  question_examples:
+  - What is the self?
+  - What makes a person or subject the same self across experience?
+  - Is the ego the same as the true self?
+  - How is the self related to body, mind, and first-person perspective?
+  - How does Atman differ from ego or personality?
+  - How does Purusha differ from ahamkara and the individual personality?
+  positive_passage_ids:
+  - science_petkova_ehrsson_2008_body_swapping:chunk:8c3f9fe923d0df667162c745
+  - science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1
+  - science_limanowski_blankenburg_2013_minimal_self_models:chunk:6b84976b7e686b7b7014fab1
+  - advaita_paramananda_1917_vedanta_in_practice:chunk:76cc047f267357ee51559472
+  - advaita_paramananda_1919_upanishads:chunk:ef76a9f13ec842b6f984485f
+  - advaita_sankara_johnston_1946_crest_jewel:chunk:4d9dfbc1d8359bec31baef1b
+  - samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:31d75b84f985e33d4433af68
+  - samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f6fafbcf340ec45e157cea19
+  positive_passages:
+  - chunk_id: science_petkova_ehrsson_2008_body_swapping:chunk:8c3f9fe923d0df667162c745
+    domain: science
+    source_id: science_petkova_ehrsson_2008_body_swapping
+    concept_label: positive
+    primary_concept: self_identity
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1
+    domain: science
+    source_id: science_ionta_gassert_blanke_2011_bodily_self_consciousness
+    concept_label: positive
+    primary_concept: self_identity
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: science_limanowski_blankenburg_2013_minimal_self_models:chunk:6b84976b7e686b7b7014fab1
+    domain: science
+    source_id: science_limanowski_blankenburg_2013_minimal_self_models
+    concept_label: positive
+    primary_concept: self_identity
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: advaita_paramananda_1917_vedanta_in_practice:chunk:76cc047f267357ee51559472
+    domain: advaita
+    source_id: advaita_paramananda_1917_vedanta_in_practice
+    concept_label: positive
+    primary_concept: self_identity
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: advaita_paramananda_1919_upanishads:chunk:ef76a9f13ec842b6f984485f
+    domain: advaita
+    source_id: advaita_paramananda_1919_upanishads
+    concept_label: positive
+    primary_concept: self_identity
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: advaita_sankara_johnston_1946_crest_jewel:chunk:4d9dfbc1d8359bec31baef1b
+    domain: advaita
+    source_id: advaita_sankara_johnston_1946_crest_jewel
+    concept_label: positive
+    primary_concept: self_identity
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f4c5348f603bef03b8c2d79d
+    domain: samkhya
+    source_id: samkhya_vachaspati_jha_1896_tattva_kaumudi
+    concept_label: positive
+    primary_concept: self_identity
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:31d75b84f985e33d4433af68
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    concept_label: positive
+    primary_concept: self_identity
+    selection_tier: 2
+    selection_tier_description: positive_primary_with_other_hard_negative_role
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f6fafbcf340ec45e157cea19
+    domain: samkhya
+    source_id: samkhya_vachaspati_jha_1896_tattva_kaumudi
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 3
+    selection_tier_description: positive_non_primary_with_other_hard_negative_role
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  positive_domain_distribution:
+    science: 3
+    advaita: 3
+    samkhya: 3
+  hard_negative_passage_ids:
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:1abdc63488cfe1476aaafee8
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:b8cb34872a0116148de30698
+  - advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f9c952ef373a04b49802f319
+  - advaita_sankara_thibaut_1890_vedanta_sutras:chunk:72d34e550581bb3798b78217
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6fc84f7cfbefeae2bf39352a
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:214311545c445065393addee
+  hard_negative_passages:
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:1abdc63488cfe1476aaafee8
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    hard_negative_category: advaita_atman_vs_samkhya_purusha
+    hard_negative_for:
+    - self_identity
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:b8cb34872a0116148de30698
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    hard_negative_category: consciousness_vs_cognition
+    hard_negative_for:
+    - consciousness
+    - self_identity
+  - chunk_id: advaita_sankara_thibaut_1890_vedanta_sutras:chunk:f9c952ef373a04b49802f319
+    domain: advaita
+    source_id: advaita_sankara_thibaut_1890_vedanta_sutras
+    hard_negative_category: advaita_atman_vs_samkhya_purusha
+    hard_negative_for:
+    - self_identity
+  - chunk_id: advaita_sankara_thibaut_1890_vedanta_sutras:chunk:72d34e550581bb3798b78217
+    domain: advaita
+    source_id: advaita_sankara_thibaut_1890_vedanta_sutras
+    hard_negative_category: advaita_atman_vs_samkhya_purusha
+    hard_negative_for:
+    - self_identity
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:6fc84f7cfbefeae2bf39352a
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    hard_negative_category: advaita_atman_vs_samkhya_purusha
+    hard_negative_for:
+    - self_identity
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:214311545c445065393addee
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    hard_negative_category: advaita_atman_vs_samkhya_purusha
+    hard_negative_for:
+    - self_identity
+  hard_negative_domain_distribution:
+    science: 0
+    advaita: 2
+    samkhya: 4
+  excluded_adjacent_concepts:
+  - ego_or_ahamkara
+  - personality_or_autobiographical_identity
+  - body_representation_without_claim_about_selfhood
+  - advaita_atman_treated_as_identical_to_samkhya_purusha
+  human_review:
+    reviewer: 'Abhinav'
+    reviewed_at: '2026-08-08'
+    question_prototypes_reviewed: true
+    positive_passages_reviewed: true
+    hard_negatives_reviewed: true
+    notes: 'Phase 8 prototypes reviewed and accepted; Samkhya reality_appearance uses documented fallback passages from the Build set.'
+- concept_slug: reality_appearance
+  prototype_version: phase1-prototype-v2
+  review_status: reviewed
+  construction_policy:
+    source_split: build_only
+    uses_development: false
+    uses_heldout: false
+    uses_embeddings_for_selection: false
+    question_and_passage_prototypes_separate: true
+    domain_diversity_required: true
+    positive_domain_quota:
+      science: 3
+      advaita: 3
+      samkhya: 3
+    positive_label_preferred: positive
+    partial_label_policy: fallback_only
+    same_concept_hard_negative_as_positive: false
+    domain_fidelity_filter_enabled: true
+  question_examples:
+  - What is the difference between reality and appearance?
+  - When does perception present an appearance rather than reality itself?
+  - How can something appear real while being illusory or misperceived?
+  - How does superimposition affect what is taken to be real?
+  - How is the experienced world related to representation or perceptual construction?
+  - Does a cosmological description by itself explain the distinction between reality and appearance?
+  positive_passage_ids:
+  - science_petkova_ehrsson_2008_body_swapping:chunk:f6e14a05ccba9e687f56dab1
+  - science_limanowski_blankenburg_2013_minimal_self_models:chunk:3f8b6df5aa0875052b8bca36
+  - science_herzog_kammer_scharnowski_2016_time_slices:chunk:e94e9ea8213a48327e27d075
+  - advaita_paramananda_1919_upanishads:chunk:7ed7433a9178e2db285addc0
+  - advaita_paramananda_1917_vedanta_in_practice:chunk:2fca43f6366818168a16932f
+  - advaita_sankara_johnston_1946_crest_jewel:chunk:34c5a9a78210bdd9b8e4f537
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580
+  - samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:c6f9763aff9f76009f035623
+  - samkhya_dasgupta_1922_history_volume1_samkhya:chunk:8755d83238ca541f291c0543
+  positive_passages:
+  - chunk_id: science_petkova_ehrsson_2008_body_swapping:chunk:f6e14a05ccba9e687f56dab1
+    domain: science
+    source_id: science_petkova_ehrsson_2008_body_swapping
+    concept_label: positive
+    primary_concept: reality_appearance
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: science_limanowski_blankenburg_2013_minimal_self_models:chunk:3f8b6df5aa0875052b8bca36
+    domain: science
+    source_id: science_limanowski_blankenburg_2013_minimal_self_models
+    concept_label: positive
+    primary_concept: reality_appearance
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: science_herzog_kammer_scharnowski_2016_time_slices:chunk:e94e9ea8213a48327e27d075
+    domain: science
+    source_id: science_herzog_kammer_scharnowski_2016_time_slices
+    concept_label: positive
+    primary_concept: reality_appearance
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: advaita_paramananda_1919_upanishads:chunk:7ed7433a9178e2db285addc0
+    domain: advaita
+    source_id: advaita_paramananda_1919_upanishads
+    concept_label: positive
+    primary_concept: reality_appearance
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: advaita_paramananda_1917_vedanta_in_practice:chunk:2fca43f6366818168a16932f
+    domain: advaita
+    source_id: advaita_paramananda_1917_vedanta_in_practice
+    concept_label: positive
+    primary_concept: reality_appearance
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: advaita_sankara_johnston_1946_crest_jewel:chunk:34c5a9a78210bdd9b8e4f537
+    domain: advaita
+    source_id: advaita_sankara_johnston_1946_crest_jewel
+    concept_label: positive
+    primary_concept: reality_appearance
+    selection_tier: 0
+    selection_tier_description: clean_positive_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    concept_label: positive
+    primary_concept: consciousness
+    selection_tier: 1
+    selection_tier_description: clean_positive_non_primary
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:c6f9763aff9f76009f035623
+    domain: samkhya
+    source_id: samkhya_vachaspati_jha_1896_tattva_kaumudi
+    concept_label: partial
+    primary_concept: reality_appearance
+    selection_tier: 4
+    selection_tier_description: clean_partial_primary_fallback
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  - chunk_id: samkhya_dasgupta_1922_history_volume1_samkhya:chunk:8755d83238ca541f291c0543
+    domain: samkhya
+    source_id: samkhya_dasgupta_1922_history_volume1_samkhya
+    concept_label: partial
+    primary_concept: reality_appearance
+    selection_tier: 4
+    selection_tier_description: clean_partial_primary_fallback
+    domain_fidelity_checked: true
+    domain_fidelity_issue: ''
+  positive_domain_distribution:
+    science: 3
+    advaita: 3
+    samkhya: 3
+  hard_negative_passage_ids:
+  - samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f6fafbcf340ec45e157cea19
+  - science_limanowski_blankenburg_2013_minimal_self_models:chunk:39359f933fc29d9e7cc3adf5
+  - advaita_sankara_johnston_1946_crest_jewel:chunk:55f68adb687161da55bb3838
+  - advaita_sankara_johnston_1946_crest_jewel:chunk:b9de93f8e857ff4b5ca7b05b
+  - advaita_sankara_johnston_1946_crest_jewel:chunk:d52b583561167045f43f8edc
+  - advaita_sankara_johnston_1946_crest_jewel:chunk:2c35149f6a97148ed38db3b3
+  hard_negative_passages:
+  - chunk_id: samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:f6fafbcf340ec45e157cea19
+    domain: samkhya
+    source_id: samkhya_vachaspati_jha_1896_tattva_kaumudi
+    hard_negative_category: reality_appearance_vs_cosmology
+    hard_negative_for:
+    - reality_appearance
+  - chunk_id: science_limanowski_blankenburg_2013_minimal_self_models:chunk:39359f933fc29d9e7cc3adf5
+    domain: science
+    source_id: science_limanowski_blankenburg_2013_minimal_self_models
+    hard_negative_category: reality_appearance_vs_perceptual_description
+    hard_negative_for:
+    - reality_appearance
+  - chunk_id: advaita_sankara_johnston_1946_crest_jewel:chunk:55f68adb687161da55bb3838
+    domain: advaita
+    source_id: advaita_sankara_johnston_1946_crest_jewel
+    hard_negative_category: reality_appearance_vs_cosmology
+    hard_negative_for:
+    - reality_appearance
+  - chunk_id: advaita_sankara_johnston_1946_crest_jewel:chunk:b9de93f8e857ff4b5ca7b05b
+    domain: advaita
+    source_id: advaita_sankara_johnston_1946_crest_jewel
+    hard_negative_category: reality_appearance_vs_cosmology
+    hard_negative_for:
+    - reality_appearance
+  - chunk_id: advaita_sankara_johnston_1946_crest_jewel:chunk:d52b583561167045f43f8edc
+    domain: advaita
+    source_id: advaita_sankara_johnston_1946_crest_jewel
+    hard_negative_category: reality_appearance_vs_cosmology
+    hard_negative_for:
+    - reality_appearance
+  - chunk_id: advaita_sankara_johnston_1946_crest_jewel:chunk:2c35149f6a97148ed38db3b3
+    domain: advaita
+    source_id: advaita_sankara_johnston_1946_crest_jewel
+    hard_negative_category: reality_appearance_vs_cosmology
+    hard_negative_for:
+    - reality_appearance
+  hard_negative_domain_distribution:
+    science: 1
+    advaita: 4
+    samkhya: 1
+  excluded_adjacent_concepts:
+  - cosmology_without_reality_appearance_claim
+  - perceptual_description_without_ontological_contrast
+  - representation_without_illusion_or_reality_contrast
+  - manifestation_sequence_without_appearance_analysis
+  human_review:
+    reviewer: 'Abhinav'
+    reviewed_at: '2026-08-08'
+    question_prototypes_reviewed: true
+    positive_passages_reviewed: true
+    hard_negatives_reviewed: true
+    notes: 'Phase 8 prototypes reviewed and accepted; Samkhya reality_appearance uses documented fallback passages from the Build set.'
+provenance:
+  source_split: build
+  build_path: E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/evaluation/phase1_build.jsonl
+  build_sha256: e70b3f38015d098c38f54a2f7df292ebb6267f06a19f71aeae4d486051442d64
+  split_version: phase1-evaluation-splits-v1
+  development_sha256_recorded_only: b4b7aca13788ebdaca3f7bcd32a9cc42ad3beb2d239c66d4da0e09072765f0ca
+  heldout_sha256_recorded_only: 6bf6cbf8786d9e2c71d3eb341f9737dde10b9978d5fe2a6fc268374756ddde8e
+  development_content_read: false
+  heldout_content_read: false
+exit_gate:
+  all_concepts_have_question_prototypes: true
+  all_concepts_have_positive_passage_prototypes: true
+  all_concepts_have_hard_negative_prototypes: true
+  all_passage_prototypes_from_build: true
+  domain_diversity_checked: true
+  positive_domain_balance_3_3_3: true
+  domain_fidelity_checked: true
+  human_review_complete: true
