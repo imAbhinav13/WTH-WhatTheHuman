@@ -81,3 +81,5 @@ docker-compose.override.yml
 tmp/
 temp/
 *.tmp
+artifacts/phase1/generation/generation_manifest.json
+artifacts/phase1/coverage/coverage_manifest.json

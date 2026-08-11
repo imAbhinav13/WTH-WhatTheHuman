@@ -1,0 +1,129 @@
+{
+  "citations": [
+    {
+      "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
+      "citation": "Anonymous; traditional Upanishadic corpus. The Upanishads. trans. Swami Paramananda. 1919",
+      "corpus_version": "phase1_active_corpus_v1",
+      "source_id": "advaita_paramananda_1919_upanishads"
+    },
+    {
+      "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+      "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
+      "corpus_version": "phase1_active_corpus_v1",
+      "source_id": "advaita_sankara_johnston_1946_crest_jewel"
+    }
+  ],
+  "claims": [
+    {
+      "citations": [
+        {
+          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
+        }
+      ],
+      "claim_id": "claim_1",
+      "concepts_covered": [
+        "consciousness"
+      ],
+      "supporting_chunk_ids": [
+        "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9"
+      ],
+      "text": "Consciousness is eternal, non-dual, partless, uniform, and witness of intellect and the rest."
+    },
+    {
+      "citations": [
+        {
+          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
+        }
+      ],
+      "claim_id": "claim_2",
+      "concepts_covered": [
+        "self_identity",
+        "reality_appearance"
+      ],
+      "supporting_chunk_ids": [
+        "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9"
+      ],
+      "text": "The Self never changes and is the real nature of things, to be known by the wise to the end of freedom from bondage."
+    },
+    {
+      "citations": [
+        {
+          "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
+          "citation": "Anonymous; traditional Upanishadic corpus. The Upanishads. trans. Swami Paramananda. 1919",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "advaita_paramananda_1919_upanishads"
+        }
+      ],
+      "claim_id": "claim_3",
+      "concepts_covered": [
+        "consciousness",
+        "self_identity"
+      ],
+      "supporting_chunk_ids": [
+        "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3"
+      ],
+      "text": "All knowledge and sense perception, in every state of consciousness, is possible only because the Self exists."
+    }
+  ],
+  "concepts_covered": [
+    "consciousness",
+    "self_identity",
+    "reality_appearance"
+  ],
+  "corpus_version": "phase1_active_corpus_v1",
+  "domain": "advaita",
+  "domain_display_name": "Advaita Vedanta",
+  "domain_leakage": {
+    "issues": [],
+    "passed": true
+  },
+  "generation_version": "phase1-domain-generation-v1",
+  "grounding": {
+    "all_citations_canonicalized_from_evidence": true,
+    "all_claims_preserve_corpus_version": true,
+    "all_claims_use_retrieved_chunks": true,
+    "evidence_chunk_count": 3,
+    "retrieval_status": "evidence_found"
+  },
+  "limitations": [
+    "The supplied evidence only provides insight into the Advaita Vedanta perspective on consciousness and the self."
+  ],
+  "prompt_version": "phase1-domain-grounding-prompt-v1",
+  "provider": {
+    "attempt": 1,
+    "json_object_mode": true,
+    "latency_ms": 1465.99,
+    "max_completion_tokens": 1800,
+    "model_requested": "llama-3.3-70b-versatile",
+    "model_returned": "llama-3.3-70b-versatile",
+    "provider": "Groq",
+    "reasoning_effort": null,
+    "structured_output_strict": false,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "temperature": 0.2,
+    "usage": {
+      "completion_time": 1.018401758,
+      "completion_tokens": 470,
+      "prompt_time": 0.191194985,
+      "prompt_tokens": 2089,
+      "queue_time": 0.05791302,
+      "total_time": 1.209596743,
+      "total_tokens": 2559
+    }
+  },
+  "summary": "In Advaita Vedanta, consciousness is eternal, non-dual, and partless, witnessing intellect and the rest, and is the idea of 'I', a union of being and bliss, which is the higher Self.",
+  "unsupported_aspects": [
+    "The scientific or empirical basis of the claims made in the evidence."
+  ],
+  "validation": {
+    "issue_count": 0,
+    "issues": [],
+    "passed": true
+  }
+}

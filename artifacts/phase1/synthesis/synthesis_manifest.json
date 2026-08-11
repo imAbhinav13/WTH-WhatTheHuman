@@ -1,0 +1,67 @@
+{
+  "corpus_version": "phase1_active_corpus_v1",
+  "counts": {
+    "active_concept_count": 3,
+    "comparison_count": 9,
+    "direct_tension_count": 2,
+    "insufficient_coverage_count": 1,
+    "non_equivalence_count": 1,
+    "required_slot_count": 9
+  },
+  "exit_gate": {
+    "all_comparison_references_validated": true,
+    "atman_purusha_false_equivalence_rejected": true,
+    "comparison_citations_canonicalized_from_phase15": true,
+    "comparison_identity_owned_by_python": true,
+    "domain_differences_preserved": true,
+    "known_tension_guardrails_enforced": true,
+    "limitation_identity_owned_by_python": true,
+    "pairwise_active_concept_matrix_complete": true,
+    "phase15_grounded_input_only": true,
+    "raw_corpus_not_resent": true,
+    "relevant_unsupported_aspects_propagated": true,
+    "science_metaphysical_proof_rejected": true,
+    "summary_and_non_conclusion_derived_deterministically": true,
+    "synthesis_explanations_entailment_guarded": true,
+    "synthesis_preserves_domain_differences_and_identifies_unsupported_comparisons": true,
+    "three_way_overview_derived_from_pairwise_relations": true,
+    "unsupported_comparisons_identified_or_left_unasserted": true
+  },
+  "generated_at": "2026-08-10T13:17:57.252755+00:00",
+  "input_policy": {
+    "claim_refs_attached_locally": true,
+    "claim_texts_deduplicated_in_prompt": true,
+    "comparison_slots_generated_locally": true,
+    "limitation_refs_attached_locally": true,
+    "one_user_question_per_synthesis_request": true,
+    "outside_knowledge_allowed": false,
+    "pairwise_comparison_required": true,
+    "phase15_citations_used": true,
+    "phase15_limitations_used": true,
+    "phase15_structured_claims_used": true,
+    "raw_corpus_sent": false,
+    "raw_retrieval_chunks_sent": false,
+    "relevant_unsupported_aspects_propagated": true
+  },
+  "next_step": "If the exit gate passes, freeze Phase 16 synthesis/prompt versions and begin Phase 17 coverage classification using activated concept weights, retrieved evidence counts, domain coverage, citation quality, unsupported subquestions, and retrieval confidence.",
+  "outputs": {
+    "synthesis": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/synthesis/synthesis.json"
+  },
+  "phase": "phase_16_synthesis_and_tension_detection",
+  "prompt_version": "phase1-synthesis-tension-prompt-v5",
+  "provider": {
+    "json_object_mode": true,
+    "maximum_api_calls": 1,
+    "model": "llama-3.3-70b-versatile",
+    "provider": "Groq",
+    "structured_output_strict": false,
+    "temperature": 0.1
+  },
+  "question": "How is consciousness related to the self and experienced reality?",
+  "script_version": "1.1.0",
+  "status": "synthesis_complete",
+  "synthesis_version": "phase1-cross-domain-synthesis-v4",
+  "timing": {
+    "synthesis_generation_elapsed_ms": 1970.76
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "citations": [
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+      "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+      "corpus_version": "phase1_active_corpus_v1",
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+      "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+      "corpus_version": "phase1_active_corpus_v1",
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+    },
+    {
+      "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+      "citation": "Vachaspati Misra. An English Translation with the Sanskrit Text of the Tattva-Kaumudi. trans. Ganganatha Jha. 1896",
+      "corpus_version": "phase1_active_corpus_v1",
+      "source_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi"
+    }
+  ],
+  "claims": [
+    {
+      "citations": [
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        }
+      ],
+      "claim_id": "claim_1",
+      "concepts_covered": [
+        "consciousness",
+        "self_identity",
+        "reality_appearance"
+      ],
+      "supporting_chunk_ids": [
+        "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52"
+      ],
+      "text": "The self is a constant and unchangeable essence in man, beyond the limits of any change, described as pure subject-object-less consciousness, reality, and bliss."
+    },
+    {
+      "citations": [
+        {
+          "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+          "citation": "Vachaspati Misra. An English Translation with the Sanskrit Text of the Tattva-Kaumudi. trans. Ganganatha Jha. 1896",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi"
+        }
+      ],
+      "claim_id": "claim_2",
+      "concepts_covered": [
+        "consciousness",
+        "self_identity"
+      ],
+      "supporting_chunk_ids": [
+        "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29"
+      ],
+      "text": "Consciousness stands in need of the aid of Nature in the completion of the production of its effect, Self-consciousness."
+    },
+    {
+      "citations": [
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        }
+      ],
+      "claim_id": "claim_3",
+      "concepts_covered": [
+        "consciousness",
+        "self_identity",
+        "reality_appearance"
+      ],
+      "supporting_chunk_ids": [
+        "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580"
+      ],
+      "text": "The self, the pure cit, is neither illusory nor an abstraction; it is concrete but transcendent, giving unity to all the movements of the knowledge-composites of subtle stuff."
+    }
+  ],
+  "concepts_covered": [
+    "consciousness",
+    "self_identity",
+    "reality_appearance"
+  ],
+  "corpus_version": "phase1_active_corpus_v1",
+  "domain": "samkhya",
+  "domain_display_name": "Samkhya",
+  "domain_leakage": {
+    "issues": [],
+    "passed": true
+  },
+  "generation_version": "phase1-domain-generation-v1",
+  "grounding": {
+    "all_citations_canonicalized_from_evidence": true,
+    "all_claims_preserve_corpus_version": true,
+    "all_claims_use_retrieved_chunks": true,
+    "evidence_chunk_count": 3,
+    "retrieval_status": "evidence_found"
+  },
+  "limitations": [
+    "The supplied evidence only provides a limited understanding of the relationship between consciousness and the self in Samkhya."
+  ],
+  "prompt_version": "phase1-domain-grounding-prompt-v1",
+  "provider": {
+    "attempt": 1,
+    "json_object_mode": true,
+    "latency_ms": 1598.03,
+    "max_completion_tokens": 1800,
+    "model_requested": "llama-3.3-70b-versatile",
+    "model_returned": "llama-3.3-70b-versatile",
+    "provider": "Groq",
+    "reasoning_effort": null,
+    "structured_output_strict": false,
+    "system_fingerprint": "fp_3272ea2d91",
+    "temperature": 0.2,
+    "usage": {
+      "completion_time": 0.934273752,
+      "completion_tokens": 521,
+      "prompt_time": 0.225038573,
+      "prompt_tokens": 2290,
+      "queue_time": 0.161940246,
+      "total_time": 1.159312325,
+      "total_tokens": 2811
+    }
+  },
+  "summary": "In Samkhya, consciousness is related to the self and experienced reality through the concept of pure subject-object-less consciousness, which is the inmost essence of a person, beyond any change.",
+  "unsupported_aspects": [
+    "The exact nature of the relationship between consciousness and experienced reality in Samkhya is not fully supported by the supplied evidence."
+  ],
+  "validation": {
+    "issue_count": 0,
+    "issues": [],
+    "passed": true
+  }
+}

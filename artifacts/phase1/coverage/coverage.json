@@ -1,0 +1,192 @@
+{
+  "boundary": {
+    "corpus_claims_require_reviewed_evidence": true,
+    "general_knowledge_may_not_be_presented_as_corpus_supported": true,
+    "general_knowledge_may_not_reuse_wth_corpus_citations": true,
+    "reviewed_corpus_and_general_knowledge_are_separate": true
+  },
+  "concept_coverage": [
+    {
+      "activation_weight": 0.8068463504962753,
+      "citation_quality": 1.0,
+      "claim_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "concept": "reality_appearance",
+      "coverage_score": 88.21,
+      "covered_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "evidence_count": 9,
+      "explicit_unsupported": true,
+      "hard_overrides": [],
+      "insufficient_comparison": false,
+      "reasons": [
+        "Phase 15 identified a narrower unsupported aspect for this concept"
+      ],
+      "retrieval_confidence": 0.903423,
+      "retrieval_confidence_source": "derived_proxy",
+      "score_components": {
+        "activated_concept_weight": 20.1712,
+        "citation_quality": 15.0,
+        "domain_coverage": 20.0,
+        "retrieval_confidence": 9.0342,
+        "retrieved_evidence": 20.0,
+        "unsupported_subquestion_component": 4.0
+      },
+      "status": "Supported"
+    },
+    {
+      "activation_weight": 0.7749350892879382,
+      "citation_quality": 1.0,
+      "claim_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "concept": "self_identity",
+      "coverage_score": 87.25,
+      "covered_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "evidence_count": 9,
+      "explicit_unsupported": true,
+      "hard_overrides": [],
+      "insufficient_comparison": false,
+      "reasons": [
+        "Phase 15 identified a narrower unsupported aspect for this concept"
+      ],
+      "retrieval_confidence": 0.887468,
+      "retrieval_confidence_source": "derived_proxy",
+      "score_components": {
+        "activated_concept_weight": 19.3734,
+        "citation_quality": 15.0,
+        "domain_coverage": 20.0,
+        "retrieval_confidence": 8.8747,
+        "retrieved_evidence": 20.0,
+        "unsupported_subquestion_component": 4.0
+      },
+      "status": "Supported"
+    },
+    {
+      "activation_weight": 0.48457739197376404,
+      "citation_quality": 1.0,
+      "claim_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "concept": "consciousness",
+      "coverage_score": 74.54,
+      "covered_domains": [
+        "science",
+        "advaita",
+        "samkhya"
+      ],
+      "evidence_count": 9,
+      "explicit_unsupported": true,
+      "hard_overrides": [
+        "insufficient_comparison_caps_at_partial"
+      ],
+      "insufficient_comparison": true,
+      "reasons": [
+        "Phase 15 identified a narrower unsupported aspect for this concept",
+        "Phase 16 identified insufficient comparison coverage"
+      ],
+      "retrieval_confidence": 0.742289,
+      "retrieval_confidence_source": "derived_proxy",
+      "score_components": {
+        "activated_concept_weight": 12.1144,
+        "citation_quality": 15.0,
+        "domain_coverage": 20.0,
+        "retrieval_confidence": 7.4229,
+        "retrieved_evidence": 20.0,
+        "unsupported_subquestion_component": 0.0
+      },
+      "status": "Partially Supported"
+    }
+  ],
+  "corpus_version": "phase1_active_corpus_v1",
+  "coverage_reason": "Coverage score 84.6/100. The reviewed corpus supports useful parts of the question but one or more components require qualification (supported: reality_appearance, self_identity; partial: consciousness).",
+  "coverage_score": 84.64,
+  "coverage_status": "Partially Supported",
+  "coverage_version": "phase1-coverage-classification-v2",
+  "covered_domains": [
+    "science",
+    "advaita",
+    "samkhya"
+  ],
+  "exit_gate": {
+    "corpus_citations_forbidden_for_general_fallback": true,
+    "general_knowledge_boundary_explicit": true,
+    "no_corpus_fabrication_when_out_of_corpus": true,
+    "partial_answers_limited_to_supported_components": true,
+    "passed": true
+  },
+  "generated_at": "2026-08-10T13:51:01.480239+00:00",
+  "hard_overrides": [
+    "one_or_more_active_concepts_not_fully_supported"
+  ],
+  "missing_domains": [],
+  "partially_supported_concepts": [
+    "consciousness"
+  ],
+  "question": "How is consciousness related to the self and experienced reality?",
+  "response_policy": {
+    "corpus_answer_allowed": true,
+    "corpus_answer_scope": "supported_components_only",
+    "general_knowledge_fallback_allowed": true,
+    "general_knowledge_must_be_labeled": true,
+    "general_knowledge_must_not_use_corpus_citations": true,
+    "suggested_disclosure": "The reviewed WTH corpus supports part of this question, but some components are not sufficiently covered."
+  },
+  "signals": {
+    "activated_concept_weights": {
+      "consciousness": 0.48457739197376404,
+      "reality_appearance": 0.8068463504962753,
+      "self_identity": 0.7749350892879382
+    },
+    "active_concepts": [
+      "reality_appearance",
+      "self_identity",
+      "consciousness"
+    ],
+    "claim_citation_count": 8,
+    "coverage_thresholds": {
+      "partial_min": 40.0,
+      "supported_min": 70.0
+    },
+    "grounded_claim_count": 9,
+    "insufficient_comparison_concepts": [
+      "consciousness"
+    ],
+    "query_ambiguous": true,
+    "query_unsupported": false,
+    "retrieved_evidence_count": 9,
+    "score_weights": {
+      "activated_concept_weight": 25.0,
+      "citation_quality": 15.0,
+      "domain_coverage": 20.0,
+      "retrieval_confidence": 10.0,
+      "retrieved_evidence": 20.0,
+      "unsupported_subquestion_component": 10.0
+    }
+  },
+  "supported_concepts": [
+    "reality_appearance",
+    "self_identity"
+  ],
+  "unsupported_concepts": [],
+  "upstream_versions": {
+    "generation_version": "phase1-domain-generation-v1",
+    "retrieval_manifest_status": "evaluation_complete",
+    "synthesis_manifest_status": "synthesis_complete",
+    "synthesis_version": "phase1-cross-domain-synthesis-v4"
+  }
+}

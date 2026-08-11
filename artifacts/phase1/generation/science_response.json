@@ -1,0 +1,139 @@
+{
+  "citations": [
+    {
+      "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+      "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
+      "corpus_version": "phase1_active_corpus_v1",
+      "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
+    },
+    {
+      "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+      "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
+      "corpus_version": "phase1_active_corpus_v1",
+      "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
+    },
+    {
+      "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
+      "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
+      "corpus_version": "phase1_active_corpus_v1",
+      "source_id": "science_petkova_ehrsson_2008_body_swapping"
+    }
+  ],
+  "claims": [
+    {
+      "citations": [
+        {
+          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
+        }
+      ],
+      "claim_id": "claim_1",
+      "concepts_covered": [
+        "consciousness",
+        "self_identity",
+        "reality_appearance"
+      ],
+      "supporting_chunk_ids": [
+        "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1"
+      ],
+      "text": "The temporo-parietal junction (TPJ) is a key area for multi-sensory integration of bodily self-consciousness."
+    },
+    {
+      "citations": [
+        {
+          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
+        }
+      ],
+      "claim_id": "claim_2",
+      "concepts_covered": [
+        "consciousness",
+        "self_identity",
+        "reality_appearance"
+      ],
+      "supporting_chunk_ids": [
+        "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838"
+      ],
+      "text": "The phenomenal self-model (PSM) theory views selves as processes, not objects, and a conscious self is a result of the system's identification with its self-model."
+    },
+    {
+      "citations": [
+        {
+          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
+          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_petkova_ehrsson_2008_body_swapping"
+        }
+      ],
+      "claim_id": "claim_3",
+      "concepts_covered": [
+        "consciousness",
+        "self_identity",
+        "reality_appearance"
+      ],
+      "supporting_chunk_ids": [
+        "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15"
+      ],
+      "text": "Perceptual illusion of body swapping can be induced by a continuous match between visual and somatosensory information about the state of the body."
+    }
+  ],
+  "concepts_covered": [
+    "consciousness",
+    "self_identity",
+    "reality_appearance"
+  ],
+  "corpus_version": "phase1_active_corpus_v1",
+  "domain": "science",
+  "domain_display_name": "Science",
+  "domain_leakage": {
+    "issues": [],
+    "passed": true
+  },
+  "generation_version": "phase1-domain-generation-v1",
+  "grounding": {
+    "all_citations_canonicalized_from_evidence": true,
+    "all_claims_preserve_corpus_version": true,
+    "all_claims_use_retrieved_chunks": true,
+    "evidence_chunk_count": 3,
+    "retrieval_status": "evidence_found"
+  },
+  "limitations": [
+    "The current evidence is limited to the supplied chunks and may not be generalizable to all aspects of consciousness and self-identity."
+  ],
+  "prompt_version": "phase1-domain-grounding-prompt-v1",
+  "provider": {
+    "attempt": 1,
+    "json_object_mode": true,
+    "latency_ms": 1721.84,
+    "max_completion_tokens": 1800,
+    "model_requested": "llama-3.3-70b-versatile",
+    "model_returned": "llama-3.3-70b-versatile",
+    "provider": "Groq",
+    "reasoning_effort": null,
+    "structured_output_strict": false,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "temperature": 0.2,
+    "usage": {
+      "completion_time": 0.99401827,
+      "completion_tokens": 500,
+      "prompt_time": 0.204944778,
+      "prompt_tokens": 2378,
+      "queue_time": 0.053711599,
+      "total_time": 1.198963048,
+      "total_tokens": 2878
+    }
+  },
+  "summary": "Consciousness is related to the self and experienced reality through multi-sensory integration and self-modeling processes.",
+  "unsupported_aspects": [
+    "The ultimate nature of consciousness and self-identity, and the relationship between them, is not fully understood and requires further research."
+  ],
+  "validation": {
+    "issue_count": 0,
+    "issues": [],
+    "passed": true
+  }
+}
