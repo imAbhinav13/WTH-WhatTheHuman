@@ -67,7 +67,7 @@
     }
   ],
   "corpus_version": "phase1_active_corpus_v1",
-  "generated_at": "2026-08-11T14:03:32.740358+00:00",
+  "generated_at": "2026-08-11T15:58:44.381109+00:00",
   "provider_calls": {
     "phase18_embedding_calls": 0,
     "phase18_llm_calls": 0,
@@ -216,7 +216,7 @@
             "science",
             "samkhya"
           ],
-          "explanation": "Science and Samkhya both consider the role of consciousness in shaping our understanding of reality, albeit through distinct frameworks.",
+          "explanation": "Science and Samkhya share functional analogies in their discussions of self-consciousness and the role of external factors.",
           "limitations": [
             {
               "domain": "samkhya",
@@ -268,7 +268,7 @@
             "advaita",
             "samkhya"
           ],
-          "explanation": "Advaita and Samkhya share some similarities in their views on the eternal nature of consciousness, but differ in their interpretations.",
+          "explanation": "Advaita and Samkhya both describe the self as eternal, but their understandings of this concept differ.",
           "limitations": [
             {
               "domain": "samkhya",
@@ -338,7 +338,7 @@
             "science",
             "advaita"
           ],
-          "explanation": "Science and Advaita have differing views on the concept of self-identity, with science focusing on neurological aspects and Advaita on the eternal Self.",
+          "explanation": "Science views the self as a process, while Advaita sees it as an unchanging reality, highlighting direct tension between the two.",
           "limitations": [
             {
               "domain": "science",
@@ -348,7 +348,7 @@
           ]
         },
         {
-          "category": "non_equivalence",
+          "category": "partial_overlap",
           "citation_refs": [
             "C3",
             "C4",
@@ -417,7 +417,7 @@
             "science",
             "samkhya"
           ],
-          "explanation": "Science and Samkhya have distinct approaches to understanding self-identity, with science emphasizing empirical evidence and Samkhya focusing on philosophical concepts.",
+          "explanation": "Science and Samkhya both explore the concept of self-identity, but through distinct methodologies and frameworks.",
           "limitations": [
             {
               "domain": "science",
@@ -487,11 +487,11 @@
             "advaita",
             "samkhya"
           ],
-          "explanation": "Advaita and Samkhya both discuss the concept of self, but with Advaita emphasizing the unity of the Self and Samkhya discussing the self as a constant essence.",
+          "explanation": "Advaita and Samkhya discuss the self, but their perspectives on its nature and relationship to consciousness show partial overlap.",
           "limitations": []
         },
         {
-          "category": "functional_analogy",
+          "category": "non_equivalence",
           "citation_refs": [
             "C1",
             "C2",
@@ -551,7 +551,7 @@
             "science",
             "advaita"
           ],
-          "explanation": "Science and Advaita both explore the nature of consciousness, with science examining its neurological basis and Advaita considering its eternal and non-dual aspects.",
+          "explanation": "Science and Advaita have non-equivalent understandings of consciousness, with science focusing on empirical evidence and Advaita on philosophical and spiritual insights.",
           "limitations": [
             {
               "domain": "science",
@@ -573,7 +573,7 @@
             "science",
             "samkhya"
           ],
-          "explanation": "The relationship between science and Samkhya on the topic of consciousness is not fully understood due to insufficient evidence.",
+          "explanation": "Insufficient corpus coverage limits a comprehensive comparison of consciousness between science and Samkhya.",
           "limitations": [
             {
               "domain": "science",
@@ -648,7 +648,7 @@
             "advaita",
             "samkhya"
           ],
-          "explanation": "Advaita and Samkhya share some commonalities in their views on consciousness, but their perspectives on its nature and role differ significantly.",
+          "explanation": "Advaita and Samkhya share some similarities in their discussions of consciousness, but their overall perspectives and emphases differ.",
           "limitations": [
             {
               "domain": "samkhya",
@@ -659,7 +659,7 @@
         }
       ],
       "non_conclusion": "These comparisons do not establish that Science, Advaita Vedanta, or Samkhya proves, reduces to, or is identical with another framework.",
-      "summary": "Validated pairwise synthesis identified 2 functional analogy, 4 partial overlap, 1 direct tension, 1 non equivalence, 1 insufficient corpus coverage. Relationships vary by active concept and domain pair and are not collapsed into one shared view.",
+      "summary": "Validated pairwise synthesis identified 1 functional analogy, 5 partial overlap, 1 direct tension, 1 non equivalence, 1 insufficient corpus coverage. Relationships vary by active concept and domain pair and are not collapsed into one shared view.",
       "three_way_overview": "Three-way comparison is constructed from pairwise analysis grounded strictly in domain-specific evidence claims."
     },
     "coverage": {
@@ -988,7 +988,7 @@
           "science",
           "advaita"
         ],
-        "explanation": "Science and Advaita have differing views on the concept of self-identity, with science focusing on neurological aspects and Advaita on the eternal Self.",
+        "explanation": "Science views the self as a process, while Advaita sees it as an unchanging reality, highlighting direct tension between the two.",
         "limitations": [
           {
             "domain": "science",
@@ -1002,34 +1002,26 @@
       {
         "category": "non_equivalence",
         "citation_refs": [
-          "C3",
-          "C4",
-          "C5",
+          "C1",
+          "C2",
           "C6",
           "C7",
           "C8"
         ],
         "citations": [
           {
-            "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
-            "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+            "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
+            "citation": "Anonymous; traditional Upanishadic corpus. The Upanishads. trans. Swami Paramananda. 1919",
             "corpus_version": "phase1_active_corpus_v1",
-            "domain": "samkhya",
-            "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+            "domain": "advaita",
+            "source_id": "advaita_paramananda_1919_upanishads"
           },
           {
-            "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
-            "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+            "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+            "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
             "corpus_version": "phase1_active_corpus_v1",
-            "domain": "samkhya",
-            "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
-          },
-          {
-            "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
-            "citation": "Vachaspati Misra. An English Translation with the Sanskrit Text of the Tattva-Kaumudi. trans. Ganganatha Jha. 1896",
-            "corpus_version": "phase1_active_corpus_v1",
-            "domain": "samkhya",
-            "source_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi"
+            "domain": "advaita",
+            "source_id": "advaita_sankara_johnston_1946_crest_jewel"
           },
           {
             "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
@@ -1057,19 +1049,18 @@
           "science:claim_1",
           "science:claim_2",
           "science:claim_3",
-          "samkhya:claim_1",
-          "samkhya:claim_2",
-          "samkhya:claim_3"
+          "advaita:claim_1",
+          "advaita:claim_3"
         ],
-        "comparison_id": "self_identity__science__samkhya",
+        "comparison_id": "consciousness__science__advaita",
         "concepts_covered": [
-          "self_identity"
+          "consciousness"
         ],
         "domains": [
           "science",
-          "samkhya"
+          "advaita"
         ],
-        "explanation": "Science and Samkhya have distinct approaches to understanding self-identity, with science emphasizing empirical evidence and Samkhya focusing on philosophical concepts.",
+        "explanation": "Science and Advaita have non-equivalent understandings of consciousness, with science focusing on empirical evidence and Advaita on philosophical and spiritual insights.",
         "limitations": [
           {
             "domain": "science",

@@ -1,0 +1,377 @@
+{
+  "baseline": {
+    "active_chunk_count": 318,
+    "artifact_hashes": {
+      "activation_manifest": {
+        "path": "artifacts/phase1/active/activation_manifest.json",
+        "sha256": "66b5d0767f92847dfcf5f4d089d6a553a8f44494a6d33d98cc706ceaf48029c8",
+        "size_bytes": 6585
+      },
+      "active_chunk_bundles": {
+        "path": "artifacts/phase1/active/active_chunk_bundles.jsonl",
+        "sha256": "9d2bd144f30baafc320aefe45f9afc26d506bec8cdbf7330f4cfcff1908b259c",
+        "size_bytes": 6867962
+      },
+      "approved_chunk_embeddings": {
+        "path": "artifacts/phase1/embeddings/approved_chunk_embeddings.jsonl",
+        "sha256": "e0cd5da05079870a5b307c68c774adca4b3d149f70c29c1b3090e70e029feccb",
+        "size_bytes": 3696626
+      },
+      "build_split": {
+        "path": "data/evaluation/phase1_build.jsonl",
+        "sha256": "eb9276d9d3150c22b681163fef8ffaa884d9ef748d4d8bcdd97ecdbcd4f6ce12",
+        "size_bytes": 808708
+      },
+      "concept_mapping_dev_results": {
+        "path": "artifacts/phase1/evaluation/concept_mapping_dev_results.json",
+        "sha256": "738917947d6eba2cd2899f7cba3222f69612c2372e22ae38f3bfdc1305eddc61",
+        "size_bytes": 128417
+      },
+      "concept_prototypes": {
+        "path": "data/concepts/phase1_concept_prototypes.yaml",
+        "sha256": "397d1052601e418a83d891ee9285ff4ec9f4766e26903f216d4d4e6f52006104",
+        "size_bytes": 25649
+      },
+      "coverage": {
+        "path": "artifacts/phase1/coverage/coverage.json",
+        "sha256": "fb49da07674cd9b4c64d31f0da8c3ef571c8bdbf09fea4034068cb1a7492743d",
+        "size_bytes": 6238
+      },
+      "coverage_manifest": {
+        "path": "artifacts/phase1/coverage/coverage_manifest.json",
+        "sha256": "f51d5cfbec1c532107aca4e7e2196cdfdff7d9039df00879faad7344e7622e6d",
+        "size_bytes": 2128
+      },
+      "development_split": {
+        "path": "data/evaluation/phase1_development.jsonl",
+        "sha256": "671793c3b3fec721372b7e19dd13ed6a3d925c3177affdd7fcc1e9c482766123",
+        "size_bytes": 409149
+      },
+      "domain_responses": {
+        "path": "artifacts/phase1/generation/domain_responses.json",
+        "sha256": "75dd1506b0fcc9d5dd0233651e6b0e2a466969fd47d6f6019a62ebe9c2a4c7e1",
+        "size_bytes": 18912
+      },
+      "embedding_manifest": {
+        "path": "artifacts/phase1/embeddings/embedding_manifest.json",
+        "sha256": "efbf7641d74360ed70f3b6ebf4fa894b0252f0107a8ca11cb5cefea659c85e27",
+        "size_bytes": 5821
+      },
+      "evidence_package": {
+        "path": "artifacts/phase1/retrieval/evidence_package.json",
+        "sha256": "b3d69a2d63017fbe6a5b9e8e3ae592fb79818f554ed50a133d6ec2fd8389ab5d",
+        "size_bytes": 26324
+      },
+      "final_manifest": {
+        "path": "artifacts/phase1/final/final_response_manifest.json",
+        "sha256": "fcf42333bcc444f003a42600ab2ea9a565845e8035bddb9c1d7f4910a688e33f",
+        "size_bytes": 2120
+      },
+      "final_response_json": {
+        "path": "artifacts/phase1/final/final_response.json",
+        "sha256": "992d642b1ff9e40b5e3795cf3da63ca8e2fe6a5ee5e68690c7b122043a9f10d9",
+        "size_bytes": 51828
+      },
+      "final_response_markdown": {
+        "path": "artifacts/phase1/final/final_response.md",
+        "sha256": "49a5056cd34ad7e2660a7a91cb4ea7b05b89e3dbb535ec8746728cbe44178f4d",
+        "size_bytes": 7098
+      },
+      "generation_manifest": {
+        "path": "artifacts/phase1/generation/generation_manifest.json",
+        "sha256": "d9c801d880919f771cfd4fd1be396f65c682032a96a83f3fa9bd594925f91a3c",
+        "size_bytes": 2276
+      },
+      "gold_corpus": {
+        "path": "artifacts/phase1/reviewed/phase1_reviewed_gold_corpus.jsonl",
+        "sha256": "4286d94197b8d5f814191c60ba1145010a71a352ea0f84dfefe472803e0edb12",
+        "size_bytes": 1531833
+      },
+      "heldout_results": {
+        "path": "artifacts/phase1/evaluation/heldout_results.json",
+        "sha256": "f55534cf4f24b2dfd5d4c46d2361a818f18b64d3ba202f4ee7efb9df215b8313",
+        "size_bytes": 195449
+      },
+      "heldout_split": {
+        "path": "data/evaluation/phase1_heldout.jsonl",
+        "sha256": "7149822b2dd06e7dbba1712d26d7f68e7f3eab488c4d9e8757df78ed8f1439ce",
+        "size_bytes": 398987
+      },
+      "passage_prototype_embeddings": {
+        "path": "artifacts/phase1/embeddings/passage_prototype_embeddings.jsonl",
+        "sha256": "bbfa96c5d051974eb8ab37da2b3be655558be61814b9eb4a8d1896fb3939d08e",
+        "size_bytes": 528494
+      },
+      "phase19_integration_tests": {
+        "path": "tests/phase1/test_phase1_integration.py",
+        "sha256": "b4cf5e7ac5cdb71dda3563d87ebd9dd00e97bd307db43f3fc5e63b7f06ce5732",
+        "size_bytes": 25750
+      },
+      "phase19_live_e2e_tests": {
+        "path": "tests/phase1/test_phase1_live_e2e.py",
+        "sha256": "7ca04f588f878bc1227984c587b4ea57576f0088b2055527cb45b65ba6ad870e",
+        "size_bytes": 21444
+      },
+      "phase19_regression_questions": {
+        "path": "tests/phase1/phase1_regression_questions.yaml",
+        "sha256": "d9aaaadd53379c8686df693af296b823606e3dabf2a54ae18b1695b37a80fd07",
+        "size_bytes": 13007
+      },
+      "phase19_regression_tests": {
+        "path": "tests/phase1/test_phase1_regression.py",
+        "sha256": "63ed5e8aa253f8d357b17db309bd8c03fef074951a54c38fdfce66e061e5c009",
+        "size_bytes": 25553
+      },
+      "phase19_test_manifest": {
+        "path": "artifacts/phase1/testing/phase19_test_manifest.json",
+        "sha256": "258a1c7ec02fe8be934b023d0478771deb30487c9a0cb9c2c5e892bdc8b35c7f",
+        "size_bytes": 6002
+      },
+      "phase19_unit_tests": {
+        "path": "tests/phase1/test_phase1_unit.py",
+        "sha256": "9ff535b678a1db12eddeffe919c074ac0882ff7a0288017800b4a204d4022430",
+        "size_bytes": 20938
+      },
+      "query_prototype_embeddings": {
+        "path": "artifacts/phase1/embeddings/query_prototype_embeddings.jsonl",
+        "sha256": "671fb63ad9c964de74849ec1160438fbb46665507fbb64a0c4dc172af05cf131",
+        "size_bytes": 201499
+      },
+      "retrieval_manifest": {
+        "path": "artifacts/phase1/retrieval/retrieval_manifest.json",
+        "sha256": "c5bdb90daf5cef5fc80e5776170f08d1500f3ca07c07cbc070e344aacb767f67",
+        "size_bytes": 1678
+      },
+      "review_manifest": {
+        "path": "artifacts/phase1/reviewed/phase1_human_review_manifest.json",
+        "sha256": "b643d524ffb053debfadda183936666f9881ff6a1fd4840782ff6ada72666b42",
+        "size_bytes": 32854
+      },
+      "reviewed_chunk_concepts": {
+        "path": "artifacts/phase1/active/reviewed_chunk_concepts.jsonl",
+        "sha256": "94c71a5b7978204d5aa4940ca09a3d2521649dc1cae424ed9ab5986b153f52fb",
+        "size_bytes": 643984
+      },
+      "scope_rules": {
+        "path": "docs/corpus/phase1_section_scope.yaml",
+        "sha256": "f6cdc1bca2b25065f7f26e8040c75f25391a7d8dccdc510d6488d5bc099700d0",
+        "size_bytes": 34765
+      },
+      "split_manifest": {
+        "path": "data/evaluation/phase1_split_manifest.json",
+        "sha256": "c468cd886106e396149b9d269e706c78520720caf5648ca1f682f72f8727c652",
+        "size_bytes": 9441
+      },
+      "synthesis": {
+        "path": "artifacts/phase1/synthesis/synthesis.json",
+        "sha256": "484685db62dae96eb5bbdcc89dfaed54a4a7ef53068deb197152a560d8aa929c",
+        "size_bytes": 57763
+      },
+      "synthesis_manifest": {
+        "path": "artifacts/phase1/synthesis/synthesis_manifest.json",
+        "sha256": "ed4488e91a4463f03ae3c9c96f41a6edb33225c55a6c844766190a8b2cb43246",
+        "size_bytes": 2896
+      },
+      "weighted_concept_tags": {
+        "path": "artifacts/phase1/concepts/phase1_reviewed_weighted_concept_tags.jsonl",
+        "sha256": "2a7eda29361fee3ffee8e06f53e02ef9aeaf35778cb96004fb8c60f24cae2882",
+        "size_bytes": 914291
+      },
+      "weighted_concept_tags_manifest": {
+        "path": "artifacts/phase1/concepts/phase1_reviewed_weighted_concept_tags_manifest.json",
+        "sha256": "ae3edd2565287a355966bc29f84e66b81150d1c836f33cb53f13c6cc422ecb33",
+        "size_bytes": 6256
+      }
+    },
+    "concepts": [
+      "consciousness",
+      "self_identity",
+      "reality_appearance"
+    ],
+    "corpus_version": "phase1_active_corpus_v1",
+    "domains": [
+      "science",
+      "advaita",
+      "samkhya"
+    ],
+    "embedding_identity": {
+      "dimensions": 768,
+      "model": "gemini-embedding-2",
+      "model_revision": "2",
+      "normalization": "provider_auto_l2",
+      "provider": "Google Gemini API"
+    },
+    "mapping_provenance": {
+      "activation": {
+        "ambiguity_margin": 0.1,
+        "concept_activation_thresholds": {
+          "consciousness": 0.4,
+          "reality_appearance": 0.75,
+          "self_identity": 0.7
+        },
+        "maximum_active_concepts": 3
+      },
+      "calibration": {
+        "consciousness": {
+          "intercept": -0.8799501273554392,
+          "slope": 1.1810531849391321,
+          "type": "sigmoid"
+        },
+        "reality_appearance": {
+          "intercept": 0.47630047840111434,
+          "slope": 1.7509856440379357,
+          "type": "sigmoid"
+        },
+        "self_identity": {
+          "intercept": 0.4463238424461934,
+          "slope": 1.4953476724245536,
+          "type": "sigmoid"
+        }
+      },
+      "candidate": {
+        "embedding_weight": 0.9,
+        "lexical_weight": 0.2,
+        "method": "hybrid",
+        "negative_penalty": 0.5,
+        "prototype_aggregation": "centroid",
+        "prototype_source": "question"
+      },
+      "embedding_identity": {
+        "dimensions": 768,
+        "model": "gemini-embedding-2",
+        "model_revision": "2",
+        "normalization": "provider_auto_l2",
+        "provider": "Google Gemini API"
+      },
+      "mapping_method": "hybrid:question:centroid",
+      "model_version": "gemini-embedding-2@2",
+      "prototype_version": "phase1-prototype-v2"
+    },
+    "phase19_manifest_sha256": "258a1c7ec02fe8be934b023d0478771deb30487c9a0cb9c2c5e892bdc8b35c7f",
+    "reviewed_concept_relation_count": 954,
+    "runtime_versions": {
+      "assembly_version": "phase1-final-response-assembly-v1",
+      "corpus_version": "phase1_active_corpus_v1",
+      "coverage_policy": null,
+      "coverage_version": "phase1-coverage-classification-v2",
+      "generation_prompt_version": "phase1-domain-grounding-prompt-v1",
+      "generation_provider": {
+        "json_object_mode": true,
+        "maximum_domain_calls": 3,
+        "model": "llama-3.3-70b-versatile",
+        "parallel_domain_calls": true,
+        "provider": "Groq",
+        "reasoning_effort": null,
+        "structured_output_strict": false,
+        "temperature": 0.2
+      },
+      "generation_version": "phase1-domain-generation-v1",
+      "retrieval_configuration": null,
+      "synthesis_prompt_version": "phase1-synthesis-tension-prompt-v5",
+      "synthesis_provider": {
+        "json_object_mode": true,
+        "maximum_api_calls": 1,
+        "model": "llama-3.3-70b-versatile",
+        "provider": "Groq",
+        "structured_output_strict": false,
+        "temperature": 0.1
+      },
+      "synthesis_version": "phase1-cross-domain-synthesis-v4"
+    }
+  },
+  "exit_gate": {
+    "artifact_hashes_recorded": true,
+    "corpus_version_frozen": true,
+    "coverage_policy_frozen": true,
+    "embedding_identity_frozen": true,
+    "evaluation_splits_frozen": true,
+    "final_response_contract_frozen": true,
+    "generation_version_and_prompt_frozen": true,
+    "passed": true,
+    "phase19_passed": true,
+    "phase1_freeze_fingerprint_recorded": true,
+    "prototype_and_mapping_frozen": true,
+    "retrieval_configuration_frozen": true,
+    "synthesis_version_and_prompt_frozen": true
+  },
+  "freeze_fingerprint_sha256": "8799d4047faf17a372dae9fd579715fb7df66d7e50830383c67ac863fc2d5819",
+  "freeze_policy": {
+    "artifact_hash_change_invalidates_this_freeze": true,
+    "future_changes_require_new_version": true,
+    "heldout_must_remain_read_only": true,
+    "no_embeddings_regenerated": true,
+    "no_generation_rerun": true,
+    "no_provider_calls_in_phase20": true,
+    "no_retrieval_rerun": true,
+    "no_synthesis_rerun": true,
+    "phase19_must_pass_before_freeze": true
+  },
+  "generated_at": "2026-08-11T18:00:49.123165+00:00",
+  "known_limitations": [
+    {
+      "blocking_database_backed_production_activation": true,
+      "blocking_phase1_artifact_vertical_slice": false,
+      "code": "phase13_database_upsert_pending",
+      "reason": "The actual Supabase migration/schema was not available in the accessible project files, so Phase 13 does not guess physical table or column names.",
+      "required_post_upsert_validation": [
+        "active chunk count equals activation artifact count",
+        "every active chunk has one selected embedding",
+        "every active chunk has three reviewed concept rows",
+        "retrieval queries filter lifecycle_status=active",
+        "concept retrieval filters production_active=true",
+        "corpus_version resolves on every retrieved chunk"
+      ],
+      "status": "pending_schema_mapped_upsert"
+    }
+  ],
+  "next_step": "Phase 1 is frozen. Start future work from a new version or the next planned expansion phase; do not mutate this baseline in place.",
+  "phase": "phase_20_phase1_completion_and_freeze",
+  "script_version": "phase20-freeze-baseline-v1",
+  "source_manifests": {
+    "activation": {
+      "path": "artifacts/phase1/active/activation_manifest.json",
+      "sha256": "66b5d0767f92847dfcf5f4d089d6a553a8f44494a6d33d98cc706ceaf48029c8"
+    },
+    "coverage": {
+      "path": "artifacts/phase1/coverage/coverage_manifest.json",
+      "sha256": "f51d5cfbec1c532107aca4e7e2196cdfdff7d9039df00879faad7344e7622e6d"
+    },
+    "embedding": {
+      "path": "artifacts/phase1/embeddings/embedding_manifest.json",
+      "sha256": "efbf7641d74360ed70f3b6ebf4fa894b0252f0107a8ca11cb5cefea659c85e27"
+    },
+    "final": {
+      "path": "artifacts/phase1/final/final_response_manifest.json",
+      "sha256": "fcf42333bcc444f003a42600ab2ea9a565845e8035bddb9c1d7f4910a688e33f"
+    },
+    "final_response": {
+      "path": "artifacts/phase1/final/final_response.json",
+      "sha256": "992d642b1ff9e40b5e3795cf3da63ca8e2fe6a5ee5e68690c7b122043a9f10d9"
+    },
+    "generation": {
+      "path": "artifacts/phase1/generation/generation_manifest.json",
+      "sha256": "d9c801d880919f771cfd4fd1be396f65c682032a96a83f3fa9bd594925f91a3c"
+    },
+    "phase19": {
+      "path": "artifacts/phase1/testing/phase19_test_manifest.json",
+      "sha256": "258a1c7ec02fe8be934b023d0478771deb30487c9a0cb9c2c5e892bdc8b35c7f"
+    },
+    "retrieval": {
+      "path": "artifacts/phase1/retrieval/retrieval_manifest.json",
+      "sha256": "c5bdb90daf5cef5fc80e5776170f08d1500f3ca07c07cbc070e344aacb767f67"
+    },
+    "split": {
+      "path": "data/evaluation/phase1_split_manifest.json",
+      "sha256": "c468cd886106e396149b9d269e706c78520720caf5648ca1f682f72f8727c652"
+    },
+    "synthesis": {
+      "path": "artifacts/phase1/synthesis/synthesis_manifest.json",
+      "sha256": "ed4488e91a4463f03ae3c9c96f41a6edb33225c55a6c844766190a8b2cb43246"
+    },
+    "weighted_tags": {
+      "path": "artifacts/phase1/concepts/phase1_reviewed_weighted_concept_tags_manifest.json",
+      "sha256": "ae3edd2565287a355966bc29f84e66b81150d1c836f33cb53f13c6cc422ecb33"
+    }
+  },
+  "status": "phase1_frozen_complete"
+}

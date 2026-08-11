@@ -43,24 +43,24 @@ In Samkhya, consciousness is related to the self and experienced reality through
 
 ## Comparative synthesis
 
-Validated pairwise synthesis identified 2 functional analogy, 4 partial overlap, 1 direct tension, 1 non equivalence, 1 insufficient corpus coverage. Relationships vary by active concept and domain pair and are not collapsed into one shared view.
+Validated pairwise synthesis identified 1 functional analogy, 5 partial overlap, 1 direct tension, 1 non equivalence, 1 insufficient corpus coverage. Relationships vary by active concept and domain pair and are not collapsed into one shared view.
 
 Three-way comparison is constructed from pairwise analysis grounded strictly in domain-specific evidence claims.
 
 - **Partial Overlap:** Science and Advaita both discuss the relationship between consciousness and reality, but with different perspectives. [C2] [C6] [C7] [C8]
-- **Functional Analogy:** Science and Samkhya both consider the role of consciousness in shaping our understanding of reality, albeit through distinct frameworks. [C3] [C4] [C6] [C7] [C8]
-- **Partial Overlap:** Advaita and Samkhya share some similarities in their views on the eternal nature of consciousness, but differ in their interpretations. [C2] [C3] [C4]
-- **Direct Tension:** Science and Advaita have differing views on the concept of self-identity, with science focusing on neurological aspects and Advaita on the eternal Self. [C1] [C2] [C6] [C7] [C8]
-- **Non Equivalence:** Science and Samkhya have distinct approaches to understanding self-identity, with science emphasizing empirical evidence and Samkhya focusing on philosophical concepts. [C3] [C4] [C5] [C6] [C7] [C8]
-- **Partial Overlap:** Advaita and Samkhya both discuss the concept of self, but with Advaita emphasizing the unity of the Self and Samkhya discussing the self as a constant essence. [C1] [C2] [C3] [C4] [C5]
-- **Functional Analogy:** Science and Advaita both explore the nature of consciousness, with science examining its neurological basis and Advaita considering its eternal and non-dual aspects. [C1] [C2] [C6] [C7] [C8]
-- **Insufficient Corpus Coverage:** The relationship between science and Samkhya on the topic of consciousness is not fully understood due to insufficient evidence.
-- **Partial Overlap:** Advaita and Samkhya share some commonalities in their views on consciousness, but their perspectives on its nature and role differ significantly. [C1] [C2] [C3] [C4] [C5]
+- **Functional Analogy:** Science and Samkhya share functional analogies in their discussions of self-consciousness and the role of external factors. [C3] [C4] [C6] [C7] [C8]
+- **Partial Overlap:** Advaita and Samkhya both describe the self as eternal, but their understandings of this concept differ. [C2] [C3] [C4]
+- **Direct Tension:** Science views the self as a process, while Advaita sees it as an unchanging reality, highlighting direct tension between the two. [C1] [C2] [C6] [C7] [C8]
+- **Partial Overlap:** Science and Samkhya both explore the concept of self-identity, but through distinct methodologies and frameworks. [C3] [C4] [C5] [C6] [C7] [C8]
+- **Partial Overlap:** Advaita and Samkhya discuss the self, but their perspectives on its nature and relationship to consciousness show partial overlap. [C1] [C2] [C3] [C4] [C5]
+- **Non Equivalence:** Science and Advaita have non-equivalent understandings of consciousness, with science focusing on empirical evidence and Advaita on philosophical and spiritual insights. [C1] [C2] [C6] [C7] [C8]
+- **Insufficient Corpus Coverage:** Insufficient corpus coverage limits a comprehensive comparison of consciousness between science and Samkhya.
+- **Partial Overlap:** Advaita and Samkhya share some similarities in their discussions of consciousness, but their overall perspectives and emphases differ. [C1] [C2] [C3] [C4] [C5]
 
 ## Key tensions and non-equivalences
 
-- **Tension:** Science and Advaita have differing views on the concept of self-identity, with science focusing on neurological aspects and Advaita on the eternal Self. [C1] [C2] [C6] [C7] [C8]
-- **Non-equivalence:** Science and Samkhya have distinct approaches to understanding self-identity, with science emphasizing empirical evidence and Samkhya focusing on philosophical concepts. [C3] [C4] [C5] [C6] [C7] [C8]
+- **Tension:** Science views the self as a process, while Advaita sees it as an unchanging reality, highlighting direct tension between the two. [C1] [C2] [C6] [C7] [C8]
+- **Non-equivalence:** Science and Advaita have non-equivalent understandings of consciousness, with science focusing on empirical evidence and Advaita on philosophical and spiritual insights. [C1] [C2] [C6] [C7] [C8]
 
 ## Coverage classification
 

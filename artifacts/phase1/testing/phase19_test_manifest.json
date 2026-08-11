@@ -1,0 +1,152 @@
+{
+  "artifact_chain": {
+    "corpus_version": "phase1_active_corpus_v1",
+    "final_response_validation_passed": true,
+    "passed": true,
+    "phase14_status": "evaluation_complete",
+    "phase15_status": "domain_generation_complete",
+    "phase16_status": "synthesis_complete",
+    "phase17_status": "coverage_classification_complete",
+    "phase18_status": "final_response_complete",
+    "question": "How is consciousness related to the self and experienced reality?"
+  },
+  "artifact_hashes": {
+    "coverage_manifest": {
+      "path": "artifacts/phase1/coverage/coverage_manifest.json",
+      "sha256": "f51d5cfbec1c532107aca4e7e2196cdfdff7d9039df00879faad7344e7622e6d",
+      "size_bytes": 2128
+    },
+    "final_manifest": {
+      "path": "artifacts/phase1/final/final_response_manifest.json",
+      "sha256": "fcf42333bcc444f003a42600ab2ea9a565845e8035bddb9c1d7f4910a688e33f",
+      "size_bytes": 2120
+    },
+    "final_response_json": {
+      "path": "artifacts/phase1/final/final_response.json",
+      "sha256": "992d642b1ff9e40b5e3795cf3da63ca8e2fe6a5ee5e68690c7b122043a9f10d9",
+      "size_bytes": 51828
+    },
+    "final_response_markdown": {
+      "path": "artifacts/phase1/final/final_response.md",
+      "sha256": "49a5056cd34ad7e2660a7a91cb4ea7b05b89e3dbb535ec8746728cbe44178f4d",
+      "size_bytes": 7098
+    },
+    "generation_manifest": {
+      "path": "artifacts/phase1/generation/generation_manifest.json",
+      "sha256": "d9c801d880919f771cfd4fd1be396f65c682032a96a83f3fa9bd594925f91a3c",
+      "size_bytes": 2276
+    },
+    "live_e2e_test": {
+      "path": "tests/phase1/test_phase1_live_e2e.py",
+      "sha256": "7ca04f588f878bc1227984c587b4ea57576f0088b2055527cb45b65ba6ad870e",
+      "size_bytes": 21444
+    },
+    "regression_questions": {
+      "path": "tests/phase1/phase1_regression_questions.yaml",
+      "sha256": "d9aaaadd53379c8686df693af296b823606e3dabf2a54ae18b1695b37a80fd07",
+      "size_bytes": 13007
+    },
+    "retrieval_manifest": {
+      "path": "artifacts/phase1/retrieval/retrieval_manifest.json",
+      "sha256": "c5bdb90daf5cef5fc80e5776170f08d1500f3ca07c07cbc070e344aacb767f67",
+      "size_bytes": 1678
+    },
+    "synthesis_manifest": {
+      "path": "artifacts/phase1/synthesis/synthesis_manifest.json",
+      "sha256": "ed4488e91a4463f03ae3c9c96f41a6edb33225c55a6c844766190a8b2cb43246",
+      "size_bytes": 2896
+    },
+    "test_integration": {
+      "path": "tests/phase1/test_phase1_integration.py",
+      "sha256": "b4cf5e7ac5cdb71dda3563d87ebd9dd00e97bd307db43f3fc5e63b7f06ce5732",
+      "size_bytes": 25750
+    },
+    "test_regression": {
+      "path": "tests/phase1/test_phase1_regression.py",
+      "sha256": "63ed5e8aa253f8d357b17db309bd8c03fef074951a54c38fdfce66e061e5c009",
+      "size_bytes": 25553
+    },
+    "test_unit": {
+      "path": "tests/phase1/test_phase1_unit.py",
+      "sha256": "9ff535b678a1db12eddeffe919c074ac0882ff7a0288017800b4a204d4022430",
+      "size_bytes": 20938
+    }
+  },
+  "exit_gate": {
+    "artifact_chain_valid": true,
+    "artifact_hashes_recorded": true,
+    "integration_tests_passed": true,
+    "live_e2e_passed": true,
+    "passed": true,
+    "regression_tests_passed": true,
+    "unit_tests_passed": true,
+    "vertical_slice_reproducible": true
+  },
+  "generated_at": "2026-08-11T16:01:39.063142+00:00",
+  "next_step": "If the exit gate passes, freeze the validated Phase 1 baseline in Phase 20 completion criteria.",
+  "phase": "phase_19_end_to_end_testing",
+  "project_root": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman",
+  "script_version": "phase19-completion-validator-v1",
+  "status": "phase19_complete",
+  "test_evidence": {
+    "integration": {
+      "command": [
+        "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\tests\\phase1\\test_phase1_integration.py",
+        "-q",
+        "--no-cov"
+      ],
+      "elapsed_ms": 2375.65,
+      "output_tail": "..........                                                               [100%]\n10 passed in 0.96s",
+      "passed": true,
+      "return_code": 0,
+      "test_file": "tests/phase1/test_phase1_integration.py",
+      "test_file_sha256": "b4cf5e7ac5cdb71dda3563d87ebd9dd00e97bd307db43f3fc5e63b7f06ce5732"
+    },
+    "live_e2e": {
+      "execution_mode": "provider_backed_manual_pytest_invocation",
+      "note": "Provider-backed Phase 14→18 smoke test verified separately with pytest -m live.",
+      "passed": true,
+      "provider_calls_rerun_by_validator": false,
+      "test_file": "tests/phase1/test_phase1_live_e2e.py"
+    },
+    "regression": {
+      "command": [
+        "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\tests\\phase1\\test_phase1_regression.py",
+        "-q",
+        "--no-cov"
+      ],
+      "elapsed_ms": 1541.08,
+      "output_tail": "....................ssssssssssssssss                                     [100%]\n20 passed, 16 skipped in 0.18s",
+      "passed": true,
+      "return_code": 0,
+      "test_file": "tests/phase1/test_phase1_regression.py",
+      "test_file_sha256": "63ed5e8aa253f8d357b17db309bd8c03fef074951a54c38fdfce66e061e5c009"
+    },
+    "unit": {
+      "command": [
+        "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "E:\\ABHINAV\\Coding\\Projects\\WTH-WhatTheHuman\\tests\\phase1\\test_phase1_unit.py",
+        "-q",
+        "--no-cov"
+      ],
+      "elapsed_ms": 1703.02,
+      "output_tail": "...............                                                          [100%]\n15 passed in 0.33s",
+      "passed": true,
+      "return_code": 0,
+      "test_file": "tests/phase1/test_phase1_unit.py",
+      "test_file_sha256": "9ff535b678a1db12eddeffe919c074ac0882ff7a0288017800b4a204d4022430"
+    }
+  },
+  "validation": {
+    "issue_count": 0,
+    "issues": []
+  }
+}

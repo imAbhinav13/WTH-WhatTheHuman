@@ -129,7 +129,7 @@
     "partial_answers_limited_to_supported_components": true,
     "passed": true
   },
-  "generated_at": "2026-08-11T14:03:20.886485+00:00",
+  "generated_at": "2026-08-11T15:58:44.001290+00:00",
   "hard_overrides": [
     "one_or_more_active_concepts_not_fully_supported"
   ],

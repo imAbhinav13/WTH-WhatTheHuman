@@ -1756,7 +1756,6 @@ def canonicalize_synthesis(
     validation_issues: list[dict[str, str]] = []
     comparison_payloads: list[dict[str, object]] = []
     seen_comparison_ids: set[str] = set()
-    seen_signatures: set[tuple[str, tuple[str, ...], tuple[str, ...]]] = set()
 
     for comparison in draft.comparisons:
         if comparison.comparison_id in seen_comparison_ids:
@@ -1872,22 +1871,6 @@ def canonicalize_synthesis(
                     "message": entailment_issue,
                 }
             )
-
-        signature = (
-            comparison.category,
-            tuple(sorted(valid_claim_refs)),
-            tuple(sorted(valid_limitation_refs)),
-        )
-        if signature in seen_signatures:
-            validation_issues.append(
-                {
-                    "severity": "error",
-                    "code": "duplicate_comparison",
-                    "comparison_id": comparison.comparison_id,
-                    "message": ("Duplicate comparison category/reference set."),
-                }
-            )
-        seen_signatures.add(signature)
 
         citation_map: dict[str, dict[str, str]] = {}
         for claim in valid_claims:
