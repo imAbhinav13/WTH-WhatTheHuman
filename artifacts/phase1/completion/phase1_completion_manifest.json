@@ -104,33 +104,33 @@
       },
       "phase19_integration_tests": {
         "path": "tests/phase1/test_phase1_integration.py",
-        "sha256": "b4cf5e7ac5cdb71dda3563d87ebd9dd00e97bd307db43f3fc5e63b7f06ce5732",
-        "size_bytes": 25750
+        "sha256": "e2823b4b09c8476e52bbae1b015ed84d5a31e371751ce0f2eda97a56264b0aa7",
+        "size_bytes": 26645
       },
       "phase19_live_e2e_tests": {
         "path": "tests/phase1/test_phase1_live_e2e.py",
-        "sha256": "7ca04f588f878bc1227984c587b4ea57576f0088b2055527cb45b65ba6ad870e",
-        "size_bytes": 21444
+        "sha256": "d0aa474a297ea775d2854ef58c308833032778ad869b0c7a1f5ba68ecb682d8a",
+        "size_bytes": 22258
       },
       "phase19_regression_questions": {
         "path": "tests/phase1/phase1_regression_questions.yaml",
-        "sha256": "d9aaaadd53379c8686df693af296b823606e3dabf2a54ae18b1695b37a80fd07",
-        "size_bytes": 13007
+        "sha256": "9a02385af08584de8bbf2267a0a8072b970b03626770faab2af22be2740749c3",
+        "size_bytes": 13402
       },
       "phase19_regression_tests": {
         "path": "tests/phase1/test_phase1_regression.py",
-        "sha256": "63ed5e8aa253f8d357b17db309bd8c03fef074951a54c38fdfce66e061e5c009",
-        "size_bytes": 25553
+        "sha256": "2159056b55753a1155b3675d1479ba3634422af4d488bbb3bf2bf07d797ae6fd",
+        "size_bytes": 26375
       },
       "phase19_test_manifest": {
         "path": "artifacts/phase1/testing/phase19_test_manifest.json",
-        "sha256": "258a1c7ec02fe8be934b023d0478771deb30487c9a0cb9c2c5e892bdc8b35c7f",
-        "size_bytes": 6002
+        "sha256": "9c9aeb2f0e1529e8ca589ee43f642c1bd3ccd1663be7f80fe15050718cadcc5d",
+        "size_bytes": 6154
       },
       "phase19_unit_tests": {
         "path": "tests/phase1/test_phase1_unit.py",
-        "sha256": "9ff535b678a1db12eddeffe919c074ac0882ff7a0288017800b4a204d4022430",
-        "size_bytes": 20938
+        "sha256": "c796f215b01286bce189e3de1926874ad8bd19168ace928ede940f2704180303",
+        "size_bytes": 21644
       },
       "query_prototype_embeddings": {
         "path": "artifacts/phase1/embeddings/query_prototype_embeddings.jsonl",
@@ -247,7 +247,7 @@
       "model_version": "gemini-embedding-2@2",
       "prototype_version": "phase1-prototype-v2"
     },
-    "phase19_manifest_sha256": "258a1c7ec02fe8be934b023d0478771deb30487c9a0cb9c2c5e892bdc8b35c7f",
+    "phase19_manifest_sha256": "9c9aeb2f0e1529e8ca589ee43f642c1bd3ccd1663be7f80fe15050718cadcc5d",
     "reviewed_concept_relation_count": 954,
     "runtime_versions": {
       "assembly_version": "phase1-final-response-assembly-v1",
@@ -294,7 +294,7 @@
     "retrieval_configuration_frozen": true,
     "synthesis_version_and_prompt_frozen": true
   },
-  "freeze_fingerprint_sha256": "8799d4047faf17a372dae9fd579715fb7df66d7e50830383c67ac863fc2d5819",
+  "freeze_fingerprint_sha256": "a88cf5b0e1ed64695c72443e4fbfc79e133c5da5a84a1ca9aada1106160a889f",
   "freeze_policy": {
     "artifact_hash_change_invalidates_this_freeze": true,
     "future_changes_require_new_version": true,
@@ -306,7 +306,7 @@
     "no_synthesis_rerun": true,
     "phase19_must_pass_before_freeze": true
   },
-  "generated_at": "2026-08-11T18:00:49.123165+00:00",
+  "generated_at": "2026-08-11T18:12:19.980707+00:00",
   "known_limitations": [
     {
       "blocking_database_backed_production_activation": true,
@@ -354,7 +354,7 @@
     },
     "phase19": {
       "path": "artifacts/phase1/testing/phase19_test_manifest.json",
-      "sha256": "258a1c7ec02fe8be934b023d0478771deb30487c9a0cb9c2c5e892bdc8b35c7f"
+      "sha256": "9c9aeb2f0e1529e8ca589ee43f642c1bd3ccd1663be7f80fe15050718cadcc5d"
     },
     "retrieval": {
       "path": "artifacts/phase1/retrieval/retrieval_manifest.json",
