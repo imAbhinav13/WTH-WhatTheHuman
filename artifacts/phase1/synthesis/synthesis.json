@@ -1,7 +1,7 @@
 {
   "comparisons": [
     {
-      "category": "direct_tension",
+      "category": "partial_overlap",
       "citations": [
         {
           "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
@@ -42,12 +42,12 @@
         "science",
         "advaita"
       ],
-      "explanation": "Science and Advaita have different views on reality and appearance.",
+      "explanation": "Science and Advaita both discuss the relationship between consciousness and reality, but with different perspectives.",
       "limitation_refs": [],
       "limitations": []
     },
     {
-      "category": "partial_overlap",
+      "category": "functional_analogy",
       "citations": [
         {
           "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
@@ -95,7 +95,7 @@
         "science",
         "samkhya"
       ],
-      "explanation": "Science and Samkhya both discuss the integration of sensory information in relation to self-consciousness.",
+      "explanation": "Science and Samkhya both consider the role of consciousness in shaping our understanding of reality, albeit through distinct frameworks.",
       "limitation_refs": [
         "samkhya:U1"
       ],
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "category": "functional_analogy",
+      "category": "partial_overlap",
       "citations": [
         {
           "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
@@ -142,7 +142,7 @@
         "advaita",
         "samkhya"
       ],
-      "explanation": "Advaita and Samkhya share a functional analogy in their views on the self as a constant essence.",
+      "explanation": "Advaita and Samkhya share some similarities in their views on the eternal nature of consciousness, but differ in their interpretations.",
       "limitation_refs": [
         "samkhya:U1"
       ],
@@ -155,7 +155,7 @@
       ]
     },
     {
-      "category": "non_equivalence",
+      "category": "direct_tension",
       "citations": [
         {
           "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
@@ -203,7 +203,7 @@
         "science",
         "advaita"
       ],
-      "explanation": "Science and Advaita have non-equivalent concepts of self-identity due to differing philosophical frameworks.",
+      "explanation": "Science and Advaita have differing views on the concept of self-identity, with science focusing on neurological aspects and Advaita on the eternal Self.",
       "limitation_refs": [
         "science:U1"
       ],
@@ -216,7 +216,7 @@
       ]
     },
     {
-      "category": "surface_similarity",
+      "category": "non_equivalence",
       "citations": [
         {
           "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
@@ -271,7 +271,7 @@
         "science",
         "samkhya"
       ],
-      "explanation": "Science and Samkhya exhibit surface similarity in discussing the self as a process or essence.",
+      "explanation": "Science and Samkhya have distinct approaches to understanding self-identity, with science emphasizing empirical evidence and Samkhya focusing on philosophical concepts.",
       "limitation_refs": [
         "science:U1"
       ],
@@ -284,7 +284,7 @@
       ]
     },
     {
-      "category": "substantive_agreement",
+      "category": "partial_overlap",
       "citations": [
         {
           "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
@@ -332,12 +332,12 @@
         "advaita",
         "samkhya"
       ],
-      "explanation": "Advaita and Samkhya demonstrate substantive agreement on the self being a constant, unchangeable essence.",
+      "explanation": "Advaita and Samkhya both discuss the concept of self, but with Advaita emphasizing the unity of the Self and Samkhya discussing the self as a constant essence.",
       "limitation_refs": [],
       "limitations": []
     },
     {
-      "category": "direct_tension",
+      "category": "functional_analogy",
       "citations": [
         {
           "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
@@ -385,7 +385,7 @@
         "science",
         "advaita"
       ],
-      "explanation": "Science and Advaita have directly tense views on the nature of consciousness and its relation to the self.",
+      "explanation": "Science and Advaita both explore the nature of consciousness, with science examining its neurological basis and Advaita considering its eternal and non-dual aspects.",
       "limitation_refs": [
         "science:U1"
       ],
@@ -409,7 +409,7 @@
         "science",
         "samkhya"
       ],
-      "explanation": "Insufficient corpus coverage limits the comparison of science and Samkhya's views on consciousness.",
+      "explanation": "The relationship between science and Samkhya on the topic of consciousness is not fully understood due to insufficient evidence.",
       "limitation_refs": [
         "science:U1",
         "samkhya:U1"
@@ -476,7 +476,7 @@
         "advaita",
         "samkhya"
       ],
-      "explanation": "Advaita and Samkhya show partial overlap in their discussions of consciousness as an eternal, non-dual aspect of reality.",
+      "explanation": "Advaita and Samkhya share some commonalities in their views on consciousness, but their perspectives on its nature and role differ significantly.",
       "limitation_refs": [
         "samkhya:U1"
       ],
@@ -535,7 +535,7 @@
         "science",
         "samkhya"
       ],
-      "explanation": "Insufficient corpus coverage limits the comparison of science and Samkhya's views on consciousness.",
+      "explanation": "The relationship between science and Samkhya on the topic of consciousness is not fully understood due to insufficient evidence.",
       "limitation_refs": [
         "science:U1",
         "samkhya:U1"
@@ -559,52 +559,6 @@
       "category": "direct_tension",
       "citations": [
         {
-          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
-          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
-        },
-        {
-          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
-          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
-        },
-        {
-          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
-          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
-        },
-        {
-          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
-          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_petkova_ehrsson_2008_body_swapping"
-        }
-      ],
-      "claim_refs": [
-        "science:claim_1",
-        "science:claim_2",
-        "science:claim_3",
-        "advaita:claim_2"
-      ],
-      "comparison_id": "reality_appearance__science__advaita",
-      "concepts_covered": [
-        "reality_appearance"
-      ],
-      "domains": [
-        "science",
-        "advaita"
-      ],
-      "explanation": "Science and Advaita have different views on reality and appearance.",
-      "limitation_refs": [],
-      "limitations": []
-    },
-    {
-      "category": "direct_tension",
-      "citations": [
-        {
           "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
           "citation": "Anonymous; traditional Upanishadic corpus. The Upanishads. trans. Swami Paramananda. 1919",
           "corpus_version": "phase1_active_corpus_v1",
@@ -639,18 +593,18 @@
         "science:claim_1",
         "science:claim_2",
         "science:claim_3",
-        "advaita:claim_1",
+        "advaita:claim_2",
         "advaita:claim_3"
       ],
-      "comparison_id": "consciousness__science__advaita",
+      "comparison_id": "self_identity__science__advaita",
       "concepts_covered": [
-        "consciousness"
+        "self_identity"
       ],
       "domains": [
         "science",
         "advaita"
       ],
-      "explanation": "Science and Advaita have directly tense views on the nature of consciousness and its relation to the self.",
+      "explanation": "Science and Advaita have differing views on the concept of self-identity, with science focusing on neurological aspects and Advaita on the eternal Self.",
       "limitation_refs": [
         "science:U1"
       ],
@@ -667,284 +621,6 @@
   "non_equivalences": [
     {
       "category": "non_equivalence",
-      "citations": [
-        {
-          "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
-          "citation": "Anonymous; traditional Upanishadic corpus. The Upanishads. trans. Swami Paramananda. 1919",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "advaita_paramananda_1919_upanishads"
-        },
-        {
-          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
-          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
-        },
-        {
-          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
-          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
-        },
-        {
-          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
-          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
-        },
-        {
-          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
-          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_petkova_ehrsson_2008_body_swapping"
-        }
-      ],
-      "claim_refs": [
-        "science:claim_1",
-        "science:claim_2",
-        "science:claim_3",
-        "advaita:claim_2",
-        "advaita:claim_3"
-      ],
-      "comparison_id": "self_identity__science__advaita",
-      "concepts_covered": [
-        "self_identity"
-      ],
-      "domains": [
-        "science",
-        "advaita"
-      ],
-      "explanation": "Science and Advaita have non-equivalent concepts of self-identity due to differing philosophical frameworks.",
-      "limitation_refs": [
-        "science:U1"
-      ],
-      "limitations": [
-        {
-          "domain": "science",
-          "limitation_ref": "science:U1",
-          "text": "The ultimate nature of consciousness and self-identity, and the relationship between them, is not fully understood and requires further research."
-        }
-      ]
-    }
-  ],
-  "pairwise_comparisons": [
-    {
-      "category": "direct_tension",
-      "citations": [
-        {
-          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
-          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
-        },
-        {
-          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
-          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
-        },
-        {
-          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
-          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
-        },
-        {
-          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
-          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_petkova_ehrsson_2008_body_swapping"
-        }
-      ],
-      "claim_refs": [
-        "science:claim_1",
-        "science:claim_2",
-        "science:claim_3",
-        "advaita:claim_2"
-      ],
-      "comparison_id": "reality_appearance__science__advaita",
-      "concepts_covered": [
-        "reality_appearance"
-      ],
-      "domains": [
-        "science",
-        "advaita"
-      ],
-      "explanation": "Science and Advaita have different views on reality and appearance.",
-      "limitation_refs": [],
-      "limitations": []
-    },
-    {
-      "category": "partial_overlap",
-      "citations": [
-        {
-          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
-          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
-        },
-        {
-          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
-          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
-        },
-        {
-          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
-          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
-        },
-        {
-          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
-          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
-        },
-        {
-          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
-          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_petkova_ehrsson_2008_body_swapping"
-        }
-      ],
-      "claim_refs": [
-        "science:claim_1",
-        "science:claim_2",
-        "science:claim_3",
-        "samkhya:claim_1",
-        "samkhya:claim_3"
-      ],
-      "comparison_id": "reality_appearance__science__samkhya",
-      "concepts_covered": [
-        "reality_appearance"
-      ],
-      "domains": [
-        "science",
-        "samkhya"
-      ],
-      "explanation": "Science and Samkhya both discuss the integration of sensory information in relation to self-consciousness.",
-      "limitation_refs": [
-        "samkhya:U1"
-      ],
-      "limitations": [
-        {
-          "domain": "samkhya",
-          "limitation_ref": "samkhya:U1",
-          "text": "The exact nature of the relationship between consciousness and experienced reality in Samkhya is not fully supported by the supplied evidence."
-        }
-      ]
-    },
-    {
-      "category": "functional_analogy",
-      "citations": [
-        {
-          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
-          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
-        },
-        {
-          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
-          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
-        },
-        {
-          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
-          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
-        }
-      ],
-      "claim_refs": [
-        "advaita:claim_2",
-        "samkhya:claim_1",
-        "samkhya:claim_3"
-      ],
-      "comparison_id": "reality_appearance__advaita__samkhya",
-      "concepts_covered": [
-        "reality_appearance"
-      ],
-      "domains": [
-        "advaita",
-        "samkhya"
-      ],
-      "explanation": "Advaita and Samkhya share a functional analogy in their views on the self as a constant essence.",
-      "limitation_refs": [
-        "samkhya:U1"
-      ],
-      "limitations": [
-        {
-          "domain": "samkhya",
-          "limitation_ref": "samkhya:U1",
-          "text": "The exact nature of the relationship between consciousness and experienced reality in Samkhya is not fully supported by the supplied evidence."
-        }
-      ]
-    },
-    {
-      "category": "non_equivalence",
-      "citations": [
-        {
-          "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
-          "citation": "Anonymous; traditional Upanishadic corpus. The Upanishads. trans. Swami Paramananda. 1919",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "advaita_paramananda_1919_upanishads"
-        },
-        {
-          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
-          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
-        },
-        {
-          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
-          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
-        },
-        {
-          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
-          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
-        },
-        {
-          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
-          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
-          "corpus_version": "phase1_active_corpus_v1",
-          "source_id": "science_petkova_ehrsson_2008_body_swapping"
-        }
-      ],
-      "claim_refs": [
-        "science:claim_1",
-        "science:claim_2",
-        "science:claim_3",
-        "advaita:claim_2",
-        "advaita:claim_3"
-      ],
-      "comparison_id": "self_identity__science__advaita",
-      "concepts_covered": [
-        "self_identity"
-      ],
-      "domains": [
-        "science",
-        "advaita"
-      ],
-      "explanation": "Science and Advaita have non-equivalent concepts of self-identity due to differing philosophical frameworks.",
-      "limitation_refs": [
-        "science:U1"
-      ],
-      "limitations": [
-        {
-          "domain": "science",
-          "limitation_ref": "science:U1",
-          "text": "The ultimate nature of consciousness and self-identity, and the relationship between them, is not fully understood and requires further research."
-        }
-      ]
-    },
-    {
-      "category": "surface_similarity",
       "citations": [
         {
           "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
@@ -999,7 +675,224 @@
         "science",
         "samkhya"
       ],
-      "explanation": "Science and Samkhya exhibit surface similarity in discussing the self as a process or essence.",
+      "explanation": "Science and Samkhya have distinct approaches to understanding self-identity, with science emphasizing empirical evidence and Samkhya focusing on philosophical concepts.",
+      "limitation_refs": [
+        "science:U1"
+      ],
+      "limitations": [
+        {
+          "domain": "science",
+          "limitation_ref": "science:U1",
+          "text": "The ultimate nature of consciousness and self-identity, and the relationship between them, is not fully understood and requires further research."
+        }
+      ]
+    }
+  ],
+  "pairwise_comparisons": [
+    {
+      "category": "partial_overlap",
+      "citations": [
+        {
+          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
+        },
+        {
+          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
+        },
+        {
+          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
+        },
+        {
+          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
+          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_petkova_ehrsson_2008_body_swapping"
+        }
+      ],
+      "claim_refs": [
+        "science:claim_1",
+        "science:claim_2",
+        "science:claim_3",
+        "advaita:claim_2"
+      ],
+      "comparison_id": "reality_appearance__science__advaita",
+      "concepts_covered": [
+        "reality_appearance"
+      ],
+      "domains": [
+        "science",
+        "advaita"
+      ],
+      "explanation": "Science and Advaita both discuss the relationship between consciousness and reality, but with different perspectives.",
+      "limitation_refs": [],
+      "limitations": []
+    },
+    {
+      "category": "functional_analogy",
+      "citations": [
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        },
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        },
+        {
+          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
+        },
+        {
+          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
+        },
+        {
+          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
+          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_petkova_ehrsson_2008_body_swapping"
+        }
+      ],
+      "claim_refs": [
+        "science:claim_1",
+        "science:claim_2",
+        "science:claim_3",
+        "samkhya:claim_1",
+        "samkhya:claim_3"
+      ],
+      "comparison_id": "reality_appearance__science__samkhya",
+      "concepts_covered": [
+        "reality_appearance"
+      ],
+      "domains": [
+        "science",
+        "samkhya"
+      ],
+      "explanation": "Science and Samkhya both consider the role of consciousness in shaping our understanding of reality, albeit through distinct frameworks.",
+      "limitation_refs": [
+        "samkhya:U1"
+      ],
+      "limitations": [
+        {
+          "domain": "samkhya",
+          "limitation_ref": "samkhya:U1",
+          "text": "The exact nature of the relationship between consciousness and experienced reality in Samkhya is not fully supported by the supplied evidence."
+        }
+      ]
+    },
+    {
+      "category": "partial_overlap",
+      "citations": [
+        {
+          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
+        },
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        },
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        }
+      ],
+      "claim_refs": [
+        "advaita:claim_2",
+        "samkhya:claim_1",
+        "samkhya:claim_3"
+      ],
+      "comparison_id": "reality_appearance__advaita__samkhya",
+      "concepts_covered": [
+        "reality_appearance"
+      ],
+      "domains": [
+        "advaita",
+        "samkhya"
+      ],
+      "explanation": "Advaita and Samkhya share some similarities in their views on the eternal nature of consciousness, but differ in their interpretations.",
+      "limitation_refs": [
+        "samkhya:U1"
+      ],
+      "limitations": [
+        {
+          "domain": "samkhya",
+          "limitation_ref": "samkhya:U1",
+          "text": "The exact nature of the relationship between consciousness and experienced reality in Samkhya is not fully supported by the supplied evidence."
+        }
+      ]
+    },
+    {
+      "category": "direct_tension",
+      "citations": [
+        {
+          "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
+          "citation": "Anonymous; traditional Upanishadic corpus. The Upanishads. trans. Swami Paramananda. 1919",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "advaita_paramananda_1919_upanishads"
+        },
+        {
+          "chunk_id": "advaita_sankara_johnston_1946_crest_jewel:chunk:8d6ebefab8cdd51101daabb9",
+          "citation": "Sankaracarya, traditional attribution. The Crest-Jewel of Wisdom and Other Writings of Sankaracharya. trans. Charles Johnston. 1946",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "advaita_sankara_johnston_1946_crest_jewel"
+        },
+        {
+          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
+        },
+        {
+          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
+        },
+        {
+          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
+          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_petkova_ehrsson_2008_body_swapping"
+        }
+      ],
+      "claim_refs": [
+        "science:claim_1",
+        "science:claim_2",
+        "science:claim_3",
+        "advaita:claim_2",
+        "advaita:claim_3"
+      ],
+      "comparison_id": "self_identity__science__advaita",
+      "concepts_covered": [
+        "self_identity"
+      ],
+      "domains": [
+        "science",
+        "advaita"
+      ],
+      "explanation": "Science and Advaita have differing views on the concept of self-identity, with science focusing on neurological aspects and Advaita on the eternal Self.",
       "limitation_refs": [
         "science:U1"
       ],
@@ -1012,7 +905,75 @@
       ]
     },
     {
-      "category": "substantive_agreement",
+      "category": "non_equivalence",
+      "citations": [
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:42bce04f81f99394d00bc580",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        },
+        {
+          "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:fefd3602eb8e9330ad26fe52",
+          "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya"
+        },
+        {
+          "chunk_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi:chunk:3afb5ca2804fa014ae012c29",
+          "citation": "Vachaspati Misra. An English Translation with the Sanskrit Text of the Tattva-Kaumudi. trans. Ganganatha Jha. 1896",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "samkhya_vachaspati_jha_1896_tattva_kaumudi"
+        },
+        {
+          "chunk_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness:chunk:9f873a402fd718f86ad2fec1",
+          "citation": "Silvio Ionta; Roger Gassert; Olaf Blanke. Multi-Sensory and Sensorimotor Foundation of Bodily Self-Consciousness: An Interdisciplinary Approach. 2011",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_ionta_gassert_blanke_2011_bodily_self_consciousness"
+        },
+        {
+          "chunk_id": "science_limanowski_blankenburg_2013_minimal_self_models:chunk:224ba70553cf6729c8a97838",
+          "citation": "Jakub Limanowski; Felix Blankenburg. Minimal Self-Models and the Free Energy Principle. 2013",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_limanowski_blankenburg_2013_minimal_self_models"
+        },
+        {
+          "chunk_id": "science_petkova_ehrsson_2008_body_swapping:chunk:135e2dd440a4090db2a34f15",
+          "citation": "Valeria I. Petkova; H. Henrik Ehrsson. If I Were You: Perceptual Illusion of Body Swapping. 2008",
+          "corpus_version": "phase1_active_corpus_v1",
+          "source_id": "science_petkova_ehrsson_2008_body_swapping"
+        }
+      ],
+      "claim_refs": [
+        "science:claim_1",
+        "science:claim_2",
+        "science:claim_3",
+        "samkhya:claim_1",
+        "samkhya:claim_2",
+        "samkhya:claim_3"
+      ],
+      "comparison_id": "self_identity__science__samkhya",
+      "concepts_covered": [
+        "self_identity"
+      ],
+      "domains": [
+        "science",
+        "samkhya"
+      ],
+      "explanation": "Science and Samkhya have distinct approaches to understanding self-identity, with science emphasizing empirical evidence and Samkhya focusing on philosophical concepts.",
+      "limitation_refs": [
+        "science:U1"
+      ],
+      "limitations": [
+        {
+          "domain": "science",
+          "limitation_ref": "science:U1",
+          "text": "The ultimate nature of consciousness and self-identity, and the relationship between them, is not fully understood and requires further research."
+        }
+      ]
+    },
+    {
+      "category": "partial_overlap",
       "citations": [
         {
           "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
@@ -1060,12 +1021,12 @@
         "advaita",
         "samkhya"
       ],
-      "explanation": "Advaita and Samkhya demonstrate substantive agreement on the self being a constant, unchangeable essence.",
+      "explanation": "Advaita and Samkhya both discuss the concept of self, but with Advaita emphasizing the unity of the Self and Samkhya discussing the self as a constant essence.",
       "limitation_refs": [],
       "limitations": []
     },
     {
-      "category": "direct_tension",
+      "category": "functional_analogy",
       "citations": [
         {
           "chunk_id": "advaita_paramananda_1919_upanishads:chunk:2f2bf0a5f845429caaaf20a3",
@@ -1113,7 +1074,7 @@
         "science",
         "advaita"
       ],
-      "explanation": "Science and Advaita have directly tense views on the nature of consciousness and its relation to the self.",
+      "explanation": "Science and Advaita both explore the nature of consciousness, with science examining its neurological basis and Advaita considering its eternal and non-dual aspects.",
       "limitation_refs": [
         "science:U1"
       ],
@@ -1137,7 +1098,7 @@
         "science",
         "samkhya"
       ],
-      "explanation": "Insufficient corpus coverage limits the comparison of science and Samkhya's views on consciousness.",
+      "explanation": "The relationship between science and Samkhya on the topic of consciousness is not fully understood due to insufficient evidence.",
       "limitation_refs": [
         "science:U1",
         "samkhya:U1"
@@ -1204,7 +1165,7 @@
         "advaita",
         "samkhya"
       ],
-      "explanation": "Advaita and Samkhya show partial overlap in their discussions of consciousness as an eternal, non-dual aspect of reality.",
+      "explanation": "Advaita and Samkhya share some commonalities in their views on consciousness, but their perspectives on its nature and role differ significantly.",
       "limitation_refs": [
         "samkhya:U1"
       ],
@@ -1222,23 +1183,23 @@
     "attempt": 1,
     "finish_reason": "stop",
     "json_object_mode": true,
-    "latency_ms": 1970.08,
+    "latency_ms": 3459.99,
     "max_completion_tokens": 1150,
     "model_requested": "llama-3.3-70b-versatile",
     "model_returned": "llama-3.3-70b-versatile",
     "provider": "Groq",
     "slot_count": 9,
     "structured_output_strict": false,
-    "system_fingerprint": "fp_dae98b5ecb",
+    "system_fingerprint": "fp_45180df409",
     "temperature": 0.1,
     "usage": {
-      "completion_time": 1.145316241,
-      "completion_tokens": 368,
-      "prompt_time": 0.151928269,
-      "prompt_tokens": 1578,
-      "queue_time": 0.0568508,
-      "total_time": 1.29724451,
-      "total_tokens": 1946
+      "completion_time": 1.277189587,
+      "completion_tokens": 435,
+      "prompt_time": 0.868384489,
+      "prompt_tokens": 1657,
+      "queue_time": 0.530544094,
+      "total_time": 2.145574076,
+      "total_tokens": 2092
     }
   },
   "query_activation": {
@@ -1261,7 +1222,7 @@
     "unsupported": false
   },
   "question": "How is consciousness related to the self and experienced reality?",
-  "synthesis_summary": "Validated pairwise synthesis identified 1 surface similarity, 1 functional analogy, 1 substantive agreement, 2 partial overlap, 2 direct tension, 1 non equivalence, 1 insufficient corpus coverage. Relationships vary by active concept and domain pair and are not collapsed into one shared view.",
+  "synthesis_summary": "Validated pairwise synthesis identified 2 functional analogy, 4 partial overlap, 1 direct tension, 1 non equivalence, 1 insufficient corpus coverage. Relationships vary by active concept and domain pair and are not collapsed into one shared view.",
   "synthesis_version": "phase1-cross-domain-synthesis-v4",
   "three_way_overview": {
     "active_concepts": [
@@ -1270,20 +1231,32 @@
       "consciousness"
     ],
     "direct_tension_comparison_ids": [
-      "reality_appearance__science__advaita",
-      "consciousness__science__advaita"
+      "self_identity__science__advaita"
     ],
-    "direct_tension_count": 2,
+    "direct_tension_count": 1,
     "methodological_note": "Three-way comparison is constructed from pairwise analysis grounded strictly in domain-specific evidence claims.",
     "non_equivalence_comparison_ids": [
-      "self_identity__science__advaita"
+      "self_identity__science__samkhya"
     ],
     "non_equivalence_count": 1,
     "total_pairwise_comparisons": 9
   },
   "validation": {
-    "issue_count": 0,
-    "issues": [],
+    "issue_count": 2,
+    "issues": [
+      {
+        "code": "explanation_not_entailed_by_claims",
+        "comparison_id": "reality_appearance__advaita__samkhya",
+        "message": "Explanation introduces entailment-sensitive term 'eternal' that is absent from the cited claim text.",
+        "severity": "warning"
+      },
+      {
+        "code": "explanation_not_entailed_by_claims",
+        "comparison_id": "self_identity__science__advaita",
+        "message": "Explanation introduces entailment-sensitive term 'eternal' that is absent from the cited claim text.",
+        "severity": "warning"
+      }
+    ],
     "passed": true
   }
 }

@@ -150,6 +150,18 @@ ATMAN_PURUSHA_EQUIVALENCE_PATTERNS: Final = (
     ),
 )
 
+ADVAITA_SAMKHYA_SHARED_NONDUAL_PATTERN: Final = re.compile(
+    r"\b("
+    r"advaita(?: vedanta)?\s+and\s+samkhya"
+    r"|samkhya\s+and\s+advaita(?: vedanta)?"
+    r"|both"
+    r"|the two domains"
+    r"|these two"
+    r")\b"
+    r".{0,140}\b(nondual|non-dual)\b",
+    re.IGNORECASE,
+)
+
 SCIENCE_METAPHYSICS_PATTERNS: Final = (
     re.compile(
         r"\b(science|scientific|neural|cognitive|perceptual)\b.{0,100}"
@@ -1007,6 +1019,11 @@ def synthesis_user_prompt(
             "Do not strengthen the supplied claims.",
             "e must be one short grounded sentence.",
             "Return JSON only.",
+            "Never describe non-duality as shared by Advaita and Samkhya; non-duality may be attributed to Advaita only when supported.",
+            "Shared terms such as eternal, constant, unchanging, or essence "
+            "do not by themselves justify substantive_agreement between "
+            "Advaita and Samkhya; prefer partial_overlap or functional_analogy "
+            "unless the cited claims support compatible meaning at the same level.",
         ],
         "shape": response_shape_description(slots),
         "input": packet,
@@ -1623,6 +1640,35 @@ def global_synthesis_issues(
                 }
             )
 
+    for comparison in draft.comparisons:
+        if set(comparison.domains) != {
+            "advaita",
+            "samkhya",
+        }:
+            continue
+
+        if comparison.category not in {
+            "surface_similarity",
+            "functional_analogy",
+            "substantive_agreement",
+            "partial_overlap",
+        }:
+            continue
+
+        if ADVAITA_SAMKHYA_SHARED_NONDUAL_PATTERN.search(comparison.explanation):
+            issues.append(
+                {
+                    "severity": "error",
+                    "code": "advaita_samkhya_shared_nonduality",
+                    "comparison_id": comparison.comparison_id,
+                    "message": (
+                        "Synthesis incorrectly attributes "
+                        "non-duality as a shared Advaita/Samkhya "
+                        "property."
+                    ),
+                }
+            )
+
     return issues
 
 
@@ -1820,7 +1866,7 @@ def canonicalize_synthesis(
         ):
             validation_issues.append(
                 {
-                    "severity": "error",
+                    "severity": "warning",
                     "code": "explanation_not_entailed_by_claims",
                     "comparison_id": comparison.comparison_id,
                     "message": entailment_issue,

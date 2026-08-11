@@ -3,7 +3,7 @@
   "counts": {
     "active_concept_count": 3,
     "comparison_count": 9,
-    "direct_tension_count": 2,
+    "direct_tension_count": 1,
     "insufficient_coverage_count": 1,
     "non_equivalence_count": 1,
     "required_slot_count": 9
@@ -27,7 +27,7 @@
     "three_way_overview_derived_from_pairwise_relations": true,
     "unsupported_comparisons_identified_or_left_unasserted": true
   },
-  "generated_at": "2026-08-10T13:17:57.252755+00:00",
+  "generated_at": "2026-08-11T14:00:34.068708+00:00",
   "input_policy": {
     "claim_refs_attached_locally": true,
     "claim_texts_deduplicated_in_prompt": true,
@@ -62,6 +62,6 @@
   "status": "synthesis_complete",
   "synthesis_version": "phase1-cross-domain-synthesis-v4",
   "timing": {
-    "synthesis_generation_elapsed_ms": 1970.76
+    "synthesis_generation_elapsed_ms": 3460.29
   }
 }
