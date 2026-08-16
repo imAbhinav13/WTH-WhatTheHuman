@@ -1,0 +1,84 @@
+{
+  "database": {
+    "concept_role_counts": {
+      "consciousness": {
+        "hard_negative": 6,
+        "positive": 9,
+        "question": 6
+      },
+      "reality_appearance": {
+        "hard_negative": 6,
+        "positive": 9,
+        "question": 6
+      },
+      "self_identity": {
+        "hard_negative": 6,
+        "positive": 9,
+        "question": 6
+      }
+    },
+    "role_counts": {
+      "hard_negative": 18,
+      "positive": 27,
+      "question": 18
+    },
+    "row_count": 63,
+    "semantic_fingerprint_sha256": "236d7b84cc4ee3bc36a6faf7b170555dc70bb40e1e293b1e6742cb3cc0d14fe3",
+    "table": "concept_prototype_embeddings"
+  },
+  "embedding_identity": {
+    "dimensions": 768,
+    "model": "gemini-embedding-2",
+    "model_revision": "2",
+    "normalization": "provider_auto_l2",
+    "provider": "Google Gemini API"
+  },
+  "exit_gate": {
+    "63_rows_loaded": true,
+    "all_concept_ids_match_canonical_seeds": true,
+    "all_embedding_checksums_preserved": true,
+    "all_embedding_identity_fields_preserved": true,
+    "all_record_ids_match_frozen_artifacts": true,
+    "all_source_artifact_hashes_preserved": true,
+    "all_vectors_match_frozen_values_within_tolerance": true,
+    "embedding_manifest_hash_validated": true,
+    "exact_passage_jsonl_hash_validated": true,
+    "exact_query_jsonl_hash_validated": true,
+    "no_embedding_provider_calls": true,
+    "no_vectors_regenerated": true,
+    "passed": true,
+    "prototype_role_distribution_preserved": true,
+    "prototype_yaml_hash_validated": true,
+    "runtime_local_jsonl_dependency_removed": true
+  },
+  "frozen_inputs": {
+    "concept_prototypes": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/data/concepts/phase1_concept_prototypes.yaml",
+      "sha256_file_bytes": "397d1052601e418a83d891ee9285ff4ec9f4766e26903f216d4d4e6f52006104"
+    },
+    "embedding_manifest": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/embedding_manifest.json",
+      "sha256_file_bytes": "efbf7641d74360ed70f3b6ebf4fa894b0252f0107a8ca11cb5cefea659c85e27"
+    },
+    "passage_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/passage_prototype_embeddings.jsonl",
+      "record_count": 45,
+      "semantic_sha256": "5081c2771b5a7f173763194fad904e660b46ef337d460805ff7ae066fe6b6d6b"
+    },
+    "query_prototype_embeddings": {
+      "path": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/embeddings/query_prototype_embeddings.jsonl",
+      "record_count": 18,
+      "semantic_sha256": "d4dd9c89525332bfbc492d5464e13b83432fe14096fb15d22e4247fb72ef05b4"
+    }
+  },
+  "generated_at": "2026-08-14T07:59:05.248224+00:00",
+  "idempotency": {
+    "second_run_passed": true,
+    "verify_rerun_requested": true
+  },
+  "next_step": "Use apps/api/repositories/concept_repository.py to load and cache the frozen PrototypeBank from Supabase, then assemble the Phase 14 runtime retrieval service.",
+  "prototype_version": "phase1-prototype-v2",
+  "script_version": "stage3.5d-prototype-migration-v1.0",
+  "stage": "stage_3_5d_concept_prototype_migration",
+  "status": "concept_prototype_migration_complete"
+}

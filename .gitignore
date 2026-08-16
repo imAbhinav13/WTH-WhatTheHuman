@@ -84,3 +84,5 @@ temp/
 artifacts/phase1/generation/generation_manifest.json
 artifacts/phase1/coverage/coverage_manifest.json
 artifacts/phase1/final/final_response_manifest.json
+STAGE2_MAIN_PATCH.txt
+scripts/analyze_phase14_evidence_budget.py

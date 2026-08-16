@@ -1,72 +1,25 @@
 {
-  "active_chunk_count": 318,
-  "concept_aware_scoring": {
-    "citation_quality": 0.05,
-    "concept_alignment": 0.25,
-    "human_relevance_label": 0.15,
-    "source_repeat_penalty_during_selection": 0.08,
-    "vector_similarity": 0.55
-  },
-  "concepts": [
-    "consciousness",
-    "self_identity",
-    "reality_appearance"
-  ],
-  "context_budget_policy": {
-    "max_chunks_per_source_per_domain": 2,
-    "one_domain_cannot_consume_another_domain_budget": true,
-    "per_domain_token_budget": 900
-  },
-  "corpus_version": "phase1_active_corpus_v1",
-  "deduplication": {
-    "cross_source_duplicate_jaccard": 0.96,
-    "exact_normalized_text": true,
-    "repeated_translation_policy": "Remove only exact/near-duplicate cross-source text in Phase 1; preserve materially different translations.",
-    "same_chunk_once": true,
-    "same_source_overlap_jaccard": 0.82
-  },
-  "domains": [
-    "science",
-    "advaita",
-    "samkhya"
-  ],
-  "embedding_identity": {
-    "dimensions": 768,
-    "model": "gemini-embedding-2",
-    "model_revision": "2",
-    "normalization": "provider_auto_l2",
-    "provider": "Google Gemini API"
-  },
-  "evaluation_gate_frozen_before_results": {
-    "concept_coverage_delta_min": 0.0,
-    "max_recall_relative_loss": 0.1,
-    "precision_delta_min": 0.0,
-    "requires_at_least_one_quality_improvement": true
-  },
-  "generated_at": "2026-08-09T13:19:06.565402+00:00",
-  "mapping": {
-    "activation_thresholds": {
-      "consciousness": 0.4,
-      "reality_appearance": 0.75,
-      "self_identity": 0.7
-    },
-    "ambiguity_margin": 0.1,
-    "maximum_active_concepts": 3,
-    "method": "hybrid",
-    "model_version": "gemini-embedding-2@2",
-    "prototype_aggregation": "centroid",
-    "prototype_source": "question",
-    "prototype_version": "phase1-prototype-v2"
-  },
-  "query_embedding_format": "task: search result | query: {question}",
-  "retrieval_config": {
+  "config": {
     "candidate_pool_per_domain": 30,
     "max_chunks_per_source": 2,
     "min_vector_similarity": 0.2,
     "token_budget_per_domain": 900,
     "top_k_per_domain": 3
   },
+  "corpus_version": "phase1_active_corpus_v1",
+  "frozen_evaluation": {
+    "concept_aware_retained": true,
+    "evaluation_complete": true,
+    "retrieval_evaluation_results": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/retrieval/retrieval_evaluation_results.json",
+    "retrieval_report": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/docs/evaluation/phase1_retrieval_report.md"
+  },
+  "retrieval_mode": "concept_aware",
   "retrieval_version": "phase1-concept-domain-retrieval-v1",
-  "script_version": "1.0.0",
-  "status": "retrieval_built_and_evaluated"
+  "scoring": {
+    "citation_quality_weight": 0.05,
+    "concept_alignment_weight": 0.25,
+    "human_relevance_weight": 0.15,
+    "source_repeat_penalty": 0.08,
+    "vector_similarity_weight": 0.55
+  }
 }

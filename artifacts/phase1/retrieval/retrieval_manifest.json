@@ -12,10 +12,10 @@
     "source_diversity_enforced": true,
     "weighted_concept_activation_uses_frozen_phase10": true
   },
-  "generated_at": "2026-08-09T13:19:21.934946+00:00",
+  "generated_at": "2026-08-14T08:29:08.069211+00:00",
   "next_step": "If retrieval evaluation passes, freeze this retrieval configuration and begin Phase 15 domain-specific generation. If the dedicated frozen retrieval question file does not yet exist, freeze it before evaluating; do not use Phase 11 Held-out outcomes to tune retrieval.",
   "outputs": {
-    "evidence_package": null,
+    "evidence_package": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/retrieval/evidence_package.json",
     "retrieval_config": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/retrieval/retrieval_config.json",
     "retrieval_evaluation_results": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/artifacts/phase1/retrieval/retrieval_evaluation_results.json",
     "retrieval_report": "E:/ABHINAV/Coding/Projects/WTH-WhatTheHuman/docs/evaluation/phase1_retrieval_report.md"

@@ -32,6 +32,8 @@ from apps.api.core.config import (
     get_settings,
 )
 from apps.api.routers.health import router as health_router
+from apps.api.routes.chunks import router as chunks_router
+from apps.api.routes.readiness import router as readiness_router
 
 
 @asynccontextmanager
@@ -51,7 +53,6 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     app.state.service_name = settings.app_name
     app.state.service_version = settings.app_version
     app.state.environment_name = settings.app_env
-    
 
     try:
         yield
@@ -89,6 +90,14 @@ def create_app() -> FastAPI:
 
     application.include_router(
         health_router,
+        prefix="/api/v1",
+    )
+    application.include_router(
+        chunks_router,
+        prefix="/api/v1",
+    )
+    application.include_router(
+        readiness_router,
         prefix="/api/v1",
     )
 

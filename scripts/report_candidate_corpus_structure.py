@@ -1,18 +1,3 @@
-"""Generate the Phase 1 candidate-corpus structure report.
-
-This script examines the broad candidate corpus before any Phase 1
-concept selection or embedding work. It does not use embeddings,
-concept anchors, LLM classification, or concept-weight proposals.
-
-Outputs:
-
-- artifacts/phase1/scope/source_structure_report.csv
-- artifacts/phase1/scope/source_structure_report.html
-
-The report supports the human-authored source-section scope rules for
-consciousness, self/identity, and reality/appearance.
-"""
-
 from __future__ import annotations
 
 import argparse

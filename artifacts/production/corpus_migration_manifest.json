@@ -1,0 +1,191 @@
+{
+  "database": {
+    "corpus_version_id": "398c5def-76db-4152-b478-ea7f2b11368f",
+    "counts": {
+      "active_chunks": 318,
+      "active_sources": 10,
+      "chunk_concepts": 954,
+      "chunks_without_citations": 0,
+      "chunks_without_embeddings": 0,
+      "duplicate_logical_chunks": 0,
+      "orphan_chunk_concepts": 0,
+      "orphan_chunk_sources": 0,
+      "required_phase1_concepts": 3
+    },
+    "domain_counts": {
+      "advaita": 120,
+      "samkhya": 108,
+      "science": 90
+    },
+    "required_phase1_concepts": {
+      "consciousness": "10000000-0000-4000-8000-000000000002",
+      "reality_appearance": "10000000-0000-4000-8000-000000000003",
+      "self_identity": "10000000-0000-4000-8000-000000000001"
+    },
+    "semantic_fingerprint_sha256": "e792591509d296e39d384f0dbe9a5af9336b680fdffd7df9f89f4dcac379822f"
+  },
+  "exit_condition": "The Supabase representation is semantically equivalent to the frozen Phase 1 artifact representation.",
+  "exit_gate": {
+    "318_active_chunks_loaded": true,
+    "3_required_concepts_resolved": true,
+    "954_chunk_concept_rows_loaded": true,
+    "all_chunk_ids_match_frozen_baseline": true,
+    "all_citations_present": true,
+    "all_concept_weights_match_frozen_baseline": true,
+    "all_embeddings_dimension_768": true,
+    "all_embeddings_present": true,
+    "all_source_references_resolve": true,
+    "no_duplicate_logical_records": true,
+    "no_orphan_records": true,
+    "passed": true,
+    "second_loader_run_produces_no_duplication": true,
+    "supabase_semantically_matches_frozen_phase1": true
+  },
+  "frozen_phase1": {
+    "active_chunks": 318,
+    "active_sources": 10,
+    "artifact_sha256": {
+      "active_chunk_bundles": "9d2bd144f30baafc320aefe45f9afc26d506bec8cdbf7330f4cfcff1908b259c",
+      "approved_chunk_embeddings": "e0cd5da05079870a5b307c68c774adca4b3d149f70c29c1b3090e70e029feccb",
+      "gold_corpus": "4286d94197b8d5f814191c60ba1145010a71a352ea0f84dfefe472803e0edb12",
+      "reviewed_chunk_concepts": "94c71a5b7978204d5aa4940ca09a3d2521649dc1cae424ed9ab5986b153f52fb",
+      "source_catalogue": "793ca216aaa4ac0bc4f73d930e0b1b4f236e22bfff0acc9f5dbc6e93d53f37d3"
+    },
+    "concept_relations": 954,
+    "corpus_version": "phase1_active_corpus_v1",
+    "embedding_dimension": 768,
+    "freeze_fingerprint_sha256": "a88cf5b0e1ed64695c72443e4fbfc79e133c5da5a84a1ca9aada1106160a889f"
+  },
+  "generated_at": "2026-08-12T18:41:37.561222+00:00",
+  "migration_policy": {
+    "chunk_concepts_weight_semantics": "calibrated_weight",
+    "chunk_conflict_key": "id",
+    "claim_type_fallback_count": 318,
+    "claim_type_fallback_policy": {
+      "advaita": "metaphysical",
+      "samkhya": "metaphysical",
+      "science": "empirical"
+    },
+    "concept_eligibility_field": "production_active",
+    "concept_relation_conflict_key": "chunk_id,concept_id",
+    "corpus_version_resolution": "chunks.source_id -> sources.corpus_version_id -> corpus_versions.id",
+    "embeddings_regenerated": false,
+    "human_labels_authoritative": true,
+    "idempotent_upserts": true,
+    "semantic_pipeline_changed": false,
+    "source_conflict_key": "id",
+    "source_rights_status_mapping_origin": {
+      "advaita_paramananda_1917_vedanta_in_practice": "active_bundle",
+      "advaita_paramananda_1919_upanishads": "active_bundle",
+      "advaita_sankara_johnston_1946_crest_jewel": "active_bundle",
+      "advaita_sankara_thibaut_1890_vedanta_sutras": "active_bundle",
+      "samkhya_dasgupta_1922_history_volume1_samkhya": "active_bundle",
+      "samkhya_vachaspati_jha_1896_tattva_kaumudi": "active_bundle",
+      "science_herzog_kammer_scharnowski_2016_time_slices": "active_bundle",
+      "science_ionta_gassert_blanke_2011_bodily_self_consciousness": "active_bundle",
+      "science_limanowski_blankenburg_2013_minimal_self_models": "active_bundle",
+      "science_petkova_ehrsson_2008_body_swapping": "active_bundle"
+    },
+    "stable_chunk_ids_preserved": true
+  },
+  "next_stage": "Stage 2: database connectivity API and GET /api/chunk/{id}.",
+  "rerun_verification": {
+    "counts_unchanged": true,
+    "first_semantic_fingerprint_sha256": "e792591509d296e39d384f0dbe9a5af9336b680fdffd7df9f89f4dcac379822f",
+    "passed": true,
+    "requested": true,
+    "second_semantic_fingerprint_sha256": "e792591509d296e39d384f0dbe9a5af9336b680fdffd7df9f89f4dcac379822f"
+  },
+  "script_version": "stage1-corpus-migration-v1.2",
+  "stage": "stage_1_corpus_migration",
+  "status": "corpus_migration_complete",
+  "technical_review_samples": [
+    {
+      "chunk_id": "science_herzog_kammer_scharnowski_2016_time_slices:chunk:ae7186593aa7242988ef1db1",
+      "citation": "Michael H. Herzog; Thomas Kammer; Frank Scharnowski. Time Slices: What Is the Duration of a Percept?. 2016",
+      "concepts": [
+        {
+          "calibrated_weight": 0.455305242371052,
+          "concept": "consciousness",
+          "human_label": "positive",
+          "production_active": true
+        },
+        {
+          "calibrated_weight": 0.791956871955238,
+          "concept": "reality_appearance",
+          "human_label": "positive",
+          "production_active": true
+        },
+        {
+          "calibrated_weight": 0.712052469028553,
+          "concept": "self_identity",
+          "human_label": "negative",
+          "production_active": false
+        }
+      ],
+      "domain": "science",
+      "embedding_checksum": "b1958e234b651fa8748e64508a9dd3cba7c9278a55aa17d29c7cc476504b9cd5",
+      "embedding_dimension": 768,
+      "source_id": "science_herzog_kammer_scharnowski_2016_time_slices",
+      "text_checksum": "6096780aefd1627a7c1915ca13edb1d2bed64c9b4eb73f31a8ce7b3933593e3c"
+    },
+    {
+      "chunk_id": "advaita_paramananda_1917_vedanta_in_practice:chunk:99cfc445088a62b66808b775",
+      "citation": "Swami Paramananda. Vedanta in Practice, Third Edition. 1917",
+      "concepts": [
+        {
+          "calibrated_weight": 0.3457427771996,
+          "concept": "consciousness",
+          "human_label": "negative",
+          "production_active": false
+        },
+        {
+          "calibrated_weight": 0.745631270049033,
+          "concept": "reality_appearance",
+          "human_label": "partial",
+          "production_active": true
+        },
+        {
+          "calibrated_weight": 0.731848805918305,
+          "concept": "self_identity",
+          "human_label": "positive",
+          "production_active": true
+        }
+      ],
+      "domain": "advaita",
+      "embedding_checksum": "6fddfe8f2b0d18b30bf3153b8b2e9292fb004ced53c2e14b9b1514ae1e2a68e6",
+      "embedding_dimension": 768,
+      "source_id": "advaita_paramananda_1917_vedanta_in_practice",
+      "text_checksum": "701f427680de3ff07a773e7fd73f52b4bd88458d66d23cd7253362a18bf48114"
+    },
+    {
+      "chunk_id": "samkhya_dasgupta_1922_history_volume1_samkhya:chunk:5e225c68fad1d2c4fe49aefa",
+      "citation": "Surendranath Dasgupta. A History of Indian Philosophy, Volume 1: Samkhya Sections. 1922",
+      "concepts": [
+        {
+          "calibrated_weight": 0.378727764088386,
+          "concept": "consciousness",
+          "human_label": "positive",
+          "production_active": true
+        },
+        {
+          "calibrated_weight": 0.804408287357322,
+          "concept": "reality_appearance",
+          "human_label": "positive",
+          "production_active": true
+        },
+        {
+          "calibrated_weight": 0.700170990324376,
+          "concept": "self_identity",
+          "human_label": "negative",
+          "production_active": false
+        }
+      ],
+      "domain": "samkhya",
+      "embedding_checksum": "dd5e790851525d7204574094d589900ac536377a88444b036ddd6066620bdbfd",
+      "embedding_dimension": 768,
+      "source_id": "samkhya_dasgupta_1922_history_volume1_samkhya",
+      "text_checksum": "99ebb71d27ea20ff48f8e6b94c16662eb8ebb6f6df359cdf55c4feabd49f7c4d"
+    }
+  ]
+}
