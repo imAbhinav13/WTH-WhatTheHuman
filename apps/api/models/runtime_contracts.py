@@ -1,11 +1,3 @@
-"""Frozen runtime contracts for the validated WTH Phase 14-18 pipeline.
-
-These models intentionally mirror the existing persisted Phase 14-18 JSON
-artifacts. Stage 3.0 is a contract freeze, not a schema redesign. Field names,
-container shapes, string timestamps, version fields, validation fields, and
-manifest metadata are therefore preserved as-is.
-"""
-
 from __future__ import annotations
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -185,9 +177,21 @@ class DomainGrounding(FrozenRuntimeContract):
     retrieval_status: str
 
 
+class CompletionTokensDetails(FrozenRuntimeContract):
+    """Provider-reported breakdown of generated completion tokens.
+
+    GPT-OSS reasoning models expose reasoning-token consumption inside
+    ``usage.completion_tokens_details``. Keeping this explicit preserves the
+    frozen-contract rule that unreviewed provider metadata remains forbidden.
+    """
+
+    reasoning_tokens: int = Field(ge=0)
+
+
 class ProviderUsage(FrozenRuntimeContract):
     completion_time: float
     completion_tokens: int
+    completion_tokens_details: CompletionTokensDetails | None = None
     prompt_time: float
     prompt_tokens: int
     queue_time: float
@@ -336,6 +340,7 @@ class SynthesisProviderMetadata(FrozenRuntimeContract):
     model_requested: str
     model_returned: str
     provider: str
+    reasoning_effort: str | None
     slot_count: int
     structured_output_strict: bool
     system_fingerprint: str | None
@@ -423,9 +428,11 @@ class SynthesisOutputs(FrozenRuntimeContract):
 
 class SynthesisManifestProvider(FrozenRuntimeContract):
     json_object_mode: bool
+    max_completion_tokens: int
     maximum_api_calls: int
     model: str
     provider: str
+    reasoning_effort: str | None
     structured_output_strict: bool
     temperature: float
 
@@ -508,16 +515,11 @@ class CorpusCoverageResponsePolicy(FrozenRuntimeContract):
     suggested_disclosure: str
 
 
-class OutOfCorpusCoverageResponsePolicy(
-    CorpusCoverageResponsePolicy
-):
+class OutOfCorpusCoverageResponsePolicy(CorpusCoverageResponsePolicy):
     fallback_structure: list[str]
 
 
-CoverageResponsePolicy = (
-    CorpusCoverageResponsePolicy
-    | OutOfCorpusCoverageResponsePolicy
-)
+CoverageResponsePolicy = CorpusCoverageResponsePolicy | OutOfCorpusCoverageResponsePolicy
 
 
 class CoverageThresholds(FrozenRuntimeContract):

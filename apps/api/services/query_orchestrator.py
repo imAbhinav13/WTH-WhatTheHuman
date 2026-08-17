@@ -18,7 +18,7 @@ from apps.api.services.coverage import (
 from apps.api.services.domain_generation import (
     DomainGenerationService,
     DomainGenerationServiceResult,
-    ProviderConfig,
+    DomainProviderConfig,
 )
 from apps.api.services.response_assembly import (
     ResponseAssemblyResult,
@@ -95,9 +95,15 @@ class QueryPipelineServices:
 
 @dataclass(frozen=True, slots=True)
 class QueryPipelineProviderConfig:
-    """Provider configuration injected at application composition time."""
+    """Provider configuration injected at application composition time.
 
-    domain_generation: ProviderConfig
+    Phase 15 receives an explicit per-domain provider mapping so Science,
+    Advaita, and Samkhya can use independent model/reasoning/token settings.
+    The orchestrator owns no provider-selection logic; it forwards this
+    configuration unchanged to DomainGenerationService.
+    """
+
+    domain_generation: DomainProviderConfig
     synthesis: SynthesisProviderConfig
 
 

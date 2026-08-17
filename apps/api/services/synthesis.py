@@ -22,12 +22,9 @@ from apps.api.models.runtime_contracts import (
 
 LOGGER = logging.getLogger("wth.api.synthesis")
 
-
-LOGGER = logging.getLogger("wth.phase1.build_synthesis")
-
 SCRIPT_VERSION: Final = "1.1.0"
 SYNTHESIS_VERSION: Final = "phase1-cross-domain-synthesis-v4"
-PROMPT_VERSION: Final = "phase1-synthesis-tension-prompt-v5"
+PROMPT_VERSION: Final = "phase1-synthesis-tension-prompt-v6"
 
 DOMAINS: Final = ("science", "advaita", "samkhya")
 DOMAIN_PAIRS: Final = (
@@ -63,11 +60,21 @@ CATEGORY_CODES: Final = {
 CATEGORY_CODE_BY_NAME: Final = {value: key for key, value in CATEGORY_CODES.items()}
 
 GROQ_API_URL: Final = "https://api.groq.com/openai/v1/chat/completions"
-DEFAULT_SYNTHESIS_MODEL: Final = "llama-3.3-70b-versatile"
+DEFAULT_SYNTHESIS_MODEL: Final = "openai/gpt-oss-120b"
+DEFAULT_REASONING_EFFORT: Final = "high"
 DEFAULT_TEMPERATURE: Final = 0.1
-DEFAULT_MAX_COMPLETION_TOKENS: Final = 1150
+DEFAULT_MAX_COMPLETION_TOKENS: Final = 4500
 DEFAULT_TIMEOUT_SECONDS: Final = 30.0
-DEFAULT_MAX_PROVIDER_ATTEMPTS: Final = 2
+DEFAULT_MAX_PROVIDER_ATTEMPTS: Final = 3
+
+ALLOWED_REASONING_EFFORTS: Final = {"low", "medium", "high"}
+REASONING_EFFORT_MODELS: Final = {
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-120b",
+}
+JSON_OBJECT_MODELS: Final = {
+    "llama-3.3-70b-versatile",
+}
 
 MAX_COMPARISONS: Final = 12
 MAX_SYNTHESIS_SUMMARY_CHARS: Final = 2200
@@ -294,6 +301,7 @@ class SynthesisProviderConfig:
     max_completion_tokens: int
     timeout_seconds: float
     max_attempts: int
+    reasoning_effort: str = DEFAULT_REASONING_EFFORT
 
 
 @dataclass(frozen=True, slots=True)
@@ -335,7 +343,8 @@ class SynthesisProviderRunner(Protocol):
         packet: Mapping[str, object],
         slots: tuple[ComparisonSlot, ...],
         config: SynthesisProviderConfig,
-    ) -> tuple[dict[str, object], dict[str, object]]: ...
+    ) -> tuple[dict[str, object], dict[str, object]]:
+        ...
 
 
 @dataclass(frozen=True, slots=True)
@@ -389,6 +398,12 @@ def validate_provider_config(config: SynthesisProviderConfig) -> None:
         raise SynthesisError("timeout_seconds must be positive.")
     if config.max_attempts <= 0:
         raise SynthesisError("max_attempts must be positive.")
+
+    if config.model in REASONING_EFFORT_MODELS and config.reasoning_effort not in ALLOWED_REASONING_EFFORTS:
+            raise SynthesisError(
+                "reasoning_effort must be one of "
+                f"{sorted(ALLOWED_REASONING_EFFORTS)} for {config.model}."
+            )
 
 
 def parse_string_list(
@@ -766,20 +781,18 @@ def synthesis_input_packet(
 def response_shape_description(
     slots: tuple[ComparisonSlot, ...],
 ) -> dict[str, object]:
+    """Describe the exact Python-owned result keys the provider must fill."""
+
     return {
-        "slots": [
-            {
-                "i": slot.slot,
-                "c": (
-                    "ss|fa|sa|po|dt|ne|ic"
-                    if slot.required_unsupported_refs
-                    else "ss|fa|sa|po|dt|ne"
-                ),
+        "results": {
+            str(slot.slot): {
+                "c": "ss|fa|sa|po|dt|ne|ic",
                 "e": "short grounded comparison sentence",
             }
             for slot in slots
-        ]
+        }
     }
+
 
 def synthesis_system_prompt() -> str:
     return (
@@ -797,35 +810,40 @@ def synthesis_user_prompt(
     instructions = {
         "codes": CATEGORY_CODES,
         "rules": [
-            f"Return exactly {len(slots)} slots.",
-            "Return every supplied slot id ('i') exactly once.",
+            (
+                "Return one 'results' object with exactly these required keys: "
+                + ", ".join(str(slot.slot) for slot in slots)
+                + "."
+            ),
+            "Fill every key listed in input.slots exactly once; no required comparison may be omitted.",
+            "Do not return a 'slots' array and do not generate slot ids; the result keys are Python-owned.",
+            (
+                "Do not omit later concepts because the question emphasizes an earlier concept; "
+                "all supplied comparison slots are required by the activated-concept matrix."
+            ),
             "For c use exactly one supplied category code.",
             "Compare only the claims supplied for that slot.",
-            "Use ic (insufficient_corpus_coverage) only when the supplied slot has ic_allowed=true. When ic_allowed=false, choosing ic is invalid.",
-            "The slot field 'u' is Python-owned. Never invent, infer, add, or return limitation references that were not supplied in 'u'.",
-            "When ic_allowed=true and c='ic', base the comparison only on the supplied limitation references in 'u'; do not invent a new limitation.",
+            "Use ic only when that slot has ic_allowed=true; ic when false is invalid.",
+            "Limitation refs are Python-owned: never invent, infer, add, or return refs not supplied in u.",
+            "When ic_allowed=true and c=ic, base the insufficiency only on the supplied u refs.",
             "Do not equate Atman/Brahman with Purusha.",
-            "Do not present Advaita concepts such as Atman, Brahman, Maya, or non-duality as equivalent to Samkhya concepts such as Purusha, Prakriti, or their dualist ontology.",
-            "Never describe non-duality as shared by Advaita and Samkhya; non-duality may be attributed to Advaita only when supported by the supplied claims.",
-            "Shared terms such as eternal, constant, unchanging, essence, self, consciousness, witness, or awareness do not by themselves justify substantive_agreement between Advaita and Samkhya. Prefer partial_overlap or functional_analogy unless the supplied claims support compatible meaning at the same conceptual and ontological level.",
-            "Do not convert scientific claims, empirical findings, cognitive models, neural observations, perceptual findings, or experimental results into metaphysical proof.",
-            "Do not claim that Science proves or disproves Atman, Brahman, Maya, Purusha, Prakriti, non-duality, or any ultimate metaphysical reality unless such a claim is explicitly present in the supplied scientific claim text.",
-            "A similarity in function, vocabulary, phenomenology, or explanatory role does not by itself establish ontological identity or substantive agreement.",
-            "Use functional_analogy when two claims perform a comparable explanatory or functional role but differ in ontology, mechanism, epistemic status, or level of explanation.",
-            "Use partial_overlap when the supplied claims share a limited feature or implication but also contain meaningful differences.",
-            "Use substantive_agreement only when the supplied claims support compatible meaning at the same relevant level of explanation and there is no material ontological, epistemic, or semantic conflict.",
-            "Use substantive_disagreement only when the supplied claims support an actual incompatible position; absence of evidence, different terminology, or different explanatory levels alone are not substantive disagreement.",
-            "Do not infer agreement or disagreement from domain labels alone. Classify only from the supplied claims and supplied limitations.",
-            "Do not strengthen, universalize, generalize, or add certainty to the supplied claims.",
-            "Do not introduce facts, doctrines, interpretations, mechanisms, definitions, citations, claim ids, or limitation ids that are not present in the supplied slot.",
-            "The explanation e must accurately reflect category c and must not state a stronger relationship than c permits.",
-            "For functional_analogy, e must explicitly preserve the relevant difference rather than implying identity.",
-            "For partial_overlap, e must state both the shared aspect and the important difference when they are supported by the supplied claims.",
-            "For substantive_disagreement, e must identify the incompatible positions supported by the supplied claims.",
-            "For insufficient_corpus_coverage, e must explain that the supplied evidence is insufficient for that comparison and must not fabricate a substantive relationship.",
+            "Do not treat Advaita concepts as equivalent to Samkhya ontology.",
+            "Never describe non-duality as shared by Advaita and Samkhya.",
+            "Shared terms such as eternal, constant, unchanging, essence, self, consciousness, witness, or awareness do not by themselves establish substantive agreement.",
+            "Scientific empirical claims are not metaphysical proof and may not prove or disprove Atman, Brahman, Maya, Purusha, Prakriti, or non-duality unless explicitly stated in the supplied scientific claim text.",
+            "Vocabulary or functional similarity does not establish ontological identity.",
+            "Use functional_analogy when roles are comparable but ontology, mechanism, or epistemic level differs.",
+            "Use partial_overlap only for a limited shared feature plus meaningful differences.",
+            "Use substantive_agreement only for compatible claims at the same relevant level with no material conflict.",
+            "Use substantive_disagreement/direct_tension only for genuinely incompatible supplied positions.",
+            "Do not infer relationships from domain labels alone.",
+            "Do not strengthen, universalize, or add certainty beyond the supplied claims.",
+            "Do not invent facts, doctrines, citations, claim refs, or limitation refs.",
+            "The explanation must match the selected category.",
+            "For functional_analogy preserve the difference; for partial_overlap state both the shared aspect and the difference; for tension identify the incompatible positions; for ic say the supplied evidence is insufficient without fabricating a relationship.",
             "e must be one short grounded sentence.",
             "Return JSON only.",
-        ],        
+        ],
         "shape": response_shape_description(slots),
         "input": packet,
     }
@@ -836,13 +854,58 @@ def synthesis_user_prompt(
     )
 
 
+def synthesis_schema(
+    slots: tuple[ComparisonSlot, ...],
+) -> dict[str, object]:
+    """Strict schema for the Python-owned Phase 16 slot matrix.
+
+    Slot identity and cardinality are represented as exact required object
+    properties rather than a model-generated array index. The model owns only
+    the relationship category and grounded explanation for each pre-built
+    comparison slot.
+    """
+
+    result_properties: dict[str, object] = {}
+    required_result_keys: list[str] = []
+
+    for slot in slots:
+        key = str(slot.slot)
+        required_result_keys.append(key)
+        result_properties[key] = {
+            "type": "object",
+            "additionalProperties": False,
+            "required": ["c", "e"],
+            "properties": {
+                "c": {
+                    "type": "string",
+                    "enum": list(CATEGORY_CODES.keys()),
+                },
+                "e": {"type": "string"},
+            },
+        }
+
+    return {
+        "type": "object",
+        "additionalProperties": False,
+        "required": ["results"],
+        "properties": {
+            "results": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": required_result_keys,
+                "properties": result_properties,
+            }
+        },
+    }
+
+
 def groq_payload(
     *,
     packet: Mapping[str, object],
     slots: tuple[ComparisonSlot, ...],
     config: SynthesisProviderConfig,
 ) -> dict[str, object]:
-    return {
+    payload: dict[str, object] = {
         "model": config.model,
         "messages": [
             {
@@ -856,10 +919,26 @@ def groq_payload(
         ],
         "temperature": config.temperature,
         "max_completion_tokens": config.max_completion_tokens,
-        "response_format": {
-            "type": "json_object",
-        },
     }
+
+    if config.model in REASONING_EFFORT_MODELS:
+        payload["reasoning_effort"] = config.reasoning_effort
+
+    if config.model in JSON_OBJECT_MODELS:
+        payload["response_format"] = {
+            "type": "json_object",
+        }
+    else:
+        payload["response_format"] = {
+            "type": "json_schema",
+            "json_schema": {
+                "name": "phase1_cross_domain_synthesis",
+                "strict": True,
+                "schema": synthesis_schema(slots),
+            },
+        }
+
+    return payload
 
 
 def extract_completion_content(raw: object) -> str:
@@ -902,6 +981,41 @@ def retry_wait_seconds(
         return float(match.group(1)) + 0.5
 
     return float(attempt * 2)
+
+
+def groq_error_code(
+    response: httpx.Response,
+) -> str:
+    """Return Groq's structured error code when present."""
+
+    try:
+        raw: object = response.json()
+    except json.JSONDecodeError:
+        return ""
+
+    if not isinstance(raw, Mapping):
+        return ""
+
+    error = raw.get("error")
+    if not isinstance(error, Mapping):
+        return ""
+
+    code = error.get("code")
+    if not isinstance(code, str):
+        return ""
+
+    return code.strip()
+
+
+def is_retryable_structured_output_failure(
+    response: httpx.Response,
+) -> bool:
+    """Recognize only Groq's transient strict-output validation failure."""
+
+    return (
+        response.status_code == 400
+        and groq_error_code(response) == "json_validate_failed"
+    )
 
 
 def provider_call(
@@ -995,8 +1109,13 @@ def provider_call(
                 "latency_ms": elapsed_ms,
                 "temperature": config.temperature,
                 "max_completion_tokens": config.max_completion_tokens,
-                "json_object_mode": True,
-                "structured_output_strict": False,
+                "reasoning_effort": (
+                    config.reasoning_effort
+                    if config.model in REASONING_EFFORT_MODELS
+                    else None
+                ),
+                "json_object_mode": (config.model in JSON_OBJECT_MODELS),
+                "structured_output_strict": (config.model not in JSON_OBJECT_MODELS),
                 "finish_reason": finish_reason,
                 "slot_count": len(slots),
                 "usage": (
@@ -1012,34 +1131,80 @@ def provider_call(
             return parsed_mapping, provider_metadata
 
         body = response.text[:1200]
-        last_error = f"status={response.status_code} body={body}"
+        error_code = groq_error_code(
+            response
+        )
+        last_error = (
+            f"status={response.status_code} "
+            f"error_code={error_code or '<none>'} "
+            f"body={body}"
+        )
 
-        retryable = response.status_code in {
-            408,
-            409,
-            429,
-            500,
-            502,
-            503,
-            504,
-        }
+        structured_output_retry = (
+            is_retryable_structured_output_failure(
+                response
+            )
+        )
+
+        retryable = (
+            response.status_code
+            in {
+                408,
+                409,
+                429,
+                500,
+                502,
+                503,
+                504,
+            }
+            or structured_output_retry
+        )
+
         if retryable and attempt < config.max_attempts:
-            wait_seconds = (
-                retry_wait_seconds(response, attempt)
-                if response.status_code == 429
-                else float(attempt * 2)
+            if response.status_code == 429:
+                wait_seconds = retry_wait_seconds(
+                    response,
+                    attempt,
+                )
+            elif structured_output_retry:
+                # Retry the exact same strict JSON-schema request. There is
+                # no fallback to json_object and no relaxation of the local
+                # synthesis validators or non-equivalence guardrails.
+                wait_seconds = float(
+                    attempt * 2
+                )
+            else:
+                wait_seconds = float(
+                    attempt * 2
+                )
+
+            if structured_output_retry:
+                LOGGER.warning(
+                    "Synthesis strict structured-output generation retry "
+                    "%d/%d error_code=%s wait_seconds=%.2f",
+                    attempt,
+                    config.max_attempts,
+                    error_code,
+                    wait_seconds,
+                )
+            else:
+                LOGGER.warning(
+                    "Synthesis provider retry %d/%d status=%d "
+                    "wait_seconds=%.2f",
+                    attempt,
+                    config.max_attempts,
+                    response.status_code,
+                    wait_seconds,
+                )
+
+            time.sleep(
+                wait_seconds
             )
-            LOGGER.warning(
-                "Synthesis provider retry %d/%d status=%d wait_seconds=%.2f",
-                attempt,
-                config.max_attempts,
-                response.status_code,
-                wait_seconds,
-            )
-            time.sleep(wait_seconds)
             continue
 
-        raise SynthesisError(f"Groq synthesis request failed {last_error}")
+        raise SynthesisError(
+            f"Groq synthesis request failed {last_error}"
+        )
 
     raise SynthesisError(f"Groq synthesis request exhausted retries: {last_error}")
 
@@ -1096,13 +1261,6 @@ def parse_slot_result(
     if category is None:
         raise SynthesisError(f"slot {slot.slot} has invalid category code {category_code!r}.")
 
-    if (category== "insufficient_corpus_coverage" and not slot.required_unsupported_refs):
-        raise SynthesisError(
-            "Synthesis provider returned insufficient_corpus_coverage for slot "
-            f"{slot.slot!r}, but Python supplied no "
-            "valid limitation references."
-        )
-
     explanation = require_string(
         raw.get("e"),
         f"slot {slot.slot}/explanation",
@@ -1110,6 +1268,15 @@ def parse_slot_result(
     if len(explanation) > MAX_EXPLANATION_CHARS:
         raise SynthesisError(
             f"slot {slot.slot} explanation exceeds {MAX_EXPLANATION_CHARS} characters."
+        )
+
+    if (
+        category == "insufficient_corpus_coverage"
+        and not slot.required_unsupported_refs
+    ):
+        raise SynthesisError(
+            f"slot {slot.slot} returned insufficient_corpus_coverage "
+            "when ic_allowed=false."
         )
 
     if category == "insufficient_corpus_coverage":
@@ -1779,6 +1946,7 @@ def canonicalize_synthesis(
     }
 
 
+
 def validate_phase15_manifest_document(
     manifest: Mapping[str, object],
 ) -> tuple[dict[str, object], str]:
@@ -1789,11 +1957,21 @@ def validate_phase15_manifest_document(
         "Phase 15 manifest",
     )
 
-    if optional_string(document.get("phase")) != "phase_15_build_domain_specific_generation":
-        raise SynthesisError("Generation manifest is not a Phase 15 manifest.")
+    if (
+        optional_string(document.get("phase"))
+        != "phase_15_build_domain_specific_generation"
+    ):
+        raise SynthesisError(
+            "Generation manifest is not a Phase 15 manifest."
+        )
 
-    if optional_string(document.get("status")) != "domain_generation_complete":
-        raise SynthesisError("Phase 15 generation is not complete.")
+    if (
+        optional_string(document.get("status"))
+        != "domain_generation_complete"
+    ):
+        raise SynthesisError(
+            "Phase 15 generation is not complete."
+        )
 
     exit_gate = require_mapping(
         document.get("exit_gate"),
@@ -1813,7 +1991,9 @@ def validate_phase15_manifest_document(
 
     for field_name in required_true:
         if exit_gate.get(field_name) is not True:
-            raise SynthesisError(f"Phase 15 exit gate failed: {field_name}.")
+            raise SynthesisError(
+                f"Phase 15 exit gate failed: {field_name}."
+            )
 
     corpus_version = require_string(
         document.get("corpus_version"),
@@ -1845,7 +2025,9 @@ def parse_domain_responses_document(
     )
 
     if corpus_version != expected_corpus_version:
-        raise SynthesisError("Phase 15 manifest and domain_responses corpus versions differ.")
+        raise SynthesisError(
+            "Phase 15 manifest and domain_responses corpus versions differ."
+        )
 
     question = require_string(
         payload.get("question"),
@@ -1906,20 +2088,28 @@ class SynthesisService:
         provider_runner: SynthesisProviderRunner | None = None,
         generated_at: str | None = None,
         generation_elapsed_ms: float | None = None,
-        synthesis_output_path: str = ("artifacts/phase1/synthesis/synthesis.json"),
+        synthesis_output_path: str = (
+            "artifacts/phase1/synthesis/synthesis.json"
+        ),
         raise_on_validation_failure: bool = True,
     ) -> SynthesisServiceResult:
         """Generate and validate Phase 16 without artifact file I/O."""
 
         validate_provider_config(provider_config)
 
-        domain_responses_document = _dump_contract(domain_responses)
-        generation_manifest_document = _dump_contract(generation_manifest)
+        domain_responses_document = _dump_contract(
+            domain_responses
+        )
+        generation_manifest_document = _dump_contract(
+            generation_manifest
+        )
 
         (
             phase15_manifest,
             corpus_version,
-        ) = validate_phase15_manifest_document(generation_manifest_document)
+        ) = validate_phase15_manifest_document(
+            generation_manifest_document
+        )
 
         (
             question,
@@ -1936,9 +2126,13 @@ class SynthesisService:
         )
 
         if manifest_question != question:
-            raise SynthesisError("Phase 15 manifest and domain_responses questions differ.")
+            raise SynthesisError(
+                "Phase 15 manifest and domain_responses questions differ."
+            )
 
-        active_concepts = active_query_concepts(query_activation)
+        active_concepts = active_query_concepts(
+            query_activation
+        )
 
         slots = build_comparison_slots(
             active_concepts=active_concepts,
@@ -2011,7 +2205,9 @@ class SynthesisService:
             "synthesis validation",
         )
 
-        exit_gate_passed = validation.get("passed") is True
+        exit_gate_passed = (
+            validation.get("passed") is True
+        )
 
         full_synthesis_payload: dict[str, object] = {
             "question": question,
@@ -2019,7 +2215,9 @@ class SynthesisService:
             **synthesis_payload,
         }
 
-        synthesis_model = SynthesisResult.model_validate(full_synthesis_payload)
+        synthesis_model = SynthesisResult.model_validate(
+            full_synthesis_payload
+        )
 
         comparisons = require_list(
             synthesis_payload.get("comparisons"),
@@ -2034,20 +2232,29 @@ class SynthesisService:
             "synthesis non_equivalences",
         )
         insufficient = require_list(
-            synthesis_payload.get("insufficient_corpus_coverage"),
+            synthesis_payload.get(
+                "insufficient_corpus_coverage"
+            ),
             "synthesis insufficient_corpus_coverage",
         )
 
         all_comparisons_canonical = all(
-            isinstance(item, Mapping) and isinstance(item.get("citations"), list)
+            isinstance(item, Mapping)
+            and isinstance(item.get("citations"), list)
             for item in comparisons
         )
 
         timestamp = generated_at or utc_now()
 
         manifest_payload: dict[str, object] = {
-            "phase": ("phase_16_synthesis_and_tension_detection"),
-            "status": ("synthesis_complete" if exit_gate_passed else "synthesis_validation_failed"),
+            "phase": (
+                "phase_16_synthesis_and_tension_detection"
+            ),
+            "status": (
+                "synthesis_complete"
+                if exit_gate_passed
+                else "synthesis_validation_failed"
+            ),
             "script_version": SCRIPT_VERSION,
             "synthesis_version": SYNTHESIS_VERSION,
             "prompt_version": PROMPT_VERSION,
@@ -2058,8 +2265,18 @@ class SynthesisService:
                 "provider": "Groq",
                 "model": provider_config.model,
                 "temperature": provider_config.temperature,
-                "json_object_mode": True,
-                "structured_output_strict": False,
+                "reasoning_effort": (
+                    provider_config.reasoning_effort
+                    if provider_config.model in REASONING_EFFORT_MODELS
+                    else None
+                ),
+                "max_completion_tokens": provider_config.max_completion_tokens,
+                "json_object_mode": (
+                    provider_config.model in JSON_OBJECT_MODELS
+                ),
+                "structured_output_strict": (
+                    provider_config.model not in JSON_OBJECT_MODELS
+                ),
                 "maximum_api_calls": 1,
             },
             "input_policy": {
@@ -2095,23 +2312,39 @@ class SynthesisService:
                 "phase15_grounded_input_only": True,
                 "raw_corpus_not_resent": True,
                 "domain_differences_preserved": exit_gate_passed,
-                ("unsupported_comparisons_identified_or_left_unasserted"): exit_gate_passed,
+                (
+                    "unsupported_comparisons_identified_or_left_unasserted"
+                ): exit_gate_passed,
                 "all_comparison_references_validated": exit_gate_passed,
-                ("comparison_citations_canonicalized_from_phase15"): all_comparisons_canonical,
+                (
+                    "comparison_citations_canonicalized_from_phase15"
+                ): all_comparisons_canonical,
                 "known_tension_guardrails_enforced": True,
-                ("pairwise_active_concept_matrix_complete"): (
-                    exit_gate_passed and len(comparisons) == len(slots)
+                (
+                    "pairwise_active_concept_matrix_complete"
+                ): (
+                    exit_gate_passed
+                    and len(comparisons) == len(slots)
                 ),
                 "comparison_identity_owned_by_python": True,
                 "limitation_identity_owned_by_python": True,
-                ("relevant_unsupported_aspects_propagated"): exit_gate_passed,
-                ("synthesis_explanations_entailment_guarded"): exit_gate_passed,
-                ("three_way_overview_derived_from_pairwise_relations"): True,
-                ("summary_and_non_conclusion_derived_deterministically"): True,
+                (
+                    "relevant_unsupported_aspects_propagated"
+                ): exit_gate_passed,
+                (
+                    "synthesis_explanations_entailment_guarded"
+                ): exit_gate_passed,
+                (
+                    "three_way_overview_derived_from_pairwise_relations"
+                ): True,
+                (
+                    "summary_and_non_conclusion_derived_deterministically"
+                ): True,
                 "atman_purusha_false_equivalence_rejected": True,
                 "science_metaphysical_proof_rejected": True,
                 (
-                    "synthesis_preserves_domain_differences_and_identifies_unsupported_comparisons"
+                    "synthesis_preserves_domain_differences_and_"
+                    "identifies_unsupported_comparisons"
                 ): exit_gate_passed,
             },
             "next_step": (
@@ -2123,38 +2356,18 @@ class SynthesisService:
             ),
         }
 
-        manifest_model = SynthesisManifest.model_validate(manifest_payload)
+        manifest_model = SynthesisManifest.model_validate(
+            manifest_payload
+        )
 
-        if raise_on_validation_failure and not exit_gate_passed:
-                raw_issues = validation.get("issues")
-                issues = raw_issues if isinstance(raw_issues, list) else []
-
-                error_issues = [
-                    issue for issue in issues
-                    if isinstance(issue, Mapping) and issue.get("severity") == "error"
-                ]
-
-                LOGGER.error(
-                    "Phase 16 synthesis comparison validation failed: %s",
-                    json.dumps(error_issues, ensure_ascii=False, sort_keys=True),
-                )
-
-                issue_summary_parts = []
-                for issue in error_issues:
-                    parts = [
-                        str(issue[key]) for key in ("code", "comparison_id", "message")
-                        if isinstance(issue.get(key), str)
-                    ]
-                    if parts:
-                        issue_summary_parts.append(" | ".join(parts))
-
-                issue_summary = (
-                    "; ".join(issue_summary_parts)
-                    if issue_summary_parts
-                    else "validation failed with no error details"
-                )
-
-                raise SynthesisError(f"Phase 16 generated synthesis but failed comparison validation: {issue_summary}")
+        if (
+            raise_on_validation_failure
+            and not exit_gate_passed
+        ):
+            raise SynthesisError(
+                "Phase 16 generated synthesis but failed comparison "
+                "validation."
+            )
 
         return SynthesisServiceResult(
             synthesis=synthesis_model,

@@ -16,18 +16,28 @@ from apps.api.models.runtime_contracts import (
     RetrievalManifest,
 )
 from apps.api.services.domain_generation import (
+    ADVAITA_GROQ_MODEL,
+    ADVAITA_MAX_COMPLETION_TOKENS,
+    ADVAITA_REASONING_EFFORT,
     DEFAULT_GROQ_MODEL,
-    DEFAULT_MAX_COMPLETION_TOKENS,
     DEFAULT_MAX_PROVIDER_ATTEMPTS,
-    DEFAULT_REASONING_EFFORT,
     DEFAULT_TEMPERATURE,
     DEFAULT_TIMEOUT_SECONDS,
     GENERATION_VERSION,
     PROMPT_VERSION,
+    SAMKHYA_GROQ_MODEL,
+    SAMKHYA_MAX_COMPLETION_TOKENS,
+    SAMKHYA_REASONING_EFFORT,
+    SCIENCE_GROQ_MODEL,
+    SCIENCE_MAX_COMPLETION_TOKENS,
+    SCIENCE_REASONING_EFFORT,
     DomainGenerationService,
+    DomainProviderConfig,
     GenerationError,
     ProviderConfig,
-    validate_provider_config,
+    default_domain_provider_config,
+    normalize_domain_provider_config,
+    validate_domain_provider_config,
 )
 
 LOGGER = logging.getLogger("wth.phase1.build_domain_generation")
@@ -46,8 +56,8 @@ def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Phase 15: generate three independently grounded domain "
-            "responses from a Phase 14 evidence package using parallel "
-            "Groq calls."
+            "responses from a Phase 14 evidence package using model-lane "
+            "scheduled Groq calls."
         )
     )
     parser.add_argument(
@@ -73,12 +83,20 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--model",
         default=None,
-        help=(f"Groq model ID. Defaults to GROQ_MODEL or {DEFAULT_GROQ_MODEL}."),
+        help=(
+            "Legacy all-domain model override. If omitted, Artifact Mode "
+            "uses the domain split: Science=GPT-OSS 20B, "
+            "Advaita=GPT-OSS 120B, Samkhya=GPT-OSS 20B."
+        ),
     )
     parser.add_argument(
         "--reasoning-effort",
         choices=("low", "medium", "high"),
-        default=DEFAULT_REASONING_EFFORT,
+        default=None,
+        help=(
+            "Legacy all-domain override. By default each domain uses its "
+            "agreed model-specific reasoning effort."
+        ),
     )
     parser.add_argument(
         "--temperature",
@@ -88,7 +106,62 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--max-completion-tokens",
         type=int,
-        default=DEFAULT_MAX_COMPLETION_TOKENS,
+        default=None,
+        help=(
+            "Legacy all-domain override. By default each domain uses its "
+            "agreed completion-token ceiling."
+        ),
+    )
+    parser.add_argument(
+        "--science-model",
+        default=None,
+        help=f"Science model override. Default: {SCIENCE_GROQ_MODEL}.",
+    )
+    parser.add_argument(
+        "--science-reasoning-effort",
+        choices=("low", "medium", "high"),
+        default=None,
+        help=(f"Science reasoning override. Default: {SCIENCE_REASONING_EFFORT}."),
+    )
+    parser.add_argument(
+        "--science-max-completion-tokens",
+        type=int,
+        default=None,
+        help=(f"Science completion-token override. Default: {SCIENCE_MAX_COMPLETION_TOKENS}."),
+    )
+    parser.add_argument(
+        "--advaita-model",
+        default=None,
+        help=f"Advaita model override. Default: {ADVAITA_GROQ_MODEL}.",
+    )
+    parser.add_argument(
+        "--advaita-reasoning-effort",
+        choices=("low", "medium", "high"),
+        default=None,
+        help=(f"Advaita reasoning override. Default: {ADVAITA_REASONING_EFFORT}."),
+    )
+    parser.add_argument(
+        "--advaita-max-completion-tokens",
+        type=int,
+        default=None,
+        help=(f"Advaita completion-token override. Default: {ADVAITA_MAX_COMPLETION_TOKENS}."),
+    )
+    parser.add_argument(
+        "--samkhya-model",
+        default=None,
+        help=f"Samkhya model override. Default: {SAMKHYA_GROQ_MODEL}.",
+    )
+    parser.add_argument(
+        "--samkhya-reasoning-effort",
+        choices=("low", "medium", "high"),
+        default=None,
+        help=(f"Samkhya reasoning override. Default: {SAMKHYA_REASONING_EFFORT}."),
+    )
+    parser.add_argument(
+        "--samkhya-max-completion-tokens",
+        type=int,
+        default=None,
+        help=(f"Samkhya completion-token override. Default: {SAMKHYA_MAX_COMPLETION_TOKENS}."),
     )
     parser.add_argument(
         "--timeout-seconds",
@@ -303,6 +376,101 @@ def model_from_configuration(
     return DEFAULT_GROQ_MODEL
 
 
+def _provider_with_overrides(
+    base: ProviderConfig,
+    *,
+    model: str | None,
+    reasoning_effort: str | None,
+    max_completion_tokens: int | None,
+) -> ProviderConfig:
+    return ProviderConfig(
+        api_key=base.api_key,
+        model=(model.strip() if model and model.strip() else base.model),
+        reasoning_effort=(
+            reasoning_effort if reasoning_effort is not None else base.reasoning_effort
+        ),
+        temperature=base.temperature,
+        max_completion_tokens=(
+            max_completion_tokens
+            if max_completion_tokens is not None
+            else base.max_completion_tokens
+        ),
+        timeout_seconds=base.timeout_seconds,
+        max_attempts=base.max_attempts,
+    )
+
+
+def build_domain_provider_config(
+    *,
+    project_root: Path,
+    arguments: argparse.Namespace,
+) -> DomainProviderConfig:
+    """Build Artifact Mode provider routing from CLI/environment.
+
+    Default behavior uses the Stage 3.7 split declared by
+    default_domain_provider_config(). Legacy global overrides remain explicit
+    opt-ins and are applied before any per-domain override.
+    """
+
+    api_key = api_key_from_env(project_root)
+
+    base = default_domain_provider_config(
+        api_key=api_key,
+        temperature=arguments.temperature,
+        timeout_seconds=arguments.timeout_seconds,
+        max_attempts=arguments.max_provider_attempts,
+    )
+
+    global_model = arguments.model.strip() if arguments.model and arguments.model.strip() else None
+
+    global_reasoning = arguments.reasoning_effort
+
+    global_max_tokens = arguments.max_completion_tokens
+
+    science = _provider_with_overrides(
+        base.science,
+        model=(arguments.science_model or global_model),
+        reasoning_effort=(arguments.science_reasoning_effort or global_reasoning),
+        max_completion_tokens=(
+            arguments.science_max_completion_tokens
+            if arguments.science_max_completion_tokens is not None
+            else global_max_tokens
+        ),
+    )
+
+    advaita = _provider_with_overrides(
+        base.advaita,
+        model=(arguments.advaita_model or global_model),
+        reasoning_effort=(arguments.advaita_reasoning_effort or global_reasoning),
+        max_completion_tokens=(
+            arguments.advaita_max_completion_tokens
+            if arguments.advaita_max_completion_tokens is not None
+            else global_max_tokens
+        ),
+    )
+
+    samkhya = _provider_with_overrides(
+        base.samkhya,
+        model=(arguments.samkhya_model or global_model),
+        reasoning_effort=(arguments.samkhya_reasoning_effort or global_reasoning),
+        max_completion_tokens=(
+            arguments.samkhya_max_completion_tokens
+            if arguments.samkhya_max_completion_tokens is not None
+            else global_max_tokens
+        ),
+    )
+
+    config = DomainProviderConfig(
+        science=science,
+        advaita=advaita,
+        samkhya=samkhya,
+    )
+
+    validate_domain_provider_config(config)
+
+    return config
+
+
 def load_contract(
     path: Path,
     model_type: type[ContractT],
@@ -325,14 +493,16 @@ def run_phase15(
     evidence_package_path: Path,
     retrieval_manifest_path: Path,
     output_directory: Path,
-    provider_config: ProviderConfig,
+    provider_config: ProviderConfig | DomainProviderConfig,
     replace: bool,
 ) -> dict[str, object]:
     """Run Phase 15 as a file-I/O wrapper over DomainGenerationService."""
 
     # Preserve the legacy behavior: reject invalid provider configuration
     # before doing any artifact processing or provider calls.
-    validate_provider_config(provider_config)
+    normalized_provider_config = normalize_domain_provider_config(provider_config)
+
+    validate_domain_provider_config(normalized_provider_config)
 
     project_root = project_root.resolve()
 
@@ -365,10 +535,23 @@ def run_phase15(
     )
 
     LOGGER.info(
-        "Phase 15 starting: generation_version=%s model=%s",
+        "Phase 15 starting: generation_version=%s",
         GENERATION_VERSION,
-        provider_config.model,
     )
+
+    for domain in (
+        "science",
+        "advaita",
+        "samkhya",
+    ):
+        domain_config = normalized_provider_config.for_domain(domain)
+        LOGGER.info(
+            "%s provider model=%s reasoning=%s max_completion_tokens=%d",
+            domain,
+            domain_config.model,
+            domain_config.reasoning_effort,
+            domain_config.max_completion_tokens,
+        )
 
     evidence_package = load_contract(
         evidence_package_path,
@@ -387,7 +570,7 @@ def run_phase15(
     result = service.generate(
         evidence_package=evidence_package,
         retrieval_manifest=retrieval_manifest,
-        provider_config=provider_config,
+        provider_config=normalized_provider_config,
         output_paths={
             "science": (paths["science"].as_posix()),
             "advaita": (paths["advaita"].as_posix()),
@@ -445,7 +628,7 @@ def run_phase15(
     LOGGER.info("Phase 15 domain generation complete")
 
     LOGGER.info(
-        "Parallel generation elapsed: %.2f ms",
+        "Scheduled generation elapsed: %.2f ms",
         manifest.timing.parallel_generation_elapsed_ms,
     )
 
@@ -493,17 +676,9 @@ def main() -> int:
 
     project_root = arguments.project_root.resolve()
 
-    provider_config = ProviderConfig(
-        api_key=api_key_from_env(project_root),
-        model=model_from_configuration(
-            project_root,
-            arguments.model,
-        ),
-        reasoning_effort=(arguments.reasoning_effort),
-        temperature=(arguments.temperature),
-        max_completion_tokens=(arguments.max_completion_tokens),
-        timeout_seconds=(arguments.timeout_seconds),
-        max_attempts=(arguments.max_provider_attempts),
+    provider_config = build_domain_provider_config(
+        project_root=project_root,
+        arguments=arguments,
     )
 
     try:
@@ -528,9 +703,11 @@ __all__ = [
     "DEFAULT_RETRIEVAL_MANIFEST",
     "GENERATION_VERSION",
     "PROMPT_VERSION",
+    "DomainProviderConfig",
     "GenerationError",
     "ProviderConfig",
     "api_key_from_env",
+    "build_domain_provider_config",
     "model_from_configuration",
     "run_phase15",
 ]

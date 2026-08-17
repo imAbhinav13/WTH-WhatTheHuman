@@ -21,14 +21,8 @@ from apps.api.services.coverage import (
     CoverageService,
 )
 from apps.api.services.domain_generation import (
-    DEFAULT_GROQ_MODEL,
-    DEFAULT_MAX_COMPLETION_TOKENS,
-    DEFAULT_MAX_PROVIDER_ATTEMPTS,
-    DEFAULT_REASONING_EFFORT,
-    DEFAULT_TEMPERATURE,
-    DEFAULT_TIMEOUT_SECONDS,
     DomainGenerationService,
-    ProviderConfig,
+    default_domain_provider_config,
 )
 from apps.api.services.query_orchestrator import (
     QueryOrchestrator,
@@ -44,15 +38,7 @@ from apps.api.services.retrieval import (
     RetrievalService,
 )
 from apps.api.services.synthesis import (
-    DEFAULT_MAX_COMPLETION_TOKENS as SYNTHESIS_MAX_COMPLETION_TOKENS,
-)
-from apps.api.services.synthesis import (
     DEFAULT_MAX_PROVIDER_ATTEMPTS as SYNTHESIS_MAX_PROVIDER_ATTEMPTS,
-)
-from apps.api.services.synthesis import (
-    DEFAULT_SYNTHESIS_MODEL,
-    SynthesisProviderConfig,
-    SynthesisService,
 )
 from apps.api.services.synthesis import (
     DEFAULT_TEMPERATURE as SYNTHESIS_TEMPERATURE,
@@ -60,10 +46,20 @@ from apps.api.services.synthesis import (
 from apps.api.services.synthesis import (
     DEFAULT_TIMEOUT_SECONDS as SYNTHESIS_TIMEOUT_SECONDS,
 )
+from apps.api.services.synthesis import (
+    SynthesisProviderConfig,
+    SynthesisService,
+)
 
 LOGGER = logging.getLogger("wth.stage3.6d.vertical_slice")
 
 DEFAULT_QUESTION = "What constitutes the self or personal identity?"
+
+# Stage 3.7 starting values for Phase 16. SynthesisProviderConfig currently
+# has no reasoning_effort field; the agreed ``high`` setting must be wired in
+# synthesis.py itself rather than being simulated at composition time.
+PHASE16_STARTING_MODEL = "openai/gpt-oss-120b"
+PHASE16_STARTING_MAX_COMPLETION_TOKENS = 4500
 
 
 class VerticalSliceConfigurationError(RuntimeError):
@@ -244,38 +240,53 @@ def build_orchestrator() -> QueryOrchestrator:
         response_assembly=(ResponseAssemblyService()),
     )
 
+    # Use the same centrally defined Phase 15 mapping as Artifact Mode.
+    # DomainGenerationService owns model-lane scheduling:
+    #   Science  -> GPT-OSS 20B  / medium / 2500
+    #   Advaita  -> GPT-OSS 120B / high   / 3000
+    #   Samkhya  -> GPT-OSS 20B  / medium / 2500
+    # Science + Advaita can start together; Samkhya waits for Science to
+    # release the shared GPT-OSS 20B lane.
+    domain_provider_config = default_domain_provider_config(
+        api_key=groq_api_key,
+    )
+
     provider_config = QueryPipelineProviderConfig(
-        domain_generation=(
-            ProviderConfig(
-                api_key=(groq_api_key),
-                model=(
-                    optional_environment(
-                        "GROQ_MODEL",
-                        DEFAULT_GROQ_MODEL,
-                    )
-                ),
-                reasoning_effort=(DEFAULT_REASONING_EFFORT),
-                temperature=(DEFAULT_TEMPERATURE),
-                max_completion_tokens=(DEFAULT_MAX_COMPLETION_TOKENS),
-                timeout_seconds=(DEFAULT_TIMEOUT_SECONDS),
-                max_attempts=(DEFAULT_MAX_PROVIDER_ATTEMPTS),
-            )
-        ),
+        domain_generation=(domain_provider_config),
         synthesis=(
             SynthesisProviderConfig(
                 api_key=(groq_api_key),
                 model=(
                     optional_environment(
                         "PHASE16_GROQ_MODEL",
-                        DEFAULT_SYNTHESIS_MODEL,
+                        PHASE16_STARTING_MODEL,
                     )
                 ),
                 temperature=(SYNTHESIS_TEMPERATURE),
-                max_completion_tokens=(SYNTHESIS_MAX_COMPLETION_TOKENS),
+                max_completion_tokens=(PHASE16_STARTING_MAX_COMPLETION_TOKENS),
                 timeout_seconds=(SYNTHESIS_TIMEOUT_SECONDS),
                 max_attempts=(SYNTHESIS_MAX_PROVIDER_ATTEMPTS),
             )
         ),
+    )
+
+    LOGGER.info(
+        "Stage 3.6D Phase 15 provider lanes: science=%s/%s/%d advaita=%s/%s/%d samkhya=%s/%s/%d",
+        domain_provider_config.science.model,
+        domain_provider_config.science.reasoning_effort,
+        domain_provider_config.science.max_completion_tokens,
+        domain_provider_config.advaita.model,
+        domain_provider_config.advaita.reasoning_effort,
+        domain_provider_config.advaita.max_completion_tokens,
+        domain_provider_config.samkhya.model,
+        domain_provider_config.samkhya.reasoning_effort,
+        domain_provider_config.samkhya.max_completion_tokens,
+    )
+    LOGGER.info(
+        "Stage 3.6D Phase 16 provider: model=%s max_completion_tokens=%d "
+        "reasoning_effort=pending-synthesis-config-support",
+        provider_config.synthesis.model,
+        provider_config.synthesis.max_completion_tokens,
     )
 
     return QueryOrchestrator(
@@ -290,46 +301,102 @@ def compact_final_summary(
     elapsed_seconds: float,
 ) -> str:
     sections_raw = final_response.get("sections")
-    sections: Mapping[str, object] = sections_raw if isinstance(sections_raw, Mapping) else {}
+    sections: Mapping[str, object] = (
+        sections_raw
+        if isinstance(
+            sections_raw,
+            Mapping,
+        )
+        else {}
+    )
 
     coverage_raw = sections.get("coverage")
-    coverage: Mapping[str, object] = coverage_raw if isinstance(coverage_raw, Mapping) else {}
+    coverage: Mapping[str, object] = (
+        coverage_raw
+        if isinstance(
+            coverage_raw,
+            Mapping,
+        )
+        else {}
+    )
 
-    activated_raw = sections.get("activated_concepts")
-    activated_concepts = activated_raw if isinstance(activated_raw, list) else []
+    active_concepts_raw = sections.get("activated_concepts")
+    active_concepts = (
+        active_concepts_raw
+        if isinstance(
+            active_concepts_raw,
+            list,
+        )
+        else []
+    )
 
     domain_perspectives_raw = sections.get("domain_perspectives")
     domain_perspectives: Mapping[str, object] = (
-        domain_perspectives_raw if isinstance(domain_perspectives_raw, Mapping) else {}
+        domain_perspectives_raw
+        if isinstance(
+            domain_perspectives_raw,
+            Mapping,
+        )
+        else {}
     )
+
+    claim_count = 0
+    for raw_domain in domain_perspectives.values():
+        if not isinstance(
+            raw_domain,
+            Mapping,
+        ):
+            continue
+
+        claims = raw_domain.get("claims")
+        if isinstance(
+            claims,
+            list,
+        ):
+            claim_count += len(claims)
 
     comparative_raw = sections.get("comparative_synthesis")
     comparative: Mapping[str, object] = (
-        comparative_raw if isinstance(comparative_raw, Mapping) else {}
+        comparative_raw
+        if isinstance(
+            comparative_raw,
+            Mapping,
+        )
+        else {}
     )
 
     comparisons_raw = comparative.get("comparisons")
-    comparisons = comparisons_raw if isinstance(comparisons_raw, list) else []
-
-    claim_count = 0
-    for perspective_raw in domain_perspectives.values():
-        if not isinstance(perspective_raw, Mapping):
-            continue
-        claims_raw = perspective_raw.get("claims")
-        if isinstance(claims_raw, list):
-            claim_count += len(claims_raw)
+    comparisons = (
+        comparisons_raw
+        if isinstance(
+            comparisons_raw,
+            list,
+        )
+        else []
+    )
 
     citations_raw = final_response.get("claim_level_citations")
-    citations = citations_raw if isinstance(citations_raw, list) else []
-
-    coverage_status = coverage.get("coverage_status")
-    coverage_score = coverage.get("coverage_score")
-    question = final_response.get("question")
-    corpus_version = final_response.get("corpus_version")
+    citations = (
+        citations_raw
+        if isinstance(
+            citations_raw,
+            list,
+        )
+        else []
+    )
 
     validation_raw = final_response.get("validation")
-    validation: Mapping[str, object] = validation_raw if isinstance(validation_raw, Mapping) else {}
-    validation_passed = validation.get("passed")
+    validation: Mapping[str, object] = (
+        validation_raw
+        if isinstance(
+            validation_raw,
+            Mapping,
+        )
+        else {}
+    )
+
+    question = final_response.get("question")
+    corpus_version = final_response.get("corpus_version")
 
     return "\n".join(
         (
@@ -339,16 +406,21 @@ def compact_final_summary(
             "=" * 72,
             f"Question: {question}",
             f"Corpus: {corpus_version}",
-            f"Coverage: {coverage_status} (score={coverage_score})",
             (
-                f"Counts: concepts={len(activated_concepts)} "
+                "Coverage: "
+                f"{coverage.get('coverage_status')} "
+                f"(score={coverage.get('coverage_score')})"
+            ),
+            (
+                "Counts: "
+                f"concepts={len(active_concepts)} "
                 f"domains={len(domain_perspectives)} "
                 f"claims={claim_count} "
                 f"citations={len(citations)} "
                 f"comparisons={len(comparisons)}"
             ),
-            f"Final validation passed: {validation_passed}",
-            f"Elapsed wall time: {elapsed_seconds:.2f}s",
+            (f"Final validation passed: {validation.get('passed')}"),
+            (f"Elapsed wall time: {elapsed_seconds:.2f}s"),
             "",
             "Request-path architecture:",
             "  Phase 14 -> Phase 15 -> Phase 16 -> Phase 17 -> Phase 18",
@@ -419,7 +491,9 @@ def main() -> int:
         QueryPipelineError,
         VerticalSliceConfigurationError,
     ):
-        LOGGER.exception("Stage 3.6D live vertical slice failed")
+        LOGGER.exception(
+            "Stage 3.6D live vertical slice failed",
+        )
         return 1
 
     except KeyboardInterrupt:

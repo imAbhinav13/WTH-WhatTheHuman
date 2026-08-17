@@ -1,19 +1,3 @@
-"""Validated Phase 15 domain generation as a runtime service.
-
-Stage 3.4 moves the existing Phase 15 behavior from artifact/file I/O to
-in-memory Stage 3.0 runtime contracts. The domain-specific prompts, evidence
-grounding, citation canonicalization, ontology leakage checks, metaphysical
-proof guards, Atman/Purusha protection, Groq retry/backoff behavior, and the
-existing ThreadPoolExecutor domain concurrency are preserved from
-scripts/build_phase1_domain_generation.py.
-
-This initial parity extraction is intentionally synchronous. Async concurrency
-modernization belongs to a later Stage 3 step after artifact/service parity is
-established.
-
-The runtime service performs no local artifact reads or writes.
-"""
-
 from __future__ import annotations
 
 import json
@@ -55,12 +39,37 @@ DEFAULT_RETRIEVAL_MANIFEST: Final = Path("artifacts/phase1/retrieval/retrieval_m
 DEFAULT_OUTPUT_DIRECTORY: Final = Path("artifacts/phase1/generation")
 
 GROQ_API_URL: Final = "https://api.groq.com/openai/v1/chat/completions"
-DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile"
+
+# Backward-compatible single-model default. New Phase 15 composition should
+# use DomainProviderConfig / default_domain_provider_config instead.
+DEFAULT_GROQ_MODEL: Final = "llama-3.3-70b-versatile"
 DEFAULT_REASONING_EFFORT: Final = "low"
 DEFAULT_TEMPERATURE: Final = 0.2
 DEFAULT_MAX_COMPLETION_TOKENS: Final = 1800
 DEFAULT_TIMEOUT_SECONDS: Final = 60.0
 DEFAULT_MAX_PROVIDER_ATTEMPTS: Final = 3
+
+# Stage 3.7 provider split starting values. These are deliberately independent
+# of corpus-size counts. The output ceilings are starting values based on the
+# existing visible Phase 15 artifact plus reasoning headroom; they remain
+# tunable after broader regression measurements.
+SCIENCE_GROQ_MODEL: Final = "openai/gpt-oss-20b"
+ADVAITA_GROQ_MODEL: Final = "openai/gpt-oss-120b"
+SAMKHYA_GROQ_MODEL: Final = "openai/gpt-oss-20b"
+
+SCIENCE_REASONING_EFFORT: Final = "medium"
+ADVAITA_REASONING_EFFORT: Final = "medium"
+SAMKHYA_REASONING_EFFORT: Final = "medium"
+
+SCIENCE_MAX_COMPLETION_TOKENS: Final = 2500
+ADVAITA_MAX_COMPLETION_TOKENS: Final = 3000
+SAMKHYA_MAX_COMPLETION_TOKENS: Final = 2500
+
+ALLOWED_REASONING_EFFORTS: Final = {
+    "low",
+    "medium",
+    "high",
+}
 
 MAX_CLAIMS_PER_DOMAIN: Final = 6
 MAX_SUMMARY_CHARS: Final = 2200
@@ -162,7 +171,7 @@ class GenerationError(RuntimeError):
     """Raised when Phase 15 cannot safely produce grounded domain output."""
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class EvidenceChunk:
     chunk_id: str
     source_id: str
@@ -173,14 +182,14 @@ class EvidenceChunk:
     concepts: dict[str, bool]
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class DomainEvidence:
     domain: str
     status: str
     chunks: tuple[EvidenceChunk, ...]
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class ClaimDraft:
     claim_id: str
     text: str
@@ -188,7 +197,7 @@ class ClaimDraft:
     concepts_covered: tuple[str, ...]
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class DomainDraft:
     domain: str
     summary: str
@@ -197,7 +206,8 @@ class DomainDraft:
     limitations: tuple[str, ...]
     unsupported_aspects: tuple[str, ...]
 
-@dataclass(frozen=True)
+
+@dataclass(frozen=True, slots=True)
 class ProviderConfig:
     api_key: str
     model: str
@@ -208,7 +218,85 @@ class ProviderConfig:
     max_attempts: int
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
+class DomainProviderConfig:
+    """Per-domain Phase 15 provider configuration.
+
+    The three domain calls remain logically independent. Scheduling uses the
+    configured model names as concurrency lanes so two requests are never sent
+    concurrently to the same Groq model by this service.
+    """
+
+    science: ProviderConfig
+    advaita: ProviderConfig
+    samkhya: ProviderConfig
+
+    def for_domain(self, domain: str) -> ProviderConfig:
+        if domain == "science":
+            return self.science
+        if domain == "advaita":
+            return self.advaita
+        if domain == "samkhya":
+            return self.samkhya
+        raise GenerationError(f"Unsupported Phase 15 domain: {domain!r}.")
+
+
+def default_domain_provider_config(
+    *,
+    api_key: str,
+    temperature: float = DEFAULT_TEMPERATURE,
+    timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
+    max_attempts: int = DEFAULT_MAX_PROVIDER_ATTEMPTS,
+) -> DomainProviderConfig:
+    """Build the agreed Stage 3.7 starting provider mapping."""
+
+    return DomainProviderConfig(
+        science=ProviderConfig(
+            api_key=api_key,
+            model=SCIENCE_GROQ_MODEL,
+            reasoning_effort=SCIENCE_REASONING_EFFORT,
+            temperature=temperature,
+            max_completion_tokens=SCIENCE_MAX_COMPLETION_TOKENS,
+            timeout_seconds=timeout_seconds,
+            max_attempts=max_attempts,
+        ),
+        advaita=ProviderConfig(
+            api_key=api_key,
+            model=ADVAITA_GROQ_MODEL,
+            reasoning_effort=ADVAITA_REASONING_EFFORT,
+            temperature=temperature,
+            max_completion_tokens=ADVAITA_MAX_COMPLETION_TOKENS,
+            timeout_seconds=timeout_seconds,
+            max_attempts=max_attempts,
+        ),
+        samkhya=ProviderConfig(
+            api_key=api_key,
+            model=SAMKHYA_GROQ_MODEL,
+            reasoning_effort=SAMKHYA_REASONING_EFFORT,
+            temperature=temperature,
+            max_completion_tokens=SAMKHYA_MAX_COMPLETION_TOKENS,
+            timeout_seconds=timeout_seconds,
+            max_attempts=max_attempts,
+        ),
+    )
+
+
+def normalize_domain_provider_config(
+    config: ProviderConfig | DomainProviderConfig,
+) -> DomainProviderConfig:
+    """Preserve old callers while enabling per-domain provider routing."""
+
+    if isinstance(config, DomainProviderConfig):
+        return config
+
+    return DomainProviderConfig(
+        science=config,
+        advaita=config,
+        samkhya=config,
+    )
+
+
+@dataclass(frozen=True, slots=True)
 class DomainGenerationServiceResult:
     """Runtime Phase 15 outputs."""
 
@@ -257,12 +345,10 @@ def utc_now() -> str:
 
 
 def validate_provider_config(config: ProviderConfig) -> None:
-    if config.model != DEFAULT_GROQ_MODEL:
-        LOGGER.warning(
-            "Phase 15 was designed and schema-validated for %s; configured model is %s.",
-            DEFAULT_GROQ_MODEL,
-            config.model,
-        )
+    if not config.api_key.strip():
+        raise GenerationError("Groq API key must be non-empty.")
+    if not config.model.strip():
+        raise GenerationError("Groq model must be non-empty.")
     if not 0.0 <= config.temperature <= 2.0:
         raise GenerationError("temperature must be between 0 and 2.")
     if config.max_completion_tokens <= 0:
@@ -271,6 +357,36 @@ def validate_provider_config(config: ProviderConfig) -> None:
         raise GenerationError("timeout_seconds must be positive.")
     if config.max_attempts <= 0:
         raise GenerationError("max_attempts must be positive.")
+
+    if config.model in REASONING_EFFORT_MODELS and config.reasoning_effort not in ALLOWED_REASONING_EFFORTS:
+            raise GenerationError(
+                "reasoning_effort must be one of "
+                f"{sorted(ALLOWED_REASONING_EFFORTS)} for {config.model}."
+            )
+
+
+def validate_domain_provider_config(config: DomainProviderConfig) -> None:
+    for domain in DOMAINS:
+        validate_provider_config(config.for_domain(domain))
+
+    temperatures = {config.for_domain(domain).temperature for domain in DOMAINS}
+    if len(temperatures) != 1:
+        raise GenerationError(
+            "Phase 15 currently requires one shared temperature across domains "
+            "to preserve the frozen manifest shape."
+        )
+
+
+def provider_model_summary(config: DomainProviderConfig) -> str:
+    return ";".join(f"{domain}={config.for_domain(domain).model}" for domain in DOMAINS)
+
+
+def provider_reasoning_summary(config: DomainProviderConfig) -> str:
+    return ";".join(f"{domain}={config.for_domain(domain).reasoning_effort}" for domain in DOMAINS)
+
+
+def maximum_concurrent_model_lanes(config: DomainProviderConfig) -> int:
+    return len({config.for_domain(domain).model for domain in DOMAINS})
 
 
 def parse_concepts(
@@ -666,6 +782,46 @@ def retry_wait_seconds(
     return float(attempt * 3)
 
 
+def groq_error_code(
+    response: httpx.Response,
+) -> str:
+    """Return Groq's structured error code when present.
+
+    Most HTTP 400 responses remain non-retryable configuration/request errors.
+    The one exception handled by Phase 15 is ``json_validate_failed`` from a
+    strict structured-output generation attempt. That error means the request
+    reached a structured-output-capable model but that generation did not
+    validate; retrying the same bounded request does not weaken the schema or
+    application-side grounding validators.
+    """
+
+    try:
+        raw: object = response.json()
+    except json.JSONDecodeError:
+        return ""
+
+    if not isinstance(raw, Mapping):
+        return ""
+
+    error = raw.get("error")
+    if not isinstance(error, Mapping):
+        return ""
+
+    code = error.get("code")
+    if not isinstance(code, str):
+        return ""
+
+    return code.strip()
+
+
+def is_retryable_structured_output_failure(
+    response: httpx.Response,
+) -> bool:
+    """Recognize only Groq's transient structured-generation validation 400."""
+
+    return response.status_code == 400 and groq_error_code(response) == "json_validate_failed"
+
+
 def provider_call(
     *,
     domain: str,
@@ -765,34 +921,60 @@ def provider_call(
             return parsed_mapping, provider_metadata
 
         body = response.text[:1000]
-        last_error = f"status={response.status_code} body={body}"
+        error_code = groq_error_code(response)
+        last_error = (
+            f"status={response.status_code} error_code={error_code or '<none>'} body={body}"
+        )
 
-        retryable = response.status_code in {
-            408,
-            409,
-            429,
-            500,
-            502,
-            503,
-            504,
-        }
+        structured_output_retry = is_retryable_structured_output_failure(response)
+
+        retryable = (
+            response.status_code
+            in {
+                408,
+                409,
+                429,
+                500,
+                502,
+                503,
+                504,
+            }
+            or structured_output_retry
+        )
+
         if retryable and attempt < config.max_attempts:
             if response.status_code == 429:
                 wait_seconds = retry_wait_seconds(
                     response,
                     attempt,
                 )
+            elif structured_output_retry:
+                # Keep this bounded and short. We retry the exact same strict
+                # schema request; there is no fallback to json_object or
+                # relaxed application validation.
+                wait_seconds = float(attempt * 2)
             else:
                 wait_seconds = float(attempt * 3)
 
-            LOGGER.warning(
-                "%s provider retry %d/%d status=%d wait_seconds=%.2f",
-                domain,
-                attempt,
-                config.max_attempts,
-                response.status_code,
-                wait_seconds,
-            )
+            if structured_output_retry:
+                LOGGER.warning(
+                    "%s strict structured-output generation retry "
+                    "%d/%d error_code=%s wait_seconds=%.2f",
+                    domain,
+                    attempt,
+                    config.max_attempts,
+                    error_code,
+                    wait_seconds,
+                )
+            else:
+                LOGGER.warning(
+                    "%s provider retry %d/%d status=%d wait_seconds=%.2f",
+                    domain,
+                    attempt,
+                    config.max_attempts,
+                    response.status_code,
+                    wait_seconds,
+                )
 
             time.sleep(wait_seconds)
             continue
@@ -1309,52 +1491,151 @@ def generate_one_domain(
     return response
 
 
-def run_parallel_generation(
+def _generate_model_lane(
+    *,
+    lane_model: str,
+    lane_domains: tuple[str, ...],
+    question: str,
+    domains: Mapping[str, DomainEvidence],
+    query_activation: Mapping[str, object],
+    corpus_version: str,
+    provider_config: DomainProviderConfig,
+) -> dict[str, dict[str, object]]:
+    """Generate one model lane sequentially.
+
+    A model lane may contain multiple independent domains, but only one request
+    from that lane is active at a time. This is capacity scheduling only; each
+    domain still receives only its own evidence and its own domain prompt.
+    """
+
+    lane_results: dict[str, dict[str, object]] = {}
+
+    for domain in lane_domains:
+        domain_config = provider_config.for_domain(domain)
+
+        if domain_config.model != lane_model:
+            raise GenerationError(
+                f"Internal scheduler mismatch for {domain}: "
+                f"expected model {lane_model!r}, got {domain_config.model!r}."
+            )
+
+        LOGGER.info(
+            "%s scheduled on model lane %s reasoning=%s max_completion_tokens=%d",
+            domain,
+            domain_config.model,
+            domain_config.reasoning_effort,
+            domain_config.max_completion_tokens,
+        )
+
+        lane_results[domain] = generate_one_domain(
+            domain=domain,
+            question=question,
+            domain_evidence=domains[domain],
+            query_activation=query_activation,
+            corpus_version=corpus_version,
+            provider_config=domain_config,
+        )
+
+    return lane_results
+
+
+def run_scheduled_generation(
     *,
     question: str,
     domains: Mapping[str, DomainEvidence],
     query_activation: Mapping[str, object],
     corpus_version: str,
-    provider_config: ProviderConfig,
+    provider_config: ProviderConfig | DomainProviderConfig,
 ) -> dict[str, dict[str, object]]:
+    """Run independent Phase 15 generations with one active call/model lane.
+
+    Domains are assigned to lanes by configured model while preserving DOMAINS
+    order within each lane. Different model lanes run concurrently. Domains
+    sharing a model run sequentially.
+
+    With the default Stage 3.7 mapping:
+      - 20B lane: Science -> Samkhya
+      - 120B lane: Advaita
+
+    Therefore Science and Advaita start together, and Samkhya starts only after
+    Science releases the 20B lane.
+    """
+
+    normalized_config = normalize_domain_provider_config(provider_config)
+    validate_domain_provider_config(normalized_config)
+
+    lanes: dict[str, list[str]] = {}
+    for domain in DOMAINS:
+        model = normalized_config.for_domain(domain).model
+        lanes.setdefault(model, []).append(domain)
+
+    LOGGER.info(
+        "Phase 15 scheduler model_lanes=%d mapping=%s",
+        len(lanes),
+        {model: tuple(items) for model, items in lanes.items()},
+    )
+
     results: dict[str, dict[str, object]] = {}
 
     with ThreadPoolExecutor(
-        max_workers=len(DOMAINS),
-        thread_name_prefix="phase15-domain",
+        max_workers=len(lanes),
+        thread_name_prefix="phase15-model-lane",
     ) as executor:
-        future_to_domain: dict[
-            Future[dict[str, object]],
+        future_to_model: dict[
+            Future[dict[str, dict[str, object]]],
             str,
         ] = {}
 
-        for index, domain in enumerate(DOMAINS):
+        for model, lane_domains_list in lanes.items():
             future = executor.submit(
-                generate_one_domain,
-                domain=domain,
+                _generate_model_lane,
+                lane_model=model,
+                lane_domains=tuple(lane_domains_list),
                 question=question,
-                domain_evidence=domains[domain],
+                domains=domains,
                 query_activation=query_activation,
                 corpus_version=corpus_version,
-                provider_config=provider_config,
+                provider_config=normalized_config,
             )
-            future_to_domain[future] = domain
+            future_to_model[future] = model
 
-            if index < len(DOMAINS) - 1:
-                time.sleep(0.3)
-
-        for future in as_completed(future_to_domain):
-            domain = future_to_domain[future]
+        for future in as_completed(future_to_model):
+            model = future_to_model[future]
             try:
-                results[domain] = future.result()
+                lane_results = future.result()
             except Exception as exc:
-                raise GenerationError(f"{domain} generation failed.") from exc
+                raise GenerationError(f"Phase 15 model lane {model!r} failed.") from exc
+
+            overlap = set(results) & set(lane_results)
+            if overlap:
+                raise GenerationError(f"Duplicate domain results from scheduler: {sorted(overlap)}")
+
+            results.update(lane_results)
 
     missing = set(DOMAINS) - set(results)
     if missing:
         raise GenerationError(f"Missing domain generation results: {sorted(missing)}")
 
     return results
+
+
+def run_parallel_generation(
+    *,
+    question: str,
+    domains: Mapping[str, DomainEvidence],
+    query_activation: Mapping[str, object],
+    corpus_version: str,
+    provider_config: ProviderConfig | DomainProviderConfig,
+) -> dict[str, dict[str, object]]:
+    """Backward-compatible entry point for the model-aware scheduler."""
+
+    return run_scheduled_generation(
+        question=question,
+        domains=domains,
+        query_activation=query_activation,
+        corpus_version=corpus_version,
+        provider_config=provider_config,
+    )
 
 
 DEFAULT_RUNTIME_OUTPUTS: Final = {
@@ -1495,7 +1776,7 @@ class DomainGenerationService:
         *,
         evidence_package: EvidencePackage,
         retrieval_manifest: RetrievalManifest,
-        provider_config: ProviderConfig,
+        provider_config: ProviderConfig | DomainProviderConfig,
         domain_responses_generated_at: str | None = None,
         manifest_generated_at: str | None = None,
         parallel_generation_elapsed_ms: float | None = None,
@@ -1504,12 +1785,15 @@ class DomainGenerationService:
     ) -> DomainGenerationServiceResult:
         """Generate three independently grounded domain responses.
 
-        The existing ThreadPoolExecutor implementation is deliberately retained
-        during Stage 3.4 parity extraction. This method is synchronous by
-        design; async modernization should happen only after parity is proven.
+        The service is synchronous at its public boundary. Internally it uses
+        model-aware lanes: different Groq models may run concurrently while
+        domains sharing a model run sequentially. Domain prompts, evidence
+        boundaries, grounding, citations, and validation remain independent.
         """
 
-        validate_provider_config(provider_config)
+        normalized_provider_config = normalize_domain_provider_config(provider_config)
+
+        validate_domain_provider_config(normalized_provider_config)
 
         evidence_document = _dump_contract(evidence_package)
 
@@ -1541,7 +1825,7 @@ class DomainGenerationService:
             domains=domains,
             query_activation=query_activation,
             corpus_version=corpus_version,
-            provider_config=provider_config,
+            provider_config=normalized_provider_config,
         )
 
         elapsed_ms = (
@@ -1684,17 +1968,25 @@ class DomainGenerationService:
             "corpus_version": (corpus_version),
             "provider": {
                 "provider": "Groq",
-                "model": (provider_config.model),
-                "reasoning_effort": (
-                    provider_config.reasoning_effort
-                    if (provider_config.model in REASONING_EFFORT_MODELS)
-                    else None
+                # Preserve the existing manifest key/type shape while making
+                # the domain-specific mapping explicit and deterministic.
+                "model": provider_model_summary(normalized_provider_config),
+                "reasoning_effort": provider_reasoning_summary(normalized_provider_config),
+                "temperature": (normalized_provider_config.science.temperature),
+                "structured_output_strict": all(
+                    normalized_provider_config.for_domain(domain).model not in JSON_OBJECT_MODELS
+                    for domain in DOMAINS
                 ),
-                "temperature": (provider_config.temperature),
-                "structured_output_strict": (provider_config.model not in JSON_OBJECT_MODELS),
-                "json_object_mode": (provider_config.model in JSON_OBJECT_MODELS),
-                "parallel_domain_calls": True,
-                "maximum_domain_calls": 3,
+                "json_object_mode": any(
+                    normalized_provider_config.for_domain(domain).model in JSON_OBJECT_MODELS
+                    for domain in DOMAINS
+                ),
+                "parallel_domain_calls": (
+                    maximum_concurrent_model_lanes(normalized_provider_config) > 1
+                ),
+                # Existing manifest semantics: maximum total Phase 15
+                # domain API calls, not maximum concurrency.
+                "maximum_domain_calls": len(DOMAINS),
             },
             "counts": {
                 "domain_count": len(DOMAINS),
@@ -1738,47 +2030,35 @@ class DomainGenerationService:
         manifest_model = GenerationManifest.model_validate(manifest)
 
         if raise_on_validation_failure and not exit_gate_passed:
-                failure_summaries = []
-
-                for domain in DOMAINS:
-                    validation = require_mapping(
-                        responses[domain].get("validation"), f"{domain} validation"
-                    )
-                    raw_issues = validation.get("issues")
-                    issues = raw_issues if isinstance(raw_issues, list) else []
-
-                    error_issues = [
-                        issue for issue in issues
-                        if isinstance(issue, Mapping) and issue.get("severity") == "error"
-                    ]
-
-                    if not error_issues:
-                        continue
-
-                    LOGGER.error(
-                        "Phase 15 %s validation failed: %s",
-                        domain,
-                        json.dumps(error_issues, ensure_ascii=False, sort_keys=True),
+            failed_validation: dict[str, object] = {}
+            for domain in DOMAINS:
+                validation = require_mapping(
+                    responses[domain].get("validation"),
+                    f"{domain} validation",
+                )
+                if validation.get("passed") is not True:
+                    failed_validation[domain] = validation.get(
+                        "issues",
+                        [],
                     )
 
-                    for issue in error_issues:
-                        parts = [domain] + [
-                            str(issue[key])
-                            for key in ("code", "claim_id", "message")
-                            if isinstance(issue.get(key), str) and issue.get(key)
-                        ]
-                        failure_summaries.append(" | ".join(parts))
-
-                summary = (
-                    "; ".join(failure_summaries)
-                    if failure_summaries
-                    else "validation failed but no domain-specific error details were available"
+            LOGGER.error(
+                "Phase 15 validation failure details: %s",
+                json.dumps(
+                    failed_validation,
+                    ensure_ascii=False,
+                    sort_keys=True,
+                ),
+            )
+            raise GenerationError(
+                "Phase 15 generated outputs but failed "
+                "grounding/domain-leakage validation: "
+                + json.dumps(
+                    failed_validation,
+                    ensure_ascii=False,
+                    sort_keys=True,
                 )
-
-                raise GenerationError(
-                    "Phase 15 generated outputs but failed grounding/domain-leakage validation: "
-                    f"{summary}"
-                )
+            )
 
         return DomainGenerationServiceResult(
             domain_responses=(domain_responses_model),
@@ -1787,18 +2067,31 @@ class DomainGenerationService:
 
 
 __all__ = [
+    "ADVAITA_GROQ_MODEL",
+    "ADVAITA_MAX_COMPLETION_TOKENS",
+    "ADVAITA_REASONING_EFFORT",
     "DEFAULT_GROQ_MODEL",
     "DOMAIN_SYSTEM_RULES",
     "GENERATION_VERSION",
     "PROMPT_VERSION",
+    "SAMKHYA_GROQ_MODEL",
+    "SAMKHYA_MAX_COMPLETION_TOKENS",
+    "SAMKHYA_REASONING_EFFORT",
+    "SCIENCE_GROQ_MODEL",
+    "SCIENCE_MAX_COMPLETION_TOKENS",
+    "SCIENCE_REASONING_EFFORT",
     "DomainGenerationService",
     "DomainGenerationServiceResult",
+    "DomainProviderConfig",
     "GenerationError",
     "ProviderConfig",
+    "default_domain_provider_config",
     "generate_one_domain",
     "grounded_response",
     "leakage_issues",
     "no_evidence_response",
+    "normalize_domain_provider_config",
     "provider_call",
     "run_parallel_generation",
+    "run_scheduled_generation",
 ]
