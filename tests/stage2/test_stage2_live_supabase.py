@@ -10,7 +10,10 @@ from apps.api.main import app
 
 pytestmark = pytest.mark.live
 
-VALID_CHUNK_ID = "science_herzog_kammer_scharnowski_2016_time_slices:chunk:ae7186593aa7242988ef1db1"
+VALID_CHUNK_ID = (
+    "science_herzog_kammer_scharnowski_2016_time_slices:"
+    "chunk:ae7186593aa7242988ef1db1"
+)
 
 
 @pytest.mark.skipif(
@@ -19,7 +22,7 @@ VALID_CHUNK_ID = "science_herzog_kammer_scharnowski_2016_time_slices:chunk:ae718
 )
 def test_stage2_live_chunk_and_readiness() -> None:
     with TestClient(app) as client:
-        ready = client.get("/api/v1/ready")
+        ready = client.get("/api/ready")
         assert ready.status_code == 200
 
         ready_body = ready.json()
@@ -32,7 +35,7 @@ def test_stage2_live_chunk_and_readiness() -> None:
         )
         assert database_check["status"] == "ready"
 
-        response = client.get(f"/api/v1/chunk/{VALID_CHUNK_ID}")
+        response = client.get(f"/api/chunk/{VALID_CHUNK_ID}")
         assert response.status_code == 200
 
         body = response.json()

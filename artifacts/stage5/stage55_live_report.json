@@ -1,0 +1,32 @@
+{
+  "stage": "5.5",
+  "api": "http://127.0.0.1:8000/api/query",
+  "required_cases": [
+    "consciousness",
+    "multi",
+    "atman_purusha",
+    "out_of_corpus"
+  ],
+  "executed_case_count": 1,
+  "stopped_early": true,
+  "gate_status": "TRUE_REGRESSION",
+  "complete": false,
+  "results": [
+    {
+      "case": "consciousness",
+      "category": "normal",
+      "status": "TRUE_REGRESSION",
+      "http_status": 200,
+      "request_id": "req_5d4a5c6c08534d8e8b6601c9fc796c44",
+      "coverage_status": null,
+      "validation_passed": false,
+      "citation_count": null,
+      "comparison_count": null,
+      "error_code": null,
+      "error_phase": null,
+      "retry_after_seconds": null,
+      "elapsed_ms": 91539.91259999748,
+      "detail": "science inline citation lacks citation_ref."
+    }
+  ]
+}

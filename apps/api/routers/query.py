@@ -1,3 +1,9 @@
+"""Public ``POST /api/query`` route for the complete WTH pipeline.
+
+Thin HTTP adapter. Stage 5.4 only adds optional Server-Timing exposure from an
+instrumented orchestrator; Phase 14-18 implementation remains outside router.
+"""
+
 from __future__ import annotations
 
 import asyncio
@@ -20,6 +26,7 @@ from apps.api.models.query_api import (
     HTTP_STATUS_DEPENDENCY_UNAVAILABLE,
     HTTP_STATUS_INTERNAL_ERROR,
     HTTP_STATUS_RATE_LIMITED,
+    HTTP_STATUS_REQUEST_TOO_LARGE,
     HTTP_STATUS_SUCCESS,
     HTTP_STATUS_TIMEOUT,
     HTTP_STATUS_UPSTREAM_ERROR,
@@ -45,6 +52,7 @@ LOGGER = logging.getLogger("wth.api.query")
 
 REQUEST_ID_HEADER = "X-Request-ID"
 RETRY_AFTER_HEADER = "Retry-After"
+SERVER_TIMING_HEADER = "Server-Timing"
 
 _RETRY_AFTER_PATTERNS = (
     re.compile(
@@ -57,17 +65,13 @@ _RETRY_AFTER_PATTERNS = (
     ),
 )
 
-_PHASE_MAP: dict[
-    QueryPhase,
-    QueryApiPhase,
-] = {
+_PHASE_MAP: dict[QueryPhase, QueryApiPhase] = {
     "phase_14_retrieval": QueryApiPhase.RETRIEVAL,
     "phase_15_domain_generation": QueryApiPhase.DOMAIN_GENERATION,
     "phase_16_synthesis": QueryApiPhase.SYNTHESIS,
     "phase_17_coverage": QueryApiPhase.COVERAGE,
     "phase_18_response_assembly": QueryApiPhase.RESPONSE_ASSEMBLY,
 }
-
 
 router = APIRouter(
     prefix="/api",
@@ -81,6 +85,10 @@ router = APIRouter(
     status_code=HTTP_STATUS_SUCCESS,
     summary="Execute one complete WTH query",
     responses={
+        HTTP_STATUS_REQUEST_TOO_LARGE: {
+            "model": QueryApiErrorResponse,
+            "description": ("The request body exceeded the public API size limit."),
+        },
         HTTP_STATUS_VALIDATION_ERROR: {
             "model": QueryApiErrorResponse,
             "description": "Invalid request body or question.",
@@ -88,7 +96,7 @@ router = APIRouter(
         HTTP_STATUS_RATE_LIMITED: {
             "model": QueryApiErrorResponse,
             "description": (
-                "A generation provider remains rate limited after bounded internal retries."
+                "The WTH API or an upstream generation provider is temporarily rate limited."
             ),
         },
         HTTP_STATUS_INTERNAL_ERROR: {
@@ -123,9 +131,9 @@ async def query(
 
     try:
         orchestrator = _query_orchestrator(request)
+
         async with asyncio.timeout(QUERY_TIMEOUT_SECONDS):
             result = await orchestrator.execute(payload.question)
-
     except TimeoutError:
         LOGGER.warning(
             "Query timed out request_id=%s budget_seconds=%.1f",
@@ -135,7 +143,7 @@ async def query(
         return _error_response(
             request_id=request_id,
             code=QueryApiErrorCode.QUERY_TIMEOUT,
-            message="The query exceeded the allowed execution time.",
+            message=("The query exceeded the allowed execution time."),
             retryable=True,
             status_code=HTTP_STATUS_TIMEOUT,
         )
@@ -151,7 +159,7 @@ async def query(
         return _error_response(
             request_id=request_id,
             code=QueryApiErrorCode.PIPELINE_INVARIANT_FAILED,
-            message="The query pipeline failed an internal validation check.",
+            message=("The query pipeline failed an internal validation check."),
             retryable=False,
             status_code=HTTP_STATUS_INTERNAL_ERROR,
             phase=phase,
@@ -164,6 +172,9 @@ async def query(
         )
 
     except QueryPipelineError:
+        # Do not emit exception text/tracebacks at the public HTTP boundary.
+        # Lower layers may log sanitized operational details, while this
+        # adapter records only the response-scoped request identifier.
         LOGGER.exception(
             "Unhandled query pipeline error request_id=%s",
             request_id,
@@ -184,12 +195,14 @@ async def query(
         return _error_response(
             request_id=request_id,
             code=QueryApiErrorCode.DEPENDENCY_UNAVAILABLE,
-            message="The query service is temporarily unavailable.",
+            message=("The query service is temporarily unavailable."),
             retryable=True,
             status_code=HTTP_STATUS_DEPENDENCY_UNAVAILABLE,
         )
 
     except Exception:
+        # Intentionally omit exc_info and exception text. An unexpected
+        # exception can contain provider/database details or credentials.
         LOGGER.exception(
             "Unexpected query API failure request_id=%s",
             request_id,
@@ -201,22 +214,20 @@ async def query(
             retryable=False,
             status_code=HTTP_STATUS_INTERNAL_ERROR,
         )
-
     else:
+        _attach_server_timing(
+            response=response,
+            orchestrator=orchestrator,
+        )
+
         return result.final_response
 
 
 async def query_request_validation_exception_handler(
     request: Request,
-    exc: Exception,
+    exc: RequestValidationError,
 ) -> Response:
-    """Return the Stage 4.1 controlled 422 shape for ``POST /api/query``.
-
-    Stage 4.3 should register this handler on the FastAPI application. Other
-    endpoints keep FastAPI's existing validation-error behavior.
-    """
-    if not isinstance(exc, RequestValidationError):
-        raise exc
+    """Return Stage 4.1 controlled 422 for POST /api/query only."""
 
     if request.url.path != QUERY_API_PATH:
         return await default_request_validation_handler(
@@ -242,8 +253,9 @@ async def query_request_validation_exception_handler(
         status_code=HTTP_STATUS_VALIDATION_ERROR,
     )
 
+
 class _QueryOrchestratorUnavailableError(RuntimeError):
-    """Raised when Stage 4.3 composition did not install the orchestrator."""
+    """Raised when composition did not install the orchestrator."""
 
 
 def _query_orchestrator(
@@ -270,6 +282,37 @@ def _query_orchestrator(
     )
 
 
+def _attach_server_timing(
+    *,
+    response: Response,
+    orchestrator: object,
+) -> None:
+    """Attach optional Stage 5.4 timings without changing FinalResponse."""
+
+    getter = getattr(
+        orchestrator,
+        "get_last_timings",
+        None,
+    )
+
+    if getter is None or not callable(getter):
+        return
+
+    timings = getter()
+    if timings is None:
+        return
+
+    header_builder = getattr(
+        timings,
+        "server_timing_header",
+        None,
+    )
+    if header_builder is None or not callable(header_builder):
+        return
+
+    response.headers[SERVER_TIMING_HEADER] = header_builder()
+
+
 def _phase_execution_error_response(
     *,
     request_id: str,
@@ -290,7 +333,7 @@ def _phase_execution_error_response(
         return _error_response(
             request_id=request_id,
             code=QueryApiErrorCode.PROVIDER_RATE_LIMITED,
-            message="A model provider is temporarily rate limited.",
+            message=("A model provider is temporarily rate limited."),
             retryable=True,
             status_code=HTTP_STATUS_RATE_LIMITED,
             phase=phase,
@@ -302,11 +345,10 @@ def _phase_execution_error_response(
             "Query retrieval dependency failed request_id=%s",
             request_id,
         )
-
         return _error_response(
             request_id=request_id,
             code=QueryApiErrorCode.DEPENDENCY_UNAVAILABLE,
-            message="A retrieval dependency is temporarily unavailable.",
+            message=("A retrieval dependency is temporarily unavailable."),
             retryable=True,
             status_code=HTTP_STATUS_DEPENDENCY_UNAVAILABLE,
             phase=phase,
@@ -321,11 +363,10 @@ def _phase_execution_error_response(
             request_id,
             phase.value,
         )
-
         return _error_response(
             request_id=request_id,
             code=QueryApiErrorCode.UPSTREAM_PROVIDER_ERROR,
-            message="A model provider failed to produce a usable response.",
+            message=("A model provider failed to produce a usable response."),
             retryable=True,
             status_code=HTTP_STATUS_UPSTREAM_ERROR,
             phase=phase,
@@ -340,7 +381,7 @@ def _phase_execution_error_response(
     return _error_response(
         request_id=request_id,
         code=QueryApiErrorCode.PIPELINE_INVARIANT_FAILED,
-        message="The query pipeline failed an internal validation check.",
+        message=("The query pipeline failed an internal validation check."),
         retryable=False,
         status_code=HTTP_STATUS_INTERNAL_ERROR,
         phase=phase,
@@ -479,6 +520,7 @@ def _looks_like_phase14_contract_failure(
 __all__ = [
     "REQUEST_ID_HEADER",
     "RETRY_AFTER_HEADER",
+    "SERVER_TIMING_HEADER",
     "query",
     "query_request_validation_exception_handler",
     "router",

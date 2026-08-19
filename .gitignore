@@ -87,3 +87,6 @@ artifacts/phase1/final/final_response_manifest.json
 STAGE2_MAIN_PATCH.txt
 scripts/analyze_phase14_evidence_budget.py
 scripts/analyze_phase15_output_size_offline.py
+README_6_1B.txt
+README_6_1C.txt
+README_6_2.txt

@@ -1,0 +1,29 @@
+{
+  "stage": "5.1",
+  "api": "http://127.0.0.1:8000/api/query",
+  "case_count": 1,
+  "counts": {
+    "PASS": 0,
+    "TRUE_REGRESSION": 0,
+    "PROVIDER_CAPACITY_BLOCKED": 0,
+    "ENVIRONMENT_FAILURE": 1
+  },
+  "results": [
+    {
+      "case": "multi",
+      "category": "multi-concept",
+      "status": "ENVIRONMENT_FAILURE",
+      "http_status": 502,
+      "request_id": "req_a8e849168a74454a98ffdedcec571279",
+      "coverage_status": null,
+      "validation_passed": null,
+      "citation_count": null,
+      "comparison_count": null,
+      "error_code": "upstream_provider_error",
+      "error_phase": "domain_generation",
+      "retry_after_seconds": null,
+      "elapsed_ms": 57707.24309999787,
+      "detail": "External dependency/provider/runtime condition prevented regression evaluation."
+    }
+  ]
+}

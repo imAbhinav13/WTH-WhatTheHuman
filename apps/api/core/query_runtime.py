@@ -1,21 +1,6 @@
-"""Production composition for the WTH query runtime.
-
-This is the only Stage 4 module that knows how the Phase 14-18 runtime is
-assembled for ``POST /api/query``.
-
-The router must not know:
-- Supabase repositories;
-- Gemini embedding configuration;
-- Groq model routing;
-- Phase 15/16 provider settings;
-- Phase 17/18 service implementations.
-
-Those details are composed here and injected as one ``QueryOrchestrator``.
-"""
-
 from __future__ import annotations
 
-from typing import cast
+from typing import Any, cast
 
 from pydantic import SecretStr
 from supabase import Client
@@ -27,6 +12,11 @@ from apps.api.core.config import (
     ProviderMode,
     Settings,
     get_settings,
+)
+from apps.api.core.performance import (
+    PerformanceInstrumentedOrchestrator,
+    TimedServiceProxy,
+    instrument_retrieval_embedding,
 )
 from apps.api.repositories.concept_repository import (
     ConceptRepository,
@@ -79,12 +69,8 @@ def build_query_orchestrator(
     *,
     settings: Settings | None = None,
     supabase_client: Client | None = None,
-) -> QueryOrchestrator:
-    """Construct the production Phase 14-18 ``QueryOrchestrator``.
-
-    ``supabase_client`` is injectable only to keep composition tests offline.
-    Normal application startup uses the backend-only cached runtime client.
-    """
+) -> PerformanceInstrumentedOrchestrator:
+    """Construct the production Phase 14-18 query runtime."""
 
     resolved_settings = (
         settings
@@ -130,24 +116,19 @@ def build_query_orchestrator(
         ),
     )
 
-    # Phase 15 model/reasoning/token routing remains centralized in the
-    # domain-generation service defaults:
-    #
-    # Science  -> GPT-OSS 20B  / medium / 2500
-    # Advaita  -> GPT-OSS 120B / medium / 3000
-    # Samkhya  -> GPT-OSS 20B  / medium / 2500
-    #
-    # The composition layer consumes that frozen mapping rather than making
-    # model choices in the API router.
+    # Phase 14 embedding is timed separately inside the existing retrieval
+    # service. The surrounding proxy times the whole Phase 14 call; the
+    # performance module subtracts embedding time from retrieval_ms.
+    instrument_retrieval_embedding(
+        retrieval_service
+    )
+
     domain_provider_config = (
         default_domain_provider_config(
             api_key=groq_api_key,
         )
     )
 
-    # Phase 16:
-    # GPT-OSS 120B / high / 4500, strict structured output as implemented by
-    # SynthesisService.
     synthesis_provider_config = (
         SynthesisProviderConfig(
             api_key=groq_api_key,
@@ -171,14 +152,40 @@ def build_query_orchestrator(
     )
 
     services = QueryPipelineServices(
-        retrieval=retrieval_service,
-        domain_generation=(
-            DomainGenerationService()
+        retrieval=cast(
+            Any,
+            TimedServiceProxy(
+                retrieval_service,
+                metric="retrieval_ms",
+            ),
         ),
-        synthesis=SynthesisService(),
-        coverage=CoverageService(),
-        response_assembly=(
-            ResponseAssemblyService()
+        domain_generation=cast(
+            Any,
+            TimedServiceProxy(
+                DomainGenerationService(),
+                metric="generation_ms",
+            ),
+        ),
+        synthesis=cast(
+            Any,
+            TimedServiceProxy(
+                SynthesisService(),
+                metric="synthesis_ms",
+            ),
+        ),
+        coverage=cast(
+            Any,
+            TimedServiceProxy(
+                CoverageService(),
+                metric="coverage_ms",
+            ),
+        ),
+        response_assembly=cast(
+            Any,
+            TimedServiceProxy(
+                ResponseAssemblyService(),
+                metric="assembly_ms",
+            ),
         ),
     )
 
@@ -193,9 +200,13 @@ def build_query_orchestrator(
         )
     )
 
-    return QueryOrchestrator(
+    orchestrator = QueryOrchestrator(
         services=services,
         provider_config=provider_config,
+    )
+
+    return PerformanceInstrumentedOrchestrator(
+        orchestrator
     )
 
 

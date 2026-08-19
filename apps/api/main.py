@@ -32,87 +32,51 @@ from apps.api.core.config import (
     Settings,
     get_settings,
 )
-from apps.api.core.query_runtime import (
-    build_query_orchestrator,
+from apps.api.core.production import (
+    ProductionPolicy,
+    build_production_policy,
 )
-from apps.api.routers.health import (
-    router as health_router,
+from apps.api.core.query_runtime import build_query_orchestrator
+from apps.api.middleware.production import (
+    InMemoryRateLimitMiddleware,
+    QueryBodySizeLimitMiddleware,
+    StructuredAccessLogMiddleware,
 )
+from apps.api.routers.ops import router as ops_router
 from apps.api.routers.query import (
     query_request_validation_exception_handler,
 )
-from apps.api.routers.query import (
-    router as query_router,
-)
-from apps.api.routes.chunks import (
-    router as chunks_router,
-)
-from apps.api.routes.readiness import (
-    router as readiness_router,
-)
+from apps.api.routers.query import router as query_router
+from apps.api.routes.chunks import router as chunks_router
 
 
 @asynccontextmanager
-async def lifespan(
-    app: FastAPI,
-) -> AsyncIterator[None]:
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """Initialize and close application dependencies."""
 
     settings = get_settings()
 
-    # Existing Stage 0/2 provider objects remain available for health/readiness
-    # and earlier API capabilities.
-    database_provider = (
-        _create_database_provider(
-            settings
-        )
-    )
-    embedding_provider = (
-        _create_embedding_provider(
-            settings
-        )
-    )
-    generation_provider = (
-        _create_generation_provider(
-            settings
-        )
-    )
+    # Re-run policy validation at startup so unsafe production settings fail
+    # before the service accepts traffic.
+    build_production_policy(settings)
 
-    app.state.database_provider = (
-        database_provider
-    )
-    app.state.embedding_provider = (
-        embedding_provider
-    )
-    app.state.generation_provider = (
-        generation_provider
-    )
+    database_provider = _create_database_provider(settings)
+    embedding_provider = _create_embedding_provider(settings)
+    generation_provider = _create_generation_provider(settings)
 
-    # Stage 4 production query runtime.
-    #
-    # In live mode this creates the complete in-memory Phase 14-18 pipeline.
-    # In mock mode the older health/chunk development paths remain usable, but
-    # POST /api/query returns the controlled 503 defined by the query router.
+    app.state.database_provider = database_provider
+    app.state.embedding_provider = embedding_provider
+    app.state.generation_provider = generation_provider
+
     app.state.query_orchestrator = (
-        build_query_orchestrator(
-            settings=settings,
-        )
-        if (
-            settings.provider_mode
-            is ProviderMode.LIVE
-        )
+        build_query_orchestrator(settings=settings)
+        if settings.provider_mode is ProviderMode.LIVE
         else None
     )
 
-    app.state.service_name = (
-        settings.app_name
-    )
-    app.state.service_version = (
-        settings.app_version
-    )
-    app.state.environment_name = (
-        settings.app_env
-    )
+    app.state.service_name = settings.app_name
+    app.state.service_version = settings.app_version
+    app.state.environment_name = settings.app_env
 
     try:
         yield
@@ -123,16 +87,16 @@ async def lifespan(
 
 
 def create_app() -> FastAPI:
-    """Create and configure the FastAPI application."""
+    """Create the Stage 6 production-hardened FastAPI application."""
 
     settings = get_settings()
+    policy = build_production_policy(settings)
 
     application = FastAPI(
         title=settings.app_name,
         version=settings.app_version,
         description=(
-            "Concept-aware comparative reasoning API across "
-            "Science, Advaita Vedanta, and Samkhya."
+            "Concept-aware comparative reasoning API across Science, Advaita Vedanta, and Samkhya."
         ),
         docs_url="/docs",
         redoc_url="/redoc",
@@ -140,39 +104,21 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
     )
 
-    application.add_middleware(
-        CORSMiddleware,
-        allow_origins=list(
-            settings.cors_origins
-        ),
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
+    _install_edge_middleware(
+        application=application,
+        policy=policy,
     )
 
-    # Existing Stage 2 routes retain their current /api/v1 contract.
     application.include_router(
-        health_router,
-        prefix="/api/v1",
+        ops_router,
+        prefix="/api",
     )
     application.include_router(
         chunks_router,
-        prefix="/api/v1",
+        prefix="/api",
     )
-    application.include_router(
-        readiness_router,
-        prefix="/api/v1",
-    )
+    application.include_router(query_router)
 
-    # Stage 4 public query contract is deliberately /api/query.
-    # The router contains no Phase 14-18 implementation logic.
-    application.include_router(
-        query_router
-    )
-
-    # Preserve the frozen Stage 4.1 controlled error envelope for malformed
-    # POST /api/query requests while the handler delegates unrelated 422s back
-    # to FastAPI's default validation handler.
     application.add_exception_handler(
         RequestValidationError,
         query_request_validation_exception_handler,
@@ -181,15 +127,48 @@ def create_app() -> FastAPI:
     return application
 
 
-def _create_database_provider(
-    settings: Settings,
-) -> DatabaseProvider:
-    """Create the configured database provider."""
+def _install_edge_middleware(
+    *,
+    application: FastAPI,
+    policy: ProductionPolicy,
+) -> None:
+    # Inner controls first. CORS is intentionally added last so it wraps
+    # middleware-generated 413/429 responses as well.
+    application.add_middleware(
+        QueryBodySizeLimitMiddleware,
+        max_bytes=policy.max_query_body_bytes,
+    )
+    # Abuse throttling is production-only. Local development remains
+    # convenient while the same limiter is exercised deterministically by
+    # Stage 6 tests.
+    if policy.production:
+        application.add_middleware(
+            InMemoryRateLimitMiddleware,
+            query_requests=policy.query_rate_limit_requests,
+            query_window_seconds=policy.query_rate_limit_window_seconds,
+            chunk_requests=policy.chunk_rate_limit_requests,
+            chunk_window_seconds=policy.chunk_rate_limit_window_seconds,
+        )
 
-    if (
-        settings.provider_mode
-        is ProviderMode.MOCK
-    ):
+    application.add_middleware(
+        StructuredAccessLogMiddleware,
+    )
+    application.add_middleware(
+        CORSMiddleware,
+        allow_origins=list(policy.cors_origins),
+        allow_credentials=True,
+        allow_methods=["GET", "POST", "OPTIONS"],
+        allow_headers=["Content-Type", "Accept"],
+        expose_headers=[
+            "X-Request-ID",
+            "Retry-After",
+            "Server-Timing",
+        ],
+    )
+
+
+def _create_database_provider(settings: Settings) -> DatabaseProvider:
+    if settings.provider_mode is ProviderMode.MOCK:
         return MockDatabaseProvider(
             concept_count=8,
             corpus_version="phase0-v1",
@@ -197,32 +176,19 @@ def _create_database_provider(
         )
 
     return SupabaseDatabaseProvider(
-        url=str(
-            settings.supabase_url
-        ),
+        url=str(settings.supabase_url),
         secret_key=_secret_value(
             settings.supabase_secret_key,
-            field_name=(
-                "SUPABASE_SECRET_KEY"
-            ),
+            field_name="SUPABASE_SECRET_KEY",
         ),
     )
 
 
-def _create_embedding_provider(
-    settings: Settings,
-) -> EmbeddingProvider:
-    """Create the configured embedding provider."""
-
-    if (
-        settings.provider_mode
-        is ProviderMode.MOCK
-    ):
+def _create_embedding_provider(settings: Settings) -> EmbeddingProvider:
+    if settings.provider_mode is ProviderMode.MOCK:
         return MockEmbeddingProvider(
             model=settings.embedding_model,
-            dimensions=(
-                settings.embedding_dimension
-            ),
+            dimensions=settings.embedding_dimension,
         )
 
     return GeminiEmbeddingProvider(
@@ -231,26 +197,12 @@ def _create_embedding_provider(
             field_name="GOOGLE_API_KEY",
         ),
         model=settings.embedding_model,
-        dimensions=(
-            settings.embedding_dimension
-        ),
+        dimensions=settings.embedding_dimension,
     )
 
 
-def _create_generation_provider(
-    settings: Settings,
-) -> GenerationProvider:
-    """Create the legacy/general text-generation provider.
-
-    Stage 4 query model routing does NOT use ``settings.groq_model``. The
-    Phase 15/16 model split is owned by ``core.query_runtime`` and the
-    respective runtime service configs.
-    """
-
-    if (
-        settings.provider_mode
-        is ProviderMode.MOCK
-    ):
+def _create_generation_provider(settings: Settings) -> GenerationProvider:
+    if settings.provider_mode is ProviderMode.MOCK:
         return MockGenerationProvider(
             model=settings.groq_model,
         )
@@ -261,9 +213,7 @@ def _create_generation_provider(
             field_name="GROQ_API_KEY",
         ),
         model=settings.groq_model,
-        timeout_seconds=(
-            settings.groq_timeout_seconds
-        ),
+        timeout_seconds=settings.groq_timeout_seconds,
     )
 
 
@@ -272,21 +222,13 @@ def _secret_value(
     *,
     field_name: str,
 ) -> str:
-    """Return a configured secret or fail during application startup."""
-
     if value is None:
-        raise RuntimeError(
-            f"{field_name} is required in live provider mode"
-        )
+        raise RuntimeError(f"{field_name} is required in live provider mode")
 
-    secret = (
-        value.get_secret_value().strip()
-    )
+    secret = value.get_secret_value().strip()
 
     if not secret:
-        raise RuntimeError(
-            f"{field_name} must not be empty"
-        )
+        raise RuntimeError(f"{field_name} must not be empty")
 
     return secret
 

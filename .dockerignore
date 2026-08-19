@@ -1,0 +1,118 @@
+# ---------------------------------------------------------------------------
+# WTH Stage 6.2 Docker build-context policy
+# ---------------------------------------------------------------------------
+
+# Version control / CI metadata
+.git
+.git/**
+.github
+.github/**
+.gitignore
+.gitattributes
+
+# Secrets and local environment files
+.env
+.env.*
+**/.env
+**/.env.*
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials.json
+secrets.json
+**/credentials/**
+**/secrets/**
+
+# Local Python environments and caches
+.venv
+.venv/**
+venv
+venv/**
+env
+env/**
+__pycache__
+**/__pycache__/**
+*.py[cod]
+.pytest_cache
+.pytest_cache/**
+.mypy_cache
+.mypy_cache/**
+.ruff_cache
+.ruff_cache/**
+.pyright
+.pyright/**
+.coverage
+.coverage.*
+htmlcov
+htmlcov/**
+
+# Tests and test-only assets
+tests
+tests/**
+test-results
+test-results/**
+
+# Local/generated artifacts
+artifacts
+artifacts/**
+dist
+dist/**
+build
+build/**
+*.log
+*.tmp
+*.bak
+*.zip
+
+# Documentation / notebooks are not required at runtime
+docs
+docs/**
+notebooks
+notebooks/**
+*.ipynb
+
+# Developer helper scripts are not runtime dependencies
+scripts
+scripts/**
+
+# Frontend / Node build artifacts if the repo later contains the UI
+node_modules
+node_modules/**
+.next
+.next/**
+frontend/node_modules
+frontend/node_modules/**
+frontend/.next
+frontend/.next/**
+web/node_modules
+web/node_modules/**
+web/.next
+web/.next/**
+
+# OS / IDE metadata
+.DS_Store
+Thumbs.db
+.vscode
+.vscode/**
+.idea
+.idea/**
+
+# Raw/temporary corpus material. Runtime-safe concept/config data under data/
+# is intentionally NOT globally excluded.
+data/raw
+data/raw/**
+data/downloads
+data/downloads/**
+data/cache
+data/cache/**
+data/exports
+data/exports/**
+data/tmp
+data/tmp/**
+
+# Deployment notes/examples do not contain secrets. deploy/docker-entrypoint.sh
+# is intentionally included because the Dockerfile copies it.
