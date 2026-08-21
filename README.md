@@ -1,68 +1,87 @@
-# WTH — What The Human
+<div align="center">
 
-> A comparative, concept-aware retrieval and reasoning system for examining questions across **Science**, **Advaita Vedanta**, and **Samkhya** without collapsing their conceptual differences.
+# ✦ WTH — What The Human
 
-WTH (What The Human) is a research-oriented Retrieval-Augmented Generation (RAG) system designed to answer comparative questions about consciousness, selfhood, reality, mind, agency, causation, suffering, and related themes across multiple knowledge traditions.
+### A citation-grounded comparative reasoning system for **Science**, **Advaita Vedanta**, and **Samkhya**
 
-The project is intentionally **not** a generic “retrieve a few passages and ask an LLM to summarize them” pipeline. Its core design goal is to preserve domain boundaries, keep claims traceable to reviewed evidence, distinguish similarity from equivalence, and explicitly identify when the active corpus does not contain enough evidence to answer a question reliably.
+**Ask one difficult question. Read three independent perspectives. Inspect the evidence. Compare without collapsing differences.**
 
-The current Phase 1 implementation focuses on a three-concept vertical slice:
+[Deployed](https://whatthehuman.netlify.app)  
 
-- `consciousness`
-- `self_identity`
-- `reality_appearance`
+</div>
 
-across three domains:
+---
 
-- **Science**
-- **Advaita Vedanta**
-- **Samkhya**
+## What WTH is
+
+WTH (**What The Human**) is a concept-aware Retrieval-Augmented Generation (RAG) system for examining questions about **consciousness, selfhood, identity, perception, experienced reality, mind, agency, causation, suffering, and related themes** across three distinct knowledge traditions:
+
+- **Science** — empirical and scientific literature
+- **Advaita Vedanta** — non-dual Vedantic sources
+- **Samkhya** — classical dualist analysis of Purusha, Prakriti, cognition, and experience
+
+WTH is deliberately **not** a generic chatbot and not a “retrieve a few passages and ask one LLM to summarize everything” pipeline.
+
+It is designed as a **reading experience**:
+
+```text
+one question
+→ independently grounded domain responses
+→ explicit comparison
+→ coverage classification
+→ inspectable citations and source passages
+```
+
+Its central design goal is simple:
+
+> **Do not confuse semantic similarity with conceptual equivalence, and do not confuse a plausible answer with a corpus-supported answer.**
 
 ---
 
 ## Table of Contents
 
-1. [Project Goals](#project-goals)
-2. [Why WTH Exists](#why-wth-exists)
-3. [Core Design Principles](#core-design-principles)
-4. [Current Scope](#current-scope)
-5. [High-Level Architecture](#high-level-architecture)
-6. [Runtime Request Flow](#runtime-request-flow)
-7. [Phase Architecture](#phase-architecture)
-8. [Concept Model](#concept-model)
-9. [Corpus and Evidence Model](#corpus-and-evidence-model)
-10. [Embedding Architecture](#embedding-architecture)
-11. [Concept Mapping](#concept-mapping)
-12. [Retrieval](#retrieval)
-13. [Domain-Specific Generation](#domain-specific-generation)
-14. [Cross-Domain Synthesis](#cross-domain-synthesis)
-15. [Coverage Classification](#coverage-classification)
-16. [Final Response Assembly](#final-response-assembly)
-17. [Grounding and Citation Model](#grounding-and-citation-model)
-18. [Safety and Non-Equivalence Rules](#safety-and-non-equivalence-rules)
-19. [Repository Structure](#repository-structure)
-20. [Technology Stack](#technology-stack)
-21. [Local Development Setup](#local-development-setup)
-22. [Environment Variables](#environment-variables)
-23. [Database Setup](#database-setup)
-24. [Running the API](#running-the-api)
-25. [Running the Phase 1 Pipeline](#running-the-phase-1-pipeline)
-26. [Generated Artifacts](#generated-artifacts)
-27. [Validation and Quality Gates](#validation-and-quality-gates)
-28. [Testing](#testing)
-29. [Observability and Reproducibility](#observability-and-reproducibility)
-30. [Production Behavior](#production-behavior)
-31. [Known Limitations](#known-limitations)
-32. [Roadmap](#roadmap)
-33. [Design Decisions](#design-decisions)
-34. [Contribution Guidelines](#contribution-guidelines)
-35. [Project Status](#project-status)
+1. [Project Goals](#-project-goals)
+2. [Why WTH Exists](#-why-wth-exists)
+3. [Core Design Principles](#-core-design-principles)
+4. [Current Scope](#-current-scope)
+5. [Production Architecture](#-production-architecture)
+6. [Runtime Request Flow](#-runtime-request-flow)
+7. [Core Phase Architecture](#-core-phase-architecture)
+8. [Concept Model](#-concept-model)
+9. [Corpus and Evidence Model](#-corpus-and-evidence-model)
+10. [Embedding Architecture](#-embedding-architecture)
+11. [Concept Mapping](#-concept-mapping)
+12. [Retrieval](#-retrieval)
+13. [Domain-Specific Generation](#-domain-specific-generation)
+14. [Cross-Domain Synthesis](#-cross-domain-synthesis)
+15. [Coverage Classification](#-coverage-classification)
+16. [Final Response Assembly](#-final-response-assembly)
+17. [Grounding and Citation Model](#-grounding-and-citation-model)
+18. [Safety and Non-Equivalence Rules](#-safety-and-non-equivalence-rules)
+19. [Frontend Experience](#-frontend-experience)
+20. [Public API Contract](#-public-api-contract)
+21. [Repository Structure](#-repository-structure)
+22. [Technology Stack](#-technology-stack)
+23. [Local Development Setup](#-local-development-setup)
+24. [Environment Variables](#-environment-variables)
+25. [Database Setup](#-database-setup)
+26. [Running the Backend](#-running-the-backend)
+27. [Running the Frontend](#-running-the-frontend)
+28. [Running the Phase 1 Pipeline](#-running-the-phase-1-pipeline)
+29. [Generated Artifacts](#-generated-artifacts)
+30. [Validation and Quality Gates](#-validation-and-quality-gates)
+31. [Testing](#-testing)
+32. [Observability and Reproducibility](#-observability-and-reproducibility)
+33. [Production Behavior](#-production-behavior)
+34. [Known Limitations](#-known-limitations)
+35. [Design Decisions](#-design-decisions)
+36. [Contribution Guidelines](#-contribution-guidelines)
 
 ---
 
-# Project Goals
+# 🎯 Project Goals
 
-WTH is being built to answer questions such as:
+WTH is built to answer questions such as:
 
 - How is consciousness related to the self?
 - Is experienced reality constructed, dependent, or independently real?
@@ -71,11 +90,11 @@ WTH is being built to answer questions such as:
 - When are two traditions only functionally analogous rather than substantively equivalent?
 - What can the current reviewed corpus support, and what remains outside its coverage?
 
-The system is designed to achieve five primary goals:
+The system is designed around five goals:
 
 1. **Ground answers in reviewed source material.**
 2. **Preserve the conceptual independence of each domain.**
-3. **Support meaningful comparison without false equivalence.**
+3. **Support comparison without manufacturing equivalence.**
 4. **Expose uncertainty and corpus limitations explicitly.**
 5. **Maintain claim-level provenance from final answer back to active source chunks.**
 
@@ -83,44 +102,42 @@ The system is designed to achieve five primary goals:
 
 # Why WTH Exists
 
-Standard RAG systems are often strong at answering:
+Standard RAG systems are often good at answering:
 
 > “What does this corpus say about X?”
 
-They are significantly weaker at answering:
+They are much weaker at answering:
 
 > “How do three fundamentally different intellectual systems relate to X, and where do they agree, differ, or remain incomparable?”
 
-A conventional RAG pipeline can easily make several mistakes:
+A conventional RAG pipeline can easily:
 
 - retrieve semantically similar but conceptually different passages;
-- merge Atman and Purusha into a single “self” concept;
+- merge **Atman** and **Purusha** into one generic “self” concept;
 - turn functional analogy into metaphysical equivalence;
 - present scientific findings as proof of philosophical claims;
 - overgeneralize from sparse evidence;
-- fabricate a polished answer when the corpus does not actually support the full question.
+- generate a polished answer when the reviewed corpus does not actually support the full question.
 
-WTH is designed specifically around these failure modes.
+WTH is designed around preventing exactly these failure modes.
 
 ---
 
 # Core Design Principles
 
-## 1. Evidence before generation
+### 1. Evidence before generation
 
-The LLM is not treated as the source of truth for corpus-grounded claims.
+The LLM is not treated as the source of truth for corpus-grounded claims. Reviewed evidence is the authority.
 
-Reviewed corpus evidence is the authority.
-
-## 2. Domain separation
+### 2. Domain separation
 
 Science, Advaita Vedanta, and Samkhya are retrieved and generated independently before any synthesis occurs.
 
-## 3. Comparison after grounding
+### 3. Comparison after grounding
 
-Cross-domain comparison is performed only after each domain has produced its own grounded claims.
+Cross-domain comparison happens only after each domain has produced its own grounded claims.
 
-## 4. Similarity is not equivalence
+### 4. Similarity is not equivalence
 
 WTH distinguishes:
 
@@ -132,33 +149,31 @@ WTH distinguishes:
 - non-equivalence;
 - insufficient corpus coverage.
 
-## 5. Human-reviewed evidence is authoritative
+### 5. Human-reviewed evidence is authoritative
 
-Automated embeddings and concept mapping assist retrieval, but reviewed labels and corpus status remain authoritative.
+Embeddings and automated concept mapping assist retrieval, but reviewed labels and activation status remain authoritative.
 
-## 6. Corpus knowledge and model knowledge are separate
+### 6. Corpus knowledge and model knowledge stay separate
 
-If a question is not adequately supported by the reviewed WTH corpus, the system may optionally provide a separately labeled general-knowledge explanation.
+If the reviewed corpus cannot support an answer, WTH can explicitly say so. Any optional general-knowledge explanation must remain visibly separate from corpus-grounded material.
 
-General knowledge must never be presented as reviewed-corpus evidence.
+### 7. Reproducibility matters
 
-## 7. Reproducibility
-
-Corpus versions, prompt versions, generation versions, thresholds, and intermediate artifacts are recorded so that a final answer can be traced back through the pipeline.
+Corpus versions, prompt versions, model configuration, thresholds, retrieval configuration, and generated artifacts are recorded so that a final answer can be traced through the pipeline.
 
 ---
 
 # Current Scope
 
-## Phase 1 domains
+## Active domains
 
 | Domain | Purpose |
 |---|---|
-| Science | Empirical and scientific accounts relevant to consciousness, cognition, self-models, perception, and experienced reality |
-| Advaita Vedanta | Non-dual Vedantic perspectives including Atman, Brahman, Maya, selfhood, and appearance |
-| Samkhya | Classical dualist analysis involving Purusha, Prakriti, cognition, self, experience, and reality |
+| **Science** | Empirical accounts relevant to consciousness, cognition, self-models, perception, and experienced reality |
+| **Advaita Vedanta** | Non-dual Vedantic perspectives including Atman, Brahman, Maya, selfhood, and appearance |
+| **Samkhya** | Classical dualist analysis involving Purusha, Prakriti, cognition, self, experience, and reality |
 
-## Phase 1 concepts
+## Active Phase 1 concepts
 
 | Concept ID | Human-readable meaning |
 |---|---|
@@ -166,9 +181,9 @@ Corpus versions, prompt versions, generation versions, thresholds, and intermedi
 | `self_identity` | Self, identity, ego, subject, Atman/Purusha-related distinctions |
 | `reality_appearance` | Reality, appearance, perception, Maya, Prakriti, experienced world |
 
-## Canonical concept model
+## Broader canonical concept model
 
-The broader architecture supports eight conceptual dimensions:
+The wider architecture supports eight conceptual dimensions:
 
 1. `consciousness`
 2. `self_identity`
@@ -179,161 +194,216 @@ The broader architecture supports eight conceptual dimensions:
 7. `causation_karma`
 8. `moral_responsibility_suffering`
 
-Only the first three are active in the current Phase 1 vertical slice.
+Only the first three are active in the current reviewed Phase 1 corpus.
 
 ---
 
-# High-Level Architecture
+# Production Architecture
+
+WTH separates the browser experience from the reasoning backend. The frontend never talks directly to Supabase, Gemini, or Groq.
 
 ```mermaid
-flowchart LR
-    U[User Question]
+flowchart TB
+    U([User])
 
-    subgraph API[WTH API Layer]
-        QV[Question Validation]
-        CA[Concept Activation]
+    subgraph FE["Frontend — Next.js"]
+        ASK["Ask / Read"]
+        TRY["Try These"]
+        ABOUT["About"]
+        DRAWER["Citation Evidence Drawer"]
     end
 
-    subgraph RET[Retrieval Layer]
-        ER[Embedding Retrieval]
-        CR[Concept-Aware Ranking]
-        DR[Domain-Separated Evidence]
+    subgraph API["FastAPI Runtime"]
+        Q["POST /api/query"]
+        CH["GET /api/chunk/{chunk_id}"]
+        ORCH["Query Orchestrator"]
     end
 
-    subgraph GEN[Generation Layer]
-        GS[Science Generator]
-        GA[Advaita Generator]
-        GK[Samkhya Generator]
+    subgraph RET["Retrieval"]
+        ACT["Concept Activation"]
+        EMB["Query Embedding"]
+        RANK["Concept-Aware + Domain-Separated Retrieval"]
     end
 
-    subgraph SYN[Synthesis Layer]
-        CS[Cross-Domain Semantic Classifier]
+    subgraph GEN["Grounded Generation"]
+        SCI["Science"]
+        ADV["Advaita"]
+        SAM["Samkhya"]
+        SYN["Cross-Domain Synthesis"]
     end
 
-    subgraph COV[Coverage Layer]
-        CC[Coverage Score]
-        HO[Hard Overrides]
+    subgraph DET["Deterministic Validation"]
+        COV["Coverage Classification"]
+        ASM["Final Response Assembly"]
     end
 
-    subgraph FIN[Final Assembly]
-        FA[Deterministic Response Assembly]
-        CV[Final Citation and Integrity Validation]
-    end
+    DB[("Supabase Postgres + pgvector")]
+    GEM["Gemini Embeddings"]
+    GROQ["Groq LLM Runtime"]
 
-    DB[(Supabase Postgres + pgvector)]
-    GM[Gemini Embeddings]
-    GR[Groq]
+    U --> ASK --> Q --> ORCH
+    ORCH --> ACT --> EMB
+    EMB --> GEM
+    ACT --> RANK
+    EMB --> RANK
+    DB --> RANK
 
-    U --> QV --> CA
-    CA --> ER
-    ER --> GM
-    ER --> DB
-    ER --> CR --> DR
+    RANK --> SCI
+    RANK --> ADV
+    RANK --> SAM
+    SCI --> GROQ
+    ADV --> GROQ
+    SAM --> GROQ
 
-    DR --> GS
-    DR --> GA
-    DR --> GK
+    SCI --> SYN
+    ADV --> SYN
+    SAM --> SYN
+    SYN --> GROQ
 
-    GS --> GR
-    GA --> GR
-    GK --> GR
+    SYN --> COV --> ASM
+    SCI --> ASM
+    ADV --> ASM
+    SAM --> ASM
+    ASM --> ASK
 
-    GS --> CS
-    GA --> CS
-    GK --> CS
-    CS --> GR
+    ASK --> DRAWER --> CH --> DB
+    TRY --> ASK
 
-    CS --> CC
-    DR --> CC
-    GS --> CC
-    GA --> CC
-    GK --> CC
+    classDef user fill:#FFE0B2,stroke:#E65100,color:#4E342E,stroke-width:2px;
+    classDef frontend fill:#E3F2FD,stroke:#1565C0,color:#0D47A1,stroke-width:1.5px;
+    classDef api fill:#E8F5E9,stroke:#2E7D32,color:#1B5E20,stroke-width:1.5px;
+    classDef retrieval fill:#FFF8E1,stroke:#F9A825,color:#5D4037,stroke-width:1.5px;
+    classDef generation fill:#F3E5F5,stroke:#7B1FA2,color:#4A148C,stroke-width:1.5px;
+    classDef deterministic fill:#FCE4EC,stroke:#AD1457,color:#880E4F,stroke-width:1.5px;
+    classDef external fill:#E0F7FA,stroke:#00838F,color:#006064,stroke-width:1.5px;
 
-    CC --> HO --> FA
-    GS --> FA
-    GA --> FA
-    GK --> FA
-    CS --> FA
-
-    FA --> CV --> O[Final User Response]
+    class U user;
+    class ASK,TRY,ABOUT,DRAWER frontend;
+    class Q,CH,ORCH api;
+    class ACT,EMB,RANK retrieval;
+    class SCI,ADV,SAM,SYN generation;
+    class COV,ASM deterministic;
+    class DB,GEM,GROQ external;
 ```
+
+### Deployment topology
+
+```text
+Browser
+  ↓
+Next.js frontend — Netlify
+  ↓ HTTPS
+FastAPI backend — Render
+  ├─ Supabase / pgvector
+  ├─ Gemini embeddings
+  └─ Groq generation + synthesis
+```
+
+Configured origins:
+
+- Frontend: `https://whatthehuman.netlify.app`
+- Backend: `https://wth-whatthehuman.onrender.com`
 
 ---
 
 # Runtime Request Flow
 
-The production request path is intentionally staged.
+The production request path is staged and non-streaming. `/api/query` returns one complete canonical response; the frontend reveal animation is only presentation pacing.
 
 ```mermaid
 sequenceDiagram
+    autonumber
     participant U as User
-    participant R as Phase 14 Retrieval
-    participant G15 as Phase 15 Domain Generation
-    participant G16 as Phase 16 Synthesis
-    participant C17 as Phase 17 Coverage
-    participant A18 as Phase 18 Assembly
+    participant F as Next.js Frontend
+    participant A as FastAPI
+    participant G as Gemini
+    participant S as Supabase/pgvector
+    participant D as Phase 15 Domains
+    participant Y as Phase 16 Synthesis
+    participant C as Phase 17 Coverage
+    participant R as Phase 18 Assembly
 
-    U->>R: Ask comparative question
-    R-->>G15: Domain-separated evidence packages
+    U->>F: Submit one question
+    F->>A: POST /api/query
+    A->>G: Embed query
+    G-->>A: 768-d embedding
+    A->>S: Retrieve active evidence
+    S-->>A: Domain-separated evidence
 
     par Science
-        G15->>G15: Generate grounded Science claims
+        A->>D: Generate Science claims
     and Advaita
-        G15->>G15: Generate grounded Advaita claims
+        A->>D: Generate Advaita claims
     and Samkhya
-        G15->>G15: Generate grounded Samkhya claims
+        A->>D: Generate Samkhya claims
     end
 
-    G15-->>G16: Structured claims + citations + limitations
-    G16->>G16: Compare domain claims
-    G16-->>C17: Similarities, tensions, non-equivalences
+    D-->>Y: Structured claims + citations + limitations
+    Y-->>C: Pairwise comparisons + tensions + non-equivalences
+    C-->>R: Coverage status + policy
+    R-->>A: Canonical FinalResponse
+    A-->>F: 200 JSON response
+    F-->>U: Staged reading reveal
 
-    C17->>C17: Score corpus coverage
-    C17->>C17: Apply hard safety overrides
-    C17-->>A18: Coverage status + response policy
-
-    A18->>A18: Validate citations and versions
-    A18->>A18: Assemble final answer
-    A18-->>U: Grounded comparative response
+    opt User opens citation
+        U->>F: Click [C1]
+        F->>A: GET /api/chunk/{chunk_id}
+        A->>S: Lookup reviewed chunk
+        S-->>A: Passage + source metadata
+        A-->>F: ChunkResponse
+        F-->>U: Evidence drawer
+    end
 ```
 
-Phases 17 and 18 make **no LLM calls**.
+**Important:** Phases 17 and 18 make **no LLM calls**.
 
 ---
 
-# Phase Architecture
+# Core Phase Architecture
 
-The project is implemented as a controlled sequence of phases rather than a single opaque RAG function.
+The corpus and runtime are implemented as a controlled phase pipeline rather than one opaque RAG function.
 
 ```mermaid
-flowchart TD
-    P0[Phase 0<br/>Preserve and Reclassify]
-    P1[Phase 1<br/>Inspect Corpus Structure]
-    P2[Phase 2<br/>Define Scope Metadata]
-    P3[Phase 3<br/>Rule-Based Candidate Selection]
-    P4[Phase 4<br/>Build Review Packet]
-    P5[Phase 5<br/>Human Review]
-    P6[Phase 6<br/>Freeze Build / Dev / Heldout]
-    P7[Phase 7<br/>Select Embedding Architecture]
-    P8[Phase 8<br/>Build Concept Prototypes]
-    P9[Phase 9<br/>Generate Embeddings]
-    P10[Phase 10<br/>Tune Concept Mapping]
-    P11[Phase 11<br/>Heldout Evaluation]
-    P12[Phase 12<br/>Reviewed Weighted Tags]
-    P13[Phase 13<br/>Activate Corpus]
-    P14[Phase 14<br/>Concept + Domain Retrieval]
-    P15[Phase 15<br/>Domain-Specific Generation]
-    P16[Phase 16<br/>Cross-Domain Synthesis]
-    P17[Phase 17<br/>Coverage Classification]
-    P18[Phase 18<br/>Final Response Assembly]
-    P19[Phase 19<br/>End-to-End Testing]
-    P20[Phase 20<br/>Phase Completion]
+flowchart LR
+    subgraph PREP["Corpus Preparation & Review"]
+        P0["P0 Preserve / Reclassify"]
+        P1["P1 Inspect Structure"]
+        P2["P2 Scope Metadata"]
+        P3["P3 Candidate Selection"]
+        P4["P4 Review Packet"]
+        P5["P5 Human Review"]
+        P6["P6 Freeze Sets"]
+    end
 
-    P0 --> P1 --> P2 --> P3 --> P4 --> P5
-    P5 --> P6 --> P7 --> P8 --> P9 --> P10
-    P10 --> P11 --> P12 --> P13 --> P14
-    P14 --> P15 --> P16 --> P17 --> P18
-    P18 --> P19 --> P20
+    subgraph MAP["Embeddings & Concept Mapping"]
+        P7["P7 Embedding Architecture"]
+        P8["P8 Concept Prototypes"]
+        P9["P9 Embeddings"]
+        P10["P10 Mapping Tuning"]
+        P11["P11 Heldout Evaluation"]
+        P12["P12 Reviewed Weighted Tags"]
+        P13["P13 Activate Corpus"]
+    end
+
+    subgraph RUN["Production Runtime"]
+        P14["P14 Retrieval"]
+        P15["P15 Domain Generation"]
+        P16["P16 Synthesis"]
+        P17["P17 Coverage"]
+        P18["P18 Final Assembly"]
+    end
+
+    P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6
+    P6 --> P7 --> P8 --> P9 --> P10 --> P11 --> P12 --> P13
+    P13 --> P14 --> P15 --> P16 --> P17 --> P18
+
+    classDef prep fill:#FFF3E0,stroke:#EF6C00,color:#5D4037,stroke-width:1.5px;
+    classDef map fill:#E8EAF6,stroke:#3949AB,color:#1A237E,stroke-width:1.5px;
+    classDef run fill:#E8F5E9,stroke:#2E7D32,color:#1B5E20,stroke-width:1.5px;
+
+    class P0,P1,P2,P3,P4,P5,P6 prep;
+    class P7,P8,P9,P10,P11,P12,P13 map;
+    class P14,P15,P16,P17,P18 run;
 ```
 
 ---
@@ -342,14 +412,13 @@ flowchart TD
 
 WTH does not rely only on raw vector similarity.
 
-Each active chunk can carry reviewed concept information and weighted concept associations.
+Each active chunk can carry reviewed concept information and weighted concept associations. A user question is transformed into:
 
-A user question is transformed into:
-
-- an embedding;
+- a query embedding;
 - an activated concept set;
 - calibrated concept weights;
-- ambiguity and unsupported-query signals.
+- ambiguity signals;
+- unsupported-query signals.
 
 Example:
 
@@ -380,19 +449,17 @@ These values influence retrieval and later coverage analysis.
 
 The active corpus is not simply “all documents available.”
 
-It is the subset of corpus chunks that have passed the Phase 1 review and activation process.
+It is the subset of chunks that passed the Phase 1 review and activation process.
 
-The active corpus therefore represents:
+> The active corpus represents reviewed evidence WTH is currently allowed to use for corpus-grounded claims.
 
-> reviewed evidence WTH is currently allowed to use for corpus-grounded claims.
-
-## Phase 1 reviewed corpus
-
-Current reviewed gold set:
+## Reviewed Phase 1 corpus
 
 - reviewed candidates: **424**
 - approved active candidates: **318**
 - excluded: **106**
+- active source set: **10 sources**
+- active concept relations: **954**
 
 Approved distribution:
 
@@ -403,7 +470,7 @@ Approved distribution:
 | Samkhya | 108 |
 | **Total** | **318** |
 
-The current active corpus version is:
+Current corpus version:
 
 ```text
 phase1_active_corpus_v1
@@ -411,16 +478,16 @@ phase1_active_corpus_v1
 
 ## Human review
 
-Human review is used to determine:
+Human review determines:
 
-- whether a candidate belongs in the corpus;
+- whether a candidate belongs in the active corpus;
 - which concepts it supports;
 - whether support is positive, partial, or negative;
 - whether the candidate is a hard negative;
 - whether source quality is sufficient;
 - whether concept assignment requires override.
 
-Human-reviewed labels override purely automated interpretation.
+Reviewed labels override purely automated interpretation.
 
 ---
 
@@ -429,32 +496,30 @@ Human-reviewed labels override purely automated interpretation.
 Phase 1 uses:
 
 - **Provider:** Google Gemini API
-- **Embedding model:** `gemini-embedding-2`
-- **Embedding dimension:** `768`
+- **Model:** `gemini-embedding-2`
+- **Dimension:** `768`
 - **Normalization:** L2 normalized
 - **Similarity:** cosine similarity
 
-## Document representation
+### Document representation
 
 ```text
 title: {title} | text: {content}
 ```
 
-## Query representation
+### Query representation
 
 ```text
 task: search result | query: {content}
 ```
 
-Concept prototypes and corpus chunks are embedded using the same embedding architecture.
+Concept prototypes and corpus chunks use the same embedding architecture.
 
 ---
 
 # Concept Mapping
 
-WTH uses a hybrid concept-mapping method.
-
-The current frozen Phase 1 concept mapper combines:
+WTH uses a hybrid mapping method combining:
 
 - semantic embedding similarity;
 - lexical concept cues;
@@ -462,11 +527,7 @@ The current frozen Phase 1 concept mapper combines:
 - ambiguity handling;
 - concept activation thresholds.
 
-The mapper was tuned only on the development set.
-
-The heldout set was reserved for final evaluation and is not reused for retuning.
-
-This is important for preventing evaluation leakage.
+The mapper was tuned on the development set only. The heldout set was reserved for final evaluation and is not reused for retuning.
 
 ---
 
@@ -483,68 +544,49 @@ The retrieval score combines:
 | Human review signal | 0.15 |
 | Citation/source quality | 0.05 |
 
-Additional retrieval controls include:
+Additional controls include:
 
 - source-repeat penalty;
 - exact deduplication;
 - near-duplicate Jaccard filtering;
 - minimum vector similarity;
-- per-domain evidence pool;
-- per-domain final top-k;
-- token budget per domain;
+- per-domain evidence pools;
+- token budgets;
 - maximum chunks per source;
-- production-active corpus requirement.
-
-Current key values:
-
-```text
-top_k per domain        = 3
-candidate pool/domain   = 30
-token budget/domain     = 900
-max chunks/source       = 2
-minimum vector score    = 0.20
-source repeat penalty   = 0.08
-```
-
-## Retrieval architecture
+- production-active corpus enforcement.
 
 ```mermaid
-flowchart TD
-    Q[Question]
-    QE[Query Embedding]
-    CA[Activated Concepts]
+flowchart LR
+    Q["Question"] --> QE["Query Embedding"]
+    Q --> CA["Activated Concepts"]
+    DB[("Active Corpus")]
 
-    DB[(Active Corpus)]
-
-    VR[Vector Retrieval]
-    CS[Concept Alignment]
-    HR[Human Review Weight]
-    CQ[Citation Quality]
-
-    RS[Combined Retrieval Score]
-    DD[Deduplication]
-    DS[Domain Separation]
-
-    S[Science Evidence]
-    A[Advaita Evidence]
-    K[Samkhya Evidence]
-
-    Q --> QE --> VR
-    Q --> CA --> CS
+    QE --> VR["Vector Similarity"]
+    CA --> CS["Concept Alignment"]
     DB --> VR
     DB --> CS
-    DB --> HR
-    DB --> CQ
+    DB --> HR["Human Review Signal"]
+    DB --> CQ["Citation Quality"]
 
-    VR --> RS
+    VR --> RS["Combined Retrieval Score"]
     CS --> RS
     HR --> RS
     CQ --> RS
 
-    RS --> DD --> DS
-    DS --> S
-    DS --> A
-    DS --> K
+    RS --> DD["Deduplicate / Diversity"] --> DS["Domain Separation"]
+    DS --> S["Science Evidence"]
+    DS --> A["Advaita Evidence"]
+    DS --> K["Samkhya Evidence"]
+
+    classDef input fill:#FFF3E0,stroke:#EF6C00,color:#5D4037;
+    classDef score fill:#E3F2FD,stroke:#1565C0,color:#0D47A1;
+    classDef data fill:#E0F7FA,stroke:#00838F,color:#006064;
+    classDef result fill:#E8F5E9,stroke:#2E7D32,color:#1B5E20;
+
+    class Q,QE,CA input;
+    class VR,CS,HR,CQ,RS score;
+    class DB data;
+    class DD,DS,S,A,K result;
 ```
 
 ---
@@ -553,78 +595,70 @@ flowchart TD
 
 Phase 15 generates three independent grounded responses.
 
-The Science generator receives only Science evidence.
+| Domain | Runtime model | Reasoning | Max completion |
+|---|---|---|---:|
+| Science | `openai/gpt-oss-20b` | medium | 2500 |
+| Advaita Vedanta | `openai/gpt-oss-120b` | medium | 3000 |
+| Samkhya | `openai/gpt-oss-20b` | medium | 2500 |
 
-The Advaita generator receives only Advaita evidence.
-
-The Samkhya generator receives only Samkhya evidence.
-
-This prevents early conceptual contamination between domains.
-
-## Phase 15 outputs
+The Science generator receives only Science evidence, Advaita receives only Advaita evidence, and Samkhya receives only Samkhya evidence.
 
 Each domain response contains:
 
 - summary;
 - structured claims;
 - concepts covered;
-- claim-level citations;
+- claim-level citation references;
 - limitations;
 - unsupported aspects;
 - grounding checks;
 - domain-leakage validation.
 
-The current Groq generation model is:
-
-```text
-llama-3.3-70b-versatile
-```
-
-Phase 15 uses structured JSON generation plus deterministic local validation.
-
-Canonical citations are reconstructed locally from retrieved chunk IDs rather than trusted blindly from generated text.
+Canonical citations are reconstructed locally from retrieved evidence rather than blindly trusted from generated text.
 
 ---
 
 # Cross-Domain Synthesis
 
-Phase 16 compares already-grounded domain claims.
+Phase 16 compares already-grounded domain claims. It does **not** receive the raw corpus again.
 
-It does **not** receive the entire raw corpus again.
+Current synthesis configuration:
 
-Its task is to classify relationships such as:
+- **Model:** `openai/gpt-oss-120b`
+- **Reasoning:** high
+- **Max completion:** 4500
 
-- surface similarity;
-- functional analogy;
-- substantive agreement;
-- partial overlap;
-- direct tension;
-- non-equivalence;
-- insufficient corpus coverage.
+The synthesis layer classifies relationships such as:
 
-## Phase 16 responsibility split
+- `surface_similarity`
+- `functional_analogy`
+- `substantive_agreement`
+- `partial_overlap`
+- `direct_tension`
+- `non_equivalence`
+- `insufficient_corpus_coverage`
 
-Python owns:
+### Responsibility split
+
+**Python owns:**
 
 - comparison slots;
 - concepts;
 - domain pairs;
 - claim references;
 - limitation references;
-- citations;
+- citation references;
 - corpus version;
 - structural integrity.
 
-Groq owns:
+**Groq-hosted LLM generation owns:**
 
 - semantic relationship category;
-- short comparative explanation.
+- concise comparative explanation.
 
-This keeps Phase 16 lightweight and prevents the LLM from becoming a second provenance system.
+This prevents the LLM from becoming a second provenance system.
 
-## Example conceptual distinctions
-
-WTH must preserve differences such as:
+### Hard conceptual distinctions
 
 ```text
 Atman ≠ Purusha
@@ -650,25 +684,23 @@ Phase 17 asks:
 
 > Does the reviewed WTH corpus contain enough evidence to answer the major components of this question?
 
-It is intentionally stricter than stylistic validation because this phase controls whether WTH is allowed to present an answer as corpus-supported.
-
-## Coverage workflow
+It is deterministic and intentionally stricter than stylistic validation.
 
 ```mermaid
 flowchart TD
-    Q[Question + Active Concepts]
-    E[Reviewed Retrieved Evidence]
-    D[Domain Coverage]
-    C[Citation Quality]
-    R[Retrieval Confidence]
-    U[Unsupported Subquestions]
+    Q["Question + Active Concepts"]
+    E["Reviewed Evidence"]
+    D["Domain Coverage"]
+    C["Citation Quality"]
+    R["Retrieval Confidence"]
+    U["Unsupported Subquestions"]
 
-    SCORE[Calculate Coverage Score 0-100]
-    OVERRIDE[Apply Hard Safety Overrides]
+    SCORE["Coverage Score 0–100"]
+    OVERRIDE["Hard Safety Overrides"]
 
-    SUP[Supported]
-    PART[Partially Supported]
-    OOC[Out of Corpus]
+    SUP["✅ Supported"]
+    PART["🟠 Partially Supported"]
+    OOC["◌ Out of Corpus"]
 
     Q --> SCORE
     E --> SCORE
@@ -676,15 +708,24 @@ flowchart TD
     C --> SCORE
     R --> SCORE
     U --> SCORE
-
     SCORE --> OVERRIDE
 
-    OVERRIDE -->|70-100 and no blocking gap| SUP
-    OVERRIDE -->|40-69 or capped by limitation| PART
-    OVERRIDE -->|Below 40 or no usable evidence| OOC
-```
+    OVERRIDE -->|"70–100 + no blocking gap"| SUP
+    OVERRIDE -->|"40–69 or limitation cap"| PART
+    OVERRIDE -->|"<40 or no usable evidence"| OOC
 
-## Coverage score
+    classDef input fill:#E3F2FD,stroke:#1565C0,color:#0D47A1;
+    classDef logic fill:#FFF8E1,stroke:#F9A825,color:#5D4037,stroke-width:1.5px;
+    classDef supported fill:#E8F5E9,stroke:#2E7D32,color:#1B5E20,stroke-width:2px;
+    classDef partial fill:#FFF3E0,stroke:#EF6C00,color:#E65100,stroke-width:2px;
+    classDef ooc fill:#ECEFF1,stroke:#607D8B,color:#37474F,stroke-width:2px;
+
+    class Q,E,D,C,R,U input;
+    class SCORE,OVERRIDE logic;
+    class SUP supported;
+    class PART partial;
+    class OOC ooc;
+```
 
 Current Phase 17 v2 weighting:
 
@@ -698,214 +739,204 @@ Current Phase 17 v2 weighting:
 | Unsupported-subquestion component | 10 |
 | **Total** | **100** |
 
-## Coverage thresholds
+Thresholds:
 
 ```text
 70–100  → Supported
 40–69   → Partially Supported
-0–39    → Unsupported / Out of Corpus
+0–39    → Out of Corpus
 ```
 
-The score is followed by hard safety overrides.
-
-Examples:
-
-```text
-No reviewed evidence
-→ Out of Corpus
-```
-
-```text
-No grounded Phase 15 claims
-→ Out of Corpus
-```
-
-```text
-Only one domain available for a three-domain comparison
-→ cannot be fully Supported
-```
-
-```text
-Phase 16 identifies insufficient comparison evidence
-→ affected concept is capped at Partially Supported
-```
-
-## Example
-
-For the question:
-
-> How is consciousness related to the self and experienced reality?
-
-the current Phase 1 evaluation produced approximately:
-
-| Concept | Coverage score | Status |
-|---|---:|---|
-| `reality_appearance` | 88.21 | Supported |
-| `self_identity` | 87.25 | Supported |
-| `consciousness` | 74.54 | Partially Supported |
-
-Overall:
-
-```text
-Coverage score: 84.64
-Coverage status: Partially Supported
-```
-
-The overall status remains Partial because the consciousness comparison has an explicit Phase 16 coverage limitation.
+The numeric score is followed by hard overrides. A high raw score cannot override a blocking evidence gap.
 
 ---
 
 # Final Response Assembly
 
-Phase 18 is the deterministic presentation layer.
+Phase 18 is deterministic. It does not call Groq, Gemini, or retrieval again.
 
-It does not call Groq, Gemini, or retrieval again.
+It assembles validated Phase 14–17 outputs into the canonical `FinalResponse` returned by `POST /api/query`.
 
-It assembles validated outputs from Phases 14–17 into one final answer.
+The response includes:
 
-## Final response structure
-
-1. Interpretation of the question
-2. Activated concepts
-3. Science perspective
-4. Advaita Vedanta perspective
-5. Samkhya perspective
-6. Comparative synthesis
-7. Key tensions and non-equivalences
-8. Coverage classification
-9. Claim-level citations
-
-## Phase 18 architecture
+1. interpretation of the question;
+2. activated concepts;
+3. Science perspective;
+4. Advaita Vedanta perspective;
+5. Samkhya perspective;
+6. comparative synthesis;
+7. key tensions;
+8. non-equivalences;
+9. coverage classification;
+10. response-scoped claim-level citations;
+11. validation metadata.
 
 ```mermaid
 flowchart LR
-    P14[Phase 14<br/>Evidence]
-    P15[Phase 15<br/>Domain Claims]
-    P16[Phase 16<br/>Synthesis]
-    P17[Phase 17<br/>Coverage]
+    P14["P14 Evidence"]
+    P15["P15 Domain Claims"]
+    P16["P16 Synthesis"]
+    P17["P17 Coverage"]
 
-    V[Final Integrity Validation]
-    A[Deterministic Assembly]
-
-    JSON[final_response.json]
-    MD[final_response.md]
+    V["Integrity Validation"]
+    A["Deterministic Assembly"]
+    OUT["FinalResponse JSON"]
 
     P14 --> V
     P15 --> V
     P16 --> V
     P17 --> V
+    V --> A --> OUT
 
-    V --> A
-    A --> JSON
-    A --> MD
+    classDef source fill:#E3F2FD,stroke:#1565C0,color:#0D47A1;
+    classDef validate fill:#FFF8E1,stroke:#F9A825,color:#5D4037,stroke-width:1.5px;
+    classDef output fill:#E8F5E9,stroke:#2E7D32,color:#1B5E20,stroke-width:2px;
+
+    class P14,P15,P16,P17 source;
+    class V,A validate;
+    class OUT output;
 ```
-
-## Final validation
-
-Phase 18 checks:
-
-- all Phase 15 claims have citations;
-- citations resolve to Phase 14 retrieved active evidence;
-- citation domain matches claim domain;
-- Phase 15 domain-leakage validation passed;
-- Phase 16 synthesis validation passed;
-- obvious unsupported equivalence is rejected;
-- Phase 17 coverage status matches concept statuses;
-- Out-of-Corpus responses cannot masquerade as corpus-supported;
-- corpus and prompt versions are recorded.
 
 ---
 
 # Grounding and Citation Model
 
-The citation chain is designed to remain inspectable.
+Citation references such as `C1` are **response-scoped**. They are never treated as permanent global identifiers.
+
+The canonical frontend citation flow is:
 
 ```mermaid
 flowchart LR
-    SRC[Source Document]
-    CH[Reviewed Active Chunk]
-    RET[Retrieved Evidence]
-    CL[Grounded Claim]
-    CMP[Comparative Statement]
-    OUT[Final Response]
+    CL["Grounded Claim"]
+    REF["citation_refs: C1"]
+    REG["claim_level_citations"]
+    CID["chunk_id"]
+    API["GET /api/chunk/{chunk_id}"]
+    PASS["Reviewed Passage"]
+    SRC["Source + Corpus Version"]
 
-    SRC --> CH --> RET --> CL --> OUT
-    CL --> CMP --> OUT
+    CL --> REF --> REG --> CID --> API --> PASS --> SRC
+
+    classDef claim fill:#F3E5F5,stroke:#7B1FA2,color:#4A148C;
+    classDef ref fill:#FFF8E1,stroke:#F9A825,color:#5D4037;
+    classDef evidence fill:#E8F5E9,stroke:#2E7D32,color:#1B5E20;
+
+    class CL claim;
+    class REF,REG,CID,API ref;
+    class PASS,SRC evidence;
 ```
 
-A final corpus claim should therefore be traceable through:
+A corpus-grounded claim can therefore be traced through:
 
 ```text
 final claim
-→ claim reference
-→ canonical citation
-→ chunk ID
-→ source ID
+→ citation_ref
+→ claim_level_citations registry
+→ chunk_id
+→ source_id
+→ reviewed passage
 → active corpus version
 ```
 
-This is one of the central architectural guarantees of WTH.
+The frontend never invents or infers a citation.
 
 ---
 
 # Safety and Non-Equivalence Rules
 
-WTH is intentionally conservative around comparative philosophical claims.
+WTH is intentionally conservative around comparative claims.
 
-Hard or high-priority safeguards include:
+### Domain leakage
 
-## Domain leakage
+Science evidence must not become Advaita evidence. Advaita evidence must not become Samkhya evidence. Samkhya evidence must not become Science evidence.
 
-Science evidence must not become Advaita evidence.
-
-Advaita evidence must not become Samkhya evidence.
-
-Samkhya evidence must not become Science evidence.
-
-## Atman vs Purusha
+### Atman vs Purusha
 
 WTH must not collapse Atman and Purusha into the same metaphysical entity.
 
-Possible similarity or analogy may be discussed only when evidence supports it and the difference remains explicit.
+### Science vs metaphysics
 
-## Science vs metaphysics
+Scientific findings may illuminate cognition, perception, self-modeling, conscious processing, and neural mechanisms. They must not automatically be treated as proof or disproof of Brahman, Atman, Purusha, Maya, non-duality, or metaphysical dualism.
 
-Scientific findings may illuminate:
+### Functional analogy ≠ ontology
 
-- cognition;
-- perception;
-- self-modeling;
-- conscious processing;
-- neural mechanisms.
+A useful similarity of role or function is not automatically a claim that two traditions mean the same thing.
 
-They must not automatically be treated as proof of:
+### General-knowledge fallback
 
-- Brahman;
-- Atman;
-- Purusha;
-- Maya;
-- metaphysical non-duality;
-- metaphysical dualism.
+Any non-corpus explanation must be labeled as such and must never inherit WTH corpus citations.
 
-## General-knowledge fallback
+---
 
-When the reviewed corpus cannot adequately answer a question, the application may optionally return:
+# Frontend Experience
 
-1. a clear corpus limitation;
-2. an interpretation of the question;
-3. a separately labeled general-knowledge explanation.
+The frontend is a **reading interface, not a chat UI**.
 
-General knowledge must:
+Exactly three user-facing routes are implemented:
 
-- not be labeled as corpus-supported;
-- not reuse WTH corpus citations;
-- not overwrite the coverage status.
+| Route | Purpose | Backend calls |
+|---|---|---|
+| `/` | Ask one question and read the full comparative response | `POST /api/query`, `GET /api/chunk/{chunk_id}` |
+| `/try-these` | Five curated example questions | None |
+| `/about` | Origin story, method, scope, limitations, stack | None |
+
+### Reading sequence
+
+```text
+Question
+→ Coverage indicator
+→ Activated concepts
+→ Interpretation
+→ Science
+→ Advaita Vedanta
+→ Samkhya
+→ Comparative synthesis
+→ Important distinctions
+→ Citation inspection
+```
+
+### Frontend design choices
+
+- stacked domain panels on every breakpoint;
+- EB Garamond for reading content and citations;
+- restrained sans-serif UI chrome;
+- Shatkona status animation;
+- client-side staggered reveal after the complete response arrives;
+- no SSE, WebSockets, or fake backend streaming;
+- citation drawer for full evidence passages;
+- calm Out-of-Corpus handling;
+- no authentication, accounts, history, or multi-turn conversation in v1.
+
+The frontend knows nothing about provider keys, Supabase internals, model names, or pipeline phases.
+
+---
+
+# Public API Contract
+
+The production browser-facing API is intentionally small.
+
+| Endpoint | Purpose |
+|---|---|
+| `POST /api/query` | Execute one complete WTH query and return canonical `FinalResponse` |
+| `GET /api/chunk/{chunk_id}` | Retrieve one reviewed active corpus passage for a citation drawer |
+| `GET /api/health` | Lightweight liveness endpoint |
+| `GET /api/ready` | Runtime readiness/configuration check |
+
+There is **no `/api/v1` prefix**.
+
+### Query behavior
+
+- request body: `{ "question": "..." }`
+- question length: 3–1000 characters
+- complete JSON response, not streamed
+- Out of Corpus is a valid `200 OK` outcome
+- controlled error responses include 413, 422, 429, 500, 502, 503, and 504
 
 ---
 
 # Repository Structure
 
-A representative project layout is:
+Representative current layout:
 
 ```text
 WTH-WhatTheHuman/
@@ -913,15 +944,28 @@ WTH-WhatTheHuman/
 ├── apps/
 │   └── api/
 │       ├── clients/
+│       ├── core/
 │       ├── ingestion/
-│       │   ├── chunkers/
-│       │   └── parsers/
+│       ├── middleware/
 │       ├── models/
-│       ├── routes/
+│       ├── routers/
 │       ├── services/
 │       └── main.py
 │
+├── frontend/
+│   ├── app/
+│   ├── components/
+│   ├── contracts/
+│   ├── data/
+│   ├── lib/
+│   ├── public/
+│   ├── tests/
+│   ├── types/
+│   ├── package.json
+│   └── package-lock.json
+│
 ├── artifacts/
+│   ├── frontend-contract/
 │   └── phase1/
 │       ├── reviewed/
 │       ├── evaluation/
@@ -933,47 +977,33 @@ WTH-WhatTheHuman/
 │       └── final/
 │
 ├── data/
-│   ├── catalogues/
-│   └── concepts/
-│
 ├── docs/
-│   └── corpus/
-│
 ├── packages/
-│
 ├── scripts/
-│   ├── freeze_phase1_candidate_corpus.py
-│   ├── reclassify_phase1_candidate_corpus.py
-│   ├── enrich_phase1_candidate_corpus_manifest.py
-│   ├── select_phase1_vertical_slice.py
-│   ├── freeze_phase1_evaluation_sets.py
-│   ├── build_phase1_concept_prototypes.py
-│   ├── generate_phase1_embeddings.py
-│   ├── tune_phase1_concept_mapping.py
-│   ├── calculate_reviewed_weighted_concept_tags.py
-│   ├── build_phase1_retrieval.py
-│   ├── build_phase1_domain_generation.py
-│   ├── build_phase1_synthesis.py
-│   ├── classify_phase1_coverage.py
-│   └── assemble_phase1_final_response.py
-│
 ├── supabase/
-│   ├── migrations/
-│   └── seed.sql
-│
 ├── tests/
-│
-├── .env
-├── .env.example
+├── deploy/
+├── Dockerfile
+├── .dockerignore
+├── netlify.toml
 ├── pyproject.toml
+├── uv.lock
 └── README.md
 ```
-
-Actual repository contents may evolve as later phases are completed.
 
 ---
 
 # Technology Stack
+
+## Frontend
+
+- Next.js 15
+- App Router
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- EB Garamond
+- Netlify deployment
 
 ## Backend
 
@@ -981,12 +1011,17 @@ Actual repository contents may evolve as later phases are completed.
 - FastAPI
 - Pydantic
 - Uvicorn
+- Docker
+- Render deployment
 
-## Database
+## Database / Retrieval
 
 - Supabase
 - PostgreSQL
 - pgvector
+- cosine vector similarity
+- concept-aware reranking
+- domain-separated evidence selection
 
 ## Embeddings
 
@@ -994,33 +1029,27 @@ Actual repository contents may evolve as later phases are completed.
 - `gemini-embedding-2`
 - 768-dimensional vectors
 
-## Generation
+## Generation / Synthesis
 
-- Groq API
-- current Phase 15/16 generation model: `llama-3.3-70b-versatile`
-
-## Retrieval
-
-- cosine vector similarity
-- concept-aware reranking
-- domain-separated evidence selection
+- Groq API runtime
+- `openai/gpt-oss-20b`
+- `openai/gpt-oss-120b`
 
 ## Quality
 
 - Ruff
 - mypy
 - pytest
+- frontend lint / typecheck / tests / production build
 - GitHub Actions
 
 ---
 
 # Local Development Setup
 
-The project is currently developed primarily on Windows using PowerShell.
+The project is developed primarily on Windows using PowerShell.
 
 ## Prerequisites
-
-Install:
 
 - Python 3.11
 - Git
@@ -1034,41 +1063,37 @@ Verify:
 python --version
 uv --version
 node --version
+npm --version
 npx --version
 ```
 
-Clone the repository:
+Clone:
 
 ```powershell
-git clone <YOUR_REPOSITORY_URL>
+git clone https://github.com/imAbhinav13/WTH-WhatTheHuman.git
 cd WTH-WhatTheHuman
 ```
 
-Create/install the environment:
+Install backend dependencies:
 
 ```powershell
 uv sync
 ```
 
-If the project uses a local virtual environment directly:
+Install frontend dependencies:
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+cd frontend
+npm install
+cd ..
 ```
-
-Then install dependencies according to `pyproject.toml`.
 
 ---
 
-# Environment Variables
-
-Never commit secrets.
-
-A typical `.env` configuration includes variables such as:
+## Backend — local example
 
 ```dotenv
-APP_NAME=WTH-WhatTheHuman
+APP_NAME=WTH: What The Human
 APP_ENV=development
 APP_VERSION=0.1.0
 DEBUG=true
@@ -1077,64 +1102,66 @@ LOG_LEVEL=INFO
 API_HOST=127.0.0.1
 API_PORT=8000
 API_PREFIX=/api
+CORS_ORIGINS=http://localhost:3000
+
+PROVIDER_MODE=live
 
 SUPABASE_URL=
 SUPABASE_SECRET_KEY=
-SUPABASE_PUBLISHABLE_KEY=
 
+GOOGLE_API_KEY=
 GROQ_API_KEY=
-GROQ_MODEL=llama-3.3-70b-versatile
-GROQ_TIMEOUT_SECONDS=
-GROQ_MAX_RETRIES=
+GROQ_TIMEOUT_SECONDS=60
+GROQ_MAX_RETRIES=3
 
 EMBEDDING_MODEL=gemini-embedding-2
 EMBEDDING_DIMENSION=768
-EMBEDDING_TIMEOUT_SECONDS=
-EMBEDDING_MAX_RETRIES=
+EMBEDDING_TIMEOUT_SECONDS=30
+EMBEDDING_MAX_RETRIES=3
 
-RETRIEVAL_TOP_K=
-RETRIEVAL_MIN_SIMILARITY=
+RETRIEVAL_TOP_K=5
+RETRIEVAL_MIN_SIMILARITY=0.55
+CONCEPT_ACTIVATION_THRESHOLD=0.50
+CONCEPT_AMBIGUITY_MARGIN=0.05
+MAX_ACTIVATED_CONCEPTS=3
 
-CONCEPT_ACTIVATION_THRESHOLD=
-CONCEPT_AMBIGUITY_MARGIN=
-MAX_ACTIVATED_CONCEPTS=
+QUESTION_MIN_LENGTH=3
+QUESTION_MAX_LENGTH=1000
 
-QUESTION_MIN_LENGTH=
-QUESTION_MAX_LENGTH=
+LOG_FULL_QUESTION_TEXT=false
+QUERY_RETENTION_DAYS=30
 
-READINESS_CHECK_DATABASE=true
-READINESS_CHECK_PROVIDERS=true
+WTH_MAX_QUERY_BODY_BYTES=16384
+WTH_QUERY_RATE_LIMIT_REQUESTS=5
+WTH_QUERY_RATE_LIMIT_WINDOW_SECONDS=600
+WTH_CHUNK_RATE_LIMIT_REQUESTS=60
+WTH_CHUNK_RATE_LIMIT_WINDOW_SECONDS=60
 ```
 
-The exact environment contract is defined by the project settings model.
+## Frontend — local example
 
-Do not copy production secrets into documentation, tests, or committed fixtures.
+`frontend/.env.local`
+
+```dotenv
+NEXT_PUBLIC_WTH_API_BASE_URL=http://127.0.0.1:8000
+NEXT_PUBLIC_WTH_GITHUB_URL=https://github.com/imAbhinav13/WTH-WhatTheHuman
+```
+
+No Groq, Gemini, or Supabase secret belongs in a `NEXT_PUBLIC_*` variable.
 
 ---
 
-# Database Setup
+# 🗃️ Database Setup
 
-The project uses Supabase Postgres and pgvector.
+WTH uses Supabase Postgres with pgvector.
 
-## Push migrations
+Push migrations:
 
 ```powershell
 npx supabase db push
 ```
 
-## Seed data
-
-Use the repository's Supabase seed workflow.
-
-For example:
-
-```powershell
-npx supabase seed
-```
-
-or use the exact command supported by the installed Supabase CLI version.
-
-## Core data model
+Use the repository's seed workflow where required.
 
 The database architecture supports entities such as:
 
@@ -1148,135 +1175,93 @@ The database architecture supports entities such as:
 - claim citations;
 - response concept coverage.
 
-The schema also preserves concept-level traceability for query and response analysis.
+---
+
+# Running the Backend
+
+From the repository root:
+
+```powershell
+uv run uvicorn apps.api.main:app --host 127.0.0.1 --port 8000
+```
+
+Useful local endpoints:
+
+```text
+http://127.0.0.1:8000/api/health
+http://127.0.0.1:8000/api/ready
+http://127.0.0.1:8000/docs
+```
+
+The production Docker image binds to `0.0.0.0` and honors the platform-provided `PORT`.
 
 ---
 
-# Running the API
+# Running the Frontend
 
-Start the FastAPI service:
-
-```powershell
-uv run uvicorn apps.api.main:app --reload
-```
-
-If `uv` is unavailable in a shell, activate the local environment and use:
+In a second terminal:
 
 ```powershell
-python -m uvicorn apps.api.main:app --reload
+cd frontend
+npm install
+npm run dev
 ```
 
-Typical local endpoint:
+Typical local frontend:
 
 ```text
-http://127.0.0.1:8000
+http://localhost:3000
 ```
 
-Health and readiness routes should be used to verify:
-
-- API process health;
-- database connectivity;
-- provider availability;
-- embedding provider readiness;
-- generation provider readiness.
+For real queries, the backend must also be running and reachable.
 
 ---
 
 # Running the Phase 1 Pipeline
 
-The phase scripts should be executed in order because later phases depend on frozen outputs from earlier phases.
+Phase scripts remain available for reproducibility, artifact inspection, and regression analysis.
 
-Exact CLI arguments can be inspected with:
+Inspect module help with:
 
 ```powershell
 uv run python -m scripts.<module_name> --help
 ```
 
-## Phase 14 — Retrieval
+Examples:
 
 ```powershell
 uv run python -m scripts.build_phase1_retrieval
-```
-
-Produces concept-aware, domain-separated evidence.
-
-## Phase 15 — Domain generation
-
-```powershell
 uv run python -m scripts.build_phase1_domain_generation --replace
-```
-
-Produces:
-
-```text
-artifacts/phase1/generation/domain_responses.json
-artifacts/phase1/generation/generation_manifest.json
-```
-
-## Phase 16 — Synthesis
-
-```powershell
 uv run python -m scripts.build_phase1_synthesis --replace
-```
-
-Produces the cross-domain comparison matrix and synthesis artifacts.
-
-## Phase 17 — Coverage classification
-
-```powershell
 uv run python -m scripts.classify_phase1_coverage --replace
-```
-
-Produces:
-
-```text
-artifacts/phase1/coverage/coverage.json
-artifacts/phase1/coverage/coverage_manifest.json
-```
-
-Expected example:
-
-```text
-coverage_status=Partially Supported
-coverage_score=84.64
-supported_concepts=2
-partially_supported_concepts=1
-unsupported_concepts=0
-covered_domains=3
-missing_domains=0
-Exit gate passed: True
-```
-
-## Phase 18 — Final response assembly
-
-```powershell
 uv run python -m scripts.assemble_phase1_final_response --replace
 ```
 
-Produces:
+Phase 18 should perform:
 
 ```text
-artifacts/phase1/final/final_response.json
-artifacts/phase1/final/final_response.md
-artifacts/phase1/final/final_response_manifest.json
+LLM=0
+embedding=0
+retrieval=0
 ```
 
-Phase 18 should report:
-
-```text
-Phase 18 provider calls:
-LLM=0 embedding=0 retrieval=0
-```
-
-because it only validates and assembles already-produced artifacts.
+because it validates and assembles already-produced artifacts.
 
 ---
 
 # Generated Artifacts
 
-The pipeline intentionally creates inspectable intermediate artifacts.
+The project intentionally preserves inspectable intermediate artifacts for:
 
-Examples include:
+- debugging;
+- reproducibility;
+- evaluation;
+- auditability;
+- regression analysis;
+- model/prompt comparison;
+- evidence traceability.
+
+Examples:
 
 ```text
 artifacts/phase1/reviewed/
@@ -1287,108 +1272,65 @@ artifacts/phase1/generation/
 artifacts/phase1/synthesis/
 artifacts/phase1/coverage/
 artifacts/phase1/final/
+artifacts/frontend-contract/
 ```
 
-These artifacts are useful for:
-
-- debugging;
-- reproducibility;
-- evaluation;
-- auditability;
-- regression analysis;
-- comparing model/prompt versions;
-- tracing final answers to evidence.
-
-Large or sensitive generated artifacts should be governed by the repository's `.gitignore` and data-handling policy.
+Large or sensitive artifacts should remain governed by `.gitignore` and the project's data-handling policy.
 
 ---
 
 # Validation and Quality Gates
 
-Every major phase has an exit gate.
+Every major stage has an exit gate.
 
-A phase is not considered complete simply because the script executed.
+### Retrieval
 
-## Phase 13
+Must use active reviewed evidence, preserve domain separation, preserve canonical citations, and satisfy retrieval evaluation.
 
-Active chunks must have reviewed production status and valid concept mappings.
+### Domain generation
 
-## Phase 14
+Must remain in-domain, cite retrieved evidence, preserve corpus version, and avoid unsupported references.
 
-Retrieval must:
+### Synthesis
 
-- use production-active evidence;
-- preserve domain separation;
-- preserve canonical citations;
-- satisfy retrieval evaluation.
+Must preserve comparison slots, valid categories, claim/citation provenance, and hard non-equivalence rules.
 
-## Phase 15
+### Coverage
 
-Each domain response must:
+Must prevent unsupported corpus claims and preserve Out-of-Corpus behavior.
 
-- remain within its own domain;
-- cite retrieved evidence;
-- preserve corpus version;
-- avoid unsupported evidence references.
+### Final assembly
 
-## Phase 16
+Must resolve citation references, preserve domain integrity, preserve coverage policy, and return a validated canonical response.
 
-Synthesis must:
+### Public API
 
-- include required comparison slots;
-- use valid categories;
-- preserve claim and citation provenance;
-- reject obvious false equivalence;
-- identify insufficient comparison coverage.
+Must preserve:
 
-## Phase 17
+- exactly four public endpoints;
+- no `/api/v1` prefix;
+- controlled structured errors;
+- production CORS;
+- request size limits;
+- rate limiting;
+- secret-safe logging.
 
-Coverage must:
+### Frontend
 
-- calculate evidence support;
-- apply hard overrides;
-- prevent unsupported corpus claims;
-- preserve corpus/general-knowledge boundaries.
+Must preserve:
 
-## Phase 18
-
-Final assembly must:
-
-- include claim-level citations;
-- resolve citations to active evidence;
-- preserve domain integrity;
-- preserve coverage policy;
-- record versions.
+- exactly three user-facing routes;
+- no streaming;
+- no direct provider/database access;
+- response-scoped citation resolution;
+- valid Out-of-Corpus rendering;
+- production build success.
 
 ---
 
 # Testing
 
-Run formatting:
-
-```powershell
-uv run ruff format .
-```
-
-Run linting:
-
-```powershell
-uv run ruff check .
-```
-
-Run type checking:
-
-```powershell
-uv run mypy .
-```
-
-Run tests:
-
-```powershell
-uv run pytest
-```
-
-A strong pre-commit workflow is:
+Backend quality gates:
 
 ```powershell
 uv run ruff format .
@@ -1396,344 +1338,207 @@ uv run ruff check .
 uv run mypy .
 uv run pytest
 ```
+
+Frontend quality gates:
+
+```powershell
+cd frontend
+npm run generate:api
+npm run typecheck
+npm run lint
+npm test
+npm run build
+```
+
+Frontend tests use captured contract fixtures and should not require live Groq/Gemini calls.
 
 ---
 
-# Observability and Reproducibility
+# 📊 Observability and Reproducibility
 
-WTH records version metadata throughout the pipeline.
-
-Important identifiers include:
+Important identifiers recorded through the pipeline include:
 
 - corpus version;
-- embedding model;
-- embedding dimension;
+- embedding model and dimension;
 - concept prototype version;
 - concept-mapping configuration;
 - retrieval configuration;
-- generation version;
-- generation prompt version;
-- synthesis version;
-- synthesis prompt version;
+- generation model and prompt version;
+- synthesis model and prompt version;
 - coverage version;
 - assembly version.
 
-This enables a final response to be reconstructed from the exact pipeline configuration that produced it.
+Production request timing can include:
+
+- `embedding_ms`
+- `retrieval_ms`
+- `generation_ms`
+- `synthesis_ms`
+- `coverage_ms`
+- `assembly_ms`
+- `total_ms`
+
+The API can expose safe `Server-Timing`, request IDs, and controlled retry metadata without logging full questions or secrets.
 
 ---
 
 # Production Behavior
 
-## Supported question
-
-When corpus coverage is strong:
+## Supported
 
 ```text
-User question
-→ retrieve reviewed evidence
-→ generate three grounded perspectives
-→ synthesize differences
-→ coverage = Supported
-→ return complete cited answer
+question
+→ reviewed evidence
+→ three grounded perspectives
+→ comparative synthesis
+→ Supported
+→ cited answer
 ```
 
-## Partially supported question
-
-When meaningful evidence exists but one or more components are weak:
+## Partially Supported
 
 ```text
-User question
+question
 → answer supported components
-→ explicitly identify evidence gaps
-→ do not invent missing corpus evidence
-→ optionally provide labeled general context
+→ expose evidence gaps
+→ retain limitations
+→ Partially Supported
 ```
 
-## Out-of-corpus question
+## Out of Corpus
 
 ```mermaid
-flowchart TD
-    Q[User Question]
-    C[Coverage Classification]
-    O[Out of Corpus]
-
-    L[State reviewed-corpus limitation]
-    I[Explain how the question was interpreted]
-    G[Optional General-Knowledge Explanation]
-    N[No WTH citations attached to general knowledge]
+flowchart LR
+    Q["User Question"]
+    C["Coverage Classification"]
+    O["◌ Out of Corpus"]
+    L["State reviewed-corpus limitation"]
+    I["Explain interpretation"]
+    G["Optional labeled general knowledge"]
+    N["No WTH citations on fallback"]
 
     Q --> C --> O --> L --> I --> G --> N
+
+    classDef question fill:#E3F2FD,stroke:#1565C0,color:#0D47A1;
+    classDef logic fill:#FFF8E1,stroke:#F9A825,color:#5D4037;
+    classDef ooc fill:#ECEFF1,stroke:#607D8B,color:#37474F,stroke-width:2px;
+    classDef fallback fill:#F3E5F5,stroke:#7B1FA2,color:#4A148C;
+
+    class Q question;
+    class C logic;
+    class O,L,I ooc;
+    class G,N fallback;
 ```
 
-Example behavior:
-
-> The reviewed WTH corpus does not currently contain enough evidence to answer this question reliably.
->
-> I understand your question as asking...
->
-> **General explanation:** ...
->
-> This general explanation is not grounded in the reviewed WTH corpus.
+Out of Corpus is a valid `200 OK` result, not an application failure.
 
 ---
 
 # Known Limitations
 
-## 1. Phase 1 concept scope is intentionally narrow
+### 1. Phase 1 concept scope is intentionally narrow
 
-Only three concepts are active:
+Only consciousness, self/identity, and reality/appearance are active in the reviewed corpus.
 
-- consciousness;
-- self/identity;
-- reality/appearance.
+### 2. Corpus coverage is uneven
 
-Questions centered on agency, karma, cosmology, moral responsibility, or suffering may fall outside current reviewed coverage.
+Not every topic is equally represented across Science, Advaita, and Samkhya.
 
-## 2. Corpus coverage is uneven
+### 3. Heldout Science coverage is limited
 
-The corpus does not necessarily cover each topic equally across Science, Advaita, and Samkhya.
+The current heldout evaluation is not sufficient to claim generalization across the Science domain as a whole.
 
-## 3. Heldout Science coverage limitation
+### 4. Purusha vs Atman is a critical hard-negative area
 
-The current heldout evaluation does not provide a complete basis for claiming generalization across the Science domain.
+The architecture therefore treats this as an explicit non-equivalence risk.
 
-## 4. Purusha vs Atman remains a critical hard-negative area
+### 5. Historical source quality varies
 
-Earlier heldout evaluation showed a meaningful tendency for automated concept mapping to incorrectly align Purusha with Atman/self.
+Some older source material can contain OCR or text-encoding degradation. These issues should be fixed in corpus/source normalization rather than hidden by frontend string replacement.
 
-The production design therefore treats this as an explicit non-equivalence risk.
+### 6. Coverage is an operational support metric
 
-## 5. OCR/source quality
+The coverage score measures how well the reviewed corpus supports answering the question. It is not scientific, philosophical, or metaphysical “proof.”
 
-Some historical source material may contain OCR degradation.
+### 7. Provider capacity can affect live completion
 
-Reviewed activation is therefore important before source text becomes production evidence.
-
-## 6. Coverage score is an operational support metric
-
-The Phase 17 score measures how well the current reviewed corpus supports answering the question.
-
-It should not be interpreted as philosophical, scientific, or metaphysical “proof.”
-
----
-
-# Roadmap
-
-## Current Phase 1
-
-```text
-Three domains
-×
-Three concepts
-×
-Reviewed active corpus
-×
-Concept-aware retrieval
-×
-Grounded generation
-×
-Comparative synthesis
-×
-Coverage classification
-×
-Final deterministic assembly
-```
-
-## Planned next work
-
-### Phase 19 — End-to-End Testing
-
-Test:
-
-- Supported questions;
-- Partially Supported questions;
-- Out-of-Corpus questions;
-- hard-negative cases;
-- citation corruption;
-- domain leakage;
-- incomplete domain coverage;
-- invalid synthesis references;
-- general-knowledge fallback boundary.
-
-### Phase 20 — Phase Completion
-
-Freeze:
-
-- Phase 1 corpus;
-- retrieval configuration;
-- prompt versions;
-- coverage thresholds;
-- validation behavior;
-- final response contract.
-
-## Future concept expansion
-
-Potential future concepts include:
-
-- matter and mind;
-- cosmology and origins;
-- agency and free will;
-- causation and karma;
-- moral responsibility and suffering.
-
-Each new concept should repeat the same evidence discipline:
-
-```text
-source selection
-→ human review
-→ evaluation split
-→ embedding/prototype construction
-→ concept validation
-→ corpus activation
-→ retrieval evaluation
-→ generation and synthesis testing
-```
+The runtime makes multiple structured generation calls. External provider throttling can produce controlled `429` or `502` outcomes even when the application itself is healthy.
 
 ---
 
 # Design Decisions
 
-## Why not use one giant Groq prompt?
+## Why not use one giant prompt?
 
-A single prompt containing all evidence from all domains would be simpler, but it would increase the risk of:
+A single prompt containing all evidence from all domains would be simpler, but it would increase the risk of domain leakage, citation mistakes, conceptual collapse, unsupported synthesis, and difficult debugging.
 
-- domain leakage;
-- conceptual collapse;
-- citation mistakes;
-- unsupported synthesis;
-- difficult debugging.
+WTH separates retrieval, domain generation, synthesis, coverage, and assembly.
 
-WTH instead separates generation and synthesis.
+## Why four LLM calls instead of one?
 
-## Why no LLM call in Phase 17?
+The architecture deliberately preserves:
 
-Coverage classification is based on evidence already produced by earlier phases.
+1. Science generation;
+2. Advaita generation;
+3. Samkhya generation;
+4. synthesis.
 
-Using another LLM as a coverage judge would add:
+This keeps domain reasoning independent before comparison.
 
-- latency;
-- cost;
-- variability;
-- another hallucination surface.
+## Why no LLM in Phase 17?
 
-A deterministic score plus hard overrides is easier to inspect and test.
+Coverage is deterministic because another LLM judge would add cost, latency, variability, and another hallucination surface.
 
-## Why no LLM call in Phase 18?
+## Why no LLM in Phase 18?
 
-Phase 15 already generated grounded prose.
+A final rewrite call could remove citations, weaken domain boundaries, or introduce unsupported equivalence. Final assembly therefore remains deterministic.
 
-Phase 16 already generated comparative reasoning.
+## Why no true streaming in the frontend?
 
-A final rewrite call could accidentally:
-
-- remove citations;
-- weaken domain separation;
-- introduce new claims;
-- create unsupported equivalence.
-
-Phase 18 therefore performs deterministic validation and assembly.
+`POST /api/query` returns one atomic canonical response. The staged reveal is a client-side reading rhythm, not a representation of server-side arrival order.
 
 ## Why maintain intermediate artifacts?
 
-Intermediate artifacts make it possible to ask:
-
-> Why did the user receive this final answer?
-
-and trace the result through:
+They make it possible to trace:
 
 ```text
 final response
-→ Phase 18 assembly
-→ Phase 17 coverage
-→ Phase 16 synthesis
-→ Phase 15 domain claims
-→ Phase 14 evidence
+→ assembly
+→ coverage
+→ synthesis
+→ domain claims
+→ retrieved evidence
 → active reviewed chunk
 → original source
 ```
 
-That traceability is a central design feature, not an implementation side effect.
+That traceability is a core feature, not an implementation side effect.
 
 ---
 
 # Contribution Guidelines
 
-When adding or modifying code:
+When modifying WTH:
 
 1. Keep domain boundaries explicit.
 2. Do not bypass reviewed corpus activation.
-3. Do not tune on the heldout evaluation set.
+3. Do not tune on heldout evaluation data.
 4. Preserve deterministic provenance wherever possible.
-5. Prefer local structural validation over additional LLM calls.
-6. Avoid synonym or rule explosions unless evaluation demonstrates the need.
-7. Treat unsupported evidence as a valid result, not a failure to be hidden.
-8. Add tests for any new hard safety rule.
-9. Run formatting, linting, type checking, and tests before merging.
-10. Record any changed prompt, model, threshold, or corpus version.
-
-Recommended quality gate:
-
-```powershell
-uv run ruff format .
-uv run ruff check .
-uv run mypy .
-uv run pytest
-```
+5. Prefer structural validation over additional LLM calls.
+6. Avoid synonym/rule explosions unless evaluation demonstrates the need.
+7. Treat unsupported evidence as a valid result.
+8. Add tests for new safety rules.
+9. Run backend and frontend quality gates before merging.
+10. Record changed models, prompts, thresholds, or corpus versions.
+11. Never expose Groq, Google, or Supabase secrets in browser code.
+12. Keep citation references response-scoped and resolve them through the canonical registry.
 
 ---
 
-# Project Status
+<div align="center">
 
-Current Phase 1 status:
+## ✦ The idea behind WTH
 
-| Phase | Status |
-|---|---|
-| Phase 0 — Preserve / Reclassify | Complete |
-| Phase 1 — Structure Inspection | Complete |
-| Phase 2 — Scope Metadata | Complete |
-| Phase 3 — Candidate Selection | Complete |
-| Phase 4 — Review Packet | Complete |
-| Phase 5 — Human Review | Complete |
-| Phase 6 — Build / Dev / Heldout Freeze | Complete |
-| Phase 7 — Embedding Architecture | Complete |
-| Phase 8 — Concept Prototypes | Complete |
-| Phase 9 — Embeddings | Complete |
-| Phase 10 — Concept-Mapping Tuning | Complete |
-| Phase 11 — Heldout Evaluation | Complete with documented limitations |
-| Phase 12 — Reviewed Weighted Tags | Complete |
-| Phase 13 — Active Corpus | Complete |
-| Phase 14 — Retrieval | Complete |
-| Phase 15 — Domain Generation | Complete |
-| Phase 16 — Cross-Domain Synthesis | Complete |
-| Phase 17 — Coverage Classification v2 | Complete / Frozen |
-| Phase 18 — Final Response Assembly | Implemented; final real-run validation pending |
-| Phase 19 — End-to-End Testing | Next |
-| Phase 20 — Completion | Pending |
+> **A useful comparative system should be able to say not only where ideas look similar, but where they differ, where comparison becomes misleading, and where the reviewed evidence simply does not know enough.**
 
----
-
-# Summary
-
-WTH is built around a simple principle:
-
-> **Do not confuse semantic similarity with conceptual equivalence, and do not confuse a plausible answer with a corpus-supported answer.**
-
-The system therefore separates:
-
-```text
-retrieval
-→ domain grounding
-→ cross-domain reasoning
-→ coverage classification
-→ final deterministic assembly
-```
-
-while preserving claim-level provenance throughout.
-
-The result is intended to be a comparative reasoning system that can say not only:
-
-> “Here is what these traditions say,”
-
-but also:
-
-> “Here is where they genuinely overlap, where they differ, where comparison becomes misleading, and where the current reviewed corpus simply does not know enough yet.”
+</div>
