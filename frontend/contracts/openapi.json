@@ -1,0 +1,1132 @@
+﻿{
+    "openapi":  "3.1.0",
+    "info":  {
+                 "title":  "WTH: What The Human",
+                 "description":  "Concept-aware comparative reasoning API across Science, Advaita Vedanta, and Samkhya.",
+                 "version":  "0.1.0"
+             },
+    "paths":  {
+                  "/api/health":  {
+                                      "get":  {
+                                                  "tags":  [
+                                                               "operations"
+                                                           ],
+                                                  "summary":  "Health",
+                                                  "description":  "Liveness only: no database or provider network calls.",
+                                                  "operationId":  "health_api_health_get",
+                                                  "responses":  {
+                                                                    "200":  {
+                                                                                "description":  "Successful Response",
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "additionalProperties":  true,
+                                                                                                                                        "type":  "object",
+                                                                                                                                        "title":  "Response Health Api Health Get"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            }
+                                                                }
+                                              }
+                                  },
+                  "/api/ready":  {
+                                     "get":  {
+                                                 "tags":  [
+                                                              "operations"
+                                                          ],
+                                                 "summary":  "Ready",
+                                                 "description":  "Check database/corpus plus provider/runtime configuration.\n\nGroq and Gemini are reported as configured here; this endpoint does not\nspend provider quota. Real reachability is proven by Stage 6.5 /api/query.",
+                                                 "operationId":  "ready_api_ready_get",
+                                                 "responses":  {
+                                                                   "200":  {
+                                                                               "description":  "Successful Response",
+                                                                               "content":  {
+                                                                                               "application/json":  {
+                                                                                                                        "schema":  {
+
+                                                                                                                                   }
+                                                                                                                    }
+                                                                                           }
+                                                                           }
+                                                               }
+                                             }
+                                 },
+                  "/api/chunk/{chunk_id}":  {
+                                                "get":  {
+                                                            "tags":  [
+                                                                         "chunks"
+                                                                     ],
+                                                            "summary":  "Get an active corpus chunk",
+                                                            "operationId":  "get_chunk_api_chunk__chunk_id__get",
+                                                            "parameters":  [
+                                                                               {
+                                                                                   "name":  "chunk_id",
+                                                                                   "in":  "path",
+                                                                                   "required":  true,
+                                                                                   "schema":  {
+                                                                                                  "type":  "string",
+                                                                                                  "minLength":  1,
+                                                                                                  "maxLength":  512,
+                                                                                                  "description":  "Stable frozen WTH chunk ID.",
+                                                                                                  "title":  "Chunk Id"
+                                                                                              },
+                                                                                   "description":  "Stable frozen WTH chunk ID."
+                                                                               }
+                                                                           ],
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "Successful Response",
+                                                                                          "content":  {
+                                                                                                          "application/json":  {
+                                                                                                                                   "schema":  {
+                                                                                                                                                  "$ref":  "#/components/schemas/ChunkResponse"
+                                                                                                                                              }
+                                                                                                                               }
+                                                                                                      }
+                                                                                      },
+                                                                              "422":  {
+                                                                                          "description":  "Validation Error",
+                                                                                          "content":  {
+                                                                                                          "application/json":  {
+                                                                                                                                   "schema":  {
+                                                                                                                                                  "$ref":  "#/components/schemas/HTTPValidationError"
+                                                                                                                                              }
+                                                                                                                               }
+                                                                                                      }
+                                                                                      }
+                                                                          }
+                                                        }
+                                            },
+                  "/api/query":  {
+                                     "post":  {
+                                                  "tags":  [
+                                                               "query"
+                                                           ],
+                                                  "summary":  "Execute one complete WTH query",
+                                                  "description":  "Execute one WTH query and return the canonical Phase 18 response.",
+                                                  "operationId":  "query_api_query_post",
+                                                  "requestBody":  {
+                                                                      "content":  {
+                                                                                      "application/json":  {
+                                                                                                               "schema":  {
+                                                                                                                              "$ref":  "#/components/schemas/QueryApiRequest"
+                                                                                                                          }
+                                                                                                           }
+                                                                                  },
+                                                                      "required":  true
+                                                                  },
+                                                  "responses":  {
+                                                                    "200":  {
+                                                                                "description":  "Successful Response",
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "$ref":  "#/components/schemas/FinalResponse"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                                    "413":  {
+                                                                                "description":  "The request body exceeded the public API size limit.",
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "$ref":  "#/components/schemas/QueryApiErrorResponse"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                                    "422":  {
+                                                                                "description":  "Invalid request body or question.",
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "$ref":  "#/components/schemas/QueryApiErrorResponse"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                                    "429":  {
+                                                                                "description":  "The WTH API or an upstream generation provider is temporarily rate limited.",
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "$ref":  "#/components/schemas/QueryApiErrorResponse"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                                    "500":  {
+                                                                                "description":  "A deterministic pipeline invariant or unexpected backend error occurred.",
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "$ref":  "#/components/schemas/QueryApiErrorResponse"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                                    "502":  {
+                                                                                "description":  "An upstream generation provider failed to produce a usable response.",
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "$ref":  "#/components/schemas/QueryApiErrorResponse"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                                    "503":  {
+                                                                                "description":  "A required retrieval/runtime dependency is unavailable.",
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "$ref":  "#/components/schemas/QueryApiErrorResponse"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                                    "504":  {
+                                                                                "description":  "The complete query exceeded the public request budget.",
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "$ref":  "#/components/schemas/QueryApiErrorResponse"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            }
+                                                                }
+                                              }
+                                 }
+              },
+    "components":  {
+                       "schemas":  {
+                                       "ChunkResponse":  {
+                                                             "properties":  {
+                                                                                "chunk_id":  {
+                                                                                                 "type":  "string",
+                                                                                                 "maxLength":  512,
+                                                                                                 "minLength":  1,
+                                                                                                 "title":  "Chunk Id"
+                                                                                             },
+                                                                                "source_id":  {
+                                                                                                  "type":  "string",
+                                                                                                  "maxLength":  512,
+                                                                                                  "minLength":  1,
+                                                                                                  "title":  "Source Id"
+                                                                                              },
+                                                                                "domain":  {
+                                                                                               "type":  "string",
+                                                                                               "enum":  [
+                                                                                                            "science",
+                                                                                                            "advaita",
+                                                                                                            "samkhya"
+                                                                                                        ],
+                                                                                               "title":  "Domain"
+                                                                                           },
+                                                                                "text":  {
+                                                                                             "type":  "string",
+                                                                                             "minLength":  1,
+                                                                                             "title":  "Text"
+                                                                                         },
+                                                                                "citation":  {
+                                                                                                 "type":  "string",
+                                                                                                 "minLength":  1,
+                                                                                                 "title":  "Citation"
+                                                                                             },
+                                                                                "corpus_version":  {
+                                                                                                       "type":  "string",
+                                                                                                       "maxLength":  128,
+                                                                                                       "minLength":  1,
+                                                                                                       "title":  "Corpus Version"
+                                                                                                   }
+                                                                            },
+                                                             "additionalProperties":  false,
+                                                             "type":  "object",
+                                                             "required":  [
+                                                                              "chunk_id",
+                                                                              "source_id",
+                                                                              "domain",
+                                                                              "text",
+                                                                              "citation",
+                                                                              "corpus_version"
+                                                                          ],
+                                                             "title":  "ChunkResponse",
+                                                             "description":  "Public-safe citation expansion payload."
+                                                         },
+                                       "DomainCanonicalCitation":  {
+                                                                       "properties":  {
+                                                                                          "chunk_id":  {
+                                                                                                           "type":  "string",
+                                                                                                           "title":  "Chunk Id"
+                                                                                                       },
+                                                                                          "source_id":  {
+                                                                                                            "type":  "string",
+                                                                                                            "title":  "Source Id"
+                                                                                                        },
+                                                                                          "citation":  {
+                                                                                                           "type":  "string",
+                                                                                                           "title":  "Citation"
+                                                                                                       },
+                                                                                          "corpus_version":  {
+                                                                                                                 "type":  "string",
+                                                                                                                 "title":  "Corpus Version"
+                                                                                                             },
+                                                                                          "domain":  {
+                                                                                                         "type":  "string",
+                                                                                                         "title":  "Domain"
+                                                                                                     }
+                                                                                      },
+                                                                       "additionalProperties":  false,
+                                                                       "type":  "object",
+                                                                       "required":  [
+                                                                                        "chunk_id",
+                                                                                        "source_id",
+                                                                                        "citation",
+                                                                                        "corpus_version",
+                                                                                        "domain"
+                                                                                    ],
+                                                                       "title":  "DomainCanonicalCitation"
+                                                                   },
+                                       "FinalActivatedConcept":  {
+                                                                     "properties":  {
+                                                                                        "activation_weight":  {
+                                                                                                                  "type":  "number",
+                                                                                                                  "title":  "Activation Weight"
+                                                                                                              },
+                                                                                        "concept":  {
+                                                                                                        "type":  "string",
+                                                                                                        "title":  "Concept"
+                                                                                                    },
+                                                                                        "coverage_score":  {
+                                                                                                               "type":  "number",
+                                                                                                               "title":  "Coverage Score"
+                                                                                                           },
+                                                                                        "coverage_status":  {
+                                                                                                                "type":  "string",
+                                                                                                                "title":  "Coverage Status"
+                                                                                                            },
+                                                                                        "display_name":  {
+                                                                                                             "type":  "string",
+                                                                                                             "title":  "Display Name"
+                                                                                                         }
+                                                                                    },
+                                                                     "additionalProperties":  false,
+                                                                     "type":  "object",
+                                                                     "required":  [
+                                                                                      "activation_weight",
+                                                                                      "concept",
+                                                                                      "coverage_score",
+                                                                                      "coverage_status",
+                                                                                      "display_name"
+                                                                                  ],
+                                                                     "title":  "FinalActivatedConcept"
+                                                                 },
+                                       "FinalCitation":  {
+                                                             "properties":  {
+                                                                                "chunk_id":  {
+                                                                                                 "type":  "string",
+                                                                                                 "title":  "Chunk Id"
+                                                                                             },
+                                                                                "source_id":  {
+                                                                                                  "type":  "string",
+                                                                                                  "title":  "Source Id"
+                                                                                              },
+                                                                                "citation":  {
+                                                                                                 "type":  "string",
+                                                                                                 "title":  "Citation"
+                                                                                             },
+                                                                                "corpus_version":  {
+                                                                                                       "type":  "string",
+                                                                                                       "title":  "Corpus Version"
+                                                                                                   },
+                                                                                "domain":  {
+                                                                                               "type":  "string",
+                                                                                               "title":  "Domain"
+                                                                                           },
+                                                                                "citation_ref":  {
+                                                                                                     "type":  "string",
+                                                                                                     "title":  "Citation Ref"
+                                                                                                 }
+                                                                            },
+                                                             "additionalProperties":  false,
+                                                             "type":  "object",
+                                                             "required":  [
+                                                                              "chunk_id",
+                                                                              "source_id",
+                                                                              "citation",
+                                                                              "corpus_version",
+                                                                              "domain",
+                                                                              "citation_ref"
+                                                                          ],
+                                                             "title":  "FinalCitation"
+                                                         },
+                                       "FinalClaim":  {
+                                                          "properties":  {
+                                                                             "citation_refs":  {
+                                                                                                   "items":  {
+                                                                                                                 "type":  "string"
+                                                                                                             },
+                                                                                                   "type":  "array",
+                                                                                                   "title":  "Citation Refs"
+                                                                                               },
+                                                                             "citations":  {
+                                                                                               "items":  {
+                                                                                                             "$ref":  "#/components/schemas/DomainCanonicalCitation"
+                                                                                                         },
+                                                                                               "type":  "array",
+                                                                                               "title":  "Citations"
+                                                                                           },
+                                                                             "claim_id":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Claim Id"
+                                                                                          },
+                                                                             "claim_ref":  {
+                                                                                               "type":  "string",
+                                                                                               "title":  "Claim Ref"
+                                                                                           },
+                                                                             "concepts_covered":  {
+                                                                                                      "items":  {
+                                                                                                                    "type":  "string"
+                                                                                                                },
+                                                                                                      "type":  "array",
+                                                                                                      "title":  "Concepts Covered"
+                                                                                                  },
+                                                                             "text":  {
+                                                                                          "type":  "string",
+                                                                                          "title":  "Text"
+                                                                                      }
+                                                                         },
+                                                          "additionalProperties":  false,
+                                                          "type":  "object",
+                                                          "required":  [
+                                                                           "citation_refs",
+                                                                           "citations",
+                                                                           "claim_id",
+                                                                           "claim_ref",
+                                                                           "concepts_covered",
+                                                                           "text"
+                                                                       ],
+                                                          "title":  "FinalClaim"
+                                                      },
+                                       "FinalComparativeSynthesis":  {
+                                                                         "properties":  {
+                                                                                            "comparisons":  {
+                                                                                                                "items":  {
+                                                                                                                              "$ref":  "#/components/schemas/FinalComparison"
+                                                                                                                          },
+                                                                                                                "type":  "array",
+                                                                                                                "title":  "Comparisons"
+                                                                                                            },
+                                                                                            "non_conclusion":  {
+                                                                                                                   "type":  "string",
+                                                                                                                   "title":  "Non Conclusion"
+                                                                                                               },
+                                                                                            "summary":  {
+                                                                                                            "type":  "string",
+                                                                                                            "title":  "Summary"
+                                                                                                        },
+                                                                                            "three_way_overview":  {
+                                                                                                                       "type":  "string",
+                                                                                                                       "title":  "Three Way Overview"
+                                                                                                                   }
+                                                                                        },
+                                                                         "additionalProperties":  false,
+                                                                         "type":  "object",
+                                                                         "required":  [
+                                                                                          "comparisons",
+                                                                                          "non_conclusion",
+                                                                                          "summary",
+                                                                                          "three_way_overview"
+                                                                                      ],
+                                                                         "title":  "FinalComparativeSynthesis"
+                                                                     },
+                                       "FinalComparison":  {
+                                                               "properties":  {
+                                                                                  "category":  {
+                                                                                                   "type":  "string",
+                                                                                                   "title":  "Category"
+                                                                                               },
+                                                                                  "citation_refs":  {
+                                                                                                        "items":  {
+                                                                                                                      "type":  "string"
+                                                                                                                  },
+                                                                                                        "type":  "array",
+                                                                                                        "title":  "Citation Refs"
+                                                                                                    },
+                                                                                  "citations":  {
+                                                                                                    "items":  {
+                                                                                                                  "$ref":  "#/components/schemas/DomainCanonicalCitation"
+                                                                                                              },
+                                                                                                    "type":  "array",
+                                                                                                    "title":  "Citations"
+                                                                                                },
+                                                                                  "claim_refs":  {
+                                                                                                     "items":  {
+                                                                                                                   "type":  "string"
+                                                                                                               },
+                                                                                                     "type":  "array",
+                                                                                                     "title":  "Claim Refs"
+                                                                                                 },
+                                                                                  "comparison_id":  {
+                                                                                                        "type":  "string",
+                                                                                                        "title":  "Comparison Id"
+                                                                                                    },
+                                                                                  "concepts_covered":  {
+                                                                                                           "items":  {
+                                                                                                                         "type":  "string"
+                                                                                                                     },
+                                                                                                           "type":  "array",
+                                                                                                           "title":  "Concepts Covered"
+                                                                                                       },
+                                                                                  "domains":  {
+                                                                                                  "items":  {
+                                                                                                                "type":  "string"
+                                                                                                            },
+                                                                                                  "type":  "array",
+                                                                                                  "title":  "Domains"
+                                                                                              },
+                                                                                  "explanation":  {
+                                                                                                      "type":  "string",
+                                                                                                      "title":  "Explanation"
+                                                                                                  },
+                                                                                  "limitations":  {
+                                                                                                      "items":  {
+                                                                                                                    "$ref":  "#/components/schemas/SynthesisLimitation"
+                                                                                                                },
+                                                                                                      "type":  "array",
+                                                                                                      "title":  "Limitations"
+                                                                                                  }
+                                                                              },
+                                                               "additionalProperties":  false,
+                                                               "type":  "object",
+                                                               "required":  [
+                                                                                "category",
+                                                                                "citation_refs",
+                                                                                "citations",
+                                                                                "claim_refs",
+                                                                                "comparison_id",
+                                                                                "concepts_covered",
+                                                                                "domains",
+                                                                                "explanation",
+                                                                                "limitations"
+                                                                            ],
+                                                               "title":  "FinalComparison"
+                                                           },
+                                       "FinalCoverageSection":  {
+                                                                    "properties":  {
+                                                                                       "coverage_reason":  {
+                                                                                                               "type":  "string",
+                                                                                                               "title":  "Coverage Reason"
+                                                                                                           },
+                                                                                       "coverage_score":  {
+                                                                                                              "type":  "number",
+                                                                                                              "title":  "Coverage Score"
+                                                                                                          },
+                                                                                       "coverage_status":  {
+                                                                                                               "type":  "string",
+                                                                                                               "title":  "Coverage Status"
+                                                                                                           },
+                                                                                       "covered_domains":  {
+                                                                                                               "items":  {
+                                                                                                                             "type":  "string"
+                                                                                                                         },
+                                                                                                               "type":  "array",
+                                                                                                               "title":  "Covered Domains"
+                                                                                                           },
+                                                                                       "hard_overrides":  {
+                                                                                                              "items":  {
+                                                                                                                            "type":  "string"
+                                                                                                                        },
+                                                                                                              "type":  "array",
+                                                                                                              "title":  "Hard Overrides"
+                                                                                                          },
+                                                                                       "missing_domains":  {
+                                                                                                               "items":  {
+                                                                                                                             "type":  "string"
+                                                                                                                         },
+                                                                                                               "type":  "array",
+                                                                                                               "title":  "Missing Domains"
+                                                                                                           },
+                                                                                       "partially_supported_concepts":  {
+                                                                                                                            "items":  {
+                                                                                                                                          "type":  "string"
+                                                                                                                                      },
+                                                                                                                            "type":  "array",
+                                                                                                                            "title":  "Partially Supported Concepts"
+                                                                                                                        },
+                                                                                       "supported_concepts":  {
+                                                                                                                  "items":  {
+                                                                                                                                "type":  "string"
+                                                                                                                            },
+                                                                                                                  "type":  "array",
+                                                                                                                  "title":  "Supported Concepts"
+                                                                                                              },
+                                                                                       "unsupported_concepts":  {
+                                                                                                                    "items":  {
+                                                                                                                                  "type":  "string"
+                                                                                                                              },
+                                                                                                                    "type":  "array",
+                                                                                                                    "title":  "Unsupported Concepts"
+                                                                                                                }
+                                                                                   },
+                                                                    "additionalProperties":  false,
+                                                                    "type":  "object",
+                                                                    "required":  [
+                                                                                     "coverage_reason",
+                                                                                     "coverage_score",
+                                                                                     "coverage_status",
+                                                                                     "covered_domains",
+                                                                                     "hard_overrides",
+                                                                                     "missing_domains",
+                                                                                     "partially_supported_concepts",
+                                                                                     "supported_concepts",
+                                                                                     "unsupported_concepts"
+                                                                                 ],
+                                                                    "title":  "FinalCoverageSection"
+                                                                },
+                                       "FinalDomainPerspective":  {
+                                                                      "properties":  {
+                                                                                         "claims":  {
+                                                                                                        "items":  {
+                                                                                                                      "$ref":  "#/components/schemas/FinalClaim"
+                                                                                                                  },
+                                                                                                        "type":  "array",
+                                                                                                        "title":  "Claims"
+                                                                                                    },
+                                                                                         "display_name":  {
+                                                                                                              "type":  "string",
+                                                                                                              "title":  "Display Name"
+                                                                                                          },
+                                                                                         "domain":  {
+                                                                                                        "type":  "string",
+                                                                                                        "title":  "Domain"
+                                                                                                    },
+                                                                                         "limitations":  {
+                                                                                                             "items":  {
+                                                                                                                           "type":  "string"
+                                                                                                                       },
+                                                                                                             "type":  "array",
+                                                                                                             "title":  "Limitations"
+                                                                                                         },
+                                                                                         "summary":  {
+                                                                                                         "type":  "string",
+                                                                                                         "title":  "Summary"
+                                                                                                     },
+                                                                                         "unsupported_aspects":  {
+                                                                                                                     "items":  {
+                                                                                                                                   "type":  "string"
+                                                                                                                               },
+                                                                                                                     "type":  "array",
+                                                                                                                     "title":  "Unsupported Aspects"
+                                                                                                                 }
+                                                                                     },
+                                                                      "additionalProperties":  false,
+                                                                      "type":  "object",
+                                                                      "required":  [
+                                                                                       "claims",
+                                                                                       "display_name",
+                                                                                       "domain",
+                                                                                       "limitations",
+                                                                                       "summary",
+                                                                                       "unsupported_aspects"
+                                                                                   ],
+                                                                      "title":  "FinalDomainPerspective"
+                                                                  },
+                                       "FinalResponse":  {
+                                                             "properties":  {
+                                                                                "assembly_version":  {
+                                                                                                         "type":  "string",
+                                                                                                         "title":  "Assembly Version"
+                                                                                                     },
+                                                                                "claim_level_citations":  {
+                                                                                                              "items":  {
+                                                                                                                            "$ref":  "#/components/schemas/FinalCitation"
+                                                                                                                        },
+                                                                                                              "type":  "array",
+                                                                                                              "title":  "Claim Level Citations"
+                                                                                                          },
+                                                                                "corpus_version":  {
+                                                                                                       "type":  "string",
+                                                                                                       "title":  "Corpus Version"
+                                                                                                   },
+                                                                                "generated_at":  {
+                                                                                                     "type":  "string",
+                                                                                                     "title":  "Generated At"
+                                                                                                 },
+                                                                                "provider_calls":  {
+                                                                                                       "$ref":  "#/components/schemas/Phase18ProviderCalls"
+                                                                                                   },
+                                                                                "question":  {
+                                                                                                 "type":  "string",
+                                                                                                 "title":  "Question"
+                                                                                             },
+                                                                                "sections":  {
+                                                                                                 "$ref":  "#/components/schemas/FinalSections"
+                                                                                             },
+                                                                                "validation":  {
+                                                                                                   "$ref":  "#/components/schemas/FinalValidation"
+                                                                                               },
+                                                                                "versions":  {
+                                                                                                 "$ref":  "#/components/schemas/PipelineVersions"
+                                                                                             }
+                                                                            },
+                                                             "additionalProperties":  false,
+                                                             "type":  "object",
+                                                             "required":  [
+                                                                              "assembly_version",
+                                                                              "claim_level_citations",
+                                                                              "corpus_version",
+                                                                              "generated_at",
+                                                                              "provider_calls",
+                                                                              "question",
+                                                                              "sections",
+                                                                              "validation",
+                                                                              "versions"
+                                                                          ],
+                                                             "title":  "FinalResponse"
+                                                         },
+                                       "FinalSections":  {
+                                                             "properties":  {
+                                                                                "activated_concepts":  {
+                                                                                                           "items":  {
+                                                                                                                         "$ref":  "#/components/schemas/FinalActivatedConcept"
+                                                                                                                     },
+                                                                                                           "type":  "array",
+                                                                                                           "title":  "Activated Concepts"
+                                                                                                       },
+                                                                                "comparative_synthesis":  {
+                                                                                                              "$ref":  "#/components/schemas/FinalComparativeSynthesis"
+                                                                                                          },
+                                                                                "coverage":  {
+                                                                                                 "$ref":  "#/components/schemas/FinalCoverageSection"
+                                                                                             },
+                                                                                "domain_perspectives":  {
+                                                                                                            "additionalProperties":  {
+                                                                                                                                         "$ref":  "#/components/schemas/FinalDomainPerspective"
+                                                                                                                                     },
+                                                                                                            "type":  "object",
+                                                                                                            "title":  "Domain Perspectives"
+                                                                                                        },
+                                                                                "general_knowledge_fallback":  {
+                                                                                                                   "$ref":  "#/components/schemas/GeneralKnowledgeFallback"
+                                                                                                               },
+                                                                                "interpretation":  {
+                                                                                                       "type":  "string",
+                                                                                                       "title":  "Interpretation"
+                                                                                                   },
+                                                                                "key_tensions":  {
+                                                                                                     "items":  {
+                                                                                                                   "$ref":  "#/components/schemas/FinalComparison"
+                                                                                                               },
+                                                                                                     "type":  "array",
+                                                                                                     "title":  "Key Tensions"
+                                                                                                 },
+                                                                                "non_equivalences":  {
+                                                                                                         "items":  {
+                                                                                                                       "$ref":  "#/components/schemas/FinalComparison"
+                                                                                                                   },
+                                                                                                         "type":  "array",
+                                                                                                         "title":  "Non Equivalences"
+                                                                                                     }
+                                                                            },
+                                                             "additionalProperties":  false,
+                                                             "type":  "object",
+                                                             "required":  [
+                                                                              "activated_concepts",
+                                                                              "comparative_synthesis",
+                                                                              "coverage",
+                                                                              "domain_perspectives",
+                                                                              "general_knowledge_fallback",
+                                                                              "interpretation",
+                                                                              "key_tensions",
+                                                                              "non_equivalences"
+                                                                          ],
+                                                             "title":  "FinalSections"
+                                                         },
+                                       "FinalValidation":  {
+                                                               "properties":  {
+                                                                                  "checks":  {
+                                                                                                 "$ref":  "#/components/schemas/FinalValidationChecks"
+                                                                                             },
+                                                                                  "issue_count":  {
+                                                                                                      "type":  "integer",
+                                                                                                      "title":  "Issue Count"
+                                                                                                  },
+                                                                                  "issues":  {
+                                                                                                 "items":  {
+                                                                                                               "additionalProperties":  {
+                                                                                                                                            "type":  "string"
+                                                                                                                                        },
+                                                                                                               "type":  "object"
+                                                                                                           },
+                                                                                                 "type":  "array",
+                                                                                                 "title":  "Issues"
+                                                                                             },
+                                                                                  "passed":  {
+                                                                                                 "type":  "boolean",
+                                                                                                 "title":  "Passed"
+                                                                                             }
+                                                                              },
+                                                               "additionalProperties":  false,
+                                                               "type":  "object",
+                                                               "required":  [
+                                                                                "checks",
+                                                                                "issue_count",
+                                                                                "issues",
+                                                                                "passed"
+                                                                            ],
+                                                               "title":  "FinalValidation"
+                                                           },
+                                       "FinalValidationChecks":  {
+                                                                     "properties":  {
+                                                                                        "all_phase15_claims_cited":  {
+                                                                                                                         "type":  "boolean",
+                                                                                                                         "title":  "All Phase15 Claims Cited"
+                                                                                                                     },
+                                                                                        "citation_domains_match_claim_domains":  {
+                                                                                                                                     "type":  "boolean",
+                                                                                                                                     "title":  "Citation Domains Match Claim Domains"
+                                                                                                                                 },
+                                                                                        "citations_resolve_to_phase14_active_retrieval_evidence":  {
+                                                                                                                                                       "type":  "boolean",
+                                                                                                                                                       "title":  "Citations Resolve To Phase14 Active Retrieval Evidence"
+                                                                                                                                                   },
+                                                                                        "corpus_and_prompt_versions_recorded":  {
+                                                                                                                                    "type":  "boolean",
+                                                                                                                                    "title":  "Corpus And Prompt Versions Recorded"
+                                                                                                                                },
+                                                                                        "coverage_status_consistent_with_phase17_concept_statuses":  {
+                                                                                                                                                         "type":  "boolean",
+                                                                                                                                                         "title":  "Coverage Status Consistent With Phase17 Concept Statuses"
+                                                                                                                                                     },
+                                                                                        "out_of_corpus_blocks_corpus_answer":  {
+                                                                                                                                   "type":  "boolean",
+                                                                                                                                   "title":  "Out Of Corpus Blocks Corpus Answer"
+                                                                                                                               },
+                                                                                        "phase15_domain_leakage_validation_passed":  {
+                                                                                                                                         "type":  "boolean",
+                                                                                                                                         "title":  "Phase15 Domain Leakage Validation Passed"
+                                                                                                                                     },
+                                                                                        "phase16_synthesis_validation_passed":  {
+                                                                                                                                    "type":  "boolean",
+                                                                                                                                    "title":  "Phase16 Synthesis Validation Passed"
+                                                                                                                                },
+                                                                                        "reviewed_corpus_and_general_knowledge_separated":  {
+                                                                                                                                                "type":  "boolean",
+                                                                                                                                                "title":  "Reviewed Corpus And General Knowledge Separated"
+                                                                                                                                            },
+                                                                                        "unsupported_atman_purusha_equivalence_rejected":  {
+                                                                                                                                               "type":  "boolean",
+                                                                                                                                               "title":  "Unsupported Atman Purusha Equivalence Rejected"
+                                                                                                                                           }
+                                                                                    },
+                                                                     "additionalProperties":  false,
+                                                                     "type":  "object",
+                                                                     "required":  [
+                                                                                      "all_phase15_claims_cited",
+                                                                                      "citation_domains_match_claim_domains",
+                                                                                      "citations_resolve_to_phase14_active_retrieval_evidence",
+                                                                                      "corpus_and_prompt_versions_recorded",
+                                                                                      "coverage_status_consistent_with_phase17_concept_statuses",
+                                                                                      "out_of_corpus_blocks_corpus_answer",
+                                                                                      "phase15_domain_leakage_validation_passed",
+                                                                                      "phase16_synthesis_validation_passed",
+                                                                                      "reviewed_corpus_and_general_knowledge_separated",
+                                                                                      "unsupported_atman_purusha_equivalence_rejected"
+                                                                                  ],
+                                                                     "title":  "FinalValidationChecks"
+                                                                 },
+                                       "GeneralKnowledgeFallback":  {
+                                                                        "properties":  {
+                                                                                           "allowed":  {
+                                                                                                           "type":  "boolean",
+                                                                                                           "title":  "Allowed"
+                                                                                                       },
+                                                                                           "generated_in_phase18":  {
+                                                                                                                        "type":  "boolean",
+                                                                                                                        "title":  "Generated In Phase18"
+                                                                                                                    },
+                                                                                           "instruction":  {
+                                                                                                               "type":  "string",
+                                                                                                               "title":  "Instruction"
+                                                                                                           },
+                                                                                           "may_use_wth_corpus_citations":  {
+                                                                                                                                "type":  "boolean",
+                                                                                                                                "title":  "May Use Wth Corpus Citations"
+                                                                                                                            },
+                                                                                           "must_be_clearly_labeled":  {
+                                                                                                                           "type":  "boolean",
+                                                                                                                           "title":  "Must Be Clearly Labeled"
+                                                                                                                       }
+                                                                                       },
+                                                                        "additionalProperties":  false,
+                                                                        "type":  "object",
+                                                                        "required":  [
+                                                                                         "allowed",
+                                                                                         "generated_in_phase18",
+                                                                                         "instruction",
+                                                                                         "may_use_wth_corpus_citations",
+                                                                                         "must_be_clearly_labeled"
+                                                                                     ],
+                                                                        "title":  "GeneralKnowledgeFallback"
+                                                                    },
+                                       "HTTPValidationError":  {
+                                                                   "properties":  {
+                                                                                      "detail":  {
+                                                                                                     "items":  {
+                                                                                                                   "$ref":  "#/components/schemas/ValidationError"
+                                                                                                               },
+                                                                                                     "type":  "array",
+                                                                                                     "title":  "Detail"
+                                                                                                 }
+                                                                                  },
+                                                                   "type":  "object",
+                                                                   "title":  "HTTPValidationError"
+                                                               },
+                                       "Phase18ProviderCalls":  {
+                                                                    "properties":  {
+                                                                                       "phase18_embedding_calls":  {
+                                                                                                                       "type":  "integer",
+                                                                                                                       "title":  "Phase18 Embedding Calls"
+                                                                                                                   },
+                                                                                       "phase18_llm_calls":  {
+                                                                                                                 "type":  "integer",
+                                                                                                                 "title":  "Phase18 Llm Calls"
+                                                                                                             },
+                                                                                       "phase18_retrieval_calls":  {
+                                                                                                                       "type":  "integer",
+                                                                                                                       "title":  "Phase18 Retrieval Calls"
+                                                                                                                   }
+                                                                                   },
+                                                                    "additionalProperties":  false,
+                                                                    "type":  "object",
+                                                                    "required":  [
+                                                                                     "phase18_embedding_calls",
+                                                                                     "phase18_llm_calls",
+                                                                                     "phase18_retrieval_calls"
+                                                                                 ],
+                                                                    "title":  "Phase18ProviderCalls"
+                                                                },
+                                       "PipelineVersions":  {
+                                                                "properties":  {
+                                                                                   "corpus_version":  {
+                                                                                                          "type":  "string",
+                                                                                                          "title":  "Corpus Version"
+                                                                                                      },
+                                                                                   "coverage_version":  {
+                                                                                                            "type":  "string",
+                                                                                                            "title":  "Coverage Version"
+                                                                                                        },
+                                                                                   "generation_prompt_version":  {
+                                                                                                                     "type":  "string",
+                                                                                                                     "title":  "Generation Prompt Version"
+                                                                                                                 },
+                                                                                   "generation_version":  {
+                                                                                                              "type":  "string",
+                                                                                                              "title":  "Generation Version"
+                                                                                                          },
+                                                                                   "synthesis_prompt_version":  {
+                                                                                                                    "type":  "string",
+                                                                                                                    "title":  "Synthesis Prompt Version"
+                                                                                                                },
+                                                                                   "synthesis_version":  {
+                                                                                                             "type":  "string",
+                                                                                                             "title":  "Synthesis Version"
+                                                                                                         }
+                                                                               },
+                                                                "additionalProperties":  false,
+                                                                "type":  "object",
+                                                                "required":  [
+                                                                                 "corpus_version",
+                                                                                 "coverage_version",
+                                                                                 "generation_prompt_version",
+                                                                                 "generation_version",
+                                                                                 "synthesis_prompt_version",
+                                                                                 "synthesis_version"
+                                                                             ],
+                                                                "title":  "PipelineVersions"
+                                                            },
+                                       "QueryApiError":  {
+                                                             "properties":  {
+                                                                                "code":  {
+                                                                                             "$ref":  "#/components/schemas/QueryApiErrorCode"
+                                                                                         },
+                                                                                "message":  {
+                                                                                                "type":  "string",
+                                                                                                "maxLength":  512,
+                                                                                                "minLength":  1,
+                                                                                                "title":  "Message"
+                                                                                            },
+                                                                                "retryable":  {
+                                                                                                  "type":  "boolean",
+                                                                                                  "title":  "Retryable"
+                                                                                              },
+                                                                                "phase":  {
+                                                                                              "anyOf":  [
+                                                                                                            {
+                                                                                                                "$ref":  "#/components/schemas/QueryApiPhase"
+                                                                                                            },
+                                                                                                            {
+                                                                                                                "type":  "null"
+                                                                                                            }
+                                                                                                        ]
+                                                                                          },
+                                                                                "retry_after_seconds":  {
+                                                                                                            "anyOf":  [
+                                                                                                                          {
+                                                                                                                              "type":  "number",
+                                                                                                                              "minimum":  0.0
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                              "type":  "null"
+                                                                                                                          }
+                                                                                                                      ],
+                                                                                                            "title":  "Retry After Seconds"
+                                                                                                        }
+                                                                            },
+                                                             "additionalProperties":  false,
+                                                             "type":  "object",
+                                                             "required":  [
+                                                                              "code",
+                                                                              "message",
+                                                                              "retryable"
+                                                                          ],
+                                                             "title":  "QueryApiError",
+                                                             "description":  "Controlled error payload safe to expose to the browser."
+                                                         },
+                                       "QueryApiErrorCode":  {
+                                                                 "type":  "string",
+                                                                 "enum":  [
+                                                                              "invalid_request",
+                                                                              "request_too_large",
+                                                                              "api_rate_limited",
+                                                                              "provider_rate_limited",
+                                                                              "upstream_provider_error",
+                                                                              "dependency_unavailable",
+                                                                              "query_timeout",
+                                                                              "pipeline_invariant_failed",
+                                                                              "internal_error"
+                                                                          ],
+                                                                 "title":  "QueryApiErrorCode",
+                                                                 "description":  "Stable machine-readable error codes for the frontend."
+                                                             },
+                                       "QueryApiErrorResponse":  {
+                                                                     "properties":  {
+                                                                                        "request_id":  {
+                                                                                                           "type":  "string",
+                                                                                                           "maxLength":  128,
+                                                                                                           "minLength":  8,
+                                                                                                           "title":  "Request Id"
+                                                                                                       },
+                                                                                        "error":  {
+                                                                                                      "$ref":  "#/components/schemas/QueryApiError"
+                                                                                                  }
+                                                                                    },
+                                                                     "additionalProperties":  false,
+                                                                     "type":  "object",
+                                                                     "required":  [
+                                                                                      "request_id",
+                                                                                      "error"
+                                                                                  ],
+                                                                     "title":  "QueryApiErrorResponse",
+                                                                     "description":  "Uniform envelope for all controlled non-2xx responses."
+                                                                 },
+                                       "QueryApiPhase":  {
+                                                             "type":  "string",
+                                                             "enum":  [
+                                                                          "retrieval",
+                                                                          "domain_generation",
+                                                                          "synthesis",
+                                                                          "coverage",
+                                                                          "response_assembly"
+                                                                      ],
+                                                             "title":  "QueryApiPhase",
+                                                             "description":  "Stable public phase labels used only for controlled error context."
+                                                         },
+                                       "QueryApiRequest":  {
+                                                               "properties":  {
+                                                                                  "question":  {
+                                                                                                   "type":  "string",
+                                                                                                   "maxLength":  1000,
+                                                                                                   "minLength":  3,
+                                                                                                   "title":  "Question"
+                                                                                               }
+                                                                              },
+                                                               "additionalProperties":  false,
+                                                               "type":  "object",
+                                                               "required":  [
+                                                                                "question"
+                                                                            ],
+                                                               "title":  "QueryApiRequest",
+                                                               "description":  "Public request accepted by ``POST /api/query``.\n\nThe existing orchestration request contract remains authoritative for\nnormalization/non-empty validation. Stage 4 adds the public size limits\nrequired before the request enters the provider-backed pipeline."
+                                                           },
+                                       "SynthesisLimitation":  {
+                                                                   "properties":  {
+                                                                                      "domain":  {
+                                                                                                     "type":  "string",
+                                                                                                     "title":  "Domain"
+                                                                                                 },
+                                                                                      "limitation_ref":  {
+                                                                                                             "type":  "string",
+                                                                                                             "title":  "Limitation Ref"
+                                                                                                         },
+                                                                                      "text":  {
+                                                                                                   "type":  "string",
+                                                                                                   "title":  "Text"
+                                                                                               }
+                                                                                  },
+                                                                   "additionalProperties":  false,
+                                                                   "type":  "object",
+                                                                   "required":  [
+                                                                                    "domain",
+                                                                                    "limitation_ref",
+                                                                                    "text"
+                                                                                ],
+                                                                   "title":  "SynthesisLimitation"
+                                                               },
+                                       "ValidationError":  {
+                                                               "properties":  {
+                                                                                  "loc":  {
+                                                                                              "items":  {
+                                                                                                            "anyOf":  [
+                                                                                                                          {
+                                                                                                                              "type":  "string"
+                                                                                                                          },
+                                                                                                                          {
+                                                                                                                              "type":  "integer"
+                                                                                                                          }
+                                                                                                                      ]
+                                                                                                        },
+                                                                                              "type":  "array",
+                                                                                              "title":  "Location"
+                                                                                          },
+                                                                                  "msg":  {
+                                                                                              "type":  "string",
+                                                                                              "title":  "Message"
+                                                                                          },
+                                                                                  "type":  {
+                                                                                               "type":  "string",
+                                                                                               "title":  "Error Type"
+                                                                                           },
+                                                                                  "input":  {
+                                                                                                "title":  "Input"
+                                                                                            },
+                                                                                  "ctx":  {
+                                                                                              "type":  "object",
+                                                                                              "title":  "Context"
+                                                                                          }
+                                                                              },
+                                                               "type":  "object",
+                                                               "required":  [
+                                                                                "loc",
+                                                                                "msg",
+                                                                                "type"
+                                                                            ],
+                                                               "title":  "ValidationError"
+                                                           }
+                                   }
+                   }
+}
