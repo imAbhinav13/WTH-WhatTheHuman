@@ -65,7 +65,17 @@ export default function AboutPage() {
             View source on GitHub
           </a>
         ) : (
-          <p className="mt-5 text-sm ink-muted">Repository link can be added with NEXT_PUBLIC_WTH_GITHUB_URL.</p>
+          <p className="mt-5 text-sm ink-muted">
+            Repository link:{" "}
+            <a
+              href="https://github.com/imAbhinav13/WTH-WhatTheHuman"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 transition-opacity hover:opacity-60"
+            >
+              GitHub
+            </a>
+          </p>
         )}
       </section>
     </article>
