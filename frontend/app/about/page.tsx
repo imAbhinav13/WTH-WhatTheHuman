@@ -40,7 +40,7 @@ export default function AboutPage() {
           <li><strong>2.</strong> It retrieves reviewed source passages independently for each domain.</li>
           <li><strong>3.</strong> Each perspective is generated with claim-level citations and explicit limitations.</li>
           <li><strong>4.</strong> Pairwise comparisons identify overlap, analogy, tension, non-equivalence, or insufficient coverage.</li>
-          <li><strong>5.</strong> Coverage and validation are returned with the answer so the interface can show what the corpus does—and does not—support.</li>
+          <li><strong>5.</strong> Coverage and validation are returned with the answer so the interface can show what the corpus- does and does not support.</li>
         </ol>
       </section>
 
