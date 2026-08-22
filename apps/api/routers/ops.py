@@ -10,7 +10,7 @@ from __future__ import annotations
 import time
 from datetime import UTC, datetime
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Request, Response
 from fastapi.responses import JSONResponse
 
 from apps.api.core.config import ProviderMode, Settings, get_settings
@@ -51,6 +51,11 @@ async def health(request: Request) -> dict[str, object]:
         "checks": {},
         "timestamp": _timestamp(),
     }
+
+@router.head("/health")
+async def health_head() -> Response:
+    """Lightweight HEAD liveness probe for uptime monitors."""
+    return Response(status_code=200)
 
 
 @router.get("/ready",response_model=None)
